@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 app.engine('handlebars', expressHandlebars({
-  defaultLayout: '',
+  defaultLayout: 'main',
 }));
 app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/../views`);
