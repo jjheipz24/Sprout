@@ -1,0 +1,45 @@
+{
+  "name": "Sprout",
+  "version": "1.0.0",
+  "engines": {
+    "node": "15.0.1",
+    "npm": "7.0.8"
+  },
+  "description": "An interactive garden application",
+  "main": "./server/app.js",
+  "scripts": {
+    "buildExample1": "babel ./client/example1.jsx --presets @babel/preset-react --out-file ./hosted/exampleBundle1.js",
+    "build": "npm run buildExample1",
+    "watchExample1": "babel --watch ./client/example1.jsx --presets @babel/preset-react --out-file ./hosted/exampleBundle1.js",
+    "nodemon": "nodemon --watch ./server --watch ./hosted ./server/app.js ",
+    "start": "node ./server/app.js",
+    "pretest": "eslint ./server --fix",
+    "test": "echo \"Tests complete\""
+  },
+  "author": "Jin Jin Heipler",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "connect-redis": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "helmet": "^4.1.1",
+    "mongoose": "^5.10.9",
+    "serve-favicon": "^2.5.0",
+    "underscore": "^1.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.6"
+  }
+}
