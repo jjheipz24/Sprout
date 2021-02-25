@@ -7,6 +7,10 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressHandlebars = require('express-handlebars');
+const redis = require('redis');
+const session = require('express-session');
+let RedisStore = require('connect-redis')(session);
+let redisClient = redis.createClient();
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -43,6 +47,18 @@ app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
 app.use(compression());
 app.use(bodyParser.urlencoded({
   extended: true,
+}));
+app.use(session({
+  key: 'sessionid',
+  store: new RedisStore({
+    client: redisClient,
+    host: redisURL.hostname,
+    port: redisURL.port,
+    pass: redisPASS,
+  }),
+  secret: 'plant time',
+  resave: true,
+  saveUninitialized: true,
 }));
 app.engine('handlebars', expressHandlebars({
   defaultLayout: 'main',
