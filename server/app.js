@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressHandlebars = require('express-handlebars');
+const csrf = require('csurf');
 const redis = require('redis');
 const session = require('express-session');
 let RedisStore = require('connect-redis')(session);
@@ -67,6 +68,12 @@ app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/../views`);
 app.disable('x-powered-by');
 app.use(cookieParser());
+app.use(csrf());
+app.use((err, req, res, next) => {
+  if (err.code !== 'EBADCSRFTOKEN') return next(err);
+  console.log('Missing CSRF token');
+  return false;
+});
 
 router(app);
 
