@@ -5,7 +5,7 @@
 var handleSignup = function handleSignup(e) {
   e.preventDefault();
 
-  if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
+  if ($("#email").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
     //TODO: Implement error feedback
     console.log("All fields are required");
     return false;
@@ -70,23 +70,20 @@ var SignupForm = function SignupForm(props) {
     id: "signupButton",
     type: "submit"
   }, "Create Account"));
-}; // const setup = function (csrf) {
-//     ReactDOM.render(
-//         <SignupForm csrf={csrf} />, document.querySelector('#signup')
-//     );
-// };
+};
 
+var setup = function setup(csrf) {
+  ReactDOM.render( /*#__PURE__*/React.createElement(SignupForm, {
+    csrf: csrf
+  }), document.querySelector('#signup'));
+};
 
-var setup = function setup() {
-  ReactDOM.render( /*#__PURE__*/React.createElement(SignupForm, null), document.querySelector('#signup'));
-}; // const getToken = () => {
-//     sendAjax('GET', '/getToken', null, (result) => {
-//         setup(result.csrfToken);
-//     });
-// };
-
+var getToken = function getToken() {
+  sendAjax('GET', '/getToken', null, function (result) {
+    setup(result.csrfToken);
+  });
+};
 
 $(document).ready(function () {
-  //getToken();
-  setup();
+  getToken();
 });

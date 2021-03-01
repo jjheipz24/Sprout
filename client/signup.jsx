@@ -3,7 +3,7 @@
 const handleSignup = e => {
     e.preventDefault();
 
-    if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
+    if ($("#email").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
         //TODO: Implement error feedback
         console.log("All fields are required")
         return false;
@@ -53,25 +53,18 @@ const SignupForm = (props) => {
     )
 }
 
-// const setup = function (csrf) {
-//     ReactDOM.render(
-//         <SignupForm csrf={csrf} />, document.querySelector('#signup')
-//     );
-// };
-
-const setup = function () {
+const setup = function (csrf) {
     ReactDOM.render(
-        <SignupForm />, document.querySelector('#signup')
+        <SignupForm csrf={csrf} />, document.querySelector('#signup')
     );
 };
 
-// const getToken = () => {
-//     sendAjax('GET', '/getToken', null, (result) => {
-//         setup(result.csrfToken);
-//     });
-// };
+const getToken = () => {
+    sendAjax('GET', '/getToken', null, (result) => {
+        setup(result.csrfToken);
+    });
+};
 
 $(document).ready(function () {
-    //getToken();
-    setup();
+    getToken();
 });
