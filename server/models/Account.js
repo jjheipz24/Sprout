@@ -10,12 +10,14 @@ const keyLength = 64;
 
 // Schema to define user accounts 
 const AccountSchema = new mongoose.Schema({
-  username: {
+  email: {
     type: String,
     required: true,
     trim: true,
     unique: true,
-    match: /^[A-Za-z0-9_\-.]{1,16}$/,
+    lowercase: true,
+    required: 'Email address is required',
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   },
   salt: { type: Buffer, required: true },
   password: { type: String, required: true },
@@ -25,10 +27,9 @@ const AccountSchema = new mongoose.Schema({
 });
 
 AccountSchema.statics.toAPI = doc => ({
-  username: doc.username,
+  email: doc.email,
   _id: doc._id,
 });
-
 
 const validatePassword = (doc, password, callback) => {
   const pass = doc.password;
@@ -42,9 +43,9 @@ const validatePassword = (doc, password, callback) => {
 };
 
 /* possibly expand on this for user/friend search */
-AccountSchema.statics.findByUsername = (name, callback) => {
+AccountSchema.statics.findByemail = (name, callback) => {
   const search = {
-    username: name,
+    email: name,
   };
 
   return AccountModel.findOne(search, callback);
@@ -59,9 +60,9 @@ AccountSchema.statics.generateHash = (password, callback) => {
   );
 };
 
-// validate username and password
-AccountSchema.statics.authenticate = (username, password, callback) =>
-AccountModel.findByUsername(username, (err, doc) => {
+// validate email and password
+AccountSchema.statics.authenticate = (email, password, callback) =>
+AccountModel.findByemail(email, (err, doc) => {
   if (err) {
     return callback(err);
   }

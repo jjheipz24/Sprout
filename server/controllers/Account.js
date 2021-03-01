@@ -14,29 +14,29 @@ const login = (request, response) => {
   const req = request;
   const res = response;
 
-  const username = `${req.body.username}`;
+  const email = `${req.body.email}`;
   const password = `${req.body.pass}`;
 
   // makes sure all fields are filled
-  if (!username || !password) {
+  if (!email || !password) {
     return res.status(400).json({
       error: 'Please fill in the required fields',
     });
   }
 
   // checks to make sure login and password are correct
-  return Account.AccountModel.authenticate(username, password, (err, account) => {
+  return Account.AccountModel.authenticate(email, password, (err, account) => {
     if (err || !account) {
       return res.status(401).json({
-        error: 'Wrong username or password',
+        error: 'Wrong email or password',
       });
     }
-    // sets the current session account based on username and password added
+    // sets the current session account based on email and password added
     req.session.account = Account.AccountModel.toAPI(account);
 
     // redirects
     // return res.status(200).json({
-    //   redirect: '/userPage',
+    //   redirect: '/',
     // });
     console.log("Login successful");
   });
@@ -46,12 +46,11 @@ const login = (request, response) => {
 const signup = (request, response) => {
   const req = request;
   const res = response;
-
-  req.body.username = `${req.body.username}`;
+  req.body.email = `${req.body.email}`;
   req.body.pass = `${req.body.pass}`;
   req.body.pass2 = `${req.body.pass2}`;
 
-  if (!req.body.username || !req.body.pass || !req.body.pass2) {
+  if (!req.body.email || !req.body.pass || !req.body.pass2) {
     return res.status(400).json({
       error: 'Please fill in the required fields',
     });
@@ -66,7 +65,7 @@ const signup = (request, response) => {
   // encrypts the users information
   return Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
     const accountData = {
-      username: req.body.username,
+      email: req.body.email,
       salt,
       password: hash,
     };
@@ -75,6 +74,7 @@ const signup = (request, response) => {
     const newAccount = new Account.AccountModel(accountData);
 
     const savePromise = newAccount.save();
+    console.log(accountData.email);
     savePromise.then(() => {
       req.session.account = Account.AccountModel.toAPI(newAccount);
       return res.status(201).json({
@@ -85,7 +85,7 @@ const signup = (request, response) => {
       console.log(err);
       if (err.code === 11000) {
         return res.status(400).json({
-          error: 'Username already in use',
+          error: 'email already in use',
         });
       }
 
