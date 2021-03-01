@@ -1,1 +1,1 @@
-import '../../hosted/App.scss'
+import '../../hosted/css/styles.css'

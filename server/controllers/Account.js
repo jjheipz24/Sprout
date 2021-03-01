@@ -7,7 +7,7 @@ const signupPage = (req, res) => {
 }
 
 //Functionality for login
-const login = (req, res) => {
+const login = (request, response) => {
     const req = request;
     const res = response;
 
@@ -36,7 +36,7 @@ const login = (req, res) => {
 }
 
 //Account creation
-const signup = (req, res) => {
+const signup = (request, response) => {
     const req = request;
     const res = response;
 
@@ -89,7 +89,21 @@ const signup = (req, res) => {
     });
 }
 
+//gets csrf token for encryption
+const getToken = (request, response) => {
+  const req = request;
+  const res = response;
+
+  const csrfJSON = {
+    csrfToken: req.csrfToken(),
+  };
+
+  res.json(csrfJSON);
+
+};
+
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
+module.exports.getToken = getToken;

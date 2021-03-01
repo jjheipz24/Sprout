@@ -14,6 +14,7 @@
     "buildHelper": "babel ./client/helper/helper.js --presets @babel/preset-react --out-file ./hosted/bundle.js",
     "build": "npm run buildMain && npm run buildLogin && npm run buildSignup && npm run buildHelper",
     "watch": "babel --watch ./client --out-file ./hosted/bundle.js",
+    "scss": "node-sass --watch ./client/scss -o ./hosted/css",
     "nodemon": "nodemon --watch ./server --watch ./hosted ./server/app.js ",
     "start": "node ./server/app.js",
     "pretest": "eslint ./server --fix",

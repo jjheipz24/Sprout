@@ -1,3 +1,3 @@
 "use strict";
 
-require("../../hosted/App.scss");
+require("../../hosted/css/styles.css");
