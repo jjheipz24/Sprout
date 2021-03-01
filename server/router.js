@@ -4,13 +4,16 @@ const mid = require('./middleware');
 
 const router = (app) => {
 
+  app.get('/', controllers.Account.homePage);
+  app.get('/home', controllers.Account.homePage);
+  
   app.get('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
   app.post('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.login);
   app.get('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signupPage);
   app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
   
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
-  app.get('/', controllers.Account.loginPage);
+  app.get('/', controllers.Account.homePage);
   /*
     Figured this out with the help of https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
   */

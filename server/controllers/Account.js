@@ -9,6 +9,10 @@ const signupPage = (req, res) => {
   res.render('signup');
 }
 
+const homePage = (req, res) => {
+  res.render('app');
+}
+
 //Functionality for login
 const login = (request, response) => {
   const req = request;
@@ -35,10 +39,10 @@ const login = (request, response) => {
     req.session.account = Account.AccountModel.toAPI(account);
 
     // redirects
-    // return res.status(200).json({
-    //   redirect: '/',
-    // });
-    console.log("Login successful");
+    return res.status(200).json({
+      redirect: '/',
+    });
+
   });
 }
 
@@ -78,7 +82,7 @@ const signup = (request, response) => {
     savePromise.then(() => {
       req.session.account = Account.AccountModel.toAPI(newAccount);
       return res.status(201).json({
-        redirect: '/login',
+        redirect: '/',
       });
     });
     savePromise.catch((err) => {
@@ -113,4 +117,5 @@ module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
+module.exports.homePage = homePage;
 module.exports.getToken = getToken;
