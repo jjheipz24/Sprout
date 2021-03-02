@@ -10,6 +10,7 @@ const expressHandlebars = require('express-handlebars');
 const csrf = require('csurf');
 const redis = require('redis');
 const session = require('express-session');
+const url = require('url');
 let RedisStore = require('connect-redis')(session);
 let redisClient = redis.createClient();
 
