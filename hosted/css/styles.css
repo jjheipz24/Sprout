@@ -21,14 +21,14 @@ h1 {
 
 /************************ 
 
-        LOGIN PAGE 
+        LOGIN AND SIGNUP PAGE 
 
 ************************/
 body { 
     background-color: #F4F0ED;
 }
 
-#loginContent {
+#loginContent, #signupContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,7 +36,7 @@ body {
     margin-top: 30vh;
 }
 
-#loginForm {
+#loginForm, #signupForm {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -52,17 +52,17 @@ body {
     margin: 5vh 0 10vh 0;
 }
 
-#email, #pass {
+#email, #pass, #pass2 {
     width: 100%;
     padding: 1rem;
 }
 
-#email:focus, #pass:focus {
+#email:focus, #pass:focus, #pass2:focus {
     border: 1px solid black;
     border-left: 3px solid #1A9C5D;
 }
 
-#loginButton {
+#loginButton, #signupButton {
     width: 20vw;
     color: white;
     background-color: #1A9C5D;
@@ -71,7 +71,7 @@ body {
     padding: .5em 0;
 }
 
-#loginButton:hover {
+#loginButton:hover, #signupButton:hover {
     background-color: rgba(26, 156, 93, .6);
 }
 
