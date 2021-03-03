@@ -12,7 +12,6 @@ const redis = require('redis');
 const session = require('express-session');
 const url = require('url');
 let RedisStore = require('connect-redis')(session);
-let redisClient = redis.createClient();
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -42,6 +41,11 @@ if (process.env.REDISCLOUD_URL) {
   redisPASS = redisURL.auth.split(':')[1];
 }
 
+let redisClient = redis.createClient({
+  host: redisURL.hostname,
+  port: redisURL.port,
+  password: redisPASS,
+});
 
 const app = express();
 app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
