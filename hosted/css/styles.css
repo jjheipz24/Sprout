@@ -1,81 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 * {
-    font-family: 'Lato', sans-serif;
-}
+  font-family: 'Lato', sans-serif; }
 
 .intextLink {
-    color: #1A9C5D;
-}
+  color: #1A9C5D; }
 
 .intextLink:hover {
-    color:rgba(26, 156, 93, .6);
-    text-decoration: underline;
-}
+  color: rgba(26, 156, 93, 0.6);
+  text-decoration: underline; }
 
 h1 {
-    font-weight: 700;
-    font-size: 55px;
-}
-
+  font-weight: 700;
+  font-size: 55px; }
 
 /************************ 
 
         LOGIN AND SIGNUP PAGE 
 
 ************************/
-body { 
-    background-color: #F4F0ED;
-}
+body {
+  background-color: #F4F0ED; }
 
-#loginContent, #signupContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30vh;
-}
+#loginContent,
+#signupContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30vh; }
 
-#loginForm, #signupForm {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-}
-
-.fields {
+#loginForm,
+#signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  align-items: center; }
+  #loginForm .fields,
+  #signupForm .fields {
     display: flex;
     flex-direction: column;
     width: 50vw;
     max-width: 550px;
-    margin: 5vh 0 10vh 0;
-}
-
-#email, #pass, #pass2 {
-    width: 100%;
-    padding: 1rem;
-}
-
-#email:focus, #pass:focus, #pass2:focus {
-    border: 1px solid black;
-    border-left: 3px solid #1A9C5D;
-}
-
-#loginButton, #signupButton {
+    margin: 5vh 0 10vh 0; }
+    #loginForm .fields #email,
+    #loginForm .fields #pass,
+    #loginForm .fields #pass2,
+    #signupForm .fields #email,
+    #signupForm .fields #pass,
+    #signupForm .fields #pass2 {
+      width: 100%;
+      padding: 1rem; }
+    #loginForm .fields #email:focus,
+    #loginForm .fields #pass:focus,
+    #loginForm .fields #pass2:focus,
+    #signupForm .fields #email:focus,
+    #signupForm .fields #pass:focus,
+    #signupForm .fields #pass2:focus {
+      border: 1px solid black;
+      border-left: 3px solid #1A9C5D; }
+  #loginForm #loginButton,
+  #loginForm #signupButton,
+  #signupForm #loginButton,
+  #signupForm #signupButton {
     width: 20vw;
     color: white;
     background-color: #1A9C5D;
     border: none;
     border-radius: .5rem;
-    padding: .5em 0;
-}
-
-#loginButton:hover, #signupButton:hover {
-    background-color: rgba(26, 156, 93, .6);
-}
-
-.loginExtra {
+    padding: .5em 0; }
+  #loginForm #loginButton:hover,
+  #loginForm #signupButton:hover,
+  #signupForm #loginButton:hover,
+  #signupForm #signupButton:hover {
+    background-color: rgba(26, 156, 93, 0.6); }
+  #loginForm .loginExtra,
+  #signupForm .loginExtra {
     margin-top: 2rem;
-    color: #043535;
-}
+    color: #043535; }

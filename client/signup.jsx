@@ -23,24 +23,10 @@ const handleSignup = e => {
 }
 
 const SignupForm = (props) => {
-    //const [email, setEmail] = useState('');
-
-    //Checks if email is valid
-    const checkEmail = (email) => {
-        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-        if (re.test(email)) {
-            setEmail(email);
-        }
-        else {
-            //error
-        }
-    }
     return (
         <form id="signupForm" name="signupForm" onSubmit={handleSignup} action="/signup" method="POST">
 
             <div className="fields">
-                {/* <input className="field" id="email" type="text" name="email" value={email} onChange={e => setEmail(email)} onBlur={() => checkEmail(email)} /> */}
                 <input className="field" id="email" type="text" name="email" placeholder="Email" />
                 <input className="field" id="pass" type="password" name="pass" placeholder="Password" />
                 <input className="field" id="pass2" type="password" name="pass2" placeholder="Retype password" />

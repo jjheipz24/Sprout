@@ -9,9 +9,14 @@ const signupPage = (req, res) => {
   res.render('signup');
 }
 
+const logout = (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+}
+
 const homePage = (req, res) => {
   res.render('app');
-}
+};
 
 //Functionality for login
 const login = (request, response) => {
@@ -100,6 +105,22 @@ const signup = (request, response) => {
   });
 }
 
+const getUserEmail = (request, response) => {
+  const req = request;
+  const res = response;
+
+  if (req.session.account) {
+    return res.json({
+      email: req.session.account.email
+    });
+  }
+
+  return res.json({
+    email: ''
+  });
+
+};
+
 //gets csrf token for encryption
 const getToken = (request, response) => {
   const req = request;
@@ -117,5 +138,8 @@ module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
+module.exports.logout = logout;
 module.exports.homePage = homePage;
+
+module.exports.getUserEmail = getUserEmail;
 module.exports.getToken = getToken;

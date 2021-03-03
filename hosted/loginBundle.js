@@ -52,9 +52,17 @@ var LoginForm = function LoginForm(props) {
   }), /*#__PURE__*/React.createElement("button", {
     id: "loginButton",
     type: "submit"
-  }, "Login"), /*#__PURE__*/React.createElement("p", null, "Don't have an account? ", /*#__PURE__*/React.createElement("a", {
+  }, "Login"), /*#__PURE__*/React.createElement("p", {
+    className: "loginExtra"
+  }, "Don't have an account? ", /*#__PURE__*/React.createElement("a", {
+    className: "intextLink",
     href: "./signup"
-  }, "Sign Up")));
+  }, "Sign Up")), /*#__PURE__*/React.createElement("p", {
+    className: "loginExtra"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "intextLink",
+    href: "./signup"
+  }, "Forgot Password?")));
 };
 
 var setup = function setup(csrf) {

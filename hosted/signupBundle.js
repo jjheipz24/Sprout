@@ -24,17 +24,6 @@ var handleSignup = function handleSignup(e) {
 };
 
 var SignupForm = function SignupForm(props) {
-  //const [email, setEmail] = useState('');
-  //Checks if email is valid
-  var checkEmail = function checkEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if (re.test(email)) {
-      setEmail(email);
-    } else {//error
-    }
-  };
-
   return /*#__PURE__*/React.createElement("form", {
     id: "signupForm",
     name: "signupForm",

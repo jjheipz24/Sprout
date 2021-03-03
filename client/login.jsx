@@ -26,7 +26,6 @@ const LoginForm = (props) => {
         <form id="loginForm" name="loginForm" onSubmit={handleLogin} action="/login" method="POST" className="mainForm">
 
             <div className="fields">
-                {/* <input className="field" id="email" type="text" name="email" value={email} onChange={e => setEmail(email)} onBlur={() => checkEmail(email)} /> */}
                 <input className="field" id="email" type="text" name="email" placeholder="Email" />
                 <input className="field" id="pass" type="password" name="pass" placeholder="Password" />
 
