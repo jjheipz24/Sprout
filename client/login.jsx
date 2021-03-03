@@ -34,7 +34,9 @@ const LoginForm = (props) => {
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
             <button id="loginButton" type="submit">Login</button>
-            <p>Don't have an account? <a href="./signup">Sign Up</a></p>
+            <p className="loginExtra">Don't have an account? <a className="intextLink" href="./signup">Sign Up</a></p>
+            <p className="loginExtra"><a className="intextLink" href="./signup">Forgot Password?</a></p>
+
         </form>
     )
 }

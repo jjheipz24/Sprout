@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.intextLink {
+    color: #1A9C5D;
+}
+
+.intextLink:hover {
+    color:rgba(26, 156, 93, .6);
+    text-decoration: underline;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 55px;
+}
+
+
+/************************ 
+
+        LOGIN PAGE 
+
+************************/
+body { 
+    background-color: #F4F0ED;
+}
+
+#loginContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30vh;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    max-width: 550px;
+    margin: 5vh 0 10vh 0;
+}
+
+#email, #pass {
+    width: 100%;
+    padding: 1rem;
+}
+
+#email:focus, #pass:focus {
+    border: 1px solid black;
+    border-left: 3px solid #1A9C5D;
+}
+
+#loginButton {
+    width: 20vw;
+    color: white;
+    background-color: #1A9C5D;
+    border: none;
+    border-radius: .5rem;
+    padding: .5em 0;
+}
+
+#loginButton:hover {
+    background-color: rgba(26, 156, 93, .6);
+}
+
+.loginExtra {
+    margin-top: 2rem;
+    color: #043535;
+}
