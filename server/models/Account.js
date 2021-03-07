@@ -8,6 +8,13 @@ const iterations = 10000;
 const saltLength = 64;
 const keyLength = 64;
 
+const PlantSchema = new mongoose.Schema({
+  plantType: { type: String },
+  growthStage: { type: Number },
+  messages: { type: Array },
+  allowedUsers: { type: Array },
+});
+
 // Schema to define user accounts 
 const AccountSchema = new mongoose.Schema({
   email: {
@@ -23,12 +30,13 @@ const AccountSchema = new mongoose.Schema({
   password: { type: String, required: true },
   createdDate: { type: Date, default: Date.now },
   friends: { type: Array, default: [] }, //will eventually be - friends: [FriendsSchema] 
-  plants: { type: Array, default: [] }, //will eventually be - plants: [PlantSchema] 
+  plants: [PlantSchema],
 });
 
 AccountSchema.statics.toAPI = doc => ({
   email: doc.email,
   _id: doc._id,
+  plants: doc.plants,
 });
 
 const validatePassword = (doc, password, callback) => {
