@@ -24,7 +24,7 @@ const handleSignup = e => {
 
 const SignupForm = (props) => {
     return (
-        <form id="signupForm" name="signupForm" onSubmit={handleSignup} action="/signup" method="POST">
+        <form id="signupForm" name="signupForm" onSubmit={handleSignup} action="/signup" method="POST" className="mainForm">
 
             <div className="fields">
                 <input className="field" id="email" type="text" name="email" placeholder="Email" />

@@ -1,0 +1,20 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+
+#loginContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30vh;
+}
+
+#loginForm {
+
+    @include signin-form('#loginButton');
+
+    .loginExtra {
+        margin-top: 2rem;
+        color: lightgray;
+    }
+}

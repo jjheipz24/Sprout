@@ -1,142 +1,30 @@
 // @import "~bootstrap/scss/bootstrap"
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import './utilities/mixins';
+@import './utilities/variables';
 
-* {
-    font-family: 'Lato', sans-serif;
-}
+@import './components/navbar';
 
-.intextLink {
-    color: white;
-}
+@import './pages/app';
+@import './pages/login';
+@import './pages/signup';
 
-.intextLink:hover {
-    color: rgba(26, 156, 93, .6);
-    text-decoration: underline;
-}
+//Getting moved to _app.scss
+// .intextLink {
+//     color: white;
+// }
 
-h1 {
-    font-weight: 700;
-    font-size: 55px;
-    color: white;
-}
+// .intextLink:hover {
+//     color: rgba(26, 156, 93, .6);
+//     text-decoration: underline;
+// }
 
-p {
-    color: lightgray;
-}
+// h1 {
+//     font-weight: 700;
+//     font-size: 55px;
+//     color: white;
+// }
 
-
-/************************ 
-
-        Navbar 
-
-************************/
-.navbar {
-    background-color: none;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-//div for individual navbuttons
-.navbar-nav {
-    margin: 1rem;
-}
-
-.nav-link {
-    color: white;
-    font-size: 1.5rem;
-    margin: 0 1rem;
-    padding: .5rem 2rem !important;
-}
-
-.nav-link:hover {
-    background-color: rgba(26, 156, 93, .6);
-    border-radius: .5rem;
-    color: white;
-    text-decoration: none;
-}
-
-.active {
-    color: #1A9C5D;
-}
-
-.navbar-toggler {
-    color: white;
-}
-
-
-/************************ 
-
-        LOGIN AND SIGNUP PAGE 
-
-************************/
-body {
-    background-color: #043535;
-}
-
-input {
-    color: #043535;
-}
-
-#loginContent,
-#signupContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30vh;
-}
-
-#loginForm,
-#signupForm {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-
-    .fields {
-        display: flex;
-        flex-direction: column;
-        width: 50vw;
-        max-width: 550px;
-        margin: 5vh 0 10vh 0;
-
-        #email,
-        #pass,
-        #pass2 {
-            width: 100%;
-            padding: 1rem;
-        }
-
-        #email:focus,
-        #pass:focus,
-        #pass2:focus {
-            border: 1px solid black;
-            border-left: 3px solid #1A9C5D;
-        }
-    }
-
-
-    #loginButton,
-    #signupButton {
-        width: 20vw;
-        color: white;
-        background-color: #1A9C5D;
-        border: none;
-        border-radius: .5rem;
-        padding: .5em 0;
-    }
-
-    #loginButton:hover,
-    #signupButton:hover {
-        background-color: rgba(26, 156, 93, .6);
-    }
-
-    .loginExtra {
-        margin-top: 2rem;
-        color: lightgray;
-    }
-}
+// p {
+//     color: lightgray;
+// }
