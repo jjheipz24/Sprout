@@ -51,7 +51,7 @@ const validatePassword = (doc, password, callback) => {
 };
 
 /* possibly expand on this for user/friend search */
-AccountSchema.statics.findByEmail = (name, callback) => {
+AccountSchema.statics.findByemail = (name, callback) => {
   const search = {
     email: name,
   };
