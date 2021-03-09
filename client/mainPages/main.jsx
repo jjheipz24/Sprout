@@ -3,8 +3,8 @@
 const Header = (props) => {
     return (
         <div>
-            <h1>This is a test page</h1>
-            <h3>This is where the home page will eventually be</h3>
+            <h1>Home Page</h1>
+            <h3>Under construction</h3>
         </div>
     )
 }
@@ -37,9 +37,9 @@ const loadUserEmail = () => {
 };
 
 const setup = function (csrf) {
-    ReactDOM.render(
-        <Header csrf={csrf} />, document.querySelector('#header')
-    );
+    // ReactDOM.render(
+    //     <Header csrf={csrf} />, document.querySelector('#header')
+    // );
 
     ReactDOM.render(
         <Main email={""} />, document.querySelector('#app')

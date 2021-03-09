@@ -29,7 +29,8 @@ var SignupForm = function SignupForm(props) {
     name: "signupForm",
     onSubmit: handleSignup,
     action: "/signup",
-    method: "POST"
+    method: "POST",
+    className: "mainForm"
   }, /*#__PURE__*/React.createElement("div", {
     className: "fields"
   }, /*#__PURE__*/React.createElement("input", {

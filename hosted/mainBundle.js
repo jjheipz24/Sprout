@@ -2,7 +2,7 @@
 
 //import '../../hosted/css/styles.css'
 var Header = function Header(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "This is a test page"), /*#__PURE__*/React.createElement("h3", null, "This is where the home page will eventually be"));
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Home Page"), /*#__PURE__*/React.createElement("h3", null, "Under construction"));
 };
 
 var Main = function Main(props) {
@@ -29,9 +29,9 @@ var loadUserEmail = function loadUserEmail() {
 };
 
 var setup = function setup(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(Header, {
-    csrf: csrf
-  }), document.querySelector('#header'));
+  // ReactDOM.render(
+  //     <Header csrf={csrf} />, document.querySelector('#header')
+  // );
   ReactDOM.render( /*#__PURE__*/React.createElement(Main, {
     email: ""
   }), document.querySelector('#app'));
