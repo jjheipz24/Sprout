@@ -4,15 +4,9 @@
 var handleLogin = function handleLogin(e) {
   e.preventDefault();
 
-  if ($("#email").val() == '') {
+  if ($("#username").val() == '') {
     //TODO: Implement error feedback
-    console.log("Email is required");
-    return false;
-  }
-
-  if ($("#pass").val() == '') {
-    //TODO: Implement error feedback
-    console.log("Password is required");
+    console.log("Username is required");
     return false;
   }
 
@@ -34,16 +28,10 @@ var LoginForm = function LoginForm(props) {
     className: "fields"
   }, /*#__PURE__*/React.createElement("input", {
     className: "field",
-    id: "email",
+    id: "username",
     type: "text",
-    name: "email",
-    placeholder: "Email"
-  }), /*#__PURE__*/React.createElement("input", {
-    className: "field",
-    id: "pass",
-    type: "password",
-    name: "pass",
-    placeholder: "Password"
+    name: "username",
+    placeholder: "username"
   })), /*#__PURE__*/React.createElement("input", {
     id: "signupCsrf",
     type: "hidden",
@@ -57,12 +45,7 @@ var LoginForm = function LoginForm(props) {
   }, "Don't have an account? ", /*#__PURE__*/React.createElement("a", {
     className: "intextLink",
     href: "./signup"
-  }, "Sign Up")), /*#__PURE__*/React.createElement("p", {
-    className: "loginExtra"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "intextLink",
-    href: "./signup"
-  }, "Forgot Password?")));
+  }, "Sign Up")));
 };
 
 var setup = function setup(csrf) {

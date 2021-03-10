@@ -10,7 +10,7 @@ const Header = (props) => {
 }
 
 const Main = (props) => {
-    if (props.email === "" || !props.email) {
+    if (props.username === "" || !props.username) {
         return (
             <div>
                 <button><a href="/signup">Signup</a></button>
@@ -27,11 +27,11 @@ const Main = (props) => {
 
 }
 
-//Grabs the user's email if they are logged in
-const loadUserEmail = () => {
-    sendAjax('GET', '/getUserEmail', null, (data) => {
+//Grabs the user's username if they are logged in
+const loadUserUsername = () => {
+    sendAjax('GET', '/getUserName', null, (data) => {
         ReactDOM.render(
-            <Main email={data.email} />, document.querySelector('#app')
+            <Main username={data.username} />, document.querySelector('#app')
         );
     });
 };
@@ -42,10 +42,10 @@ const setup = function (csrf) {
     // );
 
     ReactDOM.render(
-        <Main email={""} />, document.querySelector('#app')
+        <Main username={""} />, document.querySelector('#app')
     )
 
-    loadUserEmail();
+    loadUserUsername();
 };
 
 const getToken = () => {

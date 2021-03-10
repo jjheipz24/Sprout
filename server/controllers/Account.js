@@ -23,24 +23,23 @@ const login = (request, response) => {
   const req = request;
   const res = response;
 
-  const email = `${req.body.email}`;
-  const password = `${req.body.pass}`;
+  const username = `${req.body.username}`;
 
   // makes sure all fields are filled
-  if (!email || !password) {
+  if (!username) {
     return res.status(400).json({
       error: 'Please fill in the required fields',
     });
   }
 
   // checks to make sure login and password are correct
-  return Account.AccountModel.authenticate(email, password, (err, account) => {
+  return Account.AccountModel.authenticate(username, (err, account) => {
     if (err || !account) {
       return res.status(401).json({
-        error: 'Wrong email or password',
+        error: 'Wrong username',
       });
     }
-    // sets the current session account based on email and password added
+    // sets the current session account based on username and password added
     req.session.account = Account.AccountModel.toAPI(account);
 
     // redirects
@@ -55,68 +54,56 @@ const login = (request, response) => {
 const signup = (request, response) => {
   const req = request;
   const res = response;
-  req.body.email = `${req.body.email}`;
-  req.body.pass = `${req.body.pass}`;
-  req.body.pass2 = `${req.body.pass2}`;
+  req.body.username = `${req.body.username}`;
 
-  if (!req.body.email || !req.body.pass || !req.body.pass2) {
+  if (!req.body.username) {
     return res.status(400).json({
       error: 'Please fill in the required fields',
     });
   }
 
-  if (req.body.pass !== req.body.pass2) {
-    return res.status(400).json({
-      error: 'Passwords do not match',
+// encrypts the users information
+  const accountData = {
+    username: req.body.username,
+  };
+
+  // creates the new account model
+  const newAccount = new Account.AccountModel(accountData);
+
+  const savePromise = newAccount.save();
+  console.log(accountData.username);
+  savePromise.then(() => {
+    req.session.account = Account.AccountModel.toAPI(newAccount);
+    return res.status(201).json({
+      redirect: '/',
     });
-  }
-
-  // encrypts the users information
-  return Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
-    const accountData = {
-      email: req.body.email,
-      salt,
-      password: hash,
-    };
-
-    // creates the new account model
-    const newAccount = new Account.AccountModel(accountData);
-
-    const savePromise = newAccount.save();
-    console.log(accountData.email);
-    savePromise.then(() => {
-      req.session.account = Account.AccountModel.toAPI(newAccount);
-      return res.status(201).json({
-        redirect: '/',
-      });
-    });
-    savePromise.catch((err) => {
-      console.log(err);
-      if (err.code === 11000) {
-        return res.status(400).json({
-          error: 'email already in use',
-        });
-      }
-
+  });
+  savePromise.catch((err) => {
+    console.log(err);
+    if (err.code === 11000) {
       return res.status(400).json({
-        error: 'An error occured',
+        error: 'username already in use',
       });
+    }
+
+    return res.status(400).json({
+      error: 'An error occured',
     });
   });
 }
 
-const getUserEmail = (request, response) => {
+const getUserName = (request, response) => {
   const req = request;
   const res = response;
 
   if (req.session.account) {
     return res.json({
-      email: req.session.account.email
+      username: req.session.account.username
     });
   }
 
   return res.json({
-    email: ''
+    username: ''
   });
 
 };
@@ -141,5 +128,5 @@ module.exports.signup = signup;
 module.exports.logout = logout;
 module.exports.homePage = homePage;
 
-module.exports.getUserEmail = getUserEmail;
+module.exports.getUserName = getUserName;
 module.exports.getToken = getToken;

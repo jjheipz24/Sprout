@@ -13,7 +13,7 @@ const router = (app) => {
   app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
 
-  app.get('/getUserEmail', controllers.Account.getUserEmail);
+  app.get('/getUserName', controllers.Account.getUserName);
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
   app.get('/', controllers.Account.homePage);
   /*

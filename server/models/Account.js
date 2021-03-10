@@ -4,73 +4,49 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 let AccountModel = {};
-const iterations = 10000;
-const saltLength = 64;
-const keyLength = 64;
 
 const PlantSchema = new mongoose.Schema({
   plantType: { type: String },
   growthStage: { type: Number },
+  prompt: { type: String },
   messages: { type: Array },
   allowedUsers: { type: Array },
 });
 
 // Schema to define user accounts 
 const AccountSchema = new mongoose.Schema({
-  email: {
+  username: {
     type: String,
     required: true,
     trim: true,
     unique: true,
     lowercase: true,
-    required: 'Email address is required',
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    required: 'Username is required',
+    match: [/^[A-Za-z0-9_\-.]{1,16}$/, 'Please fill a valid username']
   },
-  salt: { type: Buffer, required: true },
-  password: { type: String, required: true },
-  createdDate: { type: Date, default: Date.now },
   friends: { type: Array, default: [] }, //will eventually be - friends: [FriendsSchema] 
   plants: [PlantSchema],
 });
 
 AccountSchema.statics.toAPI = doc => ({
-  email: doc.email,
+  username: doc.username,
   _id: doc._id,
-  plants: doc.plants,
 });
 
-const validatePassword = (doc, password, callback) => {
-  const pass = doc.password;
-
-  return crypto.pbkdf2(password, doc.salt, iterations, keyLength, 'RSA-SHA512', (err, hash) => {
-    if (hash.toString('hex') !== pass) {
-      return callback(false);
-    }
-    return callback(true);
-  });
-};
 
 /* possibly expand on this for user/friend search */
-AccountSchema.statics.findByemail = (name, callback) => {
+AccountSchema.statics.findByUsername = (name, callback) => {
   const search = {
-    email: name,
+    username: name,
   };
 
   return AccountModel.findOne(search, callback);
 };
 
-// encrypt password
-AccountSchema.statics.generateHash = (password, callback) => {
-  const salt = crypto.randomBytes(saltLength);
 
-  crypto.pbkdf2(password, salt, iterations, keyLength, 'RSA-SHA512', (err, hash) =>
-    callback(salt, hash.toString('hex'))
-  );
-};
-
-// validate email and password
-AccountSchema.statics.authenticate = (email, password, callback) =>
-AccountModel.findByemail(email, (err, doc) => {
+// validate username and password
+AccountSchema.statics.authenticate = (username, callback) =>
+AccountModel.findByUsername(username, (err, doc) => {
   if (err) {
     return callback(err);
   }
@@ -79,13 +55,7 @@ AccountModel.findByemail(email, (err, doc) => {
     return callback();
   }
 
-  return validatePassword(doc, password, (result) => {
-    if (result === true) {
-      return callback(null, doc);
-    }
-
-    return callback();
-  });
+  return callback(null, doc);
 });
 
 AccountModel = mongoose.model('Account', AccountSchema);

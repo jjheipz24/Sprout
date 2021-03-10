@@ -6,7 +6,7 @@ var Header = function Header(props) {
 };
 
 var Main = function Main(props) {
-  if (props.email === "" || !props.email) {
+  if (props.username === "" || !props.username) {
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement("a", {
       href: "/signup"
     }, "Signup")), /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement("a", {
@@ -20,10 +20,10 @@ var Main = function Main(props) {
 }; //Grabs the user's email if they are logged in
 
 
-var loadUserEmail = function loadUserEmail() {
-  sendAjax('GET', '/getUserEmail', null, function (data) {
+var loadUserUsername = function loadUserUsername() {
+  sendAjax('GET', '/getUserName', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(Main, {
-      email: data.email
+      username: data.username
     }), document.querySelector('#app'));
   });
 };
@@ -33,9 +33,9 @@ var setup = function setup(csrf) {
   //     <Header csrf={csrf} />, document.querySelector('#header')
   // );
   ReactDOM.render( /*#__PURE__*/React.createElement(Main, {
-    email: ""
+    username: ""
   }), document.querySelector('#app'));
-  loadUserEmail();
+  loadUserUsername();
 };
 
 var getToken = function getToken() {
