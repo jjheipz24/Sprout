@@ -41,7 +41,12 @@ var SignupForm = function SignupForm(props) {
   }), /*#__PURE__*/React.createElement("button", {
     id: "signupButton",
     type: "submit"
-  }, "Create Account"));
+  }, "Create Account"), /*#__PURE__*/React.createElement("p", {
+    className: "signupExtra"
+  }, "Already have an account? ", /*#__PURE__*/React.createElement("a", {
+    className: "intextLink",
+    href: "./login"
+  }, "Login")));
 };
 
 var setup = function setup(csrf) {

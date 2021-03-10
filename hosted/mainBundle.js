@@ -17,7 +17,7 @@ var Main = function Main(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement("a", {
     href: "/logout"
   }, "Logout")));
-}; //Grabs the user's email if they are logged in
+}; //Grabs the user's username if they are logged in
 
 
 var loadUserUsername = function loadUserUsername() {

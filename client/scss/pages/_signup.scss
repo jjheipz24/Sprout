@@ -11,4 +11,8 @@
 
 #signupForm{
     @include signin-form('#signupButton');
+    .signupExtra {
+        margin-top: 2rem;
+        color: lightgray;
+    }
 }

@@ -166,3 +166,6 @@ p {
   #signupForm #signupButton:hover {
     background-color: #1A9C5D;
     opacity: .6; }
+  #signupForm .signupExtra {
+    margin-top: 2rem;
+    color: lightgray; }
