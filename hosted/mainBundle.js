@@ -7,11 +7,11 @@ var Header = function Header(props) {
 
 var Main = function Main(props) {
   if (props.username === "" || !props.username) {
-    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement("a", {
-      href: "/signup"
-    }, "Signup")), /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement("a", {
-      href: "/login"
-    }, "Login")));
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+      id: "loginButton"
+    }, /*#__PURE__*/React.createElement("a", {
+      href: "/logout"
+    }, "Logout")));
   }
 
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, /*#__PURE__*/React.createElement("a", {

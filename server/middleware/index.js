@@ -11,6 +11,7 @@ const requiresLogin = (req, res, next) => {
   /* Requires logout for certain routes */
   const requiresLogout = (req, res, next) => {
     if (req.session.account) {
+      console.log("login worked");
       return res.redirect('/login');
     }
   
