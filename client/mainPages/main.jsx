@@ -13,8 +13,8 @@ const Main = (props) => {
     if (props.username === "" || !props.username) {
         return (
             <div>
-                <button id="loginButton"><a href="/logout">Logout</a></button>
-                {/* <button><a href="/login">Login</a></button> */}
+                <button><a href="/signup">Signup</a></button>
+                <button><a href="/login">Login</a></button>
             </div>
         );
     }
