@@ -58,7 +58,7 @@
   font-family: "Lato", sans-serif; }
 
 body {
-  background-color: #043535; }
+  background-color: #043535 !important; }
 
 input {
   color: #043535; }
