@@ -37,15 +37,16 @@ var LoginForm = function LoginForm(props) {
     type: "hidden",
     name: "_csrf",
     value: props.csrf
-  }), /*#__PURE__*/React.createElement("button", {
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "signinBtns"
+  }, /*#__PURE__*/React.createElement("button", {
     id: "loginButton",
     type: "submit"
-  }, "Login"), /*#__PURE__*/React.createElement("p", {
-    className: "loginExtra"
-  }, "Don't have an account? ", /*#__PURE__*/React.createElement("a", {
-    className: "intextLink",
+  }, "Login"), /*#__PURE__*/React.createElement("button", {
+    id: "secondButton"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "./signup"
-  }, "Sign Up")));
+  }, "Sign Up"))));
 };
 
 var setup = function setup(csrf) {

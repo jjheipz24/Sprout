@@ -36,19 +36,19 @@
 
 /*************************/
 
-@mixin signin-form($btn) {
+@mixin signin-form($btn, $btn2) {
     display: flex;
     flex-direction: column;
     max-width: 100vw;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     .fields {
         display: flex;
         flex-direction: column;
-        width: 50vw;
+        width: 400px;
         max-width: 550px;
-        margin: 5vh 0 10vh 0;
+        margin: 5vh 0 8vh 0;
 
         .field {
             width: 100%;
@@ -57,21 +57,46 @@
 
         .field:focus {
             border: 1px solid black;
-            border-left: 3px solid $light-green;
+            border-left: 4px solid $light-green;
         }
     }
 
-    #{$btn} {
-        width: 20vw;
-        color: white;
-        background-color: $light-green;
-        border: none;
-        border-radius: .5rem;
-        padding: .5em 0;
+    .signinBtns{
+
+        #{$btn} {
+            font-weight: bold;
+            width: 140px;
+            color: white;
+            background-color: $light-green;
+            border: none;
+            border-radius: .5rem;
+            padding: .5em 0;
+            margin-right: 2em;
+        }
+    
+        #{$btn}:hover {
+            background-color: $light-green;
+            opacity: .6;
+        }
+    
+        #{$btn2} {
+            font-weight: bold;
+            width: 140px;
+            color: $light-green;
+            background: none;
+            border: 1px solid $light-green;
+            border-radius: .5rem;
+            padding: .5em 0;
+    
+            a {
+                text-decoration: none;
+                color: $light-green;
+            }
+        }
+    
+        #{$btn2}:hover {
+            opacity: .6;
+        }
     }
 
-    #{$btn}:hover {
-        background-color: $light-green;
-        opacity: .6;
-    }
 }

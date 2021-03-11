@@ -4,13 +4,20 @@
 #signupContent {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin-top: 10vh;
+    margin-left: 4em;
+
+    h1 {
+        font-weight: bold;
+    }
 }
 
-#signupForm{
-    @include signin-form('#signupButton');
+#signupForm {
+
+    @include signin-form('#signupButton', '#secondButton');
+
     .signupExtra {
         margin-top: 2rem;
         color: lightgray;
@@ -20,6 +27,6 @@
 #signupBody {
     background-image: url('/assets/images/background.png');
     background-repeat: no-repeat;
-    background-size: 100vw 65vh;
+    background-size: contain;
     background-position: bottom;
 }

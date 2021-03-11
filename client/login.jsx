@@ -25,8 +25,11 @@ const LoginForm = (props) => {
             </div>
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
+            <div className="signinBtns">
             <button id="loginButton" type="submit">Login</button>
-            <p className="loginExtra">Don't have an account? <a className="intextLink" href="./signup">Sign Up</a></p>
+            <button id="secondButton"><a href="./signup">Sign Up</a></button>
+            </div>
+           
         </form>
     )
 }

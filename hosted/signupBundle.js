@@ -38,15 +38,16 @@ var SignupForm = function SignupForm(props) {
     type: "hidden",
     name: "_csrf",
     value: props.csrf
-  }), /*#__PURE__*/React.createElement("button", {
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "signinBtns"
+  }, /*#__PURE__*/React.createElement("button", {
     id: "signupButton",
     type: "submit"
-  }, "Create Account"), /*#__PURE__*/React.createElement("p", {
-    className: "signupExtra"
-  }, "Already have an account? ", /*#__PURE__*/React.createElement("a", {
-    className: "intextLink",
+  }, "Sign Up"), /*#__PURE__*/React.createElement("button", {
+    id: "secondButton"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "./login"
-  }, "Login")));
+  }, "Login"))));
 };
 
 var setup = function setup(csrf) {

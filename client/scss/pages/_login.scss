@@ -4,14 +4,19 @@
 #loginContent {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin-top: 10vh;
+    margin-left: 4em;
+
+    h1{
+        font-weight: bold;
+    }
 }
 
 #loginForm {
 
-    @include signin-form('#loginButton');
+    @include signin-form('#loginButton', '#secondButton');
 
     .loginExtra {
         margin-top: 2rem;
@@ -22,6 +27,6 @@
 #loginBody {
     background-image: url('/assets/images/background.png');
     background-repeat: no-repeat;
-    background-size: 100vw 65vh;
+    background-size: contain;
     background-position: bottom;
 }

@@ -91,37 +91,55 @@ p {
 #loginContent {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10vh; }
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10vh;
+  margin-left: 4em; }
+  #loginContent h1 {
+    font-weight: bold; }
 
 #loginForm {
   display: flex;
   flex-direction: column;
   max-width: 100vw;
   justify-content: center;
-  align-items: center; }
+  align-items: flex-start; }
   #loginForm .fields {
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 400px;
     max-width: 550px;
-    margin: 5vh 0 10vh 0; }
+    margin: 5vh 0 8vh 0; }
     #loginForm .fields .field {
       width: 100%;
       padding: 1rem; }
     #loginForm .fields .field:focus {
       border: 1px solid black;
-      border-left: 3px solid #1A9C5D; }
-  #loginForm #loginButton {
-    width: 20vw;
+      border-left: 4px solid #1A9C5D; }
+  #loginForm .signinBtns #loginButton {
+    font-weight: bold;
+    width: 140px;
     color: white;
     background-color: #1A9C5D;
     border: none;
     border-radius: .5rem;
-    padding: .5em 0; }
-  #loginForm #loginButton:hover {
+    padding: .5em 0;
+    margin-right: 2em; }
+  #loginForm .signinBtns #loginButton:hover {
     background-color: #1A9C5D;
+    opacity: .6; }
+  #loginForm .signinBtns #secondButton {
+    font-weight: bold;
+    width: 140px;
+    color: #1A9C5D;
+    background: none;
+    border: 1px solid #1A9C5D;
+    border-radius: .5rem;
+    padding: .5em 0; }
+    #loginForm .signinBtns #secondButton a {
+      text-decoration: none;
+      color: #1A9C5D; }
+  #loginForm .signinBtns #secondButton:hover {
     opacity: .6; }
   #loginForm .loginExtra {
     margin-top: 2rem;
@@ -130,7 +148,7 @@ p {
 #loginBody {
   background-image: url("/assets/images/background.png");
   background-repeat: no-repeat;
-  background-size: 100vw 65vh;
+  background-size: contain;
   background-position: bottom; }
 
 /************************ 
@@ -142,37 +160,55 @@ p {
 #signupContent {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10vh; }
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10vh;
+  margin-left: 4em; }
+  #signupContent h1 {
+    font-weight: bold; }
 
 #signupForm {
   display: flex;
   flex-direction: column;
   max-width: 100vw;
   justify-content: center;
-  align-items: center; }
+  align-items: flex-start; }
   #signupForm .fields {
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 400px;
     max-width: 550px;
-    margin: 5vh 0 10vh 0; }
+    margin: 5vh 0 8vh 0; }
     #signupForm .fields .field {
       width: 100%;
       padding: 1rem; }
     #signupForm .fields .field:focus {
       border: 1px solid black;
-      border-left: 3px solid #1A9C5D; }
-  #signupForm #signupButton {
-    width: 20vw;
+      border-left: 4px solid #1A9C5D; }
+  #signupForm .signinBtns #signupButton {
+    font-weight: bold;
+    width: 140px;
     color: white;
     background-color: #1A9C5D;
     border: none;
     border-radius: .5rem;
-    padding: .5em 0; }
-  #signupForm #signupButton:hover {
+    padding: .5em 0;
+    margin-right: 2em; }
+  #signupForm .signinBtns #signupButton:hover {
     background-color: #1A9C5D;
+    opacity: .6; }
+  #signupForm .signinBtns #secondButton {
+    font-weight: bold;
+    width: 140px;
+    color: #1A9C5D;
+    background: none;
+    border: 1px solid #1A9C5D;
+    border-radius: .5rem;
+    padding: .5em 0; }
+    #signupForm .signinBtns #secondButton a {
+      text-decoration: none;
+      color: #1A9C5D; }
+  #signupForm .signinBtns #secondButton:hover {
     opacity: .6; }
   #signupForm .signupExtra {
     margin-top: 2rem;
@@ -181,5 +217,5 @@ p {
 #signupBody {
   background-image: url("/assets/images/background.png");
   background-repeat: no-repeat;
-  background-size: 100vw 65vh;
+  background-size: contain;
   background-position: bottom; }

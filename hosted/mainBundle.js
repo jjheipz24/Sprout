@@ -1,11 +1,7 @@
 "use strict";
 
 //import '../../hosted/css/styles.css'
-var Header = function Header(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Home Page"), /*#__PURE__*/React.createElement("h3", null, "Under construction"));
-};
-
-var Main = function Main(props) {
+var Nav = function Nav(props) {
   if (props.username === "" || !props.username) {
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("nav", {
       className: "navbar navbar-expand-lg"
@@ -74,9 +70,9 @@ var Main = function Main(props) {
 
 var loadUserUsername = function loadUserUsername() {
   sendAjax('GET', '/getUserName', null, function (data) {
-    ReactDOM.render( /*#__PURE__*/React.createElement(Main, {
+    ReactDOM.render( /*#__PURE__*/React.createElement(Nav, {
       username: data.username
-    }), document.querySelector('#app'));
+    }), document.querySelector('#nav'));
   });
 };
 
@@ -84,9 +80,9 @@ var setup = function setup(csrf) {
   // ReactDOM.render(
   //     <Header csrf={csrf} />, document.querySelector('#header')
   // );
-  ReactDOM.render( /*#__PURE__*/React.createElement(Main, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(Nav, {
     username: ""
-  }), document.querySelector('#app'));
+  }), document.querySelector('#nav'));
   loadUserUsername();
 };
 

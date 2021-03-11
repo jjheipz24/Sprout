@@ -1,15 +1,6 @@
 //import '../../hosted/css/styles.css'
 
-const Header = (props) => {
-    return (
-        <div>
-            <h1>Home Page</h1>
-            <h3>Under construction</h3>
-        </div>
-    )
-}
-
-const Main = (props) => {
+const Nav = (props) => {
     if (props.username === "" || !props.username) {
         return (
             <div>
@@ -61,7 +52,7 @@ const Main = (props) => {
 const loadUserUsername = () => {
     sendAjax('GET', '/getUserName', null, (data) => {
         ReactDOM.render(
-            <Main username={data.username} />, document.querySelector('#app')
+            <Nav username={data.username} />, document.querySelector('#nav')
         );
     });
 };
@@ -72,7 +63,7 @@ const setup = function (csrf) {
     // );
 
     ReactDOM.render(
-        <Main username={""} />, document.querySelector('#app')
+        <Nav username={""} />, document.querySelector('#nav')
     )
 
     loadUserUsername();
