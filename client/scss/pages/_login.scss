@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 30vh;
+    margin-top: 10vh;
 }
 
 #loginForm {
@@ -17,4 +17,11 @@
         margin-top: 2rem;
         color: lightgray;
     }
+}
+
+#loginBody {
+    background-image: url('/assets/images/background.png');
+    background-repeat: no-repeat;
+    background-size: 100vw 65vh;
+    background-position: bottom;
 }

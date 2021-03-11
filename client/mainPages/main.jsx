@@ -13,18 +13,48 @@ const Main = (props) => {
     if (props.username === "" || !props.username) {
         return (
             <div>
-                <button><a href="/signup">Signup</a></button>
-                <button><a href="/login">Login</a></button>
+                <nav className="navbar navbar-expand-lg">
+                    <img alt="logo" src="assets/images/logo.png"/>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div className="nav-bar-items">
+                        <ul className="navbar-nav mr-auto">
+                            <li className="nav-item">
+                                <a className="nav-link" href="/signup">Signup</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/login">Login</a>
+                            </li> 
+                        </ul>
+                    </div>
+                </nav>
             </div>
         );
     }
 
     return (
         <div>
-            <button><a href="/logout">Logout</a></button>
-        </div>
-    )
+         <nav className="navbar navbar-expand-lg">
+             <img alt="logo" src="assets/images/logo.png"/>
+             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                 <span className="navbar-toggler-icon"></span>
+             </button>
 
+             <div className="nav-bar-items">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Garden</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/logout">Logout</a>
+                        </li> 
+                    </ul>
+                </div>
+         </nav>
+         </div>
+    )
 }
 
 //Grabs the user's username if they are logged in
