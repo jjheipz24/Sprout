@@ -29,14 +29,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const container = new PIXI.Container(); //main container
 
-    Storage.prototype.setObj = function (key, obj) {
-        return this.setItem(key, JSON.stringify(obj))
-    }
-    Storage.prototype.getObj = function (key) {
-        return JSON.parse(this.getItem(key))
-    }
+    //Might have to delete this idk
+    // Storage.prototype.setObj = function (key, obj) {
+    //     return this.setItem(key, JSON.stringify(obj))
+    // }
+    // Storage.prototype.getObj = function (key) {
+    //     return JSON.parse(this.getItem(key))
+    // }
 
-    let circles = []; //Holds the white placeholder spots
+    let planterBox = new PIXI.Sprite.from('assets/images/test/planterbox.png');
+    planterBox.anchor.set(0.5);
+    planterBox.scale.set(.75, .75);
+    planterBox.x = app.screen.width / 2;
+    planterBox.y = app.screen.height / 2;
+    container.addChild(planterBox);
+
+    let plot1;
+    let plot2;
+    let plot3;
+    let plot4;
+    let plot5;
+    let plot6;
+
+    let plots = []; //Holds the white placeholder spots
     let colors = {}; //holds the color textures
 
     let white = PIXI.Texture.from('assets/images/test/white.png');
@@ -54,31 +69,67 @@ document.addEventListener('DOMContentLoaded', function () {
     let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
     colors["yellow"] = yellow;
 
-    if (localStorage.getObj("circles") === null) {
-        initCircles();
-    } else {
-        circles = localStorage.getObj("circles");
-    }
+    //Might have to delete this too lol
+    // if (localStorage.getObj("circles") === null) {
+    //     initCircles();
+    // } else {
+    //     circles = localStorage.getObj("circles");
+    // }
 
-    // initCircles();
+    initCircles();
+
     //Create the initial circles
     function initCircles() {
-        for (let i = 0; i < 6; i++) {
-            let circle = new PIXI.Sprite(white);
-            circle.interactive = true;
-            circle.buttonMode = true;
-            circle.anchor.set(0.5);
-            circle.scale.set(.75, .75);
-            circle.x = (app.screen.width / 2) - ((i % 3) * 150) + 150;
-            circle.y = (app.screen.height / 2) - (Math.floor(i / 3) * 150);
-            circle.on('pointerdown', changeColor);
+        // for (let i = 0; i < 6; i++) {
+        //     let circle = new PIXI.Sprite(white);
+        //     circle.interactive = true;
+        //     circle.buttonMode = true;
+        //     circle.anchor.set(0.5);
+        //     circle.scale.set(.75, .75);
+        //     circle.x = (app.screen.width / 2) - ((i % 3) * 150) + 150;
+        //     circle.y = (app.screen.height / 2) - (Math.floor(i / 3) * 150);
+        //     circle.on('pointerdown', changeColor);
 
-            circles.push(circle);
-        }
+        //     circles.push(circle);
+        // }
+        plot1 = new PIXI.Sprite(white);
+        createPlot(plot1, (app.screen.width / 2) - 200, (app.screen.height / 2) - 85);
+        plots.push(plot1);
+
+        plot2 = new PIXI.Sprite(white);
+        createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2) - 85);
+        plots.push(plot2);
+
+        plot3 = new PIXI.Sprite(white);
+        createPlot(plot3, (app.screen.width / 2) + 200, (app.screen.height / 2) - 85);
+        plots.push(plot3);
+
+        plot4 = new PIXI.Sprite(white);
+        createPlot(plot4, (app.screen.width / 2) - 200, (app.screen.height / 2) + 85);
+        plots.push(plot4);
+
+        plot5 = new PIXI.Sprite(white);
+        createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2) + 85);
+        plots.push(plot5);
+
+        plot6 = new PIXI.Sprite(white);
+        createPlot(plot6, (app.screen.width / 2) + 200, (app.screen.height / 2) + 85);
+        plots.push(plot6);
+
     }
 
-    circles.forEach(circle => {
-        container.addChild(circle);
+    function createPlot(plot, x, y) {
+        plot.interactive = true;
+        plot.buttonMode = true;
+        plot.anchor.set(0.5);
+        plot.scale.set(0.95, 0.95);
+        plot.x = x;
+        plot.y = y;
+        plot.on('pointerdown', changeColor);
+    }
+
+    plots.forEach(plot => {
+        container.addChild(plot);
     })
 
 
@@ -118,12 +169,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Place positioning in here to keep items positioned regardless of window size
     function animate() {
-        // test.x = app.screen.width / 2;
-        // test.y = app.screen.height / 2;
-        for (let i = 0; i < 6; i++) {
-            circles[i].x = (app.screen.width / 2) - ((i % 3) * 150) + 150;
-            circles[i].y = (app.screen.height / 2) - (Math.floor(i / 3) * 150);
-        }
+
+        planterBox.x = app.screen.width / 2;
+        planterBox.y = app.screen.height / 2;
+
+        //Plant plots
+        plot1.x = (app.screen.width / 2) - 200;
+        plot1.y = (app.screen.height / 2) - 85;
+
+        plot2.x = (app.screen.width / 2);
+        plot2.y = (app.screen.height / 2) - 85;
+
+        plot3.x = (app.screen.width / 2) + 200;
+        plot3.y = (app.screen.height / 2) - 85;
+
+        plot4.x = (app.screen.width / 2) - 200;
+        plot4.y = (app.screen.height / 2) + 85;
+
+        plot5.x = (app.screen.width / 2);
+        plot5.y = (app.screen.height / 2) + 85;
+
+        plot6.x = (app.screen.width / 2) + 200;
+        plot6.y = (app.screen.height / 2) + 85;
+
+
+        // for (let i = 0; i < 6; i++) {
+        //     circles[i].x = (app.screen.width / 2) - ((i % 3) * 150) + 150;
+        //     circles[i].y = (app.screen.height / 2) - (Math.floor(i / 3) * 150);
+        // }
 
         // localStorage.setObj("circles", circles);
 
