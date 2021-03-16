@@ -43,14 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**************************************/
 
-    //Might have to delete this idk
-    // Storage.prototype.setObj = function (key, obj) {
-    //     return this.setItem(key, JSON.stringify(obj))
-    // }
-    // Storage.prototype.getObj = function (key) {
-    //     return JSON.parse(this.getItem(key))
-    // }
-
+    //Initializes the planter box
     let planterBox = new PIXI.Sprite.from('assets/images/test/planterbox.png');
     planterBox.anchor.set(0.5);
     planterBox.scale.set(.75, .75);
@@ -58,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     planterBox.y = app.screen.height / 2;
     container.addChild(planterBox);
 
+    //six hardcoded plots
     let plot1;
     let plot2;
     let plot3;
@@ -65,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let plot5;
     let plot6;
 
-    let plots = {}; //Holds the white placeholder spots
+    let plots = {}; //Holds the placeholder spots
     let colors = {}; //holds the color textures
     //Holds all of the plants and current textures
     let plants = {
@@ -77,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "plot6": "white",
     };
 
+    //All of the colors
     let white = PIXI.Texture.from('assets/images/test/white.png');
     colors["white"] = white;
     let blue = PIXI.Texture.from('assets/images/test/blue.png');
@@ -92,16 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
     colors["yellow"] = yellow;
 
-    //Might have to delete this too lol
-    // if (localStorage.getObj("circles") === null) {
-    //     initCircles();
-    // } else {
-    //     circles = localStorage.getObj("circles");
-    // }
-
     initCircles();
 
-    //Create the initial circles
+    //Creates the initial circles
+    //Adds them to plot object
     function initCircles() {
 
         plot1 = new PIXI.Sprite(white);
@@ -130,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
+    //Adds the repeated properties
     function createPlot(plot, x, y) {
         plot.interactive = true;
         plot.buttonMode = true;
@@ -147,16 +137,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //Changes the circles to the locally stored color
     if (localStorage.getItem("plantData") !== null) {
         plants = JSON.parse(localStorage.getItem("plantData"));
-        let plantsArr = Object.entries(plants);
-        console.log(plantsArr);
+        let plantsArr = Object.entries(plants); //converts parsed JSON object to array
+        //console.log(plantsArr);
         for (let i = 0; i < plantsArr.length; i++) {
             plots[plantsArr[i][0]].texture = colors[plantsArr[i][1]];
         }
     };
-
-    /**** Reference of manually setting the texture of a specific plot****/
-    //plots["plot5"].texture = blue;
-    /************/
 
     //Handles changing the circle color
     function changeColor() {
@@ -164,8 +150,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let colorKey = Object.keys(colors)[rand()]; //gets a random key
         this.texture = colors[colorKey]; //changes the color of the selected plot
 
-        plants[selected] = colorKey;
-        console.log(plants);
+        plants[selected] = colorKey; //Updates the selected plot's color value in plants object
+        //console.log(plants);
     }
 
     //Generates a random number based on number of textures
@@ -208,13 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
         plot6.x = (app.screen.width / 2) + 200;
         plot6.y = (app.screen.height / 2) + 85;
 
-
-        // for (let i = 0; i < 6; i++) {
-        //     circles[i].x = (app.screen.width / 2) - ((i % 3) * 150) + 150;
-        //     circles[i].y = (app.screen.height / 2) - (Math.floor(i / 3) * 150);
-        // }
-
-        localStorage.setItem('plantData', JSON.stringify(plants));
+        localStorage.setItem('plantData', JSON.stringify(plants)); //sends plants object to local storage
 
         app.render(container);
     }
