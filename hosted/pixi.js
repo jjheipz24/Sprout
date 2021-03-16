@@ -29,6 +29,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const container = new PIXI.Container(); //main container
 
+    /***** WE WILL EVENTUALLY NEED THIS FOR THE BACKGROUND *****/
+
+    // let backgroundImg = PIXI.Texture.from('assets/images/test/planter-background.png');
+    // let background = new PIXI.Sprite(backgroundImg);
+    // background.anchor.x = 0;
+    // background.anchor.y = 0;
+    // background.position.x = 0;
+    // background.position.y = 0;
+    // background.width = window.innerWidth;
+    // background.height = window.innerHeight;
+    //container.addChild(background);
+
+    /**************************************/
+
     //Might have to delete this idk
     // Storage.prototype.setObj = function (key, obj) {
     //     return this.setItem(key, JSON.stringify(obj))
@@ -51,11 +65,20 @@ document.addEventListener('DOMContentLoaded', function () {
     let plot5;
     let plot6;
 
-    let plots = []; //Holds the white placeholder spots
+    let plots = {}; //Holds the white placeholder spots
     let colors = {}; //holds the color textures
+    //Holds all of the plants and current textures
+    let plants = {
+        "plot1": "white",
+        "plot2": "white",
+        "plot3": "white",
+        "plot4": "white",
+        "plot5": "white",
+        "plot6": "white",
+    };
 
     let white = PIXI.Texture.from('assets/images/test/white.png');
-
+    colors["white"] = white;
     let blue = PIXI.Texture.from('assets/images/test/blue.png');
     colors["blue"] = blue;
     let orange = PIXI.Texture.from('assets/images/test/orange.png');
@@ -80,41 +103,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Create the initial circles
     function initCircles() {
-        // for (let i = 0; i < 6; i++) {
-        //     let circle = new PIXI.Sprite(white);
-        //     circle.interactive = true;
-        //     circle.buttonMode = true;
-        //     circle.anchor.set(0.5);
-        //     circle.scale.set(.75, .75);
-        //     circle.x = (app.screen.width / 2) - ((i % 3) * 150) + 150;
-        //     circle.y = (app.screen.height / 2) - (Math.floor(i / 3) * 150);
-        //     circle.on('pointerdown', changeColor);
 
-        //     circles.push(circle);
-        // }
         plot1 = new PIXI.Sprite(white);
         createPlot(plot1, (app.screen.width / 2) - 200, (app.screen.height / 2) - 85);
-        plots.push(plot1);
+        plots["plot1"] = plot1;
 
         plot2 = new PIXI.Sprite(white);
         createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2) - 85);
-        plots.push(plot2);
+        plots["plot2"] = plot2;
 
         plot3 = new PIXI.Sprite(white);
         createPlot(plot3, (app.screen.width / 2) + 200, (app.screen.height / 2) - 85);
-        plots.push(plot3);
+        plots["plot3"] = plot3;
 
         plot4 = new PIXI.Sprite(white);
         createPlot(plot4, (app.screen.width / 2) - 200, (app.screen.height / 2) + 85);
-        plots.push(plot4);
+        plots["plot4"] = plot4;
 
         plot5 = new PIXI.Sprite(white);
         createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2) + 85);
-        plots.push(plot5);
+        plots["plot5"] = plot5;
 
         plot6 = new PIXI.Sprite(white);
         createPlot(plot6, (app.screen.width / 2) + 200, (app.screen.height / 2) + 85);
-        plots.push(plot6);
+        plots["plot6"] = plot6;
 
     }
 
@@ -128,37 +140,38 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.on('pointerdown', changeColor);
     }
 
-    plots.forEach(plot => {
+    Object.values(plots).forEach(plot => {
         container.addChild(plot);
     })
 
+    //Changes the circles to the locally stored color
+    if (localStorage.getItem("plantData") !== null) {
+        plants = JSON.parse(localStorage.getItem("plantData"));
+        let plantsArr = Object.entries(plants);
+        console.log(plantsArr);
+        for (let i = 0; i < plantsArr.length; i++) {
+            plots[plantsArr[i][0]].texture = colors[plantsArr[i][1]];
+        }
+    };
+
+    /**** Reference of manually setting the texture of a specific plot****/
+    //plots["plot5"].texture = blue;
+    /************/
 
     //Handles changing the circle color
     function changeColor() {
-        console.log(this.x);
-        let key = Object.keys(colors)[rand()];
-        this.texture = colors[key];
+        let selected = Object.keys(plots)[Object.values(plots).indexOf(this)]; //Grabs the key of the selected plant plot
+        let colorKey = Object.keys(colors)[rand()]; //gets a random key
+        this.texture = colors[colorKey]; //changes the color of the selected plot
+
+        plants[selected] = colorKey;
+        console.log(plants);
     }
 
     //Generates a random number based on number of textures
     function rand() {
         return Math.floor(Math.random() * Math.floor(Object.keys(colors).length));
     }
-
-    // let test = new PIXI.Sprite(blue);
-    // let test2 = new PIXI.Sprite(orange);
-    // test.anchor.set(0.5);
-    // test.scale.set(.75, .75);
-    // test2.anchor.set(0.5);
-    // test2.scale.set(.75, .75);
-
-    // colors.push(test2);
-
-    // colors[0].x = 500;
-    // colors[0].y = 300;
-
-    // container.addChild(test);
-    // container.addChild(colors[0]);
 
 
     /*********** Animation **********/
@@ -169,6 +182,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Place positioning in here to keep items positioned regardless of window size
     function animate() {
+
+        // background.width = window.innerWidth;
+        // background.height = window.innerHeight;
 
         planterBox.x = app.screen.width / 2;
         planterBox.y = app.screen.height / 2;
@@ -198,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //     circles[i].y = (app.screen.height / 2) - (Math.floor(i / 3) * 150);
         // }
 
-        // localStorage.setObj("circles", circles);
+        localStorage.setItem('plantData', JSON.stringify(plants));
 
         app.render(container);
     }

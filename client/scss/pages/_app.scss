@@ -8,6 +8,11 @@
 body {
     background-color: $dark-green !important;
 }
+// #mainApp {
+//     background-image: url('/assets/images/test/planter-background.png');
+//     background-repeat: no-repeat;
+//     background-size: contain;
+// }
 
 input {
     color: $dark-green;
@@ -37,6 +42,6 @@ p {
 //     width: 100%;
 // }
 
-#pixiCanvas{
+#pixiCanvas {
     max-width: 100%;
 }
