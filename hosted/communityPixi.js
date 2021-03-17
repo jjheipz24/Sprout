@@ -1,3 +1,5 @@
+// let addWheelListener = require('./lib/addWheelListener');
+
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
     let popup = document.getElementById("message");
@@ -27,6 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
         app.resize(w, h);
     }
 
+    function zoom(garden, x, y, isZoomIn) {
+        direction = isZoomIn ? 1 : -1;
+        let factor = (1 + direction * 0.1);
+        garden.scale.x *= factor;
+        garden.scale.y *= factor;
+    }
+
     // Scale mode for all textures, will retain pixelation
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
@@ -46,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**************************************/
     // Global Variables
+
+    let planterBox;
 
     //six hardcoded plots
     let plot1;
@@ -92,72 +103,77 @@ document.addEventListener('DOMContentLoaded', function () {
     let bol = false;
 
     const gardenUnhovered = PIXI.Texture.from('assets/images/smallGarden.png');
-    const gardenHovered = PIXI.Texture.from('assets/images/smallGardenHover.png')
+    const gardenHovered = PIXI.Texture.from('assets/images/smallGardenHover.png');
 
-    for (let i = 0; i < communityGardenArray.length; i++) {
-        communityGardenArray[i] = new PIXI.Sprite(gardenUnhovered);
-        // let frames = ["assets/images/smallGarden.png", "assets/images/smallGardenHover"]
-        // communityGardenArray[i] = new PIXI.animate.MovieClip.prototype.fromFrames(frames);
-        communityGardenArray[i].interactive = true;
-        communityGardenArray[i].buttonMode = true;
+    createCommunityGarden();
 
-        communityGardenArray[i].anchor.set(0.5);
-        communityGardenArray[i].scale.set(.85, .85);
-
-        if(i % 2) {
-            communityGardenArray[i].x = 150;
-        } else {
-            communityGardenArray[i].x = 600;
-        }
-
-        if(i < 2) {
-            communityGardenArray[i].y = 150;
-        } else {
-            communityGardenArray[i].y = 500;
-        }
-
-        // communityGardenArray[i].mouseout = function(mouseData) {
-        //     // communityGardenArray[i].gotoAndStop(0);
-        //     communityGardenArray[i].aplha = 1;
-        // }
-        
-        container.addChild(communityGardenArray[i]);
-
-        communityGardenArray[i].on('pointerover', () => {
-            bol = !bol;
-            if (bol) {
-                communityGardenArray[i].texture = gardenHovered;
+    function createCommunityGarden() {
+        for (let i = 0; i < communityGardenArray.length; i++) {
+            communityGardenArray[i] = new PIXI.Sprite(gardenUnhovered);
+            // let frames = ["assets/images/smallGarden.png", "assets/images/smallGardenHover"]
+            // communityGardenArray[i] = new PIXI.animate.MovieClip.prototype.fromFrames(frames);
+            communityGardenArray[i].interactive = true;
+            communityGardenArray[i].buttonMode = true;
+    
+            communityGardenArray[i].anchor.set(0.5);
+            communityGardenArray[i].scale.set(.85, .85);
+    
+            if(i % 2) {
+                communityGardenArray[i].x = 150;
             } else {
-                communityGardenArray[i].texture = gardenUnhovered;
+                communityGardenArray[i].x = 600;
             }
-            console.log("mouse hover");
-            // communityGardenArray[i].aplha = .5;
-            // communityGardenArray[i].gotoAndStop(1);
-        });
-
-        communityGardenArray[i].on('pointerdown', () => {
-            console.log("app");
-            for (let j = 0; j < communityGardenArray.length; j++) {
-                console.log(j);
-                communityGardenArray[j].destroy();
-                personalGarden.destroy();
+    
+            if(i < 2) {
+                communityGardenArray[i].y = 150;
+            } else {
+                communityGardenArray[i].y = 500;
+            }
+    
+            // communityGardenArray[i].mouseout = function(mouseData) {
+            //     // communityGardenArray[i].gotoAndStop(0);
+            //     communityGardenArray[i].aplha = 1;
+            // }
+            
+            container.addChild(communityGardenArray[i]);
+    
+            communityGardenArray[i].on('pointerover', () => {
+                bol = !bol;
+                if (bol) {
+                    communityGardenArray[i].texture = gardenHovered;
+                } else {
+                    communityGardenArray[i].texture = gardenUnhovered;
+                }
+                console.log("mouse hover");
+                // communityGardenArray[i].aplha = .5;
+                // communityGardenArray[i].gotoAndStop(1);
+            });
+    
+            communityGardenArray[i].on('pointerdown', () => {
+                console.log("app");
+                for (let j = 0; j < communityGardenArray.length; j++) {
+                    console.log(j);
+                    communityGardenArray[j].destroy();
+                    // zoom(communityGardenArray[j], communityGardenArray[j].x, 
+                    //     communityGardenArray[j].y, 100);
+                }
                 createPersonalGarden();
-            }
-        });
+            });
+        }
     }
 
-    let personalGarden = new PIXI.Sprite.from('assets/images/smallGarden.png');
-    personalGarden.anchor.set(0.5);
-    personalGarden.scale.set(.85, .85);
-    personalGarden.x = app.screen.width / 2;
-    personalGarden.y = app.screen.height / 2;
-    container.addChild(personalGarden);
+    // let personalGarden = new PIXI.Sprite.from('assets/images/smallGarden.png');
+    // personalGarden.anchor.set(0.5);
+    // personalGarden.scale.set(.85, .85);
+    // personalGarden.x = app.screen.width / 2;
+    // personalGarden.y = app.screen.height / 2;
+    // container.addChild(personalGarden);
 
 
     // Creates Personal Garden view
     function createPersonalGarden() {
         //Initializes the planter box
-        let planterBox = new PIXI.Sprite.from('assets/images/test/planterbox.png');
+        planterBox = new PIXI.Sprite.from('assets/images/test/planterbox.png');
         planterBox.anchor.set(0.5);
         planterBox.scale.set(.75, .75);
         planterBox.x = app.screen.width / 2;
@@ -179,6 +195,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 plots[plantsArr[i][0]].texture = colors[plantsArr[i][1]];
             }
         };
+
+        createSignNav();
+    }
+
+    function createSignNav() {
+        //community button
+        let communityButton = new PIXI.Sprite.from('assets/images/communityButton.png');
+        communityButton.anchor.set(0.5);
+        communityButton.scale.set(.75, .75);
+        communityButton.x = app.screen.width - 100;
+        communityButton.y = app.screen.height / 4;
+
+        communityButton.interactive = true;
+
+        communityButton.on('pointerdown', () => {
+            planterBox.destroy();
+            createCommunityGarden();
+            destroyCircles();
+            // communityButton.destroy();
+        });
+
+        container.addChild(communityButton);
     }
 
     //Creates the initial circles
@@ -208,7 +246,15 @@ document.addEventListener('DOMContentLoaded', function () {
         plot6 = new PIXI.Sprite(white);
         createPlot(plot6, (app.screen.width / 2) + 200, (app.screen.height / 2) + 85);
         plots["plot6"] = plot6;
+    }
 
+    function destroyCircles() {
+        plot1.destroy();
+        plot2.destroy();
+        plot3.destroy();
+        plot4.destroy();
+        plot5.destroy();
+        plot6.destroy();
     }
 
     //Adds the repeated properties
