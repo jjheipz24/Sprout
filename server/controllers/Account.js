@@ -71,7 +71,7 @@ const signup = (request, response) => {
   const newAccount = new Account.AccountModel(accountData);
 
   const savePromise = newAccount.save();
-  console.log(accountData.username);
+
   savePromise.then(() => {
     req.session.account = Account.AccountModel.toAPI(newAccount);
     return res.status(201).json({
@@ -108,6 +108,103 @@ const getUserName = (request, response) => {
 
 };
 
+const newPlant = async (request, response) => {
+  const req = request;
+  const res = response;
+
+  const plantData = {
+    plantType: req.body.plantType,
+    location: req.body.location,
+    prompt: req.body.prompt,
+  };
+
+  const plant = {
+    plantData,
+    growthStage: 0,
+    messages: [],
+    allowedUsers: [],
+  }
+
+  const user = await Account.AccountModel.findOne({ username: req.session.account.username });
+
+  const savePromise =  user.update({ $push : { plants : plant } });
+  savePromise.then(() => {
+    return res.status(201).json( /*{
+      redirect: '/',
+    }*/);
+  });
+  savePromise.catch((err) => {
+    return res.status(400).json({
+      error: 'An error occured',
+    });
+  });
+}
+
+const addMessage = async (request, response) => {
+  const req = request;
+  const res = response;
+
+  const user = await Account.AccountModel.findOne({ username: req.session.account.username });
+  user.plants.find(plant => plant.location === req.body.location).messages.push(req.body.messages);
+  /* if(messages >= insert number we want growth at here) user.plants.find(plant => plant.location === req.body.location).growthStage += 1 */
+
+  const savePromise =  user.update();
+  savePromise.then(() => {
+    return res.status(201).json( /*{
+      redirect: '/',
+    }*/);
+  });
+  savePromise.catch((err) => {
+    return res.status(400).json({
+      error: 'An error occured',
+    });
+  });
+}
+
+const getPlants = (request, response) => {
+  const req = request;
+  const res = response;
+
+  if (req.session.account) {
+    return res.json({
+      plants: req.session.account.plants
+    });
+  }
+
+  return res.json({
+    plants: 'User not found'
+  });
+}
+
+const loadRandomGardens = (request, response) => {
+  const req = request;
+  const res = response;
+
+  return Account.AccountModel.findRandomGardens(req.session.account.username, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'An error occured in retrieving random gardens' });
+    }
+
+    return res.json({ randomGardens: docs});
+  });
+}
+
+const loadAllGardens = (request, response) => {
+  const req = request;
+  const res = response;
+
+  return Account.AccountModel.findAllGardens(req.session.account.username, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'An error occured in retrieving all gardens' });
+    }
+
+    return res.json({ allGardens: docs});
+  });
+
+}
+
 //gets csrf token for encryption
 const getToken = (request, response) => {
   const req = request;
@@ -129,4 +226,10 @@ module.exports.logout = logout;
 module.exports.homePage = homePage;
 
 module.exports.getUserName = getUserName;
+module.exports.getPlants = getPlants;
 module.exports.getToken = getToken;
+
+module.exports.loadRandomGardens = loadRandomGardens;
+module.exports.loadAllGardens = loadAllGardens;
+module.exports.newPlant = newPlant;
+module.exports.addMessage = addMessage;

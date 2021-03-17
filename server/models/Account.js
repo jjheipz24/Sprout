@@ -7,10 +7,11 @@ let AccountModel = {};
 
 const PlantSchema = new mongoose.Schema({
   plantType: { type: String },
-  growthStage: { type: Number },
+  growthStage: { type: Number, default: 0 },
+  location: { type: String },
   prompt: { type: String },
-  messages: { type: Array },
-  allowedUsers: { type: Array },
+  messages: { type: Array, default: [] },
+  allowedUsers: { type: Array, default: [] },
 });
 
 // Schema to define user accounts 
@@ -57,6 +58,17 @@ AccountModel.findByUsername(username, (err, doc) => {
 
   return callback(null, doc);
 });
+
+AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
+  .select('username plants')
+  .limit(3)
+  .toArray()
+  .exec(callback);
+
+AccountSchema.statics.findAllGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
+  .select('username plants')
+  .toArray()
+  .exec(callback);
 
 AccountModel = mongoose.model('Account', AccountSchema);
 
