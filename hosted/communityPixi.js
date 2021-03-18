@@ -7,8 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // const renderer = new PIXI.CanvasRenderer();
     // renderer.render(new PIXI.Container());
 
+
     let w = window.innerWidth;
     let h = window.innerHeight;
+    let xScale = d3.scaleLinear()
+        .domain([0, .85])
+        .range([0, 1]);
+    let yScale = d3.scaleLinear()
+        .domain([0, 1])
+        .range([1, 0])
+        
     // Creates pixi app
     // const app = new PIXI.Application({
     const app = new PIXI.Renderer({
@@ -29,17 +37,25 @@ document.addEventListener('DOMContentLoaded', function () {
         app.resize(w, h);
     }
 
-    function zoom(garden, x, y, isZoomIn) {
-        direction = isZoomIn ? 1 : -1;
-        let factor = (1 + direction * 0.1);
-        garden.scale.x *= factor;
-        garden.scale.y *= factor;
-    }
+    // function zoom(garden, x, y, isZoomIn) {
+    //     direction = isZoomIn ? 1 : -1;
+    //     let factor = (1 + direction * 0.1);
+    //     garden.scale.x *= factor;
+    //     garden.scale.y *= factor;
+    // }
 
     // Scale mode for all textures, will retain pixelation
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
     const container = new PIXI.Container(); //main container
+    const commContainer = new PIXI.Container();
+    let pixiCanvas = d3.select('#pixiCanvas');
+
+    let zoom = d3.zoom()
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);
+
+    pixiCanvas.call(zoom);
 
     /***** WE WILL EVENTUALLY NEED THIS FOR THE BACKGROUND *****/
 
@@ -109,6 +125,9 @@ document.addEventListener('DOMContentLoaded', function () {
     createCommunityGarden();
 
     function createCommunityGarden() {
+        commContainer.x = 0;
+        commContainer.y = 0;
+        container.addChild(commContainer);
 
         for (let i = 0; i < communityGardenArray.length; i++) {
             communityGardenArray[i] = new PIXI.Sprite(gardenUnhovered);
@@ -137,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //     communityGardenArray[i].aplha = 1;
             // }
 
-            container.addChild(communityGardenArray[i]);
+            commContainer.addChild(communityGardenArray[i]);
 
             communityGardenArray[i].on('pointerover', () => {
                 communityGardenArray[i].texture = gardenHovered;
@@ -151,15 +170,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 // communityGardenArray[i].gotoAndStop(1);
             });
             communityGardenArray[i].on('pointerdown', () => {
-                console.log("app");
+                //console.log("app");
                 for (let j = 0; j < communityGardenArray.length; j++) {
-                    console.log(j);
+                    //console.log(j);
                     communityGardenArray[j].destroy();
                     // zoom(communityGardenArray[j], communityGardenArray[j].x, 
                     //     communityGardenArray[j].y, 100);
                 }
                 createPersonalGarden();
             });
+        }
+    }
+
+    function zoomed(){
+        var new_xScale = d3.event.transform.rescaleX(xScale);
+        var new_yScale = d3.event.transform.rescaleY(yScale);
+
+        for (let i = 0; i < communityGardenArray.length; i++) {
+            communityGardenArray[i].scale.set(new_xScale(.85), new_yScale(.85))
         }
     }
 
@@ -328,11 +356,14 @@ document.addEventListener('DOMContentLoaded', function () {
             plot6.y = (app.screen.height / 2) + 85;
 
             localStorage.setItem('plantData', JSON.stringify(plants)); //sends plants object to local storage
-            
+
             communityButton.x = app.screen.width - 200;
             communityButton.y = app.screen.height / 4;
-        
+
         }
+
+        commContainer.x = 0;
+        commContainer.y = 0;
 
 
         app.render(container);
