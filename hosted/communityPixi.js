@@ -78,77 +78,78 @@ document.addEventListener('DOMContentLoaded', function () {
         "plot6": "white",
     };
 
-        //All of the colors
-        let white = PIXI.Texture.from('assets/images/test/white.png');
-        colors["white"] = white;
-        let blue = PIXI.Texture.from('assets/images/test/blue.png');
-        colors["blue"] = blue;
-        let orange = PIXI.Texture.from('assets/images/test/orange.png');
-        colors["orange"] = orange;
-        let green = PIXI.Texture.from('assets/images/test/green.png');
-        colors["green"] = green;
-        let pink = PIXI.Texture.from('assets/images/test/pink.png');
-        colors["pink"] = pink;
-        let purple = PIXI.Texture.from('assets/images/test/purple.png');
-        colors["purple"] = purple;
-        let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
-        colors["yellow"] = yellow;
+    //All of the colors
+    let white = PIXI.Texture.from('assets/images/test/white.png');
+    colors["white"] = white;
+    let blue = PIXI.Texture.from('assets/images/test/blue.png');
+    colors["blue"] = blue;
+    let orange = PIXI.Texture.from('assets/images/test/orange.png');
+    colors["orange"] = orange;
+    let green = PIXI.Texture.from('assets/images/test/green.png');
+    colors["green"] = green;
+    let pink = PIXI.Texture.from('assets/images/test/pink.png');
+    colors["pink"] = pink;
+    let purple = PIXI.Texture.from('assets/images/test/purple.png');
+    colors["purple"] = purple;
+    let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
+    colors["yellow"] = yellow;
 
-        /**************************************/
-    //Initializes the planter box
+    /**************************************/
+
     let garden1, garden2, garden3, garden4;
 
     let communityGardenArray = [garden1, garden2, garden3, garden4];
-    
-    let bol = false;
 
     const gardenUnhovered = PIXI.Texture.from('assets/images/smallGarden.png');
     const gardenHovered = PIXI.Texture.from('assets/images/smallGardenHover.png');
 
+    let communityButton;
+    let personal = false;
+
     createCommunityGarden();
 
     function createCommunityGarden() {
+
         for (let i = 0; i < communityGardenArray.length; i++) {
             communityGardenArray[i] = new PIXI.Sprite(gardenUnhovered);
             // let frames = ["assets/images/smallGarden.png", "assets/images/smallGardenHover"]
             // communityGardenArray[i] = new PIXI.animate.MovieClip.prototype.fromFrames(frames);
             communityGardenArray[i].interactive = true;
             communityGardenArray[i].buttonMode = true;
-    
+
             communityGardenArray[i].anchor.set(0.5);
             communityGardenArray[i].scale.set(.85, .85);
-    
-            if(i % 2) {
+
+            if (i % 2) {
                 communityGardenArray[i].x = 150;
             } else {
                 communityGardenArray[i].x = 600;
             }
-    
-            if(i < 2) {
+
+            if (i < 2) {
                 communityGardenArray[i].y = 150;
             } else {
                 communityGardenArray[i].y = 500;
             }
-    
+
             // communityGardenArray[i].mouseout = function(mouseData) {
             //     // communityGardenArray[i].gotoAndStop(0);
             //     communityGardenArray[i].aplha = 1;
             // }
-            
+
             container.addChild(communityGardenArray[i]);
-    
+
             communityGardenArray[i].on('pointerover', () => {
-                bol = !bol;
-                if (bol) {
-                    communityGardenArray[i].texture = gardenHovered;
-                } else {
-                    communityGardenArray[i].texture = gardenUnhovered;
-                }
-                console.log("mouse hover");
+                communityGardenArray[i].texture = gardenHovered;
                 // communityGardenArray[i].aplha = .5;
                 // communityGardenArray[i].gotoAndStop(1);
             });
-    
+
+            communityGardenArray[i].on('pointerout', () => {
+                communityGardenArray[i].texture = gardenUnhovered;
+                // communityGardenArray[i].aplha = .5;
+                // communityGardenArray[i].gotoAndStop(1);
+            });
             communityGardenArray[i].on('pointerdown', () => {
                 console.log("app");
                 for (let j = 0; j < communityGardenArray.length; j++) {
@@ -185,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Object.values(plots).forEach(plot => {
             container.addChild(plot);
         })
-    
+
         //Changes the circles to the locally stored color
         if (localStorage.getItem("plantData") !== null) {
             plants = JSON.parse(localStorage.getItem("plantData"));
@@ -196,24 +197,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
 
+        personal = true;
+
         createSignNav();
     }
 
     function createSignNav() {
         //community button
-        let communityButton = new PIXI.Sprite.from('assets/images/communityButton.png');
+        communityButton = new PIXI.Sprite.from('assets/images/communityButton.png');
         communityButton.anchor.set(0.5);
         communityButton.scale.set(.75, .75);
-        communityButton.x = app.screen.width - 100;
+        communityButton.x = app.screen.width - 200;
         communityButton.y = app.screen.height / 4;
 
         communityButton.interactive = true;
+        communityButton.buttonMode = true;
 
         communityButton.on('pointerdown', () => {
             planterBox.destroy();
             createCommunityGarden();
             destroyCircles();
-            // communityButton.destroy();
+            personal = false;
+            container.removeChild(this);
+            communityButton.destroy();
         });
 
         container.addChild(communityButton);
@@ -284,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    
+
 
     /*********** Animation **********/
     //Starts animation -- runs every few intervals
@@ -298,29 +304,36 @@ document.addEventListener('DOMContentLoaded', function () {
         // background.width = window.innerWidth;
         // background.height = window.innerHeight;
 
-        // planterBox.x = app.screen.width / 2;
-        // planterBox.y = app.screen.height / 2;
+        if (personal) {
+            planterBox.x = app.screen.width / 2;
+            planterBox.y = app.screen.height / 2;
 
-        //Plant plots
-        // plot1.x = (app.screen.width / 2) - 200;
-        // plot1.y = (app.screen.height / 2) - 85;
+            //Plant plots
+            plot1.x = (app.screen.width / 2) - 200;
+            plot1.y = (app.screen.height / 2) - 85;
 
-        // plot2.x = (app.screen.width / 2);
-        // plot2.y = (app.screen.height / 2) - 85;
+            plot2.x = (app.screen.width / 2);
+            plot2.y = (app.screen.height / 2) - 85;
 
-        // plot3.x = (app.screen.width / 2) + 200;
-        // plot3.y = (app.screen.height / 2) - 85;
+            plot3.x = (app.screen.width / 2) + 200;
+            plot3.y = (app.screen.height / 2) - 85;
 
-        // plot4.x = (app.screen.width / 2) - 200;
-        // plot4.y = (app.screen.height / 2) + 85;
+            plot4.x = (app.screen.width / 2) - 200;
+            plot4.y = (app.screen.height / 2) + 85;
 
-        // plot5.x = (app.screen.width / 2);
-        // plot5.y = (app.screen.height / 2) + 85;
+            plot5.x = (app.screen.width / 2);
+            plot5.y = (app.screen.height / 2) + 85;
 
-        // plot6.x = (app.screen.width / 2) + 200;
-        // plot6.y = (app.screen.height / 2) + 85;
+            plot6.x = (app.screen.width / 2) + 200;
+            plot6.y = (app.screen.height / 2) + 85;
 
-        // localStorage.setItem('plantData', JSON.stringify(plants)); //sends plants object to local storage
+            localStorage.setItem('plantData', JSON.stringify(plants)); //sends plants object to local storage
+            
+            communityButton.x = app.screen.width - 200;
+            communityButton.y = app.screen.height / 4;
+        
+        }
+
 
         app.render(container);
     }
