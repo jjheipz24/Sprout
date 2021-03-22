@@ -171,13 +171,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    //uncomment for wack panning
     const zoomed = event => {
-        // const offset = [event.transform.x, event.transform.y]
+        const offset = [event.transform.x, event.transform.y]
 
         const {k} = event.transform;
         container.scale.set(k, k);
-        // container.position.set(offset[0], offset[1]);
+        container.position.set(offset[0], offset[1]);
     }
 
     let zoom = d3.zoom()
@@ -190,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     pixiCanvas.call(zoom)
         .call(zoom.transform, d3.zoomIdentity
-            .translate(w/2, h/2)
             .scale(1));
 
 
