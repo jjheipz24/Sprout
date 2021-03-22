@@ -186,8 +186,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // var new_xScale = d3.event.transform.rescaleX(xScale);
         // var new_yScale = d3.event.transform.rescaleY(yScale);
 
+        const {k} = d3.event.transform;
+
         for (let i = 0; i < communityGardenArray.length; i++) {
-            communityGardenArray[i].scale.set(new_xScale(.85), new_yScale(.85))
+            communityGardenArray[i].scale.set(k, k);
         }
     }
 
