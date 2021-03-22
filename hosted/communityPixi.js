@@ -183,8 +183,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function zoomed(){
-        var new_xScale = d3.event.transform.rescaleX(xScale);
-        var new_yScale = d3.event.transform.rescaleY(yScale);
+        // var new_xScale = d3.event.transform.rescaleX(xScale);
+        // var new_yScale = d3.event.transform.rescaleY(yScale);
 
         for (let i = 0; i < communityGardenArray.length; i++) {
             communityGardenArray[i].scale.set(new_xScale(.85), new_yScale(.85))
