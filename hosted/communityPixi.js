@@ -10,12 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let w = window.innerWidth;
     let h = window.innerHeight;
-    let xScale = d3.scaleLinear()
-        .domain([0, .85])
-        .range([0, 1]);
-    let yScale = d3.scaleLinear()
-        .domain([0, 1])
-        .range([1, 0])
         
     // Creates pixi app
     // const app = new PIXI.Application({
@@ -51,11 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const commContainer = new PIXI.Container();
     let pixiCanvas = d3.select('#pixiCanvas');
 
-    let zoom = d3.zoom()
-    .scaleExtent([1, 8])
-    .on("zoom", zoomed);
-
-    pixiCanvas.call(zoom);
 
     /***** WE WILL EVENTUALLY NEED THIS FOR THE BACKGROUND *****/
 
@@ -182,16 +171,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function zoomed(){
-        // var new_xScale = d3.event.transform.rescaleX(xScale);
-        // var new_yScale = d3.event.transform.rescaleY(yScale);
+    //uncomment for wack panning
+    const zoomed = event => {
+        // const offset = [event.transform.x, event.transform.y]
 
-        const {k} = d3.event.transform;
-
-        for (let i = 0; i < communityGardenArray.length; i++) {
-            communityGardenArray[i].scale.set(k, k);
-        }
+        const {k} = event.transform;
+        container.scale.set(k, k);
+        // container.position.set(offset[0], offset[1]);
     }
+
+    let zoom = d3.zoom()
+        .scaleExtent([1, 2])
+        .translateExtent([
+            [0, 0],
+            [w, h]
+        ])
+        .on("zoom", event => zoomed(event));
+
+    pixiCanvas.call(zoom)
+        .call(zoom.transform, d3.zoomIdentity
+            .translate(w/2, h/2)
+            .scale(1));
+
 
     // let personalGarden = new PIXI.Sprite.from('assets/images/smallGarden.png');
     // personalGarden.anchor.set(0.5);
