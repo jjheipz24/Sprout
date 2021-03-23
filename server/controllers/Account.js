@@ -143,14 +143,15 @@ const newPlant = async (request, response) => {
 const addMessage = async (request, response) => {
   const req = request;
   const res = response;
+  const plant =  user.plants.find(plant => plant.location === req.body.location);
 
   const user = await Account.AccountModel.findOne({ username: req.session.account.username });
-  user.plants.find(plant => plant.location === req.body.location).messages.push(req.body.messages);
+  plant.messages.push(req.body.messages);
 
-  if(messages.length === 3) {
+  if(messages.length >= 3 && plant.growthStage === 0) {
     messages.forEach(message => {
       if(message.username !== req.session.account.username) {
-        user.plants.find(plant => plant.location === req.body.location).growthStage += 1
+        plant.growthStage += 1;
         break;
       }
     });
