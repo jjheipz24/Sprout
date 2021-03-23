@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let w = window.innerWidth;
     let h = window.innerHeight;
-        
+
     // Creates pixi app
     // const app = new PIXI.Application({
     const app = new PIXI.Renderer({
@@ -84,8 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     //All of the colors
-    let white = PIXI.Texture.from('assets/images/test/white.png');
-    colors["white"] = white;
+    let brown = PIXI.Texture.from('assets/images/test/brown.png');
+    colors["brown"] = brown;
     let blue = PIXI.Texture.from('assets/images/test/blue.png');
     colors["blue"] = blue;
     let orange = PIXI.Texture.from('assets/images/test/orange.png');
@@ -108,10 +108,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const gardenUnhovered = PIXI.Texture.from('assets/images/smallGarden.png');
     const gardenHovered = PIXI.Texture.from('assets/images/smallGardenHover.png');
 
-    let communityButton;
+    //Nav Sign
+    let pole, viewGarden, visitComm, about;
     let personal = false;
 
     createCommunityGarden();
+    createSignNav();
 
     function createCommunityGarden() {
         commContainer.x = 0;
@@ -159,12 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // communityGardenArray[i].gotoAndStop(1);
             });
             communityGardenArray[i].on('pointerdown', () => {
-                //console.log("app");
                 for (let j = 0; j < communityGardenArray.length; j++) {
-                    //console.log(j);
                     communityGardenArray[j].destroy();
-                    // zoom(communityGardenArray[j], communityGardenArray[j].x, 
-                    //     communityGardenArray[j].y, 100);
                 }
                 createPersonalGarden();
             });
@@ -174,7 +172,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const zoomed = event => {
         const offset = [event.transform.x, event.transform.y]
 
-        const {k} = event.transform;
+        const {
+            k
+        } = event.transform;
         container.scale.set(k, k);
         container.position.set(offset[0], offset[1]);
     }
@@ -191,19 +191,10 @@ document.addEventListener('DOMContentLoaded', function () {
         .call(zoom.transform, d3.zoomIdentity
             .scale(1));
 
-
-    // let personalGarden = new PIXI.Sprite.from('assets/images/smallGarden.png');
-    // personalGarden.anchor.set(0.5);
-    // personalGarden.scale.set(.85, .85);
-    // personalGarden.x = app.screen.width / 2;
-    // personalGarden.y = app.screen.height / 2;
-    // container.addChild(personalGarden);
-
-
     // Creates Personal Garden view
     function createPersonalGarden() {
         //Initializes the planter box
-        planterBox = new PIXI.Sprite.from('assets/images/test/planterbox.png');
+        planterBox = new PIXI.Sprite.from('assets/images/test/planter-angled.png');
         planterBox.anchor.set(0.5);
         planterBox.scale.set(.75, .75);
         planterBox.x = app.screen.width / 2;
@@ -228,58 +219,107 @@ document.addEventListener('DOMContentLoaded', function () {
 
         personal = true;
 
-        createSignNav();
+        //createSignNav();
     }
 
     function createSignNav() {
-        //community button
-        communityButton = new PIXI.Sprite.from('assets/images/communityButton.png');
-        communityButton.anchor.set(0.5);
-        communityButton.scale.set(.75, .75);
-        communityButton.x = app.screen.width - 200;
-        communityButton.y = app.screen.height / 4;
+        //pole
+        pole = new PIXI.Sprite.from('assets/images/navSign/Pole.png');
+        pole.anchor.set(0.5);
+        pole.scale.set(.75, .75);
+        pole.x = app.screen.width - 200;
+        pole.y = app.screen.height / 4;
 
-        communityButton.interactive = true;
-        communityButton.buttonMode = true;
+        //View Your Garden
+        viewGarden = new PIXI.Sprite.from('assets/images/navSign/view-your-garden.png');
+        viewGarden.anchor.set(0.5);
+        viewGarden.scale.set(.75, .75);
+        viewGarden.x = app.screen.width - 200;
+        viewGarden.y = (app.screen.height / 4) - 110;
+        viewGarden.interactive = true;
+        viewGarden.buttonMode = true;
+        viewGarden.on('pointerover', () => {
+            viewGarden.texture = PIXI.Texture.from('assets/images/navSign/view-your-garden-hover.png');
+        });
+        viewGarden.on('pointerout', () => {
+            viewGarden.texture = PIXI.Texture.from('assets/images/navSign/view-your-garden.png');
+        });
+        viewGarden.on('pointerdown', () => {
+            for (let j = 0; j < communityGardenArray.length; j++) {
+                communityGardenArray[j].destroy();
+            }
+            createPersonalGarden();
+        });
 
-        communityButton.on('pointerdown', () => {
+        //Visit the Community
+        visitComm = new PIXI.Sprite.from('assets/images/navSign/visit-community.png');
+        visitComm.anchor.set(0.5);
+        visitComm.scale.set(.75, .75);
+        visitComm.x = app.screen.width - 200;
+        visitComm.y = (app.screen.height / 4) - 45;
+        visitComm.interactive = true;
+        visitComm.buttonMode = true;
+        visitComm.on('pointerover', () => {
+            visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community-hover.png');
+        });
+        visitComm.on('pointerout', () => {
+            visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community.png');
+        });
+
+        visitComm.on('pointerdown', () => {
             planterBox.destroy();
             createCommunityGarden();
             destroyCircles();
             personal = false;
-            container.removeChild(this);
-            communityButton.destroy();
         });
 
-        container.addChild(communityButton);
+        //About Sprout
+        about = new PIXI.Sprite.from('assets/images/navSign/about-sprout.png');
+        about.anchor.set(0.5);
+        about.scale.set(.75, .75);
+        about.x = app.screen.width - 200;
+        about.y = (app.screen.height / 4) + 20;
+        about.interactive = true;
+        about.buttonMode = true;
+        about.on('pointerover', () => {
+            about.texture = PIXI.Texture.from('assets/images/navSign/about-sprout-hover.png');
+        });
+        about.on('pointerout', () => {
+            about.texture = PIXI.Texture.from('assets/images/navSign/about-sprout.png');
+        });
+
+        container.addChild(pole);
+        container.addChild(viewGarden);
+        container.addChild(visitComm);
+        container.addChild(about);
     }
 
     //Creates the initial circles
     //Adds them to plot object
     function initCircles() {
 
-        plot1 = new PIXI.Sprite(white);
-        createPlot(plot1, (app.screen.width / 2) - 200, (app.screen.height / 2) - 85);
+        plot1 = new PIXI.Sprite(brown);
+        createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot1"] = plot1;
 
-        plot2 = new PIXI.Sprite(white);
-        createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2) - 85);
+        plot2 = new PIXI.Sprite(brown);
+        createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot2"] = plot2;
 
-        plot3 = new PIXI.Sprite(white);
-        createPlot(plot3, (app.screen.width / 2) + 200, (app.screen.height / 2) - 85);
+        plot3 = new PIXI.Sprite(brown);
+        createPlot(plot3, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot3"] = plot3;
 
-        plot4 = new PIXI.Sprite(white);
-        createPlot(plot4, (app.screen.width / 2) - 200, (app.screen.height / 2) + 85);
+        plot4 = new PIXI.Sprite(brown);
+        createPlot(plot4, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot4"] = plot4;
 
-        plot5 = new PIXI.Sprite(white);
-        createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2) + 85);
+        plot5 = new PIXI.Sprite(brown);
+        createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot5"] = plot5;
 
-        plot6 = new PIXI.Sprite(white);
-        createPlot(plot6, (app.screen.width / 2) + 200, (app.screen.height / 2) + 85);
+        plot6 = new PIXI.Sprite(brown);
+        createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot6"] = plot6;
     }
 
@@ -297,10 +337,13 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.interactive = true;
         plot.buttonMode = true;
         plot.anchor.set(0.5);
-        plot.scale.set(0.95, 0.95);
+        plot.scale.set(0.70, 0.70);
         plot.x = x;
         plot.y = y;
-        plot.on('pointerdown', changeColor);
+        // plot.on('pointerdown', changeColor);
+        plot.on('pointerdown', function (e) {
+            addPlant(e, "aloe");
+        });
     }
 
     //Handles changing the circle color
@@ -318,6 +361,11 @@ document.addEventListener('DOMContentLoaded', function () {
         return Math.floor(Math.random() * Math.floor(Object.keys(colors).length));
     }
 
+    //Use for adding a plant to a plot
+    function addPlant(e, plantType) {
+        e.target.texture = plantCollection[plantType][0];
+    }
+
 
 
 
@@ -332,34 +380,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // background.width = window.innerWidth;
         // background.height = window.innerHeight;
+        pole.x = app.screen.width - 200;
+        pole.y = app.screen.height / 4;
+        viewGarden.x = app.screen.width - 200;
+        viewGarden.y = (app.screen.height / 4) - 110;
+        visitComm.x = app.screen.width - 200;
+        visitComm.y = (app.screen.height / 4) - 45;
+        about.x = app.screen.width - 200;
+        about.y = (app.screen.height / 4) + 20;
 
         if (personal) {
             planterBox.x = app.screen.width / 2;
             planterBox.y = app.screen.height / 2;
 
             //Plant plots
-            plot1.x = (app.screen.width / 2) - 200;
-            plot1.y = (app.screen.height / 2) - 85;
+            plot1.x = (app.screen.width / 2) - 65;
+            plot1.y = (app.screen.height / 2) - 115;
 
-            plot2.x = (app.screen.width / 2);
-            plot2.y = (app.screen.height / 2) - 85;
+            plot2.x = (app.screen.width / 2) + 50;
+            plot2.y = (app.screen.height / 2) - 55;
 
-            plot3.x = (app.screen.width / 2) + 200;
-            plot3.y = (app.screen.height / 2) - 85;
+            plot3.x = (app.screen.width / 2) + 160;
+            plot3.y = (app.screen.height / 2);
 
-            plot4.x = (app.screen.width / 2) - 200;
-            plot4.y = (app.screen.height / 2) + 85;
+            plot4.x = (app.screen.width / 2) - 170;
+            plot4.y = (app.screen.height / 2) - 55;
 
-            plot5.x = (app.screen.width / 2);
-            plot5.y = (app.screen.height / 2) + 85;
+            plot5.x = (app.screen.width / 2) - 60;
+            plot5.y = (app.screen.height / 2) + 20;
 
-            plot6.x = (app.screen.width / 2) + 200;
-            plot6.y = (app.screen.height / 2) + 85;
+            plot6.x = (app.screen.width / 2) + 40;
+            plot6.y = (app.screen.height / 2) + 80;
 
-            localStorage.setItem('plantData', JSON.stringify(plants)); //sends plants object to local storage
-
-            communityButton.x = app.screen.width - 200;
-            communityButton.y = app.screen.height / 4;
+            //localStorage.setItem('plantData', JSON.stringify(plants)); //sends plants object to local storage
 
         }
 
