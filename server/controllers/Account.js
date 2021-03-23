@@ -146,7 +146,15 @@ const addMessage = async (request, response) => {
 
   const user = await Account.AccountModel.findOne({ username: req.session.account.username });
   user.plants.find(plant => plant.location === req.body.location).messages.push(req.body.messages);
-  /* if(messages >= insert number we want growth at here) user.plants.find(plant => plant.location === req.body.location).growthStage += 1 */
+
+  if(messages.length === 3) {
+    messages.forEach(message => {
+      if(message.username !== req.session.account.username) {
+        user.plants.find(plant => plant.location === req.body.location).growthStage += 1
+        break;
+      }
+    });
+  } 
 
   const savePromise =  user.update();
   savePromise.then(() => {
