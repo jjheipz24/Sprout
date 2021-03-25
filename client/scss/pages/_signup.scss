@@ -4,10 +4,10 @@
 #signupContent {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     margin-top: 10vh;
-    margin-left: 4em;
+    margin-left: 20rem;
 
     h1 {
         font-weight: bold;
@@ -25,8 +25,14 @@
 }
 
 #signupBody {
-    background-image: url('/assets/images/background.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
+    background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #422706 !important;
+    // background-image: url('/assets/images/background.png');
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    // background-position: bottom;
 }

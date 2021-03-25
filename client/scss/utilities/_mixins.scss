@@ -67,7 +67,7 @@
             font-weight: bold;
             width: 140px;
             color: white;
-            background-color: $light-green;
+            background-color: $dark-purple;
             border: none;
             border-radius: .5rem;
             padding: .5em 0;
@@ -75,22 +75,22 @@
         }
     
         #{$btn}:hover {
-            background-color: $light-green;
+            background-color: $light-purple;
             opacity: .6;
         }
     
         #{$btn2} {
             font-weight: bold;
             width: 140px;
-            color: $light-green;
+            color: white;
             background: none;
-            border: 1px solid $light-green;
+            border: 1px solid white;
             border-radius: .5rem;
             padding: .5em 0;
     
             a {
                 text-decoration: none;
-                color: $light-green;
+                color: white;
             }
         }
     
