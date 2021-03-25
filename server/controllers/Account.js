@@ -152,7 +152,7 @@ const addMessage = async (request, response) => {
     messages.forEach(message => {
       if(message.username !== req.session.account.username) {
         plant.growthStage += 1;
-        break;
+        return;
       }
     });
   } 
