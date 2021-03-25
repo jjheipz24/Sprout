@@ -54,15 +54,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***** WE WILL EVENTUALLY NEED THIS FOR THE BACKGROUND *****/
 
-    // let backgroundImg = PIXI.Texture.from('assets/images/test/planter-background.png');
-    // let background = new PIXI.Sprite(backgroundImg);
-    // background.anchor.x = 0;
-    // background.anchor.y = 0;
-    // background.position.x = 0;
-    // background.position.y = 0;
-    // background.width = window.innerWidth;
-    // background.height = window.innerHeight;
-    //container.addChild(background);
+    let backgroundImg = PIXI.Texture.from('assets/images/test/planter-background.png');
+    let background = new PIXI.Sprite(backgroundImg);
+    background.anchor.x = 0;
+    background.anchor.y = 0;
+    background.position.x = 0;
+    background.position.y = 0;
+    background.width = window.innerWidth;
+    background.height = window.innerHeight;
+    container.addChild(background);
 
     /**************************************/
     // Global Variables
@@ -234,14 +234,14 @@ document.addEventListener('DOMContentLoaded', function () {
         pole.anchor.set(0.5);
         pole.scale.set(.75, .75);
         pole.x = app.screen.width - 200;
-        pole.y = app.screen.height / 4;
+        pole.y = app.screen.height / 2;
 
         //View Your Garden
         viewGarden = new PIXI.Sprite.from('assets/images/navSign/view-your-garden.png');
         viewGarden.anchor.set(0.5);
         viewGarden.scale.set(.75, .75);
         viewGarden.x = app.screen.width - 200;
-        viewGarden.y = (app.screen.height / 4) - 110;
+        viewGarden.y = (app.screen.height / 2) - 110;
         viewGarden.interactive = true;
         viewGarden.buttonMode = true;
         viewGarden.on('pointerover', () => {
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
         visitComm.anchor.set(0.5);
         visitComm.scale.set(.75, .75);
         visitComm.x = app.screen.width - 200;
-        visitComm.y = (app.screen.height / 4) - 45;
+        visitComm.y = (app.screen.height / 2) - 45;
         visitComm.interactive = true;
         visitComm.buttonMode = true;
         visitComm.on('pointerover', () => {
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
         about.anchor.set(0.5);
         about.scale.set(.75, .75);
         about.x = app.screen.width - 200;
-        about.y = (app.screen.height / 4) + 20;
+        about.y = (app.screen.height / 2) + 20;
         about.interactive = true;
         about.buttonMode = true;
         about.on('pointerover', () => {
@@ -402,16 +402,16 @@ document.addEventListener('DOMContentLoaded', function () {
     //Place positioning in here to keep items positioned regardless of window size
     function animate() {
 
-        // background.width = window.innerWidth;
-        // background.height = window.innerHeight;
+        background.width = window.innerWidth;
+        background.height = window.innerHeight;
         pole.x = app.screen.width - 200;
-        pole.y = app.screen.height / 4;
+        pole.y = app.screen.height / 2;
         viewGarden.x = app.screen.width - 200;
-        viewGarden.y = (app.screen.height / 4) - 110;
+        viewGarden.y = (app.screen.height / 2) - 110;
         visitComm.x = app.screen.width - 200;
-        visitComm.y = (app.screen.height / 4) - 45;
+        visitComm.y = (app.screen.height / 2) - 45;
         about.x = app.screen.width - 200;
-        about.y = (app.screen.height / 4) + 20;
+        about.y = (app.screen.height / 2) + 20;
 
         if (personal) {
             planterBox.x = app.screen.width / 2;
