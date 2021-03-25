@@ -3,10 +3,16 @@
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
     let popup = document.getElementById("message");
-
+    let csrf;
     // const renderer = new PIXI.CanvasRenderer();
     // renderer.render(new PIXI.Container());
+    const getToken = () => {
+        sendAjax('GET', '/getToken', null, (result) => {
+            csrf = result.csrfToken;
+        });
+    };
 
+    getToken();
 
     let w = window.innerWidth;
     let h = window.innerHeight;
@@ -364,25 +370,27 @@ document.addEventListener('DOMContentLoaded', function () {
     function rand() {
         return Math.floor(Math.random() * Math.floor(Object.keys(colors).length));
     }
+    
 
     //Use for adding a plant to a plot
     function addPlant(e, plantType) {
         e.target.texture = plantCollection[plantType][0];
-        $.post('/newPlant', {
-                plantType: "aloe",
-                location: 0,
-                prompt: "test"
-            },
-            function (data, status) {
-                console.log(data);
-            });
 
-            $.get('/getPlants', function(data, status){
-                console.log(data);
-            });
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/newPlant');
+    
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader ('Accept', 'application/json');
+        xhr.setRequestHeader('x-csrf-token', csrf);
+        
+        const formData = `plantType=${plantType}&location=${0}&prompt=test`;
+        
+        xhr.send(formData);
+
+        $.get('/getPlants', function(data, status){
+            console.log(data);
+        });
     }
-
-
 
 
     /*********** Animation **********/
