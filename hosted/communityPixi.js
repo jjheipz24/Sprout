@@ -298,6 +298,10 @@ document.addEventListener('DOMContentLoaded', function () {
     //Adds them to plot object
     function initCircles() {
 
+        // console.log($.get('/getPlants', function(data, status){
+        //     console.log(data);
+        // }))
+
         plot1 = new PIXI.Sprite(brown);
         createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot1"] = plot1;
@@ -364,6 +368,18 @@ document.addEventListener('DOMContentLoaded', function () {
     //Use for adding a plant to a plot
     function addPlant(e, plantType) {
         e.target.texture = plantCollection[plantType][0];
+        $.post('/newPlant', {
+                plantType: "aloe",
+                location: 0,
+                prompt: "test"
+            },
+            function (data, status) {
+                console.log(data);
+            });
+
+            $.get('/getPlants', function(data, status){
+                console.log(data);
+            });
     }
 
 
