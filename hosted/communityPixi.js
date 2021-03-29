@@ -398,20 +398,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const xhr = new XMLHttpRequest();
         xhr.open('POST', '/newPlant');
-    
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.setRequestHeader ('Accept', 'application/json');
         xhr.setRequestHeader('x-csrf-token', csrf);
         
         const formData = `plantType=${plantType}&location=${selectedPlot}&prompt=test`;
         
         xhr.send(formData);
+        e.stopPropagation();
 
         $.get('/getPlants', function(data, status){
             console.log(data);
         });
     }
-
 
     /*********** Animation **********/
     //Starts animation -- runs every few intervals

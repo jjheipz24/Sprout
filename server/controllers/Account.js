@@ -122,10 +122,13 @@ const newPlant = async (request, response) => {
   }
 
   const user = await Account.AccountModel.findOne({ username: req.session.account.username });
+  user.plants.push(plant);
 
-  const savePromise =  user.update({ $push : { plants : plant } });
+  const savePromise =  user.save();
   savePromise.then(() => {
-    return res.status(201).json();
+    return res.status(201).json({
+      redirect: '/',
+    });
   });
   savePromise.catch((err) => {
     return res.status(400).json({
@@ -151,7 +154,7 @@ const addMessage = async (request, response) => {
     });
   } 
 
-  const savePromise =  user.update();
+  const savePromise =  user.save();
   savePromise.then(() => {
     return res.status(201).json( /*{
       redirect: '/',
