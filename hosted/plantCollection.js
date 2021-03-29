@@ -34,4 +34,10 @@ plantCollection["snake"] = [];
 plantCollection["snake"][0] = snakeSprout;
 plantCollection["snake"][1] = snake;
 
+let cactusSprout = PIXI.Texture.from('assets/images/plants/cactus-sprout.png');
+let cactus = PIXI.Texture.from('assets/images/plants/cactus.png');
+plantCollection["cactus"] = [];
+plantCollection["cactus"][0] = cactusSprout;
+plantCollection["cactus"][1] = cactus;
+
 /*************************************************************/

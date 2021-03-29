@@ -84,6 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let gardenData; //Holds any pre-existing garden info
 
+    let selectedSeed; //Sets the current seed a user wants to plant
+
+    let aloeSeeds, cactusSeeds, fiddleSeeds, jadeSeeds, peaceSeeds, snakeSeeds; //All of the seed packets
+
     //All of the colors
     let brown = PIXI.Texture.from('assets/images/test/brown.png');
     colors["brown"] = brown;
@@ -100,8 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
     colors["yellow"] = yellow;
 
-    /**************************************/
-
     let garden1, garden2, garden3, garden4;
 
     let communityGardenArray = [garden1, garden2, garden3, garden4];
@@ -112,6 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //Nav Sign
     let pole, viewGarden, visitComm, about;
     let personal = false;
+
+    /**************************************/
 
     createCommunityGarden();
     createSignNav();
@@ -206,17 +210,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         Object.values(plots).forEach(plot => {
             container.addChild(plot);
-        })
+        });
 
-        //Changes the circles to the locally stored color
-        if (localStorage.getItem("plantData") !== null) {
-            plants = JSON.parse(localStorage.getItem("plantData"));
-            let plantsArr = Object.entries(plants); //converts parsed JSON object to array
-            //console.log(plantsArr);
-            for (let i = 0; i < plantsArr.length; i++) {
-                plots[plantsArr[i][0]].texture = colors[plantsArr[i][1]];
-            }
-        };
+        createSeedPackets();
 
         personal = true;
 
@@ -270,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
         visitComm.on('pointerdown', () => {
             planterBox.destroy();
             createCommunityGarden();
-            destroyCircles();
+            destroyPersonalGardenView();
             personal = false;
         });
 
@@ -331,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $.get('/getPlants', function (data, status) {
             console.log(data);
             gardenData = data.plants;
-            if(gardenData.length !== 0){
+            if (gardenData.length !== 0) {
                 updatePlots(gardenData);
             };
         });
@@ -345,6 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearButton.y = 400;
 
         clearButton.on('pointerdown', () => {
+            console.log("cleared");
             $.ajax({
                 url: '/clear',
                 type: 'DELETE',
@@ -354,10 +351,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 success: function (result) {
                     console.log("Success")
                 }
-            });
-
-            $.get('/getPlants', function (data, status) {
-                
             });
         })
 
@@ -373,9 +366,9 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.x = x;
         plot.y = y;
         // plot.on('pointerdown', changeColor);
-        plot.on('pointerdown', function (e) {
-            addPlant(e, "aloe");
-        });
+        plot.on('pointerdown', (function (e) {
+            addPlant(e, selectedSeed);
+        }));
     }
 
     //Updates the garden to show the correct plant texture
@@ -386,14 +379,59 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+    function createSeedPackets() {
+        aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
+        packetButtons(aloeSeeds, "aloe", (app.screen.width / 6), (app.screen.height - 100));
+        container.addChild(aloeSeeds);
+
+        cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.png');
+        packetButtons(cactusSeeds, "cactus", (app.screen.width / 6) + 200, (app.screen.height - 100));
+        container.addChild(cactusSeeds);
+
+        fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.png');
+        packetButtons(fiddleSeeds, "fiddle", (app.screen.width / 6) + 400, (app.screen.height - 100));
+        container.addChild(fiddleSeeds);
+
+        jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
+        packetButtons(jadeSeeds, "jade", (app.screen.width / 6) + 600, (app.screen.height - 100));
+        container.addChild(jadeSeeds);
+
+        peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.png');
+        packetButtons(peaceSeeds, "peace", (app.screen.width / 6) + 800, (app.screen.height - 100));
+        container.addChild(peaceSeeds);
+
+        snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
+        packetButtons(snakeSeeds, "snake", (app.screen.width / 6) + 1000, (app.screen.height - 100));
+        container.addChild(snakeSeeds);
+    }
+
+    function packetButtons(packet, name, x, y){
+        packet.interactive = true;
+        packet.buttonMode = true;
+        packet.anchor.set(0.5);
+        packet.scale.set(0.60, 0.60);
+        packet.x = x;
+        packet.y = y;
+        // plot.on('pointerdown', changeColor);
+        packet.on('pointerdown', () => selectedSeed = name);
+    }
     //Destroys each plot when personal garden is no longer in view
-    function destroyCircles() {
+    function destroyPersonalGardenView() {
         plot1.destroy();
         plot2.destroy();
         plot3.destroy();
         plot4.destroy();
         plot5.destroy();
         plot6.destroy();
+
+        clearButton.destroy();
+
+        aloeSeeds.destroy();
+        cactusSeeds.destroy();
+        fiddleSeeds.destroy();
+        jadeSeeds.destroy();
+        peaceSeeds.destroy();
+        snakeSeeds.destroy();
     }
 
     //Use for adding a plant to a plot
@@ -463,7 +501,24 @@ document.addEventListener('DOMContentLoaded', function () {
             plot6.x = (app.screen.width / 2) + 40;
             plot6.y = (app.screen.height / 2) + 80;
 
-            //localStorage.setItem('plantData', JSON.stringify(plants)); //sends plants object to local storage
+            //Seed packets
+            aloeSeeds.x = (app.screen.width / 6);
+            aloeSeeds.y = (app.screen.height) - 100;
+
+            cactusSeeds.x = (app.screen.width / 6) + 200;
+            cactusSeeds.y = (app.screen.height) - 100;
+
+            fiddleSeeds.x = (app.screen.width / 6) + 400;
+            fiddleSeeds.y = (app.screen.height) - 100;
+
+            jadeSeeds.x = (app.screen.width / 6) + 600;
+            jadeSeeds.y = (app.screen.height) - 100;
+
+            peaceSeeds.x = (app.screen.width / 6) + 800;
+            peaceSeeds.y = (app.screen.height) - 100;
+
+            snakeSeeds.x = (app.screen.width / 6) + 1000;
+            snakeSeeds.y = (app.screen.height) - 100;
 
         }
 
