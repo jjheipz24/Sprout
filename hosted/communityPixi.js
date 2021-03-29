@@ -1,4 +1,3 @@
-
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
     let popup = document.getElementById("message");
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let pixiCanvas = d3.select('#pixiCanvas');
 
 
-    /***** WE WILL EVENTUALLY NEED THIS FOR THE BACKGROUND *****/
+    /***** BACKGROUND *****/
 
     let backgroundImg = PIXI.Texture.from('assets/images/test/planter-background.png');
     let background = new PIXI.Sprite(backgroundImg);
@@ -82,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
         "plot5": "white",
         "plot6": "white",
     };
+
+    let gardenData; //Holds any pre-existing garden info
 
     //All of the colors
     let brown = PIXI.Texture.from('assets/images/test/brown.png');
@@ -326,6 +327,15 @@ document.addEventListener('DOMContentLoaded', function () {
         createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot6"] = plot6;
 
+        //If the user has already planted plants --> update the garden to show their plants
+        $.get('/getPlants', function (data, status) {
+            console.log(data);
+            gardenData = data.plants;
+            if(gardenData.length !== 0){
+                updatePlots(gardenData);
+            };
+        });
+
         clearButton = new PIXI.Sprite.from('assets/images/test/yellow.png');
         clearButton.anchor.set(0.5)
         clearButton.scale.set(.75, .75);
@@ -338,27 +348,20 @@ document.addEventListener('DOMContentLoaded', function () {
             $.ajax({
                 url: '/clear',
                 type: 'DELETE',
-                headers: {'x-csrf-token': csrf},
-                success: function(result){
+                headers: {
+                    'x-csrf-token': csrf
+                },
+                success: function (result) {
                     console.log("Success")
                 }
             });
 
-            $.get('/getPlants', function(data, status){
-                console.log(data);
+            $.get('/getPlants', function (data, status) {
+                
             });
         })
 
         container.addChild(clearButton);
-    }
-
-    function destroyCircles() {
-        plot1.destroy();
-        plot2.destroy();
-        plot3.destroy();
-        plot4.destroy();
-        plot5.destroy();
-        plot6.destroy();
     }
 
     //Adds the repeated properties
@@ -375,21 +378,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    //Handles changing the circle color
-    function changeColor() {
-        let selected = Object.keys(plots)[Object.values(plots).indexOf(this)]; //Grabs the key of the selected plant plot
-        let colorKey = Object.keys(colors)[rand()]; //gets a random key
-        this.texture = colors[colorKey]; //changes the color of the selected plot
-
-        plants[selected] = colorKey; //Updates the selected plot's color value in plants object
-        //console.log(plants);
+    //Updates the garden to show the correct plant texture
+    function updatePlots(data) {
+        let plantArr = data;
+        plantArr.forEach(plant => {
+            plots[plant.location].texture = plantCollection[plant.plantType][plant.growthStage];
+        })
     }
 
-    //Generates a random number based on number of textures
-    function rand() {
-        return Math.floor(Math.random() * Math.floor(Object.keys(colors).length));
+    //Destroys each plot when personal garden is no longer in view
+    function destroyCircles() {
+        plot1.destroy();
+        plot2.destroy();
+        plot3.destroy();
+        plot4.destroy();
+        plot5.destroy();
+        plot6.destroy();
     }
-    
 
     //Use for adding a plant to a plot
     function addPlant(e, plantType) {
@@ -400,15 +405,15 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.open('POST', '/newPlant');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.setRequestHeader('x-csrf-token', csrf);
-        
+
         const formData = `plantType=${plantType}&location=${selectedPlot}&prompt=test`;
-        
+
         xhr.send(formData);
         e.stopPropagation();
 
-        $.get('/getPlants', function(data, status){
-            console.log(data);
-        });
+        // $.get('/getPlants', function (data, status) {
+        //     console.log(data);
+        // });
     }
 
     /*********** Animation **********/
