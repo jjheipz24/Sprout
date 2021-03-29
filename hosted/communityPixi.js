@@ -1,4 +1,3 @@
-// let addWheelListener = require('./lib/addWheelListener');
 
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -37,13 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
         app.resize(w, h);
     }
 
-    // function zoom(garden, x, y, isZoomIn) {
-    //     direction = isZoomIn ? 1 : -1;
-    //     let factor = (1 + direction * 0.1);
-    //     garden.scale.x *= factor;
-    //     garden.scale.y *= factor;
-    // }
-
     // Scale mode for all textures, will retain pixelation
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
@@ -76,6 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let plot4;
     let plot5;
     let plot6;
+
+    let clearButton; //clears the garden
 
     let plots = {}; //Holds the placeholder spots
     let colors = {}; //holds the color textures
@@ -331,6 +325,31 @@ document.addEventListener('DOMContentLoaded', function () {
         plot6 = new PIXI.Sprite(brown);
         createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2));
         plots["plot6"] = plot6;
+
+        clearButton = new PIXI.Sprite.from('assets/images/test/yellow.png');
+        clearButton.anchor.set(0.5)
+        clearButton.scale.set(.75, .75);
+        clearButton.interactive = true;
+        clearButton.buttonMode = true;
+        clearButton.x = 200;
+        clearButton.y = 400;
+
+        clearButton.on('pointerdown', () => {
+            $.ajax({
+                url: '/clear',
+                type: 'DELETE',
+                headers: {'x-csrf-token': csrf},
+                success: function(result){
+                    console.log("Success")
+                }
+            });
+
+            $.get('/getPlants', function(data, status){
+                console.log(data);
+            });
+        })
+
+        container.addChild(clearButton);
     }
 
     function destroyCircles() {
@@ -374,6 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Use for adding a plant to a plot
     function addPlant(e, plantType) {
+        let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)]; //Location of where the seed is planted
         e.target.texture = plantCollection[plantType][0];
 
         const xhr = new XMLHttpRequest();
@@ -383,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.setRequestHeader ('Accept', 'application/json');
         xhr.setRequestHeader('x-csrf-token', csrf);
         
-        const formData = `plantType=${plantType}&location=${0}&prompt=test`;
+        const formData = `plantType=${plantType}&location=${selectedPlot}&prompt=test`;
         
         xhr.send(formData);
 
@@ -414,6 +434,10 @@ document.addEventListener('DOMContentLoaded', function () {
         about.y = (app.screen.height / 2) + 20;
 
         if (personal) {
+
+            clearButton.x = 200;
+            clearButton.y = 400;
+
             planterBox.x = app.screen.width / 2;
             planterBox.y = app.screen.height / 2;
 

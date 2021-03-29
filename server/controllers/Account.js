@@ -180,6 +180,23 @@ const getPlants = async (request, response) => {
   });
 }
 
+const clearAll = async (request, response) => {
+  const req = request;
+  const res = response;
+
+  const user = await Account.AccountModel.findOne({ username: req.session.account.username });
+
+  const savePromise =  user.update({ $pull : { plants : {$exists: true}}});
+  savePromise.then(() => {
+    return res.status(201).json();
+  });
+  savePromise.catch((err) => {
+    return res.status(400).json({
+      error: 'An error occured',
+    });
+  });
+};
+
 const loadRandomGardens = (request, response) => {
   const req = request;
   const res = response;
@@ -237,3 +254,4 @@ module.exports.loadRandomGardens = loadRandomGardens;
 module.exports.loadAllGardens = loadAllGardens;
 module.exports.newPlant = newPlant;
 module.exports.addMessage = addMessage;
+module.exports.clearAll = clearAll;

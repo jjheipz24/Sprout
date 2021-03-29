@@ -59,6 +59,14 @@ AccountModel.findByUsername(username, (err, doc) => {
   return callback(null, doc);
 });
 
+// AccountSchema.statics.deleteByOwner = (name, callback) => {
+//   const search ={
+//     username: name,
+//   };
+
+//   return AccountModel.deleteMany(search, callback);
+// };
+
 AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
   .select('username plants')
   .limit(3)
