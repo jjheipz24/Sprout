@@ -3,48 +3,47 @@
 const Nav = (props) => {
     if (props.username === "" || !props.username) {
         return (
-            <div>
-                <nav className="navbar navbar-expand-lg">
-                    <img alt="logo" src="assets/images/logo.png"/>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
+            <nav className="navbar navbar-expand-lg">
+                <img alt="logo" src="assets/images/logo.png" />
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
 
-                    <div className="nav-bar-items">
-                        <ul className="navbar-nav mr-auto">
-                            <li className="nav-item">
-                                <a className="nav-link" href="/signup">Signup</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/login">Login</a>
-                            </li> 
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+                <div className="nav-bar-items">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <a className="nav-link" href="/signup">Signup</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
         );
     }
 
     return (
         <div>
-         <nav className="navbar navbar-expand-lg">
-             <img alt="logo" src="assets/images/logo.png"/>
-             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                 <span className="navbar-toggler-icon"></span>
-             </button>
+            <nav className="navbar navbar-expand-lg">
+                <img alt="logo" src="assets/images/logo.png" />
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
 
-             <div className="nav-bar-items">
+                <div className="nav-bar-items">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <a className="nav-link" href="#">Garden</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/logout">Logout</a>
-                        </li> 
+                        </li>
                     </ul>
                 </div>
-         </nav>
-         </div>
+            </nav>
+        </div>
     )
 }
 

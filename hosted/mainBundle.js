@@ -3,7 +3,7 @@
 //import '../../hosted/css/styles.css'
 var Nav = function Nav(props) {
   if (props.username === "" || !props.username) {
-    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("nav", {
+    return /*#__PURE__*/React.createElement("nav", {
       className: "navbar navbar-expand-lg"
     }, /*#__PURE__*/React.createElement("img", {
       alt: "logo",
@@ -32,7 +32,7 @@ var Nav = function Nav(props) {
     }, /*#__PURE__*/React.createElement("a", {
       className: "nav-link",
       href: "/login"
-    }, "Login"))))));
+    }, "Login")))));
   }
 
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("nav", {

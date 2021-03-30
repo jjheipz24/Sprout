@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: $dark-green !important;
+    //background-color: $dark-green !important;
 }
 // #mainApp {
 //     background-image: url('/assets/images/test/planter-background.png');
@@ -16,6 +16,7 @@ body {
 
 .appNav {
     position: absolute;
+    width: 100%;
 }
 
 input {

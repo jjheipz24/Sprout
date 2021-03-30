@@ -20,7 +20,8 @@
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  justify-content: space-between;
+  width: 100%; }
 
 .navbar-nav {
   margin: 1rem;
@@ -57,8 +58,9 @@
 * {
   font-family: "Lato", sans-serif; }
 
-body {
-  background-color: #043535 !important; }
+.appNav {
+  position: absolute;
+  width: 100%; }
 
 input {
   color: #043535; }
@@ -91,10 +93,10 @@ p {
 #loginContent {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   margin-top: 10vh;
-  margin-left: 4em; }
+  margin-left: 20rem; }
   #loginContent h1 {
     font-weight: bold; }
 
@@ -120,25 +122,25 @@ p {
     font-weight: bold;
     width: 140px;
     color: white;
-    background-color: #1A9C5D;
+    background-color: #9746FF;
     border: none;
     border-radius: .5rem;
     padding: .5em 0;
     margin-right: 2em; }
   #loginForm .signinBtns #loginButton:hover {
-    background-color: #1A9C5D;
+    background-color: #B570FF;
     opacity: .6; }
   #loginForm .signinBtns #secondButton {
     font-weight: bold;
     width: 140px;
-    color: #1A9C5D;
+    color: white;
     background: none;
-    border: 1px solid #1A9C5D;
+    border: 1px solid white;
     border-radius: .5rem;
     padding: .5em 0; }
     #loginForm .signinBtns #secondButton a {
       text-decoration: none;
-      color: #1A9C5D; }
+      color: white; }
   #loginForm .signinBtns #secondButton:hover {
     opacity: .6; }
   #loginForm .loginExtra {
@@ -146,10 +148,12 @@ p {
     color: lightgray; }
 
 #loginBody {
-  background-image: url("/assets/images/background.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom; }
+  background: url("/assets/images/loginBackground.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #422706 !important; }
 
 /************************ 
 
@@ -160,10 +164,10 @@ p {
 #signupContent {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   margin-top: 10vh;
-  margin-left: 4em; }
+  margin-left: 20rem; }
   #signupContent h1 {
     font-weight: bold; }
 
@@ -189,25 +193,25 @@ p {
     font-weight: bold;
     width: 140px;
     color: white;
-    background-color: #1A9C5D;
+    background-color: #9746FF;
     border: none;
     border-radius: .5rem;
     padding: .5em 0;
     margin-right: 2em; }
   #signupForm .signinBtns #signupButton:hover {
-    background-color: #1A9C5D;
+    background-color: #B570FF;
     opacity: .6; }
   #signupForm .signinBtns #secondButton {
     font-weight: bold;
     width: 140px;
-    color: #1A9C5D;
+    color: white;
     background: none;
-    border: 1px solid #1A9C5D;
+    border: 1px solid white;
     border-radius: .5rem;
     padding: .5em 0; }
     #signupForm .signinBtns #secondButton a {
       text-decoration: none;
-      color: #1A9C5D; }
+      color: white; }
   #signupForm .signinBtns #secondButton:hover {
     opacity: .6; }
   #signupForm .signupExtra {
@@ -215,7 +219,9 @@ p {
     color: lightgray; }
 
 #signupBody {
-  background-image: url("/assets/images/background.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom; }
+  background: url("/assets/images/loginBackground.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #422706 !important; }
