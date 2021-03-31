@@ -1,0 +1,131 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+
+#startContent {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+
+    h1{
+        font-weight: bold;
+        font-size: 58px;
+    }
+
+    p {
+        font-size: 20px;
+        width: 40vw;
+    }
+}
+
+#startBody {
+    // background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #422706 !important;
+    // background-image: url('/assets/images/loginBackground.png');
+    // background-repeat: no-repeat;
+    // background-size: 110%;
+    // background-position: bottom;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+  }
+  
+  /* Slides */
+  .startSlide {
+    display: none;
+    text-align: center;
+
+    p {
+        color: white;
+    }
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+  
+  /* The dot/bullet/indicator container */
+  .dot-container {
+      text-align: center;
+      padding: 0;
+      margin: -4vh 0 3vh 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 .75em;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  /* Add a background color to the active dot/circle */
+  .active, .dot:hover {
+    background-color: $dark-purple;
+  }
+
+  #startButtons {
+      display: flex;
+      flex-direction: row;
+  }
+
+  #createAccountButton {
+        font-weight: bold;
+        width: 160px;
+        color: white;
+        background-color: $dark-purple;
+        border: none;
+        border-radius: .5rem;
+        padding: .75em 0;
+        margin-right: 2em;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+    :hover {
+        background-color: $light-purple;
+        opacity: .6;
+    }
+  }
+
+  #signInButton {
+    font-weight: bold;
+    width: 160px;
+    color: white;
+    background: none;
+    border: 1px solid white;
+    border-radius: .5rem;
+    padding: .75em 0;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        :hover {
+            opacity: .6;
+        }
+    }

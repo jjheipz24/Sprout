@@ -1,16 +1,74 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Sprout</title>
-    </head>
 
-    <body id="loginBody">
-        <content id="loginContent">
-            <img src="assets/images/Sprout.png">
-            <p>Sprout is a place for you to to tend a virtual garden through sharing encouraging messages and spreading kindness to yourself and the community. </p>
-        </content>
+<head>
+    <meta charset="utf-8" />
+    <title>Sprout</title>
+</head>
+
+<body id="startBody">
+    <content id="startContent">
+        <img src="assets/images/Sprout.png">
+        {{!-- <p id="startP">Sprout is a place for you to to tend a virtual garden through
+            sharing encouraging messages and spreading kindness to yourself
+            and the community. </p> --}}
+
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="startSlide">
+                <p>Sprout is a place for you to to tend a virtual garden through sharing encouraging messages and spreading kindness to yourself and the community.</p>
+            </div>
+
+            <div class="startSlide">
+                <p>We created Sprout with positive psychology in mind. This encourages people to focus on positive emotions and build strategies to maintain them.</p>
+            </div>
+
+            <div class="startSlide">
+                <p>Social interaction with others relieves stress and anxiety, instills feelings of purpose, and increases people’s life expectancy!</p>
+            </div>
+        </div>
         
-        <script src="/assets/loginBundle.js"></script>
-        <script src="/assets/bundle.js"></script>
-    </body>
+        <div id="startButtons">
+            <button id="createAccountButton"><a href="./signup">Create Account</a></button>
+            <button id="signInButton"><a href="./login">Sign In</a></button>
+        </div>
+    </content>
+
+    <script src="/assets/bundle.js"></script>
+
+    <!-- For slideshow -->
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("startSlide");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+
 </html>
