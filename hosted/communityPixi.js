@@ -1,6 +1,5 @@
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
-    let popup = document.getElementById("message");
     let csrf;
     // const renderer = new PIXI.CanvasRenderer();
     // renderer.render(new PIXI.Container());
@@ -367,7 +366,8 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.y = y;
         // plot.on('pointerdown', changeColor);
         plot.on('pointerdown', (function (e) {
-            addPlant(e, selectedSeed);
+            const textureName = plot.texture.textureCacheIds[0];
+            textureName === "assets/images/test/brown.png" ? addPlant(e, selectedSeed) : messageModal(e);        
         }));
     }
 
@@ -452,6 +452,40 @@ document.addEventListener('DOMContentLoaded', function () {
         // $.get('/getPlants', function (data, status) {
         //     console.log(data);
         // });
+    }
+
+    function messageModal(e) {
+        $('#message').show();
+        let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)];
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/getUserName');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('x-csrf-token', csrf);
+
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                $('.saveBtn').click(e => {
+                    const user = JSON.parse(this.responseText);
+                    sendMessage(user.username, selectedPlot);
+                })
+            }
+        };
+        xhr.send();
+    }
+
+    function sendMessage(username, selectedPlot) {
+        let message = $('#messageField').val().trim();
+        
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/addMessage');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('x-csrf-token', csrf);
+
+        const formData = `username=${username}&message=${message}&location=${selectedPlot}`;        
+        xhr.send(formData);
+
+        $('#message').hide();
     }
 
     /*********** Animation **********/

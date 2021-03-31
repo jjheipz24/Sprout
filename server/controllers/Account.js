@@ -144,11 +144,13 @@ const newPlant = async (request, response) => {
 const addMessage = async (request, response) => {
   const req = request;
   const res = response;
-  const plant =  user.plants.find(plant => plant.location === req.body.location);
+  console.log(req.body);
 
   const user = await Account.AccountModel.findOne({ username: req.session.account.username });
-  plant.messages.push(req.body.messages);
+  const plant =  user.plants.find(plant => plant.location === req.body.location);
+  plant.messages.push(req.body.message);
 
+  /* Check for num of messages & if one isn't from the owner before growing */
   if(messages.length >= 3 && plant.growthStage === 0) {
     messages.forEach(message => {
       if(message.username !== req.session.account.username) {
@@ -160,9 +162,7 @@ const addMessage = async (request, response) => {
 
   const savePromise =  user.save();
   savePromise.then(() => {
-    return res.status(201).json( /*{
-      redirect: '/',
-    }*/);
+    return res.status(201).json();
   });
   savePromise.catch((err) => {
     return res.status(400).json({

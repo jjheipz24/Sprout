@@ -26,11 +26,12 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <textarea id="w3review" name="w3review" rows="4" cols="50">
-                Enter a positive affirmation -- what are you grateful for?
+                <label></label>
+                 <label for="messageField">Enter a positive affirmation -- what are you grateful for?</label>
+                <textarea id="messageField" name="messageField" rows="4" cols="50">
                 </textarea>
                 <div class="modal-footer">
-                    <button type="button" onclick="hidePopup()" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary saveBtn">Save</button>
                 </div>
             </div>
         </div>
@@ -40,9 +41,7 @@
         function hidePopup() {
             document.getElementById("message").style.display = "none";
         }
-
     </script>
-
     <script src="/assets/bundle.js"></script>
     <script src="/assets/mainBundle.js"></script>
 </body>

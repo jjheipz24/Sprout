@@ -69,7 +69,7 @@ AccountModel.findByUsername(username, (err, doc) => {
 
 AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
   .select('username plants')
-  .limit(3)
+  .limit(20)
   .toArray()
   .exec(callback);
 
