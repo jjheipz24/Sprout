@@ -165,3 +165,22 @@
         top: 0;
         transform: rotate(40deg);
     }
+
+    /* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 5s;
+    animation-name: fade;
+    animation-duration: 5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .6} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .6} 
+    to {opacity: 1}
+  }
+  
