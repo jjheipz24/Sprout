@@ -32,7 +32,7 @@ var SignupForm = function SignupForm(props) {
     id: "username",
     type: "text",
     name: "username",
-    placeholder: "username"
+    placeholder: "Enter a Unique Code"
   })), /*#__PURE__*/React.createElement("input", {
     id: "signupCsrf",
     type: "hidden",
@@ -41,13 +41,13 @@ var SignupForm = function SignupForm(props) {
   }), /*#__PURE__*/React.createElement("div", {
     className: "signinBtns"
   }, /*#__PURE__*/React.createElement("button", {
-    id: "signupButton",
-    type: "submit"
-  }, "Sign Up"), /*#__PURE__*/React.createElement("button", {
     id: "secondButton"
   }, /*#__PURE__*/React.createElement("a", {
     href: "./login"
-  }, "Login"))));
+  }, "Login")), /*#__PURE__*/React.createElement("button", {
+    id: "signupButton",
+    type: "submit"
+  }, "Sign Up")));
 };
 
 var setup = function setup(csrf) {

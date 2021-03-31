@@ -2,30 +2,44 @@
 @import '../utilities/variables';
 
 #signupContent {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 10vh;
-    margin-left: 20rem;
+    align-items: center;
+    margin-top: 25vh;
 
     h1 {
         font-weight: bold;
+        font-size: 58px;
+    }
+
+    p {
+        font-size: 15px;
     }
 }
 
 #signupForm {
 
     @include signin-form('#signupButton', '#secondButton');
+    align-items: center;
 
     .signupExtra {
         margin-top: 2rem;
         color: lightgray;
     }
+
+    .fields {
+        width: 500px;
+    }
+}
+
+#signupButton {
+    margin: 0 0 0 2em !important;
 }
 
 #signupBody {
-    background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
+    // background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

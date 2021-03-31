@@ -21,13 +21,13 @@ const SignupForm = (props) => {
         <form id="signupForm" name="signupForm" onSubmit={handleSignup} action="/signup" method="POST" className="mainForm">
 
             <div className="fields">
-                <input className="field" id="username" type="text" name="username" placeholder="username" />
+                <input className="field" id="username" type="text" name="username" placeholder="Enter a Unique Code" />
             </div>
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
             <div className="signinBtns">
-                <button id="signupButton" type="submit">Sign Up</button>
                 <button id="secondButton"><a href="./login">Login</a></button>
+                <button id="signupButton" type="submit">Sign Up</button>
             </div>
         </form>
     )
