@@ -159,7 +159,28 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #422706 !important; }
+  background-color: #422706 !important;
+  overflow: hidden; }
+
+.screenSmall {
+  width: 100vw;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25vh; }
+  .screenSmall h5 {
+    margin-top: 2vh;
+    font-weight: bold;
+    color: white; }
+  .screenSmall #aloe {
+    width: 15%; }
+
+@media only screen and (max-width: 750px) {
+  #loginContent {
+    display: none; }
+  .screenSmall {
+    display: flex; } }
 
 /************************ 
 
@@ -240,6 +261,26 @@ p {
   background-size: cover;
   background-color: #422706 !important; }
 
+.screenSmall {
+  width: 100vw;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25vh; }
+  .screenSmall h5 {
+    margin-top: 2vh;
+    font-weight: bold;
+    color: white; }
+  .screenSmall #aloe {
+    width: 15%; }
+
+@media only screen and (max-width: 750px) {
+  #signupContent {
+    display: none; }
+  .screenSmall {
+    display: flex; } }
+
 /************************ 
 
         Typography 
@@ -259,6 +300,20 @@ p {
   #startContent p {
     font-size: 20px;
     width: 40vw; }
+
+.screenSmall {
+  width: 100vw;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25vh; }
+  .screenSmall h5 {
+    margin-top: 2vh;
+    font-weight: bold;
+    color: white; }
+  .screenSmall #aloe {
+    width: 15%; }
 
 #startBody {
   -webkit-background-size: cover;
@@ -391,3 +446,9 @@ p {
     opacity: .6; }
   to {
     opacity: 1; } }
+
+@media only screen and (max-width: 750px) {
+  #startContent {
+    display: none; }
+  .screenSmall {
+    display: flex; } }

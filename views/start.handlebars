@@ -44,6 +44,12 @@
 
     </content>
 
+    <content class="screenSmall">
+        <img src="assets/images/Sprout.png"/>
+        <img id="aloe" src="assets/images/plants/aloe.png"/>
+        <h5>Works best on Desktop</h5>
+    </content>
+
     <script src="/assets/bundle.js"></script>
 
     <!-- SLIDESHOW ANIMATIONS -->
@@ -63,40 +69,21 @@
         }
 
         function showSlides(n) {
-            /* let i;
-            let slides = document.getElementsByClassName("startSlide");
-            let dots = document.getElementsByClassName("dot");
-
-            if (n > slides.length) { slideIndex = 1 }
-
-            if (n < 1) { slideIndex = slides.length }
-
+            var i;
+            var slides = document.getElementsByClassName("startSlide");
+            var dots = document.getElementsByClassName("dot");
             for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+                slides[i].style.display = "none";  
             }
-
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
-
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            */
-                var i;
-                var slides = document.getElementsByClassName("startSlide");
-                var dots = document.getElementsByClassName("dot");
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";  
-                }
-                slideIndex++;
-                if (slideIndex > slides.length) {slideIndex = 1}    
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex-1].style.display = "block";  
-                dots[slideIndex-1].className += " active";
-                setTimeout(showSlides, 5000); // Change image every 2 seconds
-            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 5000); // Change image every 2 seconds
+        }
         
     </script>
 

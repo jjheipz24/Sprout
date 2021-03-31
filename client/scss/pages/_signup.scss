@@ -45,8 +45,33 @@
     -o-background-size: cover;
     background-size: cover;
     background-color: #422706 !important;
-    // background-image: url('/assets/images/background.png');
-    // background-repeat: no-repeat;
-    // background-size: contain;
-    // background-position: bottom;
 }
+
+.screenSmall {
+    width: 100vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+
+    h5{
+        margin-top: 2vh;
+        font-weight: bold;
+        color: white;
+    }
+
+    #aloe {
+        width: 15%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    #signupContent {
+        display: none;
+    }
+
+    .screenSmall {
+        display: flex;
+    }
+  }
