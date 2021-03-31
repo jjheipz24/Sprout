@@ -21,7 +21,7 @@ const LoginForm = (props) => {
         <form id="loginForm" name="loginForm" onSubmit={handleLogin} action="/login" method="POST" className="mainForm">
 
             <div className="fields">
-                <input className="field" id="username" type="text" name="username" placeholder="username" />
+                <input className="field" id="username" type="text" name="username" placeholder="Enter Code" />
             </div>
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />

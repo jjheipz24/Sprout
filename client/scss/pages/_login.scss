@@ -2,30 +2,40 @@
 @import '../utilities/variables';
 
 #loginContent {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 10vh;
-    margin-left: 20rem;
+    align-items: center;
+    margin-top: 25vh;
 
     h1{
         font-weight: bold;
+        font-size: 58px;
+    }
+
+    p {
+        font-size: 15px;
     }
 }
 
 #loginForm {
 
     @include signin-form('#loginButton', '#secondButton');
+    align-items: center;
 
     .loginExtra {
         margin-top: 2rem;
         color: lightgray;
     }
+
+    .fields {
+        width: 500px;
+    }
 }
 
 #loginBody {
-    background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
+    // background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -65,12 +65,12 @@
 
         #{$btn} {
             font-weight: bold;
-            width: 140px;
+            width: 160px;
             color: white;
             background-color: $dark-purple;
             border: none;
             border-radius: .5rem;
-            padding: .5em 0;
+            padding: .75em 0;
             margin-right: 2em;
         }
     
@@ -81,12 +81,12 @@
     
         #{$btn2} {
             font-weight: bold;
-            width: 140px;
+            width: 160px;
             color: white;
             background: none;
             border: 1px solid white;
             border-radius: .5rem;
-            padding: .5em 0;
+            padding: .75em 0;
     
             a {
                 text-decoration: none;

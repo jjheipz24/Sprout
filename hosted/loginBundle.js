@@ -31,7 +31,7 @@ var LoginForm = function LoginForm(props) {
     id: "username",
     type: "text",
     name: "username",
-    placeholder: "username"
+    placeholder: "Enter Code"
   })), /*#__PURE__*/React.createElement("input", {
     id: "signupCsrf",
     type: "hidden",
