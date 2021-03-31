@@ -7,10 +7,7 @@
 
 <body id="startBody">
     <content id="startContent">
-        <img src="assets/images/Sprout.png">
-        {{!-- <p id="startP">Sprout is a place for you to to tend a virtual garden through
-            sharing encouraging messages and spreading kindness to yourself
-            and the community. </p> --}}
+        <img src="assets/images/Sprout.png"/>
 
         <div class="dot-container">
             <span class="dot" onclick="currentSlide(1)"></span>
@@ -36,6 +33,15 @@
             <button id="createAccountButton"><a href="./signup">Create Account</a></button>
             <button id="signInButton"><a href="./login">Sign In</a></button>
         </div>
+
+        <div id="plantBackground">
+            <img class="startPlant" id="startSnake" src="/assets/images/plants/snake.png"/>
+            <img class="startPlant" id="startAloe" src="/assets/images/plants/aloe.png"/>
+            <img class="startPlant" id="startJade" src="/assets/images/plants/jade.png"/>
+            <img class="startPlant" id="startPeace" src="/assets/images/plants/peace-lily.png"/>
+
+        </div>
+
     </content>
 
     <script src="/assets/bundle.js"></script>
@@ -68,6 +74,38 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+    </script>
+
+    <!-- PLANT SCROLL ANIMATION -->
+    <script>
+        let plantArray = document.getElementsByClassName('startPlant');
+        console.log(plantArray.length);
+        let snake = document.getElementById('startSnake');
+
+        document.addEventListener('wheel', function(e) {
+
+            if (event.deltaY < 0) {
+                console.log('scrolling up');
+                scalePlantsUp();                
+
+            } else if (event.deltaY > 0) {
+                console.log('scrolling down');
+                scalePlantsDown();
+            }
+        });
+
+        function scalePlantsUp() {
+            for(let i = 0; i < plantArray.length; i++) {
+                plantArray[i].style.width = '60%';
+            }
+        }
+
+        function scalePlantsDown() {
+            for(let i = 0; i < plantArray.length; i++) {
+                plantArray[i].style.width = '30%';
+            }
+        }
+
     </script>
 </body>
 

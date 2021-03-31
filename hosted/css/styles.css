@@ -265,7 +265,8 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #422706 !important; }
+  background-color: #422706 !important;
+  overflow: hidden; }
 
 /* Slideshow container */
 .slideshow-container {
@@ -343,3 +344,31 @@ p {
     color: white; }
   #signInButton :hover {
     opacity: .6; }
+
+/* Plant CSS on Page */
+#plantBackground img {
+  width: 60%;
+  transition: all linear .5s; }
+
+#startSnake {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+#startAloe {
+  position: absolute;
+  bottom: -50px;
+  left: -100px;
+  transform: rotate(20deg); }
+
+#startJade {
+  position: absolute;
+  right: -50px;
+  top: 0;
+  transform: rotate(-20deg); }
+
+#startPeace {
+  position: absolute;
+  left: -100px;
+  top: 0;
+  transform: rotate(40deg); }
