@@ -4,7 +4,7 @@ const mid = require('./middleware');
 
 const router = (app) => {
 
-  app.get('/', controllers.Account.homePage);
+  app.get('/', controllers.Account.startPage);
   app.get('/home', controllers.Account.homePage);
 
   app.get('/start', controllers.Account.startPage);
