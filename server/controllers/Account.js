@@ -151,8 +151,8 @@ const addMessage = async (request, response) => {
   plant.messages.push(req.body.message);
 
   /* Check for num of messages & if one isn't from the owner before growing */
-  if(messages.length >= 3 && plant.growthStage === 0) {
-    messages.forEach(message => {
+  if(plant.messages.length >= 3 && plant.growthStage === 0) {
+    plant.messages.forEach(message => {
       if(message.username !== req.session.account.username) {
         plant.growthStage += 1;
         return;
