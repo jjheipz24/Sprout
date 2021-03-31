@@ -6,6 +6,8 @@ const router = (app) => {
 
   app.get('/', controllers.Account.homePage);
   app.get('/home', controllers.Account.homePage);
+
+  app.get('/start', controllers.Account.startPage);
   
   app.get('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
   app.post('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.login);

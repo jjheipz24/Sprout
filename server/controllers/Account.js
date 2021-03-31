@@ -18,6 +18,10 @@ const homePage = (req, res) => {
   res.render('app');
 };
 
+const startPage = (req, res) => {
+  res.render('start');
+}
+
 //Functionality for login
 const login = (request, response) => {
   const req = request;
@@ -248,6 +252,7 @@ module.exports.signupPage = signupPage;
 module.exports.signup = signup;
 module.exports.logout = logout;
 module.exports.homePage = homePage;
+module.exports.startPage = startPage;
 
 module.exports.getUserName = getUserName;
 module.exports.getPlants = getPlants;
