@@ -11,13 +11,14 @@
 <body id="mainApp">
     <div class="appNav" id="nav"></div>
     <canvas id="pixiCanvas"></canvas>
+    <div id="messageModal"></div>
     {{!--
     <script src="/assets/pixi.js"></script> --}}
     <script src="/assets/plantCollection.js"></script>
     <script src="/assets/communityPixi.js"></script>
 
 
-    <div class="modal" id="message" tabindex="-1" role="dialog">
+    {{!-- <div class="modal" id="message" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -27,7 +28,7 @@
                     </button>
                 </div>
                 <label></label>
-                 <label for="messageField">Enter a positive affirmation -- what are you grateful for?</label>
+                <label for="messageField">Enter a positive affirmation -- what are you grateful for?</label>
                 <textarea id="messageField" name="messageField" rows="4" cols="50">
                 </textarea>
                 <div class="modal-footer">
@@ -35,12 +36,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <script>
+    <!-- <script>
         function hidePopup() {
             document.getElementById("message").style.display = "none";
-        }
+        } -->
     </script>
     <script src="/assets/bundle.js"></script>
     <script src="/assets/mainBundle.js"></script>

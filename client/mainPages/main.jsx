@@ -56,6 +56,30 @@ const loadUserUsername = () => {
     });
 };
 
+const MessageModal = (props) => {
+    return (
+        <div className="modal" id="message" tabIndex="-1" role="dialog">
+        <div className="modal-dialog" role="document">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title">Aloe Plant</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <label></label>
+                 <label htmlFor="messageField">Enter a positive affirmation -- what are you grateful for?</label>
+                <textarea id="messageField" name="messageField" rows="4" cols="50">
+                </textarea>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-primary saveBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    )
+}
+
 const setup = function (csrf) {
     // ReactDOM.render(
     //     <Header csrf={csrf} />, document.querySelector('#header')
@@ -66,6 +90,10 @@ const setup = function (csrf) {
     )
 
     loadUserUsername();
+
+    ReactDOM.render(
+        <MessageModal />, document.querySelector('#messageModal')
+    )
 };
 
 const getToken = () => {
