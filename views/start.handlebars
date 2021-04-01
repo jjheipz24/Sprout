@@ -34,14 +34,14 @@
             <button id="signInButton"><a href="./login">Sign In</a></button>
         </div>
 
+        <img id="scrollDown" src="assets/images/arrow-down-solid.svg">
+
         <div id="plantBackground">
+            <img class="startPlant" id="startJade" src="/assets/images/plants/jade.png"/>
             <img class="startPlant" id="startSnake" src="/assets/images/plants/snake.png"/>
             <img class="startPlant" id="startAloe" src="/assets/images/plants/aloe.png"/>
-            <img class="startPlant" id="startJade" src="/assets/images/plants/jade.png"/>
-            <img class="startPlant" id="startPeace" src="/assets/images/plants/peace-lily.png"/>
-
+            <img class="startPlant" id="startSnake2" src="/assets/images/plants/snake.png"/>
         </div>
-
     </content>
 
     <content class="screenSmall">
@@ -89,6 +89,9 @@
 
     <!-- PLANT SCROLL ANIMATION -->
     <script>
+        let plantsBig = true;
+        let scrollImage = document.getElementById('scrollDown');
+
         let plantArray = document.getElementsByClassName('startPlant');
         let snake = document.getElementById('startSnake');
 
@@ -100,19 +103,33 @@
             } else if (event.deltaY > 0) {
                 scalePlantsDown();
             }
+            displayArrow();
         });
 
         function scalePlantsUp() {
             for(let i = 0; i < plantArray.length; i++) {
-                plantArray[i].style.width = '60%';
+                plantArray[i].style.width = '80vw';
             }
+            plantsBig = true;
         }
 
         function scalePlantsDown() {
             for(let i = 0; i < plantArray.length; i++) {
-                plantArray[i].style.width = '30%';
+                plantArray[i].style.width = '38vw';
+            }
+            plantsBig = false;
+        }
+
+        function displayArrow() {
+            if(plantsBig) {
+                scrollImage.style.display = 'block';
+                console.log(plantsBig);
+            } else {
+                scrollImage.style.display = 'none';
+                console.log(plantsBig);
             }
         }
+
     </script>
 </body>
 
