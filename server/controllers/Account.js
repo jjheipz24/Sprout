@@ -11,7 +11,7 @@ const signupPage = (req, res) => {
 
 const logout = (req, res) => {
   req.session.destroy();
-  res.redirect('/');
+  res.redirect('/start');
 }
 
 const homePage = (req, res) => {
@@ -118,6 +118,7 @@ const newPlant = async (request, response) => {
 
   const plant = {
     plantType: req.body.plantType,
+    plantName: req.body.plantName,
     location: req.body.location,
     prompt: req.body.prompt,
     growthStage: 0,

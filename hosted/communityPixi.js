@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let gardenData; //Holds any pre-existing garden info
 
     let selectedSeed; //Sets the current seed a user wants to plant
+    let seedName; //Sets the name of the added seed
 
     let aloeSeeds, cactusSeeds, fiddleSeeds, jadeSeeds, peaceSeeds, snakeSeeds; //All of the seed packets
 
@@ -367,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // plot.on('pointerdown', changeColor);
         plot.on('pointerdown', (function (e) {
             const textureName = plot.texture.textureCacheIds[0];
-            textureName === "assets/images/test/brown.png" ? addPlant(e, selectedSeed) : messageModal(e);        
+            textureName === "assets/images/test/brown.png" ? addPlant(e, selectedSeed, seedName) : messageModal(e);
         }));
     }
 
@@ -381,31 +382,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function createSeedPackets() {
         aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
-        packetButtons(aloeSeeds, "aloe", (app.screen.width / 6), (app.screen.height - 100));
+        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 6), (app.screen.height - 100));
         container.addChild(aloeSeeds);
 
         cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.png');
-        packetButtons(cactusSeeds, "cactus", (app.screen.width / 6) + 200, (app.screen.height - 100));
+        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 6) + 200, (app.screen.height - 100));
         container.addChild(cactusSeeds);
 
         fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.png');
-        packetButtons(fiddleSeeds, "fiddle", (app.screen.width / 6) + 400, (app.screen.height - 100));
+        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 6) + 400, (app.screen.height - 100));
         container.addChild(fiddleSeeds);
 
         jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
-        packetButtons(jadeSeeds, "jade", (app.screen.width / 6) + 600, (app.screen.height - 100));
+        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 6) + 600, (app.screen.height - 100));
         container.addChild(jadeSeeds);
 
         peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.png');
-        packetButtons(peaceSeeds, "peace", (app.screen.width / 6) + 800, (app.screen.height - 100));
+        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 6) + 800, (app.screen.height - 100));
         container.addChild(peaceSeeds);
 
         snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
-        packetButtons(snakeSeeds, "snake", (app.screen.width / 6) + 1000, (app.screen.height - 100));
+        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 6) + 1000, (app.screen.height - 100));
         container.addChild(snakeSeeds);
     }
 
-    function packetButtons(packet, name, x, y){
+    function packetButtons(packet, seedType, plantName, x, y) {
         packet.interactive = true;
         packet.buttonMode = true;
         packet.anchor.set(0.5);
@@ -413,7 +414,10 @@ document.addEventListener('DOMContentLoaded', function () {
         packet.x = x;
         packet.y = y;
         // plot.on('pointerdown', changeColor);
-        packet.on('pointerdown', () => selectedSeed = name);
+        packet.on('pointerdown', () => {
+            selectedSeed = seedType;
+            seedName = plantName;
+        });
     }
     //Destroys each plot when personal garden is no longer in view
     function destroyPersonalGardenView() {
@@ -435,24 +439,30 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     //Use for adding a plant to a plot
-    function addPlant(e, plantType) {
+    function addPlant(e, plantType, seedName) {
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)]; //Location of where the seed is planted
-        e.target.texture = plantCollection[plantType][0];
+        if (plantType === undefined) {
+            console.log("No plant seeds selected");
+        } else {
+            e.target.texture = plantCollection[plantType][0];
 
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/newPlant');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.setRequestHeader('x-csrf-token', csrf);
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/newPlant');
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('x-csrf-token', csrf);
 
-        const formData = `plantType=${plantType}&location=${selectedPlot}&prompt=test`;
+            const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&prompt=test`;
 
-        xhr.send(formData);
-        e.stopPropagation();
+            xhr.send(formData);
+            e.stopPropagation();
+        }
 
         // $.get('/getPlants', function (data, status) {
         //     console.log(data);
         // });
     }
+
+    //TODO: Figure out a way to add the plant name (seedName)
 
     function messageModal(e) {
         $('#message').show();
@@ -463,7 +473,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.setRequestHeader('x-csrf-token', csrf);
 
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 $('.saveBtn').click(e => {
                     const user = JSON.parse(this.responseText);
@@ -476,13 +486,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function sendMessage(username, selectedPlot) {
         let message = $('#messageField').val().trim();
-        
+
         const xhr = new XMLHttpRequest();
         xhr.open('POST', '/addMessage');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.setRequestHeader('x-csrf-token', csrf);
 
-        const formData = `username=${username}&message=${message}&location=${selectedPlot}`;        
+        const formData = `username=${username}&message=${message}&location=${selectedPlot}`;
         xhr.send(formData);
 
         $('#message').hide();

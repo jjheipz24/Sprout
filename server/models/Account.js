@@ -7,6 +7,7 @@ let AccountModel = {};
 
 const PlantSchema = new mongoose.Schema({
   plantType: { type: String },
+  plantName: { type: String },
   growthStage: { type: Number, default: 0 },
   location: { type: String },
   prompt: { type: String },
