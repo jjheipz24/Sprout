@@ -1,7 +1,8 @@
 /* Require login for certain routes */
+/* If an account is not logged in, redirect to start page */
 const requiresLogin = (req, res, next) => {
     if (!req.session.account) {
-      return res.redirect('/');
+      return res.redirect('/start');
     }
   
     return next();
@@ -9,9 +10,10 @@ const requiresLogin = (req, res, next) => {
   
   
   /* Requires logout for certain routes */
+  /* If logged in, redirect to home page */
   const requiresLogout = (req, res, next) => {
     if (req.session.account) {
-      return res.redirect('/login');
+      return res.redirect('/');
     }
   
     return next();

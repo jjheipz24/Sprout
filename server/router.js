@@ -4,10 +4,10 @@ const mid = require('./middleware');
 
 const router = (app) => {
 
-  app.get('/', controllers.Account.startPage);
-  app.get('/home', controllers.Account.homePage);
+  app.get('/', mid.requiresLogin, controllers.Account.homePage);
+  app.get('/home', mid.requiresLogin, controllers.Account.homePage);
 
-  app.get('/start', controllers.Account.startPage);
+  app.get('/start', mid.requiresLogout, controllers.Account.startPage);
   
   app.get('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
   app.post('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.login);
@@ -18,7 +18,7 @@ const router = (app) => {
   app.get('/getUserName', mid.requiresSecure, mid.requiresLogin, controllers.Account.getUserName);
   app.get('/getPlants', mid.requiresSecure, mid.requiresLogin, controllers.Account.getPlants);
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
-  app.get('/', controllers.Account.homePage);
+
 
   app.get('/loadRandomGardens', controllers.Account.loadRandomGardens);
   app.get('/loadAllGardens', controllers.Account.loadAllGardens);
