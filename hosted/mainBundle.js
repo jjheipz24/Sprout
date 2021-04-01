@@ -87,30 +87,22 @@ var MessageModal = function MessageModal(props) {
     role: "document"
   }, /*#__PURE__*/React.createElement("div", {
     className: "modal-content"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "modal-header"
-  }, /*#__PURE__*/React.createElement("h5", {
+  }, /*#__PURE__*/React.createElement("label", null), /*#__PURE__*/React.createElement("h5", {
     className: "modal-title"
-  }, "Aloe Plant"), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "close",
-    "data-dismiss": "modal",
-    "aria-label": "Close"
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\xD7"))), /*#__PURE__*/React.createElement("label", null), /*#__PURE__*/React.createElement("label", {
+  }, "Share a Positive Message"), /*#__PURE__*/React.createElement("label", {
     htmlFor: "messageField"
-  }, "Enter a positive affirmation -- what are you grateful for?"), /*#__PURE__*/React.createElement("textarea", {
+  }, "Let username know they can achieve their goals!"), /*#__PURE__*/React.createElement("textarea", {
     id: "messageField",
     name: "messageField",
-    rows: "4",
+    placeholder: "You're such a hard worker, prosperity will follow!",
+    rows: "2",
     cols: "50"
   }), /*#__PURE__*/React.createElement("div", {
     className: "modal-footer"
   }, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "btn btn-primary saveBtn"
-  }, "Save")))));
+  }, "Send")))));
 };
 
 var setup = function setup(csrf) {

@@ -85,6 +85,22 @@ p {
 #pixiCanvas {
   max-width: 100%; }
 
+/* Modal Popup */
+.modal-content {
+  padding: 1rem; }
+
+#messageField {
+  border-radius: 1rem;
+  padding: .25em 0 0 .75em;
+  height: 2.5em; }
+
+.saveBtn {
+  background-color: #9746FF;
+  border: none; }
+
+.saveBtn:hover {
+  background-color: #B570FF; }
+
 /************************ 
 
         Typography 

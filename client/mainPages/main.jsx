@@ -62,17 +62,20 @@ const MessageModal = (props) => {
         <div className="modal-dialog" role="document">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title">Aloe Plant</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <h5 className="modal-title">Share a Positive Message</h5>
+                    {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> */}
+                    <label htmlFor="messageField">
+                        Let username know they can achieve their goals!
+                     </label>
                 </div>
                 <label></label>
-                 <label htmlFor="messageField">Enter a positive affirmation -- what are you grateful for?</label>
-                <textarea id="messageField" name="messageField" rows="4" cols="50">
+                 
+                <textarea id="messageField" name="messageField" placeholder="You're such a hard worker, prosperity will follow!" rows="2" cols="25">
                 </textarea>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-primary saveBtn">Save</button>
+                    <button type="button" className="btn btn-primary saveBtn">Send</button>
                 </div>
             </div>
         </div>
