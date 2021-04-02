@@ -145,7 +145,6 @@ const newPlant = async (request, response) => {
 const addMessage = async (request, response) => {
   const req = request;
   const res = response;
-  console.log(req.body);
 
   const user = await Account.AccountModel.findOne({ username: req.session.account.username });
   const plant =  user.plants.find(plant => plant.location === req.body.location);
@@ -185,6 +184,26 @@ const getPlants = async (request, response) => {
 
   return res.json({
     plants: 'User not found'
+  });
+}
+
+const getPlantInfo = async (request, response) => {
+  const req = request;
+  const res = response;
+
+  const user = await Account.AccountModel.findOne({ username: req.session.account.username });
+  const plant =  user.plants.find(plant => plant.location === req.body.location);
+
+  if (req.session.account) {
+    return res.json({
+      username: req.session.account.username,
+      plant: plant
+    });
+  }
+
+  return res.json({
+    username: '',
+    plant: ''
   });
 }
 
@@ -258,6 +277,7 @@ module.exports.startPage = startPage;
 module.exports.getUserName = getUserName;
 module.exports.getPlants = getPlants;
 module.exports.getToken = getToken;
+module.exports.getPlantInfo = getPlantInfo;
 
 module.exports.loadRandomGardens = loadRandomGardens;
 module.exports.loadAllGardens = loadAllGardens;

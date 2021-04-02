@@ -19,11 +19,11 @@ const router = (app) => {
   app.get('/getPlants', mid.requiresSecure, mid.requiresLogin, controllers.Account.getPlants);
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
 
-
   app.get('/loadRandomGardens', controllers.Account.loadRandomGardens);
   app.get('/loadAllGardens', controllers.Account.loadAllGardens);
   app.post('/newPlant', mid.requiresSecure, mid.requiresLogin, controllers.Account.newPlant);
   app.post('/addMessage', controllers.Account.addMessage);
+  app.post('/getPlantInfo', mid.requiresLogin, mid.requiresSecure, controllers.Account.getPlantInfo);
 
   app.delete('/clear', mid.requiresLogin, controllers.Account.clearAll);
   /*

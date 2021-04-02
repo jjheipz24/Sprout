@@ -87,16 +87,20 @@ var MessageModal = function MessageModal(props) {
     role: "document"
   }, /*#__PURE__*/React.createElement("div", {
     className: "modal-content"
-  }, /*#__PURE__*/React.createElement("label", null), /*#__PURE__*/React.createElement("h5", {
-    className: "modal-title"
-  }, "Share a Positive Message"), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "messageField"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "modal-header"
+  }, /*#__PURE__*/React.createElement("h5", {
+    className: "modal-title",
+    id: "messageTitle"
+  }, "Share a Positive Message")), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "messageField",
+    id: "messageLabel"
   }, "Let username know they can achieve their goals!"), /*#__PURE__*/React.createElement("textarea", {
     id: "messageField",
     name: "messageField",
     placeholder: "You're such a hard worker, prosperity will follow!",
     rows: "2",
-    cols: "50"
+    cols: "25"
   }), /*#__PURE__*/React.createElement("div", {
     className: "modal-footer"
   }, /*#__PURE__*/React.createElement("button", {

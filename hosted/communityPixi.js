@@ -469,19 +469,26 @@ document.addEventListener('DOMContentLoaded', function () {
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)];
 
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', '/getUserName');
+        xhr.open('POST', '/getPlantInfo');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.setRequestHeader('x-csrf-token', csrf);
 
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                const res = JSON.parse(this.responseText);
+                const user = res.username;
+                const userCapped = user.charAt(0).toUpperCase() + user.slice(1);
+
+                $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
+                $('#messageLabel').text(`Let ${res.username} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
+
                 $('.saveBtn').click(e => {
-                    const user = JSON.parse(this.responseText);
-                    sendMessage(user.username, selectedPlot);
+                    sendMessage(user, selectedPlot);
                 })
             }
         };
-        xhr.send();
+        const formData = `location=${selectedPlot}`;
+        xhr.send(formData);
     }
 
     function sendMessage(username, selectedPlot) {
