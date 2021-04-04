@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const container = new PIXI.Container(); //main container
     const commContainer = new PIXI.Container();
+    const seedContainer = new PIXI.Container();
+
     let pixiCanvas = d3.select('#pixiCanvas');
 
 
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let plot6;
 
     let clearButton; //clears the garden
+    let seedButton; //opens seedPacket selection
 
     let plots = {}; //Holds the placeholder spots
     let colors = {}; //holds the color textures
@@ -212,8 +215,6 @@ document.addEventListener('DOMContentLoaded', function () {
             container.addChild(plot);
         });
 
-        createSeedPackets();
-
         personal = true;
 
         //createSignNav();
@@ -354,7 +355,20 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
 
+        seedButton = new PIXI.Sprite.from('assets/images/test/green.png');
+        seedButton.anchor.set(0.5)
+        seedButton.scale.set(.75, .75);
+        seedButton.interactive = true;
+        seedButton.buttonMode = true;
+        seedButton.x = 200;
+        seedButton.y = 200;
+
+        seedButton.on('pointerdown', () => {
+            createSeedPackets();
+        });
+
         container.addChild(clearButton);
+        container.addChild(seedButton);
     }
 
     //Adds the repeated properties
@@ -381,40 +395,74 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createSeedPackets() {
+        closeButton = new PIXI.Sprite.from('assets/images/test/blue.png');
+        closeButton.anchor.set(0.5)
+        closeButton.scale.set(.75, .75);
+        closeButton.interactive = true;
+        closeButton.buttonMode = true;
+        closeButton.x = (app.screen.width / 6) - 100;
+        closeButton.y = (app.screen.height / 2) - 100;
+
+        closeButton.on('pointerdown', () => {     
+            destroySeedPackets();
+            closeButton.destroy();
+        });
+
+        container.addChild(closeButton);
+        
         aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
-        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 6), (app.screen.height - 100));
-        container.addChild(aloeSeeds);
+        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 4), (app.screen.height / 2), 6);
+        seedContainer.addChild(aloeSeeds);
 
         cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.png');
-        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 6) + 200, (app.screen.height - 100));
-        container.addChild(cactusSeeds);
+        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 4) + 150, (app.screen.height / 2), 5);
+        seedContainer.addChild(cactusSeeds);
 
         fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.png');
-        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 6) + 400, (app.screen.height - 100));
-        container.addChild(fiddleSeeds);
+        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 4) + 300, (app.screen.height / 2), 4);
+        seedContainer.addChild(fiddleSeeds);
 
         jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
-        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 6) + 600, (app.screen.height - 100));
-        container.addChild(jadeSeeds);
+        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 4) + 450, (app.screen.height / 2), 3);
+        seedContainer.addChild(jadeSeeds);
 
         peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.png');
-        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 6) + 800, (app.screen.height - 100));
-        container.addChild(peaceSeeds);
+        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 4) + 600, (app.screen.height / 2), 2);
+        seedContainer.addChild(peaceSeeds);
 
         snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
-        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 6) + 1000, (app.screen.height - 100));
-        container.addChild(snakeSeeds);
+        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 4) + 750, (app.screen.height / 2) , 1);
+        seedContainer.addChild(snakeSeeds);
+
+        container.addChild(seedContainer);
+        seedContainer.sortableChildren = true;
+        seedContainer.children.sort((a, b) => { return a.zIndex - b.zIndex; });
+        seedContainer.updateTransform();
     }
 
-    function packetButtons(packet, seedType, plantName, x, y) {
+    function packetButtons(packet, seedType, plantName, x, y, z) {
         packet.interactive = true;
         packet.buttonMode = true;
+        packet.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+        packet.scale.set(1.5, 1.5);
         packet.anchor.set(0.5);
-        packet.scale.set(0.60, 0.60);
         packet.x = x;
         packet.y = y;
+        packet.zIndex = z;
+
         // plot.on('pointerdown', changeColor);
         packet.on('pointerdown', () => {
+            const ogX = packet.x;
+            const ogIdx = seedContainer.children.indexOf(packet);
+
+            const first = seedContainer.children[5];
+
+            packet.x = seedContainer.children[5].x;
+            seedContainer.children[5] = packet;
+
+            seedContainer.children[ogIdx] = first;
+            seedContainer.children[ogIdx].x = ogX;
+
             selectedSeed = seedType;
             seedName = plantName;
         });
@@ -429,13 +477,16 @@ document.addEventListener('DOMContentLoaded', function () {
         plot6.destroy();
 
         clearButton.destroy();
+    }
 
+    function destroySeedPackets() {
         aloeSeeds.destroy();
         cactusSeeds.destroy();
         fiddleSeeds.destroy();
         jadeSeeds.destroy();
         peaceSeeds.destroy();
         snakeSeeds.destroy();
+        container.removeChild(seedContainer);
     }
 
     //Use for adding a plant to a plot
@@ -553,24 +604,23 @@ document.addEventListener('DOMContentLoaded', function () {
             plot6.y = (app.screen.height / 2) + 80;
 
             //Seed packets
-            aloeSeeds.x = (app.screen.width / 6);
-            aloeSeeds.y = (app.screen.height) - 100;
+            // aloeSeeds.x = (app.screen.width / 6);
+            // aloeSeeds.y = (app.screen.height / 2);
 
-            cactusSeeds.x = (app.screen.width / 6) + 200;
-            cactusSeeds.y = (app.screen.height) - 100;
+            // cactusSeeds.x = (app.screen.width / 6) + 100;
+            // cactusSeeds.y = (app.screen.height / 2);
+            
+            // fiddleSeeds.x = (app.screen.width / 6) + 200;
+            // fiddleSeeds.y = (app.screen.height / 2);            
 
-            fiddleSeeds.x = (app.screen.width / 6) + 400;
-            fiddleSeeds.y = (app.screen.height) - 100;
+            // jadeSeeds.x = (app.screen.width / 6) + 300;
+            // jadeSeeds.y = (app.screen.height / 2);            
 
-            jadeSeeds.x = (app.screen.width / 6) + 600;
-            jadeSeeds.y = (app.screen.height) - 100;
+            // peaceSeeds.x = (app.screen.width / 6) + 400;
+            // peaceSeeds.y = (app.screen.height / 2);            
 
-            peaceSeeds.x = (app.screen.width / 6) + 800;
-            peaceSeeds.y = (app.screen.height) - 100;
-
-            snakeSeeds.x = (app.screen.width / 6) + 1000;
-            snakeSeeds.y = (app.screen.height) - 100;
-
+            // snakeSeeds.x = (app.screen.width / 6) + 500;
+            // snakeSeeds.y = (app.screen.height / 2);
         }
 
         commContainer.x = 0;

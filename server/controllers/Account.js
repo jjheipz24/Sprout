@@ -115,12 +115,36 @@ const getUserName = (request, response) => {
 const newPlant = async (request, response) => {
   const req = request;
   const res = response;
+  let promptBody;
+
+  switch(req.body.plantName) {
+    case "Aloe Vera":
+      promptBody = "everything will be okay";
+      break;
+    case "Cactus":
+      promptBody = "you're proud of them";
+      break;
+    case "Fiddle Leaf":
+      promptBody = "that they're strong";
+      break;
+    case "Jade":
+      promptBody = "how well they've done so far";
+      break;
+    case "Peace Lily":
+      promptBody = "they can achieve their goals";
+      break;
+    case "Snake Plant":
+      promptBody = "to take a break and take care of themself";
+      break;
+    default:
+      promptBody = "they can achieve their goals";
+  }
 
   const plant = {
     plantType: req.body.plantType,
     plantName: req.body.plantName,
     location: req.body.location,
-    prompt: req.body.prompt,
+    prompt: promptBody,
     growthStage: 0,
     messages: [],
     allowedUsers: [],
