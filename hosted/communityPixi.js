@@ -46,8 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***** BACKGROUND *****/
 
-    let backgroundImg = PIXI.Texture.from('assets/images/test/planter-background.png');
-    let background = new PIXI.Sprite(backgroundImg);
+    let communityBackground = PIXI.Texture.from('assets/images/test/planter-background.png');
+    let personalBackground = PIXI.Texture.from('assets/images/PersonalBackground.png');
+    let background = new PIXI.Sprite(communityBackground);
     background.anchor.x = 0;
     background.anchor.y = 0;
     background.position.x = 0;
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     createSignNav();
 
     function createCommunityGarden() {
+        background.texture = communityBackground;
         commContainer.x = 0;
         commContainer.y = 0;
         container.addChild(commContainer);
@@ -201,12 +203,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Creates Personal Garden view
     function createPersonalGarden() {
+        background.texture = personalBackground;
         //Initializes the planter box
-        planterBox = new PIXI.Sprite.from('assets/images/test/planter-angled.png');
+        planterBox = new PIXI.Sprite.from('assets/images/planterBox.png');
         planterBox.anchor.set(0.5);
         planterBox.scale.set(.75, .75);
-        planterBox.x = app.screen.width / 2;
-        planterBox.y = app.screen.height / 2;
+        planterBox.x = app.screen.width / 2 + 50;
+        planterBox.y = app.screen.height / 2 - 35;
         container.addChild(planterBox);
 
         initCircles();
@@ -355,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
 
-        seedButton = new PIXI.Sprite.from('assets/images/test/green.png');
+        seedButton = new PIXI.Sprite.from('assets/images/test/blue.png');
         seedButton.anchor.set(0.5)
         seedButton.scale.set(.75, .75);
         seedButton.interactive = true;
@@ -376,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.interactive = true;
         plot.buttonMode = true;
         plot.anchor.set(0.5);
-        plot.scale.set(0.70, 0.70);
+        plot.scale.set(0.75, 0.75);
         plot.x = x;
         plot.y = y;
         // plot.on('pointerdown', changeColor);
@@ -395,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createSeedPackets() {
-        closeButton = new PIXI.Sprite.from('assets/images/test/blue.png');
+        closeButton = new PIXI.Sprite.from('assets/images/test/pink.png');
         closeButton.anchor.set(0.5)
         closeButton.scale.set(.75, .75);
         closeButton.interactive = true;
@@ -567,41 +570,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
         background.width = window.innerWidth;
         background.height = window.innerHeight;
-        pole.x = app.screen.width - 200;
-        pole.y = app.screen.height / 2;
-        viewGarden.x = app.screen.width - 200;
-        viewGarden.y = (app.screen.height / 2) - 110;
-        visitComm.x = app.screen.width - 200;
-        visitComm.y = (app.screen.height / 2) - 45;
-        about.x = app.screen.width - 200;
-        about.y = (app.screen.height / 2) + 20;
+        pole.x = 200;
+        pole.y = ((app.screen.height / 2) + 125);
+        viewGarden.x = 200;
+        viewGarden.y = ((app.screen.height / 2) + 20);
+        visitComm.x = 200;
+        visitComm.y = ((app.screen.height / 2) + 85);
+        about.x = 200;
+        about.y = ((app.screen.height / 2) + 150);
 
         if (personal) {
 
-            clearButton.x = 200;
-            clearButton.y = 400;
+            clearButton.x = 600;
+            clearButton.y = 600;
 
-            planterBox.x = app.screen.width / 2;
-            planterBox.y = app.screen.height / 2;
+            seedButton.x = 400;
+            seedButton.y = 600;
+
+            planterBox.x = app.screen.width / 2 + 50;
+            planterBox.y = app.screen.height / 2 - 35;
 
             //Plant plots
-            plot1.x = (app.screen.width / 2) - 65;
-            plot1.y = (app.screen.height / 2) - 115;
+            plot1.x = (app.screen.width / 2) - 300;
+            plot1.y = (app.screen.height / 2) - 130;
 
-            plot2.x = (app.screen.width / 2) + 50;
-            plot2.y = (app.screen.height / 2) - 55;
+            plot2.x = (app.screen.width / 2) - 50;
+            plot2.y = (app.screen.height / 2) - 130;
 
-            plot3.x = (app.screen.width / 2) + 160;
-            plot3.y = (app.screen.height / 2);
+            plot3.x = (app.screen.width / 2) + 200;
+            plot3.y = (app.screen.height / 2) - 130;
 
-            plot4.x = (app.screen.width / 2) - 170;
-            plot4.y = (app.screen.height / 2) - 55;
+            plot4.x = (app.screen.width / 2) - 200;
+            plot4.y = (app.screen.height / 2) - 35;
 
-            plot5.x = (app.screen.width / 2) - 60;
-            plot5.y = (app.screen.height / 2) + 20;
+            plot5.x = (app.screen.width / 2) + 40;
+            plot5.y = (app.screen.height / 2) - 35;
 
-            plot6.x = (app.screen.width / 2) + 40;
-            plot6.y = (app.screen.height / 2) + 80;
+            plot6.x = (app.screen.width / 2) + 280;
+            plot6.y = (app.screen.height / 2) - 35;
 
             //Seed packets
             // aloeSeeds.x = (app.screen.width / 6);
