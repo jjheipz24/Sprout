@@ -480,6 +480,7 @@ document.addEventListener('DOMContentLoaded', function () {
         plot6.destroy();
 
         clearButton.destroy();
+        seedButton.destroy();
     }
 
     function destroySeedPackets() {
