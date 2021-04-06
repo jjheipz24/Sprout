@@ -367,6 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seedButton.y = 200;
 
         seedButton.on('pointerdown', () => {
+            container.addChild(seedContainer);
             createSeedPackets();
         });
 
@@ -385,6 +386,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // plot.on('pointerdown', changeColor);
         plot.on('pointerdown', (function (e) {
             const textureName = plot.texture.textureCacheIds[0];
+            createSeedPackets();
             textureName === "assets/images/test/brown.png" ? addPlant(e, selectedSeed, seedName) : messageModal(e);
         }));
     }
@@ -468,6 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             selectedSeed = seedType;
             seedName = plantName;
+            destroySeedPackets();
         });
     }
     //Destroys each plot when personal garden is no longer in view
