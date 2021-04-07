@@ -386,8 +386,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // plot.on('pointerdown', changeColor);
         plot.on('pointerdown', (function (e) {
             const textureName = plot.texture.textureCacheIds[0];
-            createSeedPackets();
-            textureName === "assets/images/test/brown.png" ? addPlant(e, selectedSeed, seedName) : messageModal(e);
+            if(textureName === "assets/images/test/brown.png"){
+                createSeedPackets();
+                addPlant(e, selectedSeed, seedName);
+            }
+            else{
+                messageModal(e)
+            }
         }));
     }
 
