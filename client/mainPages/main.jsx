@@ -62,7 +62,7 @@ const MessageModal = (props) => {
         <div className="modal-dialog" role="document">
             <div className="modal-content">
                 <div className="modal-header">
-                    <img className="img-responsive" alt="profile pic of plant" src="assets/images/profilePlants/CactusProfile.png" />
+                    <img className="img-responsive" id="modalImg" alt="profile pic of plant" src="assets/images/profilePlants/JadeProfile.png" />
                     <div id="modal-content-header">
                         <h5 className="modal-title" id="messageTitle"></h5>
                         <label htmlFor="messageField" id="messageLabel">

@@ -537,6 +537,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 const user = res.username;
                 const userCapped = user.charAt(0).toUpperCase() + user.slice(1);
 
+                // Changes image based on current plant clicked on
+                //quick check bc Aloe Vera plant has space. smh had to be special
+                if(res.plant.plantName == 'Aloe Vera') {
+                    console.log('aloe plant')
+                    $('#modalImg').attr("src", `assets/images/profilePlants/AloeProfile.png`);
+                } else {
+                    $('#modalImg').attr("src", `assets/images/profilePlants/${res.plant.plantName}Profile.png`);
+                }
+
                 $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
                 $('#messageLabel').text(`Let ${res.username} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
 
