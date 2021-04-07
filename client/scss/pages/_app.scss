@@ -56,10 +56,40 @@ p {
     padding: 1rem;
 }
 
+.modal-header {
+    height: 18vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    border: none;
+}
+
+#modal-content-header {
+    display: flex;
+    flex-direction: column;
+}
+
+#messageTitle {
+    margin-left: 1em;
+}
+
+#messageLabel {
+    margin: 2vh 0 2vh 1.25em;
+}
+
+#messageField {
+    margin: 0 2vw;
+}
+
 #messageField {
     border-radius: 1rem;
     padding: .25em 0 0 .75em;
     height: 2.5em;
+}
+
+.modal-footer {
+    border: none;
 }
 
 .saveBtn {

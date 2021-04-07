@@ -89,13 +89,19 @@ var MessageModal = function MessageModal(props) {
     className: "modal-content"
   }, /*#__PURE__*/React.createElement("div", {
     className: "modal-header"
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "img-responsive",
+    alt: "profile pic of plant",
+    src: "assets/images/profilePlants/CactusProfile.png"
+  }), /*#__PURE__*/React.createElement("div", {
+    id: "modal-content-header"
   }, /*#__PURE__*/React.createElement("h5", {
     className: "modal-title",
     id: "messageTitle"
-  }, "Share a Positive Message")), /*#__PURE__*/React.createElement("label", {
+  }), /*#__PURE__*/React.createElement("label", {
     htmlFor: "messageField",
     id: "messageLabel"
-  }, "Let username know they can achieve their goals!"), /*#__PURE__*/React.createElement("textarea", {
+  }, "Let username know they can achieve their goals!"))), /*#__PURE__*/React.createElement("textarea", {
     id: "messageField",
     name: "messageField",
     placeholder: "You're such a hard worker, prosperity will follow!",
