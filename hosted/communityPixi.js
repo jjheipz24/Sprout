@@ -408,13 +408,13 @@ document.addEventListener('DOMContentLoaded', function () {
         closeButton.x = (app.screen.width / 6) - 100;
         closeButton.y = (app.screen.height / 2) - 100;
 
-        closeButton.on('pointerdown', () => {     
+        closeButton.on('pointerdown', () => {
             destroySeedPackets();
             closeButton.destroy();
         });
 
         container.addChild(closeButton);
-        
+
         aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
         packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 4), (app.screen.height / 2), 6);
         seedContainer.addChild(aloeSeeds);
@@ -436,12 +436,14 @@ document.addEventListener('DOMContentLoaded', function () {
         seedContainer.addChild(peaceSeeds);
 
         snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
-        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 4) + 750, (app.screen.height / 2) , 1);
+        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 4) + 750, (app.screen.height / 2), 1);
         seedContainer.addChild(snakeSeeds);
 
         container.addChild(seedContainer);
         seedContainer.sortableChildren = true;
-        seedContainer.children.sort((a, b) => { return a.zIndex - b.zIndex; });
+        seedContainer.children.sort((a, b) => {
+            return a.zIndex - b.zIndex;
+        });
         seedContainer.updateTransform();
     }
 
@@ -493,6 +495,7 @@ document.addEventListener('DOMContentLoaded', function () {
         jadeSeeds.destroy();
         peaceSeeds.destroy();
         snakeSeeds.destroy();
+        closeButton.destroy();
         container.removeChild(seedContainer);
     }
 
@@ -538,13 +541,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const userCapped = user.charAt(0).toUpperCase() + user.slice(1);
 
                 // Changes image based on current plant clicked on
-                //quick check bc Aloe Vera plant has space. smh had to be special
-                if(res.plant.plantName == 'Aloe Vera') {
-                    console.log('aloe plant')
-                    $('#modalImg').attr("src", `assets/images/profilePlants/AloeProfile.png`);
-                } else {
-                    $('#modalImg').attr("src", `assets/images/profilePlants/${res.plant.plantName}Profile.png`);
-                }
+                $('#modalImg').attr("src", `assets/images/profilePlants/${res.plant.plantType}Profile.png`);
 
                 $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
                 $('#messageLabel').text(`Let ${res.username} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
@@ -628,7 +625,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // cactusSeeds.x = (app.screen.width / 6) + 100;
             // cactusSeeds.y = (app.screen.height / 2);
-            
+
             // fiddleSeeds.x = (app.screen.width / 6) + 200;
             // fiddleSeeds.y = (app.screen.height / 2);            
 
