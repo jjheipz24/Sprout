@@ -112,6 +112,31 @@ const getUserName = (request, response) => {
 
 };
 
+const updatePlant = (request, response) => {
+  const req = request;
+  const res = response;
+
+  const updatePromise = db.Account.updateOne(
+    { _id: req.body.id },
+    {
+      $set: { 
+        plantType: req.body.plantType,
+        plantName: req.body.plantName,
+        location: req.body.location,
+      }
+    }
+  );
+
+  updatePromise.then(() => {
+    return res.status(201).json();
+  });
+  updatePromise.catch((err) => {
+    return res.status(400).json({
+      error: 'An error occured with updating the plant',
+    });
+  });
+}
+
 const newPlant = async (request, response) => {
   const req = request;
   const res = response;
@@ -258,7 +283,7 @@ const loadRandomGardens = (request, response) => {
       return res.status(400).json({ error: 'An error occured in retrieving random gardens' });
     }
 
-    return res.json({ randomGardens: docs});
+    return res.status(200).json({ randomGardens: docs});
   });
 }
 
@@ -272,7 +297,7 @@ const loadAllGardens = (request, response) => {
       return res.status(400).json({ error: 'An error occured in retrieving all gardens' });
     }
 
-    return res.json({ allGardens: docs});
+    return res.status(200).json({ allGardens: docs});
   });
 
 }
@@ -305,6 +330,7 @@ module.exports.getPlantInfo = getPlantInfo;
 
 module.exports.loadRandomGardens = loadRandomGardens;
 module.exports.loadAllGardens = loadAllGardens;
+module.exports.updatePlant = updatePlant;
 module.exports.newPlant = newPlant;
 module.exports.addMessage = addMessage;
 module.exports.clearAll = clearAll;

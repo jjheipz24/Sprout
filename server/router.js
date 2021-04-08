@@ -18,9 +18,10 @@ const router = (app) => {
   app.get('/getUserName', mid.requiresSecure, mid.requiresLogin, controllers.Account.getUserName);
   app.get('/getPlants', mid.requiresSecure, mid.requiresLogin, controllers.Account.getPlants);
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
-
   app.get('/loadRandomGardens', controllers.Account.loadRandomGardens);
   app.get('/loadAllGardens', controllers.Account.loadAllGardens);
+
+  app.post('/updatePlant', mid.requiresSecure, mid.requiresLogin, controllers.Account.updatePlant);
   app.post('/newPlant', mid.requiresSecure, mid.requiresLogin, controllers.Account.newPlant);
   app.post('/addMessage', controllers.Account.addMessage);
   app.post('/getPlantInfo', mid.requiresLogin, mid.requiresSecure, controllers.Account.getPlantInfo);

@@ -91,9 +91,18 @@ document.addEventListener('DOMContentLoaded', function () {
     let purple = PIXI.Texture.from('assets/images/test/purple.png');
     let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
 
-    let garden1, garden2, garden3, garden4;
+    let communityGardenArray = [];
 
-    let communityGardenArray = [garden1, garden2, garden3, garden4];
+    for(let i = 0; i < 4; i++) {
+        let personal;
+        i === 0 ? personal = true : personal = false;
+        
+        communityGardenArray.push({
+            name: `garden${i}`,
+            num: i,
+            personal, 
+        })
+    }
 
     const gardenUnhovered = PIXI.Texture.from('assets/images/smallGarden.png');
     const gardenHovered = PIXI.Texture.from('assets/images/smallGardenHover.png');
@@ -112,27 +121,28 @@ document.addEventListener('DOMContentLoaded', function () {
         commContainer.x = 0;
         commContainer.y = 0;
         container.addChild(commContainer);
+        pullGardens();
 
         for (let i = 0; i < communityGardenArray.length; i++) {
-            communityGardenArray[i] = new PIXI.Sprite(gardenUnhovered);
+            communityGardenArray[i].sprite = new PIXI.Sprite(gardenUnhovered);
             // let frames = ["assets/images/smallGarden.png", "assets/images/smallGardenHover"]
             // communityGardenArray[i] = new PIXI.animate.MovieClip.prototype.fromFrames(frames);
-            communityGardenArray[i].interactive = true;
-            communityGardenArray[i].buttonMode = true;
+            communityGardenArray[i].sprite.interactive = true;
+            communityGardenArray[i].sprite.buttonMode = true;
 
-            communityGardenArray[i].anchor.set(0.5);
-            communityGardenArray[i].scale.set(.85, .85);
+            communityGardenArray[i].sprite.anchor.set(0.5);
+            communityGardenArray[i].sprite.scale.set(.85, .85);
 
             if (i % 2) {
-                communityGardenArray[i].x = 150;
+                communityGardenArray[i].sprite.x = 150;
             } else {
-                communityGardenArray[i].x = 600;
+                communityGardenArray[i].sprite.x = 600;
             }
 
             if (i < 2) {
-                communityGardenArray[i].y = 150;
+                communityGardenArray[i].sprite.y = 150;
             } else {
-                communityGardenArray[i].y = 500;
+                communityGardenArray[i].sprite.y = 500;
             }
 
             // communityGardenArray[i].mouseout = function(mouseData) {
@@ -140,23 +150,24 @@ document.addEventListener('DOMContentLoaded', function () {
             //     communityGardenArray[i].aplha = 1;
             // }
 
-            commContainer.addChild(communityGardenArray[i]);
+            commContainer.addChild(communityGardenArray[i].sprite);
 
-            communityGardenArray[i].on('pointerover', () => {
-                communityGardenArray[i].texture = gardenHovered;
+            communityGardenArray[i].sprite.on('pointerover', () => {
+                communityGardenArray[i].sprite.texture = gardenHovered;
                 // communityGardenArray[i].aplha = .5;
                 // communityGardenArray[i].gotoAndStop(1);
             });
 
-            communityGardenArray[i].on('pointerout', () => {
-                communityGardenArray[i].texture = gardenUnhovered;
+            communityGardenArray[i].sprite.on('pointerout', () => {
+                communityGardenArray[i].sprite.texture = gardenUnhovered;
                 // communityGardenArray[i].aplha = .5;
                 // communityGardenArray[i].gotoAndStop(1);
             });
-            communityGardenArray[i].on('pointerdown', () => {
+            communityGardenArray[i].sprite.on('pointerdown', () => {
                 for (let j = 0; j < communityGardenArray.length; j++) {
-                    communityGardenArray[j].destroy();
+                    communityGardenArray[j].sprite.destroy();
                 }
+                
                 createPersonalGarden();
             });
         }
@@ -570,6 +581,30 @@ document.addEventListener('DOMContentLoaded', function () {
             $('#message').hide();
         }
 
+    }
+
+    /*********************** COMMUNITY GARDEN TIME ***********************/
+    function pullGardens() {
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', '/loadRandomGardens');
+        xhr.onreadystatechange = function() {
+            if ( xhr.readyState === 4 && xhr.status === 200 ) {
+               const randomGardens = JSON.parse(xhr.response).randomGardens;
+            
+               communityGardenArray.forEach(garden => {
+                   if(!garden.personal) {
+                       garden.username = randomGardens[garden.num] ? randomGardens[garden.num].username : 'test';
+                       garden.plants = randomGardens[garden.num] ? randomGardens[garden.num].plants : [];
+                   }
+               });
+            }
+        };
+
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('x-csrf-token', csrf);
+
+        xhr.send();
     }
 
     /*********** Animation **********/

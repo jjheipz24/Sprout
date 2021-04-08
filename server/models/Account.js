@@ -71,12 +71,10 @@ AccountModel.findByUsername(username, (err, doc) => {
 AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
   .select('username plants')
   .limit(20)
-  .toArray()
   .exec(callback);
 
 AccountSchema.statics.findAllGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
   .select('username plants')
-  .toArray()
   .exec(callback);
 
 AccountModel = mongoose.model('Account', AccountSchema);
