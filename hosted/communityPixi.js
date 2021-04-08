@@ -74,39 +74,21 @@ document.addEventListener('DOMContentLoaded', function () {
     let seedButton; //opens seedPacket selection
 
     let plots = {}; //Holds the placeholder spots
-    let colors = {}; //holds the color textures
-    //Holds all of the plants and current textures
-    let plants = {
-        "plot1": "white",
-        "plot2": "white",
-        "plot3": "white",
-        "plot4": "white",
-        "plot5": "white",
-        "plot6": "white",
-    };
 
     let gardenData; //Holds any pre-existing garden info
 
-    let selectedSeed; //Sets the current seed a user wants to plant
-    let seedName; //Sets the name of the added seed
+    let plotSpot; //Place where user wants seed planted
 
     let aloeSeeds, cactusSeeds, fiddleSeeds, jadeSeeds, peaceSeeds, snakeSeeds; //All of the seed packets
 
     //All of the colors
     let brown = PIXI.Texture.from('assets/images/test/brown.png');
-    colors["brown"] = brown;
     let blue = PIXI.Texture.from('assets/images/test/blue.png');
-    colors["blue"] = blue;
     let orange = PIXI.Texture.from('assets/images/test/orange.png');
-    colors["orange"] = orange;
     let green = PIXI.Texture.from('assets/images/test/green.png');
-    colors["green"] = green;
     let pink = PIXI.Texture.from('assets/images/test/pink.png');
-    colors["pink"] = pink;
     let purple = PIXI.Texture.from('assets/images/test/purple.png');
-    colors["purple"] = purple;
     let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
-    colors["yellow"] = yellow;
 
     let garden1, garden2, garden3, garden4;
 
@@ -336,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         });
 
-        clearButton = new PIXI.Sprite.from('assets/images/test/yellow.png');
+        clearButton = new PIXI.Sprite(yellow);
         clearButton.anchor.set(0.5)
         clearButton.scale.set(.75, .75);
         clearButton.interactive = true;
@@ -358,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
 
-        seedButton = new PIXI.Sprite.from('assets/images/test/blue.png');
+        seedButton = new PIXI.Sprite(blue);
         seedButton.anchor.set(0.5)
         seedButton.scale.set(.75, .75);
         seedButton.interactive = true;
@@ -386,11 +368,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // plot.on('pointerdown', changeColor);
         plot.on('pointerdown', (function (e) {
             const textureName = plot.texture.textureCacheIds[0];
-            if(textureName === "assets/images/test/brown.png"){
+            if (textureName === "assets/images/test/brown.png") {
+                plotSpot = e.target; //Sets selected plot to the current target
                 createSeedPackets();
-                addPlant(e, selectedSeed, seedName);
-            }
-            else{
+            } else {
                 messageModal(e)
             }
         }));
@@ -400,7 +381,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function updatePlots(data) {
         let plantArr = data;
         plantArr.forEach(plant => {
-            plots[plant.location].texture = plantCollection[plant.plantType][plant.growthStage];
+            if (plots[plant.location] !== undefined) {
+                plots[plant.location].texture = plantCollection[plant.plantType][plant.growthStage];
+            }
+
         })
     }
 
@@ -475,8 +459,7 @@ document.addEventListener('DOMContentLoaded', function () {
             seedContainer.children[ogIdx] = first;
             seedContainer.children[ogIdx].x = ogX;
 
-            selectedSeed = seedType;
-            seedName = plantName;
+            addPlant(plotSpot, seedType, plantName);
             destroySeedPackets();
         });
     }
@@ -505,12 +488,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     //Use for adding a plant to a plot
-    function addPlant(e, plantType, seedName) {
-        let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)]; //Location of where the seed is planted
+    function addPlant(target, plantType, seedName) {
+        //let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)]; //Location of where the seed is planted
+        let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(target)]; //Location of where the seed is planted
         if (plantType === undefined) {
             console.log("No plant seeds selected");
         } else {
-            e.target.texture = plantCollection[plantType][0];
+            target.texture = plantCollection[plantType][0];
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/newPlant');
@@ -520,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&prompt=test`;
 
             xhr.send(formData);
-            e.stopPropagation();
+            //e.stopPropagation();
         }
 
         // $.get('/getPlants', function (data, status) {
