@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         height: h,
         view: document.querySelector('#pixiCanvas'),
         resolution: window.devicePixelRatio,
+        //resolution: 1,
         autoDensity: true
     });
 
@@ -405,27 +406,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
         container.addChild(closeButton);
 
-        aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.svg');
+        aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
         packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 4), (app.screen.height / 4), 6);
         seedContainer.addChild(aloeSeeds);
 
-        cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.svg');
+        cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.png');
         packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 4) + 300, (app.screen.height / 4), 5);
         seedContainer.addChild(cactusSeeds);
 
-        fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.svg');
+        fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.png');
         packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 4) + 600, (app.screen.height / 4), 4);
         seedContainer.addChild(fiddleSeeds);
 
-        jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.svg');
+        jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
         packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 4), (app.screen.height) - 200, 3);
         seedContainer.addChild(jadeSeeds);
 
-        peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.svg');
+        peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.png');
         packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 4) + 300, (app.screen.height) - 200, 2);
         seedContainer.addChild(peaceSeeds);
 
-        snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.svg');
+        snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
         packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 4) + 600, (app.screen.height) - 200, 1);
         seedContainer.addChild(snakeSeeds);
 
