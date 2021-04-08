@@ -372,6 +372,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 plotSpot = e.target; //Sets selected plot to the current target
                 createSeedPackets();
             } else {
+                //TODO: Only open modal if the plant isn't at growth stage 1
                 messageModal(e)
             }
         }));
@@ -446,20 +447,23 @@ document.addEventListener('DOMContentLoaded', function () {
         packet.y = y;
         packet.zIndex = z;
 
-        // plot.on('pointerdown', changeColor);
+        //Attempt to make seed packet move to the front on hover
+        // packet.on('pointerover', () => {
+        //     const ogX = packet.x;
+        //     const ogIdx = seedContainer.children.indexOf(packet);
+
+        //     const first = seedContainer.children[5];
+
+        //     packet.x = seedContainer.children[5].x;
+        //     seedContainer.children[5] = packet;
+
+        //     seedContainer.children[ogIdx] = first;
+        //     seedContainer.children[ogIdx].x = ogX;
+        // });
+
         packet.on('pointerdown', () => {
-            const ogX = packet.x;
-            const ogIdx = seedContainer.children.indexOf(packet);
 
-            const first = seedContainer.children[5];
-
-            packet.x = seedContainer.children[5].x;
-            seedContainer.children[5] = packet;
-
-            seedContainer.children[ogIdx] = first;
-            seedContainer.children[ogIdx].x = ogX;
-
-            addPlant(plotSpot, seedType, plantName);
+            addPlant(plotSpot, seedType, plantName, 0);
             destroySeedPackets();
         });
     }
@@ -488,31 +492,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     //Use for adding a plant to a plot
-    function addPlant(target, plantType, seedName) {
+    function addPlant(target, plantType, seedName, growthStage) {
         //let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)]; //Location of where the seed is planted
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(target)]; //Location of where the seed is planted
         if (plantType === undefined) {
             console.log("No plant seeds selected");
         } else {
-            target.texture = plantCollection[plantType][0];
+            target.texture = plantCollection[plantType][growthStage];
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/newPlant');
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.setRequestHeader('x-csrf-token', csrf);
 
-            const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&prompt=test`;
+            const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&growthStage=${growthStage}&prompt=test`;
 
             xhr.send(formData);
             //e.stopPropagation();
         }
 
-        // $.get('/getPlants', function (data, status) {
-        //     console.log(data);
-        // });
     }
-
-    //TODO: Figure out a way to add the plant name (seedName)
 
     function messageModal(e) {
         $('#message').show();
@@ -528,15 +527,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 const res = JSON.parse(this.responseText);
                 const user = res.username;
                 const userCapped = user.charAt(0).toUpperCase() + user.slice(1);
+                let currentPlant = res.plant.plantType;
+                let currentPlantName = res.plant.plantName;
 
                 // Changes image based on current plant clicked on
                 $('#modalImg').attr("src", `assets/images/profilePlants/${res.plant.plantType}Profile.png`);
 
                 $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
                 $('#messageLabel').text(`Let ${res.username} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
-
-                $('.saveBtn').click(e => {
-                    sendMessage(user, selectedPlot);
+                $('.saveBtn').on("click", function () {
+                    sendMessage(user, selectedPlot, currentPlant, currentPlantName);
                 })
             }
         };
@@ -544,18 +544,26 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send(formData);
     }
 
-    function sendMessage(username, selectedPlot) {
+    function sendMessage(username, selectedPlot, currentPlant, plantName) {
         let message = $('#messageField').val().trim();
+        if (message === null || message === "") {
+            console.log("Please type a message");
+        } else {
 
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/addMessage');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.setRequestHeader('x-csrf-token', csrf);
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/addMessage');
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('x-csrf-token', csrf);
 
-        const formData = `username=${username}&message=${message}&location=${selectedPlot}`;
-        xhr.send(formData);
+            const formData = `username=${username}&message=${message}&location=${selectedPlot}&growthStage=1`;
+            xhr.send(formData);
 
-        $('#message').hide();
+            //TODO: make an updatePlant/growPlant function
+            addPlant(plots[selectedPlot], currentPlant, plantName, 1);
+
+            $('#message').hide();
+        }
+
     }
 
     /*********** Animation **********/

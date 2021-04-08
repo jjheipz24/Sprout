@@ -145,7 +145,7 @@ const newPlant = async (request, response) => {
     plantName: req.body.plantName,
     location: req.body.location,
     prompt: promptBody,
-    growthStage: 0,
+    growthStage: req.body.growthStage,
     messages: [],
     allowedUsers: [],
   }
@@ -175,14 +175,14 @@ const addMessage = async (request, response) => {
   plant.messages.push(req.body.message);
 
   /* Check for num of messages & if one isn't from the owner before growing */
-  if(plant.messages.length >= 3 && plant.growthStage === 0) {
-    plant.messages.forEach(message => {
-      if(message.username !== req.session.account.username) {
-        plant.growthStage += 1;
-        return;
-      }
-    });
-  } 
+  // if(plant.messages.length >= 3 && plant.growthStage === 0) {
+  //   plant.messages.forEach(message => {
+  //     if(message.username !== req.session.account.username) {
+  //       plant.growthStage += 1;
+  //       return;
+  //     }
+  //   });
+  // } 
 
   const savePromise =  user.save();
   savePromise.then(() => {
