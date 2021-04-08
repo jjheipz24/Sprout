@@ -441,8 +441,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function packetButtons(packet, seedType, plantName, x, y, z) {
         packet.interactive = true;
         packet.buttonMode = true;
-        packet.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
-        packet.scale.set(1.5, 1.5);
+        //packet.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+        //packet.scale.set(1.5, 1.5);
         packet.anchor.set(0.5);
         packet.x = x;
         packet.y = y;
