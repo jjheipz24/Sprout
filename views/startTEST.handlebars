@@ -1,0 +1,136 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sprout</title>
+</head>
+
+<body id="startBody">
+    <content id="startContent">
+        <img src="assets/images/Sprout.png"/>
+
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="startSlide fade">
+                <p>Sprout is a place for you to to tend a virtual garden through sharing encouraging messages and spreading kindness to yourself and the community.</p>
+            </div>
+
+            <div class="startSlide fade">
+                <p>We created Sprout with positive psychology in mind. This encourages people to focus on positive emotions and build strategies to maintain them.</p>
+            </div>
+
+            <div class="startSlide fade">
+                <p>Social interaction with others relieves stress and anxiety, instills feelings of purpose, and increases people’s life expectancy!</p>
+            </div>
+        </div>
+        
+        <div id="startButtons">
+            <button id="createAccountButton"><a href="./signup">Create Account</a></button>
+            <button id="signInButton"><a href="./login">Sign In</a></button>
+        </div>
+
+        <img id="scrollDown" src="assets/images/arrow-down-solid.svg">
+
+        <div id="plantBackground">
+            <img class="startPlant" id="startJade" src="/assets/images/plants/jade.png"/>
+            <img class="startPlant" id="startSnake" src="/assets/images/plants/snake.png"/>
+            <img class="startPlant" id="startAloe" src="/assets/images/plants/aloe.png"/>
+            <img class="startPlant" id="startSnake2" src="/assets/images/plants/snake.png"/>
+        </div>
+    </content>
+
+    <content class="screenSmall">
+        <img src="assets/images/Sprout.png"/>
+        <img id="aloe" src="assets/images/plants/aloe.png"/>
+        <h5>Works best on Desktop</h5>
+    </content>
+
+    <script src="/assets/bundle.js"></script>
+
+    <!-- SLIDESHOW ANIMATIONS -->
+    <script>
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        let slides = document.getElementsByClassName('startSlide');
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("startSlide");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 5000); // Change image every 2 seconds
+        }
+        
+    </script>
+
+    <!-- PLANT SCROLL ANIMATION -->
+    <script>
+        let plantsBig = true;
+        let scrollImage = document.getElementById('scrollDown');
+
+        let plantArray = document.getElementsByClassName('startPlant');
+        let snake = document.getElementById('startSnake');
+
+        document.addEventListener('wheel', function(e) {
+
+            if (event.deltaY < 0) {
+                scalePlantsUp();                
+
+            } else if (event.deltaY > 0) {
+                scalePlantsDown();
+            }
+            displayArrow();
+        });
+
+        function scalePlantsUp() {
+            for(let i = 0; i < plantArray.length; i++) {
+                plantArray[i].style.width = '80vw';
+            }
+            plantsBig = true;
+        }
+
+        function scalePlantsDown() {
+            for(let i = 0; i < plantArray.length; i++) {
+                plantArray[i].style.width = '38vw';
+            }
+            plantsBig = false;
+        }
+
+        function displayArrow() {
+            if(plantsBig) {
+                scrollImage.style.display = 'block';
+                console.log(plantsBig);
+            } else {
+                scrollImage.style.display = 'none';
+                console.log(plantsBig);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

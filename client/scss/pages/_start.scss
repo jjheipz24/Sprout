@@ -45,7 +45,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: #422706 !important;
+    background-color: lightgray !important;
     overflow: hidden;
 }
 
@@ -214,4 +214,35 @@
       width: 7%;
       /* ugh */
       z-index: 1;
+  }
+
+
+
+  #scrollContainer {
+    height:350px; 
+    position:relative; 
+    overflow:hidden;
+  }
+  
+  .photobanner {
+    position:absolute; 
+    top:0px; 
+    left:0px; 
+    overflow:hidden; 
+    white-space: nowrap;
+    animation: bannermove 10s linear infinite;
+  }
+  
+  .photobanner img {    
+    margin: 0 0.5em;
+    z-index: 10;
+  }
+  
+  @keyframes bannermove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-75%, 0);
+    }
   }
