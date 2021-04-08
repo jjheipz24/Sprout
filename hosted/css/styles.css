@@ -140,9 +140,11 @@ p {
   margin-top: 25vh; }
   #loginContent h1 {
     font-weight: bold;
-    font-size: 58px; }
+    font-size: 58px;
+    color: black !important; }
   #loginContent p {
-    font-size: 15px; }
+    font-size: 15px;
+    color: #B570FF; }
 
 #loginForm {
   display: flex;
@@ -178,19 +180,19 @@ p {
   #loginForm .signinBtns #secondButton {
     font-weight: bold;
     width: 160px;
-    color: white;
+    color: black;
     background: none;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: .5rem;
     padding: .75em 0; }
     #loginForm .signinBtns #secondButton a {
       text-decoration: none;
-      color: white; }
+      color: black; }
   #loginForm .signinBtns #secondButton:hover {
     opacity: .6; }
   #loginForm .loginExtra {
     margin-top: 2rem;
-    color: lightgray; }
+    color: darkgray; }
   #loginForm .fields {
     width: 500px; }
 
@@ -199,7 +201,7 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #422706 !important;
+  background-color: white !important;
   overflow: hidden; }
 
 .screenSmall {
@@ -212,7 +214,7 @@ p {
   .screenSmall h5 {
     margin-top: 2vh;
     font-weight: bold;
-    color: white; }
+    color: black; }
   .screenSmall #aloe {
     width: 15%; }
 
@@ -237,9 +239,11 @@ p {
   margin-top: 25vh; }
   #signupContent h1 {
     font-weight: bold;
-    font-size: 58px; }
+    font-size: 58px;
+    color: black !important; }
   #signupContent p {
-    font-size: 15px; }
+    font-size: 15px;
+    color: #B570FF; }
 
 #signupForm {
   display: flex;
@@ -275,14 +279,14 @@ p {
   #signupForm .signinBtns #secondButton {
     font-weight: bold;
     width: 160px;
-    color: white;
+    color: black;
     background: none;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: .5rem;
     padding: .75em 0; }
     #signupForm .signinBtns #secondButton a {
       text-decoration: none;
-      color: white; }
+      color: black; }
   #signupForm .signinBtns #secondButton:hover {
     opacity: .6; }
   #signupForm .signupExtra {
@@ -299,7 +303,7 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #422706 !important; }
+  background-color: white !important; }
 
 .screenSmall {
   width: 100vw;

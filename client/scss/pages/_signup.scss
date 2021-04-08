@@ -12,10 +12,12 @@
     h1 {
         font-weight: bold;
         font-size: 58px;
+        color: black !important;
     }
 
     p {
         font-size: 15px;
+        color: $light-purple;
     }
 }
 
@@ -44,7 +46,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: #422706 !important;
+    background-color: white !important;
 }
 
 .screenSmall {

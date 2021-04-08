@@ -12,10 +12,12 @@
     h1{
         font-weight: bold;
         font-size: 58px;
+        color: black !important;
     }
 
     p {
         font-size: 15px;
+        color: $light-purple;
     }
 }
 
@@ -26,7 +28,7 @@
 
     .loginExtra {
         margin-top: 2rem;
-        color: lightgray;
+        color: darkgray;
     }
 
     .fields {
@@ -40,7 +42,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: #422706 !important;
+    background-color: white !important;
     overflow: hidden;
 
 }
@@ -56,7 +58,7 @@
     h5{
         margin-top: 2vh;
         font-weight: bold;
-        color: white;
+        color: black;
     }
 
     #aloe {
