@@ -405,31 +405,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         container.addChild(closeButton);
 
-        aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
-        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 4), (app.screen.height / 2), 6);
+        aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.svg');
+        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 4), (app.screen.height / 4), 6);
         seedContainer.addChild(aloeSeeds);
 
-        cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.png');
-        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 4) + 150, (app.screen.height / 2), 5);
+        cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.svg');
+        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 4) + 300, (app.screen.height / 4), 5);
         seedContainer.addChild(cactusSeeds);
 
-        fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.png');
-        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 4) + 300, (app.screen.height / 2), 4);
+        fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.svg');
+        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 4) + 600, (app.screen.height / 4), 4);
         seedContainer.addChild(fiddleSeeds);
 
-        jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
-        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 4) + 450, (app.screen.height / 2), 3);
+        jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.svg');
+        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 4), (app.screen.height) - 200, 3);
         seedContainer.addChild(jadeSeeds);
 
-        peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.png');
-        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 4) + 600, (app.screen.height / 2), 2);
+        peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.svg');
+        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 4) + 300, (app.screen.height) - 200, 2);
         seedContainer.addChild(peaceSeeds);
 
-        snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
-        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 4) + 750, (app.screen.height / 2), 1);
+        snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.svg');
+        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 4) + 600, (app.screen.height) - 200, 1);
         seedContainer.addChild(snakeSeeds);
 
         container.addChild(seedContainer);
+        
         seedContainer.sortableChildren = true;
         seedContainer.children.sort((a, b) => {
             return a.zIndex - b.zIndex;
