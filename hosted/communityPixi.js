@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function createPlot(plot, x, y) {
         plot.interactive = true;
         plot.buttonMode = true;
-        plot.anchor.set(0.5);
+        plot.anchor.set(0.5, 1);
         plot.scale.set(0.75, 0.75);
         plot.x = x;
         plot.y = y;
@@ -545,7 +545,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function sendMessage(username, selectedPlot, currentPlant, plantName) {
-        let message = $('#messageField').val().trim();
+        // let message = $('#messageField').val().trim();
+        let message = document.querySelector('#messageField').value;
+        message = message.trim();
+        console.log(message);
         if (message === null || message === "") {
             console.log("Please type a message");
         } else {
@@ -561,6 +564,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //TODO: make an updatePlant/growPlant function
             addPlant(plots[selectedPlot], currentPlant, plantName, 1);
 
+            document.querySelector('#messageField').value = "";
             $('#message').hide();
         }
 
@@ -599,22 +603,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //Plant plots
             plot1.x = (app.screen.width / 2) - 300;
-            plot1.y = (app.screen.height / 2) - 130;
+            plot1.y = (app.screen.height / 2) - 85;
 
             plot2.x = (app.screen.width / 2) - 50;
-            plot2.y = (app.screen.height / 2) - 130;
+            plot2.y = (app.screen.height / 2) - 85;
 
             plot3.x = (app.screen.width / 2) + 200;
-            plot3.y = (app.screen.height / 2) - 130;
+            plot3.y = (app.screen.height / 2) - 85;
 
             plot4.x = (app.screen.width / 2) - 200;
-            plot4.y = (app.screen.height / 2) - 35;
+            plot4.y = (app.screen.height / 2) + 10;
 
             plot5.x = (app.screen.width / 2) + 40;
-            plot5.y = (app.screen.height / 2) - 35;
+            plot5.y = (app.screen.height / 2) + 10;
 
             plot6.x = (app.screen.width / 2) + 280;
-            plot6.y = (app.screen.height / 2) - 35;
+            plot6.y = (app.screen.height / 2) + 10;
 
             //Seed packets
             // aloeSeeds.x = (app.screen.width / 6);
