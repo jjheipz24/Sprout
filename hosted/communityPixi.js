@@ -289,6 +289,21 @@ document.addEventListener('DOMContentLoaded', function () {
         container.addChild(about);
     }
 
+    // Ajax call to remove plants
+    function ajaxRemovePlants() {
+        console.log('in ajax remove plants');
+        $.ajax({
+            url: '/clear',
+            type: 'DELETE',
+            headers: {
+                'x-csrf-token': csrf
+            },
+            success: function (result) {
+                console.log("Success")
+            }
+        });
+    }
+
     //Creates the initial circles
     //Adds them to plot object
     function initCircles() {
@@ -339,17 +354,10 @@ document.addEventListener('DOMContentLoaded', function () {
         clearButton.y = 400;
 
         clearButton.on('pointerdown', () => {
-            console.log("cleared");
-            $.ajax({
-                url: '/clear',
-                type: 'DELETE',
-                headers: {
-                    'x-csrf-token': csrf
-                },
-                success: function (result) {
-                    console.log("Success")
-                }
-            });
+            console.log("cleared", gardenData);
+            clearAllPlots(gardenData);
+            //used so ajax waits until plant sprites get removed
+            setTimeout(ajaxRemovePlants(), 2000);            
         })
 
         seedButton = new PIXI.Sprite(blue);
@@ -399,6 +407,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
         })
+    }
+
+    // clears plants from garden
+    function clearAllPlots(data) {
+        let plantArr = data;
+        console.log('plantarr', plantArr);
+        plantArr.forEach(plantPlotted => {
+            plots[plantPlotted.location].texture = brown;
+        });
+        //updates garden data object
+        gardenData = [];
     }
 
     function createSeedPackets() {
@@ -521,6 +540,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&growthStage=${growthStage}&prompt=test`;
 
             xhr.send(formData);
+            // add something here to add the plant to the gardenData so it can appear/disappear
+
+            // gardenData.push({formData}); -- not quite right hmm
+            // console.log('in addplant', gardenData);
             //e.stopPropagation();
         }
 
