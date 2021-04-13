@@ -93,8 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let communityGardenArray = [];
 
+    //bump up to 20 instead of 4 when we're ready for the full community garden
     for(let i = 0; i < 4; i++) {
         let personal;
+        //if you want personal garden to not be the first garden, change the conditional # to something other than 0
         i === 0 ? personal = true : personal = false;
         
         communityGardenArray.push({
@@ -103,6 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
             personal, 
         })
     }
+
+    $.get('/getUserName', function (data, status) {
+        communityGardenArray[0].username = data.username;
+    });
 
     const gardenUnhovered = PIXI.Texture.from('assets/images/smallGarden.png');
     const gardenHovered = PIXI.Texture.from('assets/images/smallGardenHover.png');
@@ -167,8 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 for (let j = 0; j < communityGardenArray.length; j++) {
                     communityGardenArray[j].sprite.destroy();
                 }
-                
-                createPersonalGarden();
+                createPersonalGarden(communityGardenArray[i]);
             });
         }
     }
@@ -196,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .scale(1));
 
     // Creates Personal Garden view
-    function createPersonalGarden() {
+    function createPersonalGarden(garden) {
         background.texture = personalBackground;
         //Initializes the planter box
         planterBox = new PIXI.Sprite.from('assets/images/planterBox.png');
@@ -206,7 +211,8 @@ document.addEventListener('DOMContentLoaded', function () {
         planterBox.y = app.screen.height / 2 - 35;
         container.addChild(planterBox);
 
-        initCircles();
+        console.log(garden);
+        initCircles(garden);
 
         Object.values(plots).forEach(plot => {
             container.addChild(plot);
@@ -306,44 +312,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Creates the initial circles
     //Adds them to plot object
-    function initCircles() {
+    function initCircles(garden) {
 
         // console.log($.get('/getPlants', function(data, status){
         //     console.log(data);
         // }))
+        console.log(localStorage.getItem('you'));
 
         plot1 = new PIXI.Sprite(brown);
-        createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2));
+        createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot1"] = plot1;
 
         plot2 = new PIXI.Sprite(brown);
-        createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2));
+        createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot2"] = plot2;
 
         plot3 = new PIXI.Sprite(brown);
-        createPlot(plot3, (app.screen.width / 2), (app.screen.height / 2));
+        createPlot(plot3, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot3"] = plot3;
 
         plot4 = new PIXI.Sprite(brown);
-        createPlot(plot4, (app.screen.width / 2), (app.screen.height / 2));
+        createPlot(plot4, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot4"] = plot4;
 
         plot5 = new PIXI.Sprite(brown);
-        createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2));
+        createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot5"] = plot5;
 
         plot6 = new PIXI.Sprite(brown);
-        createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2));
+        createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot6"] = plot6;
 
         //If the user has already planted plants --> update the garden to show their plants
-        $.get('/getPlants', function (data, status) {
-            console.log(data);
-            gardenData = data.plants;
-            if (gardenData.length !== 0) {
-                updatePlots(gardenData);
-            };
-        });
+        garden.personal ? getUserPlants() : getCommunityPlants(garden.plants);
 
         clearButton = new PIXI.Sprite(yellow);
         clearButton.anchor.set(0.5)
@@ -377,8 +378,26 @@ document.addEventListener('DOMContentLoaded', function () {
         container.addChild(seedButton);
     }
 
+    function getUserPlants() {
+        $.get('/getPlants', function (data, status) {
+            console.log(data);
+            gardenData = data.plants;
+            if (gardenData.length !== 0) {
+                updatePlots(gardenData);
+            };
+        });
+    }
+
+    function getCommunityPlants(plants) {
+        gardenData = plants;
+        if(plants.length !== 0) {
+            updatePlots(gardenData);
+        }
+    }
+    
+
     //Adds the repeated properties
-    function createPlot(plot, x, y) {
+    function createPlot(plot, x, y, username) {
         plot.interactive = true;
         plot.buttonMode = true;
         plot.anchor.set(0.5, 1);
@@ -393,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 createSeedPackets();
             } else {
                 //TODO: Only open modal if the plant isn't at growth stage 1
-                messageModal(e)
+                messageModal(e, username)
             }
         }));
     }
@@ -573,7 +592,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function messageModal(e) {
+    function messageModal(e, username) {
         $('#message').show();
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)];
 
@@ -585,8 +604,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 const res = JSON.parse(this.responseText);
-                const user = res.username;
-                const userCapped = user.charAt(0).toUpperCase() + user.slice(1);
+                const userCapped = username.charAt(0).toUpperCase() + username.slice(1);
                 let currentPlant = res.plant.plantType;
                 let currentPlantName = res.plant.plantName;
 
@@ -594,13 +612,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#modalImg').attr("src", `assets/images/profilePlants/${res.plant.plantType}Profile.png`);
 
                 $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
-                $('#messageLabel').text(`Let ${res.username} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
+                $('#messageLabel').text(`Let ${userCapped} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
                 $('.saveBtn').on("click", function () {
                     sendMessage(user, selectedPlot, currentPlant, currentPlantName);
                 })
             }
         };
-        const formData = `location=${selectedPlot}`;
+        const formData = `location=${selectedPlot}&username=${username}`;
         xhr.send(formData);
     }
 

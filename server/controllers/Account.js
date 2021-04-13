@@ -45,7 +45,6 @@ const login = (request, response) => {
     }
     // sets the current session account based on username and password added
     req.session.account = Account.AccountModel.toAPI(account);
-
     // redirects
     return res.status(200).json({
       redirect: '/',
@@ -240,7 +239,7 @@ const getPlantInfo = async (request, response) => {
   const req = request;
   const res = response;
 
-  const user = await Account.AccountModel.findOne({ username: req.session.account.username });
+  const user = await Account.AccountModel.findOne({ username: req.body.username});
   const plant =  user.plants.find(plant => plant.location === req.body.location);
 
   if (req.session.account) {
