@@ -180,16 +180,15 @@ const addMessage = async (request, response) => {
     plant.messages.forEach(message => {
       if(message.username !== req.body.username) {
         plant.growthStage = 1;
-        return res.status(200).json({
-          growthStage: plant.growthStage,
-        });
       }
     });
   } 
 
   const savePromise =  user.save();
   savePromise.then(() => {
-    return res.status(201).json();
+    return res.status(201).json({
+      redirect: '/',
+    });
   });
   savePromise.catch((err) => {
     return res.status(400).json({
