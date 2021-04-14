@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
                 $('#messageLabel').text(`Let ${userCapped} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
                 $('.saveBtn').on("click", function () {
-                    sendMessage(user, selectedPlot, currentPlant, currentPlantName);
+                    sendMessage(username, selectedPlot, currentPlant, currentPlantName);
                 })
             }
         };
