@@ -194,19 +194,20 @@ const addMessage = async (request, response) => {
   const req = request;
   const res = response;
 
-  const user = await Account.AccountModel.findOne({ username: req.session.account.username });
+  const user = await Account.AccountModel.findOne({ username: req.body.username });
   const plant =  user.plants.find(plant => plant.location === req.body.location);
   plant.messages.push(req.body.message);
 
   /* Check for num of messages & if one isn't from the owner before growing */
-  // if(plant.messages.length >= 3 && plant.growthStage === 0) {
-  //   plant.messages.forEach(message => {
-  //     if(message.username !== req.session.account.username) {
-  //       plant.growthStage += 1;
-  //       return;
-  //     }
-  //   });
-  // } 
+  console.log(plant.messages.length);
+  if(plant.messages.length >= 3 && plant.growthStage === 0) {
+    plant.messages.forEach(message => {
+      if(message.username !== req.body.username) {
+        plant.growthStage = 1;
+        return true;
+      }
+    });
+  } 
 
   const savePromise =  user.save();
   savePromise.then(() => {
