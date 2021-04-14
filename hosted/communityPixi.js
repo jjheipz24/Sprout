@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let j = 0; j < communityGardenArray.length; j++) {
                 communityGardenArray[j].sprite.destroy();
             }
-            createPersonalGarden();
+            createPersonalGarden(communityGardenArray[0]);
         });
 
         //Visit the Community
@@ -293,21 +293,6 @@ document.addEventListener('DOMContentLoaded', function () {
         container.addChild(viewGarden);
         container.addChild(visitComm);
         container.addChild(about);
-    }
-
-    // Ajax call to remove plants
-    function ajaxRemovePlants() {
-        console.log('in ajax remove plants');
-        $.ajax({
-            url: '/clear',
-            type: 'DELETE',
-            headers: {
-                'x-csrf-token': csrf
-            },
-            success: function (result) {
-                console.log("Success")
-            }
-        });
     }
 
     //Creates the initial circles
@@ -355,10 +340,20 @@ document.addEventListener('DOMContentLoaded', function () {
         clearButton.y = 400;
 
         clearButton.on('pointerdown', () => {
-            console.log("cleared", gardenData);
-            clearAllPlots(gardenData);
-            //used so ajax waits until plant sprites get removed
-            setTimeout(ajaxRemovePlants(), 2000);            
+            $.ajax({
+                url: '/clear',
+                type: 'DELETE',
+                headers: {
+                    'x-csrf-token': csrf
+                },
+                success: function (result) {
+                    console.log("Success")
+                }
+            });
+            
+            planterBox.destroy();
+            destroyPersonalGardenView();
+            createPersonalGarden(communityGardenArray[0]);
         })
 
         seedButton = new PIXI.Sprite(blue);
@@ -429,15 +424,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // clears plants from garden
-    function clearAllPlots(data) {
-        let plantArr = data;
-        console.log('plantarr', plantArr);
-        plantArr.forEach(plantPlotted => {
-            plots[plantPlotted.location].texture = brown;
-        });
-        //updates garden data object
-        gardenData = [];
-    }
+    // function clearAllPlots(data) {
+    //     let plantArr = data;
+    //     console.log('plantarr', plantArr);
+    //     plantArr.forEach(plantPlotted => {
+    //         plots[plantPlotted.location].texture = brown;
+    //     });
+    //     //updates garden data object
+    //     gardenData = [];
+    // }
 
     function createSeedPackets() {
         closeButton = new PIXI.Sprite.from('assets/images/test/pink.png');
