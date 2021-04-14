@@ -111,30 +111,6 @@ const getUserName = (request, response) => {
 
 };
 
-const updatePlant = (request, response) => {
-  const req = request;
-  const res = response;
-
-  const updatePromise = db.Account.updateOne(
-    { _id: req.body.id },
-    {
-      $set: { 
-        plantType: req.body.plantType,
-        plantName: req.body.plantName,
-        location: req.body.location,
-      }
-    }
-  );
-
-  updatePromise.then(() => {
-    return res.status(201).json();
-  });
-  updatePromise.catch((err) => {
-    return res.status(400).json({
-      error: 'An error occured with updating the plant',
-    });
-  });
-}
 
 const newPlant = async (request, response) => {
   const req = request;
@@ -200,11 +176,13 @@ const addMessage = async (request, response) => {
 
   /* Check for num of messages & if one isn't from the owner before growing */
   console.log(plant.messages.length);
-  if(plant.messages.length >= 3 && plant.growthStage === 0) {
+  if(plant.messages.length >= 2 && plant.growthStage === 0) {
     plant.messages.forEach(message => {
       if(message.username !== req.body.username) {
         plant.growthStage = 1;
-        return true;
+        return res.status(200).json({
+          growthStage: plant.growthStage,
+        });
       }
     });
   } 
@@ -330,7 +308,6 @@ module.exports.getPlantInfo = getPlantInfo;
 
 module.exports.loadRandomGardens = loadRandomGardens;
 module.exports.loadAllGardens = loadAllGardens;
-module.exports.updatePlant = updatePlant;
 module.exports.newPlant = newPlant;
 module.exports.addMessage = addMessage;
 module.exports.clearAll = clearAll;
