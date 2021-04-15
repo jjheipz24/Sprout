@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let plot6;
 
     let clearButton; //clears the garden
-    let seedButton; //opens seedPacket selection
 
     let plots = {}; //Holds the placeholder spots
 
@@ -115,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Nav Sign
     let pole, viewGarden, visitComm, about;
-    let personal = false;
+    let personal = false; //Determines whether or not you are viewing the personal garden
 
     /**************************************/
 
@@ -220,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
         planterBox.y = app.screen.height / 2 - 35;
         container.addChild(planterBox);
 
-        console.log(garden);
+        //console.log(garden);
         initCircles(garden);
 
         Object.values(plots).forEach(plot => {
@@ -309,11 +308,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //Adds them to plot object
     function initCircles(garden) {
 
-        // console.log($.get('/getPlants', function(data, status){
-        //     console.log(data);
-        // }))
-        console.log(localStorage.getItem('you'));
-
         plot1 = new PIXI.Sprite(brown);
         createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot1"] = plot1;
@@ -366,21 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
             createPersonalGarden(communityGardenArray[0]);
         })
 
-        seedButton = new PIXI.Sprite(blue);
-        seedButton.anchor.set(0.5)
-        seedButton.scale.set(.75, .75);
-        seedButton.interactive = true;
-        seedButton.buttonMode = true;
-        seedButton.x = 200;
-        seedButton.y = 200;
-
-        seedButton.on('pointerdown', () => {
-            container.addChild(seedContainer);
-            createSeedPackets();
-        });
-
         container.addChild(clearButton);
-        container.addChild(seedButton);
     }
 
     function getUserPlants() {
@@ -433,16 +413,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
-    // clears plants from garden
-    // function clearAllPlots(data) {
-    //     let plantArr = data;
-    //     console.log('plantarr', plantArr);
-    //     plantArr.forEach(plantPlotted => {
-    //         plots[plantPlotted.location].texture = brown;
-    //     });
-    //     //updates garden data object
-    //     gardenData = [];
-    // }
 
     function createSeedPackets() {
         closeButton = new PIXI.Sprite.from('assets/images/test/pink.png');
@@ -533,11 +503,10 @@ document.addEventListener('DOMContentLoaded', function () {
         plot6.destroy();
 
         clearButton.destroy();
-        seedButton.destroy();
     }
 
     function destroyCommunityGarden() {
-        console.log('in destory whole array', communityGardenArray);
+        //console.log('in destory whole array', communityGardenArray);
         for (let j = 0; j < communityGardenArray.length; j++) {
             communityGardenArray[j].spriteImg.destroy();
         }
@@ -565,30 +534,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/newPlant');
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.setRequestHeader('x-csrf-token', csrf);
-
-            const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&growthStage=${growthStage}&prompt=test`;
-
-            xhr.send(formData);
-            // add something here to add the plant to the gardenData so it can appear/disappear
-
-            // gardenData.push({formData}); -- not quite right hmm
-            // console.log('in addplant', gardenData);
-            //e.stopPropagation();
-        }
-    }
-
-    //Updating plant to the next growth stage
-    function updatePlant(){
-        let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(target)]; //Location of where the seed is planted
-        if (plantType === undefined) {
-            console.log("No plant seeds selected");
-        } else {
-            target.texture = plantCollection[plantType][growthStage];
-
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/updatePlant');
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.setRequestHeader('x-csrf-token', csrf);
 
@@ -651,7 +596,7 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.send(formData);
 
             //TODO: make an updatePlant/growPlant function
-            addPlant(plots[selectedPlot], currentPlant, plantName, 1);
+            // addPlant(plots[selectedPlot], currentPlant, plantName, 1);
 
             document.querySelector('#messageField').value = "";
             $('#message').hide();
@@ -707,9 +652,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             clearButton.x = 600;
             clearButton.y = 600;
-
-            seedButton.x = 400;
-            seedButton.y = 600;
 
             planterBox.x = app.screen.width / 2 + 50;
             planterBox.y = app.screen.height / 2 - 35;
