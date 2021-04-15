@@ -94,15 +94,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let communityGardenArray = [];
 
     //bump up to 20 instead of 4 when we're ready for the full community garden
-    for(let i = 0; i < 8; i++) {
+    for (let i = 0; i < 8; i++) {
         let personal;
         //if you want personal garden to not be the first garden, change the conditional # to something other than 0
         i === 0 ? personal = true : personal = false;
-        
+
         communityGardenArray.push({
             name: `garden${i}`,
             num: i,
-            personal, 
+            personal,
         })
     }
 
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("Success")
                 }
             });
-            
+
             planterBox.destroy();
             destroyPersonalGardenView();
             createPersonalGarden(communityGardenArray[0]);
@@ -416,11 +416,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function getCommunityPlants(plants) {
         gardenData = plants;
-        if(plants.length !== 0) {
+        if (plants.length !== 0) {
             updatePlots(gardenData);
         }
     }
-    
+
 
     //Adds the repeated properties
     function createPlot(plot, x, y, username) {
@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seedContainer.addChild(snakeSeeds);
 
         container.addChild(seedContainer);
-        
+
         seedContainer.sortableChildren = true;
         seedContainer.children.sort((a, b) => {
             return a.zIndex - b.zIndex;
@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     //Updating plant to the next growth stage
-    function updatePlant(){
+    function updatePlant() {
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(target)]; //Location of where the seed is planted
         if (plantType === undefined) {
             console.log("No plant seeds selected");
@@ -665,7 +665,7 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.send(formData);
 
             //TODO: make an updatePlant/growPlant function
-            addPlant(plots[selectedPlot], currentPlant, plantName, 1);
+            //addPlant(plots[selectedPlot], currentPlant, plantName, 1);
 
             document.querySelector('#messageField').value = "";
             $('#message').hide();
@@ -678,16 +678,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const xhr = new XMLHttpRequest();
 
         xhr.open('GET', '/loadRandomGardens');
-        xhr.onreadystatechange = function() {
-            if ( xhr.readyState === 4 && xhr.status === 200 ) {
-               const randomGardens = JSON.parse(xhr.response).randomGardens;
-            
-               communityGardenArray.forEach(garden => {
-                   if(!garden.personal) {
-                       garden.username = randomGardens[garden.num] ? randomGardens[garden.num].username : 'test';
-                       garden.plants = randomGardens[garden.num] ? randomGardens[garden.num].plants : [];
-                   }
-               });
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const randomGardens = JSON.parse(xhr.response).randomGardens;
+
+                communityGardenArray.forEach(garden => {
+                    if (!garden.personal) {
+                        garden.username = randomGardens[garden.num] ? randomGardens[garden.num].username : 'test';
+                        garden.plants = randomGardens[garden.num] ? randomGardens[garden.num].plants : [];
+                    }
+                });
             }
         };
 
@@ -765,42 +765,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // snakeSeeds.x = (app.screen.width / 6) + 500;
             // snakeSeeds.y = (app.screen.height / 2);
+        } else {
+            //communtiy plant boxes
+            // row 1, column 1 - top left
+            communityGardenArray[0].sprite.x = (app.screen.width / 2) - 110;
+            communityGardenArray[0].sprite.y = (app.screen.height / 2) - 110;
+
+            // row 1, column 2 - top middle
+            communityGardenArray[1].sprite.x = (app.screen.width / 2);
+            communityGardenArray[1].sprite.y = (app.screen.height / 2) - 110;
+
+            // row 1, column 3 - top right
+            communityGardenArray[2].sprite.x = (app.screen.width / 2) + 110;
+            communityGardenArray[2].sprite.y = (app.screen.height / 2) - 110;
+
+            // row 2, column 1 - middle left
+            communityGardenArray[3].sprite.x = (app.screen.width / 2) - 110;
+            communityGardenArray[3].sprite.y = (app.screen.height / 2) + 42;
+
+            // row 2, column 2 - middle middle
+            communityGardenArray[4].sprite.x = (app.screen.width / 2);
+            communityGardenArray[4].sprite.y = (app.screen.height / 2) + 42;
+
+            // row 2, column 3 - middle left
+            communityGardenArray[5].sprite.x = (app.screen.width / 2) + 110;
+            communityGardenArray[5].sprite.y = (app.screen.height / 2) + 42;
+
+            // row 3, column 2 - bottom middle
+            communityGardenArray[6].sprite.x = (app.screen.width / 2) + 10;
+            communityGardenArray[6].sprite.y = (app.screen.height / 2) + 250;
+
+            // row 3, column 3 - bottom bottom lol
+            communityGardenArray[7].sprite.x = (app.screen.width / 2) + 120;
+            communityGardenArray[7].sprite.y = (app.screen.height / 2) + 250;
         }
-
-          // communtiy plant boxes
-
-          //oops broke it all
-        // // row 1, column 1 - top left
-        // communityGardenArray[0].sprite.x = (app.screen.width / 2) - 110;
-        // communityGardenArray[0].sprite.y = (app.screen.height / 2) - 110;
-
-        // // row 1, column 2 - top middle
-        // communityGardenArray[1].sprite.x = (app.screen.width / 2);
-        // communityGardenArray[1].sprite.y = (app.screen.height / 2) - 110;
-
-        // // row 1, column 3 - top right
-        // communityGardenArray[2].sprite.x = (app.screen.width / 2) + 110;
-        // communityGardenArray[2].sprite.y = (app.screen.height / 2) - 110;
-
-        // // row 2, column 1 - middle left
-        // communityGardenArray[3].sprite.x = (app.screen.width / 2) - 110;
-        // communityGardenArray[3].sprite.y = (app.screen.height / 2) +42;
-
-        // // row 2, column 2 - middle middle
-        // communityGardenArray[4].sprite.x = (app.screen.width / 2);
-        // communityGardenArray[4].sprite.y = (app.screen.height / 2) + 42;
-
-        // // row 2, column 3 - middle left
-        // communityGardenArray[5].sprite.x = (app.screen.width / 2) + 110;
-        // communityGardenArray[5].sprite.y = (app.screen.height / 2) + 42;
-
-        // // row 3, column 2 - bottom middle
-        // communityGardenArray[6].sprite.x = (app.screen.width / 2) + 10;
-        // communityGardenArray[6].sprite.y = (app.screen.height / 2) + 250;
-
-        // // row 3, column 3 - bottom bottom lol
-        // communityGardenArray[7].sprite.x = (app.screen.width / 2) + 120;
-        // communityGardenArray[7].sprite.y = (app.screen.height / 2) + 250;
 
 
         commContainer.x = 0;
