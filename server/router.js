@@ -9,21 +9,21 @@ const router = (app) => {
 
   app.get('/start', mid.requiresLogout, controllers.Account.startPage);
   
-  app.get('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
-  app.post('/login',  mid.requiresSecure, mid.requiresLogout, controllers.Account.login);
-  app.get('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signupPage);
-  app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
+  app.get('/login', mid.requiresLogout, controllers.Account.loginPage);
+  app.post('/login', mid.requiresLogout, controllers.Account.login);
+  app.get('/signup', mid.requiresLogout, controllers.Account.signupPage);
+  app.post('/signup', mid.requiresLogout, controllers.Account.signup);
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
 
-  app.get('/getUserName', mid.requiresSecure, mid.requiresLogin, controllers.Account.getUserName);
-  app.get('/getPlants', mid.requiresSecure, mid.requiresLogin, controllers.Account.getPlants);
-  app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
+  app.get('/getUserName', mid.requiresLogin, controllers.Account.getUserName);
+  app.get('/getPlants', mid.requiresLogin, controllers.Account.getPlants);
+  app.get('/getToken', controllers.Account.getToken);
   app.get('/loadRandomGardens', controllers.Account.loadRandomGardens);
   app.get('/loadAllGardens', controllers.Account.loadAllGardens);
 
-  app.post('/newPlant', mid.requiresSecure, mid.requiresLogin, controllers.Account.newPlant);
+  app.post('/newPlant', mid.requiresLogin, controllers.Account.newPlant);
   app.post('/addMessage', controllers.Account.addMessage);
-  app.post('/getPlantInfo', mid.requiresLogin, mid.requiresSecure, controllers.Account.getPlantInfo);
+  app.post('/getPlantInfo', mid.requiresLogin, controllers.Account.getPlantInfo);
 
   app.delete('/clear', mid.requiresLogin, controllers.Account.clearAll);
   /*

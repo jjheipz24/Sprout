@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.setRequestHeader('x-csrf-token', csrf);
 
-            const formData = `username=${username}&message=${message}&location=${selectedPlot}&growthStage=1`;
+            const formData = `username=${username}&message=${message}&location=${selectedPlot}`;
             xhr.send(formData);
 
             //TODO: make an updatePlant/growPlant function
