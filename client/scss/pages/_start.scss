@@ -1,6 +1,10 @@
 @import '../utilities/mixins';
 @import '../utilities/variables';
 
+* {
+  z-index: 2;
+}
+
 #startContent {
     width: 100vw;
     display: flex;
@@ -137,6 +141,7 @@
 
   #createAccountButton {
         font-weight: bold;
+        text-decoration: none;
         width: 160px;
         color: white;
         background-color: $dark-purple;
@@ -148,13 +153,17 @@
         a {
             text-decoration: none;
             color: white;
+            :hover {
+              text-decoration: none;
+              color: white;
+            }
         }
-
-    :hover {
-        background-color: $light-purple;
-        opacity: .6;
-    }
   }
+
+  #createAccountButton:hover {
+    background-color: $light-purple;
+    opacity: .6;
+}
 
   #signInButton {
     font-weight: bold;
@@ -169,10 +178,10 @@
             text-decoration: none;
             color: black;
         }
+    }
 
-        :hover {
-            opacity: .6;
-        }
+    #signInButton:hover {
+        opacity: .6;
     }
 
     /* Plant CSS on Page */
@@ -250,7 +259,7 @@
   // CLOUDS
 .cloud-right-image {
     position: absolute;
-    z-index: -10;
+    z-index: -1;
 }
 
     #cloud1 {

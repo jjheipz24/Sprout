@@ -137,11 +137,18 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 25vh; }
+  background: url("/assets/images/startBackground.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1; }
   #loginContent h1 {
     font-weight: bold;
     font-size: 58px;
-    color: black !important; }
+    color: black !important;
+    margin-top: 5vh; }
   #loginContent p {
     font-size: 15px;
     color: #B570FF; }
@@ -200,11 +207,11 @@ p {
   margin-bottom: 5vh; }
 
 #loginBody {
+  background-color: #62C4D4 !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: white !important;
   overflow: hidden; }
 
 .screenSmall {
@@ -226,6 +233,31 @@ p {
     display: none; }
   .screenSmall {
     display: flex; } }
+
+#cloud1 {
+  left: -260px;
+  margin-top: 300px;
+  width: 12%; }
+
+#cloud2 {
+  left: 0;
+  margin-top: 50px;
+  width: 9%; }
+
+#cloud3 {
+  left: 650;
+  margin-top: 150px;
+  width: 16%; }
+
+#cloud4 {
+  left: -350;
+  margin-top: 276px;
+  width: 11%; }
+
+#cloud5 {
+  left: 210;
+  margin-top: 200px;
+  width: 14%; }
 
 /************************ 
 
@@ -337,6 +369,9 @@ p {
 
 ************************/
 /*************************/
+* {
+  z-index: 2; }
+
 #startContent {
   width: 100vw;
   display: flex;
@@ -413,6 +448,7 @@ p {
 
 #createAccountButton {
   font-weight: bold;
+  text-decoration: none;
   width: 160px;
   color: white;
   background-color: #9746FF;
@@ -423,9 +459,13 @@ p {
   #createAccountButton a {
     text-decoration: none;
     color: white; }
-  #createAccountButton :hover {
-    background-color: #B570FF;
-    opacity: .6; }
+    #createAccountButton a :hover {
+      text-decoration: none;
+      color: white; }
+
+#createAccountButton:hover {
+  background-color: #B570FF;
+  opacity: .6; }
 
 #signInButton {
   font-weight: bold;
@@ -438,8 +478,9 @@ p {
   #signInButton a {
     text-decoration: none;
     color: black; }
-  #signInButton :hover {
-    opacity: .6; }
+
+#signInButton:hover {
+  opacity: .6; }
 
 /* Plant CSS on Page */
 #plantBackground img {
@@ -501,7 +542,7 @@ p {
 
 .cloud-right-image {
   position: absolute;
-  z-index: -10; }
+  z-index: -1; }
 
 #cloud1 {
   left: -260px;

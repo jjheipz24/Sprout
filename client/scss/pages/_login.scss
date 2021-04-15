@@ -7,12 +7,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 25vh;
+
+    background: url('/assets/images/startBackground.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -1;
 
     h1{
         font-weight: bold;
         font-size: 58px;
         color: black !important;
+        margin-top: 5vh;
     }
 
     p {
@@ -41,12 +49,11 @@
 }
 
 #loginBody {
-    // background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
+    background-color: #62C4D4 !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: white !important;
     overflow: hidden;
 
 }
@@ -79,3 +86,33 @@
         display: flex;
     }
   }
+
+    #cloud1 {
+      left: -260px;
+      margin-top: 300px;
+      width: 12%;
+    }
+
+    #cloud2 {
+      left: 0;
+      margin-top: 50px;
+      width: 9%;
+    }
+
+    #cloud3 {
+      left: 650;
+      margin-top: 150px;
+      width: 16%;
+    }
+
+    #cloud4 {
+      left: -350;
+      margin-top: 276px;
+      width: 11%;
+    }
+
+    #cloud5 {
+      left: 210;
+      margin-top: 200px;
+      width: 14%;
+    }

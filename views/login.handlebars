@@ -7,6 +7,14 @@
 
 <body id="loginBody">
     <content id="loginContent">
+        <div class="cloud-right">
+            <img class="cloud-right-image" id="cloud1" src="assets/images/cloud.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud2" src="assets/images/cloud.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud3" src="assets/images/cloud.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud4" src="assets/images/cloud.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud5" src="assets/images/cloud.png" alt="cloud" />
+        </div>
+
         <h1 tabindex="1">Let's grow together.</h1>
         <p tabindex="1">Welcome back! Please use your unique code to login to your Sprout account.</p>
         <div id="login"></div>
@@ -19,6 +27,30 @@
         <img id="aloe" src="assets/images/plants/aloe.png" tabindex="1" alt="aloe plant" />
         <h5 tabindex="1">Works best on Desktop</h5>
     </content>
+
+     <script>
+        // CLOUDS
+        $(function () {
+            setInterval(function () {
+                $('#cloud1').animate({ left: $(window).width() + 'px' }, 52000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud2').animate({ left: $(window).width() + 'px' }, 96000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud3').animate({ left: $(window).width() + 'px' }, 78000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud4').animate({ left: $(window).width() + 'px' }, 81000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud5').animate({ left: $(window).width() + 'px' }, 66000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+            }, 10);
+        });
+    </script>
+
 
     <script src="/assets/loginBundle.js"></script>
     <script src="/assets/bundle.js"></script>
