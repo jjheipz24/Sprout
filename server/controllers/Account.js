@@ -176,9 +176,7 @@ const addMessage = async (request, response) => {
 
   /* Check for num of messages & if one isn't from the owner before growing */
   console.log(plant.messages.length);
-
-  //had to change this to 1 for testing purposes
-  if(plant.messages.length >= 1 && plant.growthStage === 0) {
+  if(plant.messages.length >= 2 && plant.growthStage === 0) {
     plant.messages.forEach(message => {
       if(message.username !== req.body.username) {
         plant.growthStage = 1;
@@ -242,11 +240,8 @@ const clearAll = async (request, response) => {
   const user = await Account.AccountModel.findOne({ username: req.session.account.username });
 
   const savePromise =  user.update({ $pull : { plants : {$exists: true}}});
-  
   savePromise.then(() => {
-    return res.status(201).json({
-      redirect: '/',
-    });
+    return res.status(201).json();
   });
   savePromise.catch((err) => {
     return res.status(400).json({
