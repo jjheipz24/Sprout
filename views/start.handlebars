@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <title>Sprout</title>
-     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </head>
 
 <body id="startBody">
@@ -26,28 +26,62 @@
             <img class="cloud-right-image" id="cloud4" src="assets/images/cloud.png" alt="cloud" />
             <img class="cloud-right-image" id="cloud5" src="assets/images/cloud.png" alt="cloud" />
         </div>
-        <img src="assets/images/Sprout_black.png" alt="Sprout" tabindex="1"/>
+        <img id="sproutLogo" src="assets/images/Sprout_whitebg.png" alt="Sprout" tabindex="1" />
 
-        <div class="dot-container">
+        {{!-- <div class="dot-container">
             <span class="dot" onclick="currentSlide(1)" tabindex="1" alt="first slide"></span>
             <span class="dot" onclick="currentSlide(2)" tabindex="1" alt="second slide"></span>
             <span class="dot" onclick="currentSlide(3)" tabindex="1" alt="third slide"></span>
-        </div>
+        </div> --}}
 
-        <div class="slideshow-container">
+        {{!-- <div class="slideshow-container">
             <div class="startSlide fade">
-                <p tabindex="1">Sprout is a place for you to to tend a virtual garden through sharing encouraging messages and
+                <p tabindex="1">Sprout is a place for you to to tend a virtual garden through sharing encouraging
+                    messages and
                     spreading kindness to yourself and the community.</p>
             </div>
 
             <div class="startSlide fade">
-                <p tabindex="1">We created Sprout with positive psychology in mind. This encourages people to focus on positive
+                <p tabindex="1">We created Sprout with positive psychology in mind. This encourages people to focus on
+                    positive
                     emotions and build strategies to maintain them.</p>
             </div>
 
             <div class="startSlide fade">
-                <p tabindex="1">Social interaction with others relieves stress and anxiety, instills feelings of purpose, and
+                <p tabindex="1">Social interaction with others relieves stress and anxiety, instills feelings of
+                    purpose, and
                     increases people’s life expectancy!</p>
+            </div>
+        </div> --}}
+
+        <div class="slideshow-container">
+            <div id="carouselContent" class=" slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active text-center p-4 startSlide">
+                        <p>Sprout is a place for you to to tend a virtual garden through sharing encouraging messages
+                            and spreading kindness to yourself and the community.</p>
+                    </div>
+                    <div class="carousel-item text-center p-4 startSlide">
+                        <p>
+                            We created Sprout with positive psychology in mind. This encourages people to focus on
+                            positive emotions and build strategies to maintain them.
+                        </p>
+                    </div>
+                    <div class="carousel-item text-center p-4 startSlide">
+                        <p>
+                            Social interaction with others relieves stress and anxiety, instills feelings of
+                            purpose, and increases people’s life expectancy!
+                        </p>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
 
@@ -61,46 +95,13 @@
 
     <content class="screenSmall">
         <img src="assets/images/Sprout.png" tabindex="1" alt="Sprout" />
-        <img id="aloe" src="assets/images/plants/aloe.png" tabindex="1" alt="aloe plant"/>
+        <img id="aloe" src="assets/images/plants/aloe.png" tabindex="1" alt="aloe plant" />
         <h5 tabindex="1">Works best on Desktop</h5>
     </content>
 
     <script src="/assets/bundle.js"></script>
 
-    <!-- SLIDESHOW ANIMATIONS -->
-    <script>
 
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        let slides = document.getElementsByClassName('startSlide');
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("startSlide");
-            var dots = document.getElementsByClassName("dot");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            setTimeout(showSlides, 5000); // Change image every 2 seconds
-        }
-
-    </script>
 
     <script>
         // CLOUDS
@@ -112,13 +113,13 @@
                 $('#cloud2').animate({ left: $(window).width() + 'px' }, 96000, 'linear', function () {
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
-                 $('#cloud3').animate({ left: $(window).width() + 'px' }, 78000, 'linear', function () {
+                $('#cloud3').animate({ left: $(window).width() + 'px' }, 78000, 'linear', function () {
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
-                 $('#cloud4').animate({ left: $(window).width() + 'px' }, 81000, 'linear', function () {
+                $('#cloud4').animate({ left: $(window).width() + 'px' }, 81000, 'linear', function () {
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
-                 $('#cloud5').animate({ left: $(window).width() + 'px' }, 66000, 'linear', function () {
+                $('#cloud5').animate({ left: $(window).width() + 'px' }, 66000, 'linear', function () {
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
             }, 10);

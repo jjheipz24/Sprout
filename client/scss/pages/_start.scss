@@ -7,8 +7,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5vh;
     transition: opacity 3s ease-in;
+
+    background: url('/assets/images/startBackground.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -1;
+
 
     h1{
         font-weight: bold;
@@ -40,20 +48,38 @@
     }
 }
 
-#startBody {
-    // background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
+#sproutLogo {
+  width: 30vw;
+  margin-top: 5vh;
+}
+
+#startBody {    
+    background-color: #62C4D4 !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: lightskyblue !important;
     overflow: hidden;
 }
 
 /* Slideshow container */
+
+
 .slideshow-container {
     position: relative;
   }
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+    display:block;
+}
+
+.carousel-inner .carousel-item {
+  transition: -webkit-transform 1.5s ease;
+  transition: transform 1.5s ease;
+  transition: transform 1.5s ease, -webkit-transform 2s ease;
+}
   
   /* Slides */
   .startSlide {
@@ -66,42 +92,42 @@
     }
   }
   
-  /* Position the "next button" to the right */
-  .next {
-    position: absolute;
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
+  // /* Position the "next button" to the right */
+  // .next {
+  //   position: absolute;
+  //   right: 0;
+  //   border-radius: 3px 0 0 3px;
+  // }
   
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-    color: white;
-  }
+  // /* On hover, add a black background color with a little bit see-through */
+  // .prev:hover, .next:hover {
+  //   background-color: rgba(0,0,0,0.8);
+  //   color: white;
+  // }
   
-  /* The dot/bullet/indicator container */
-  .dot-container {
-      text-align: center;
-      padding: 0;
-      margin: -4vh 0 3vh 0;
-  }
+  // /* The dot/bullet/indicator container */
+  // .dot-container {
+  //     text-align: center;
+  //     padding: 0;
+  //     margin: -4vh 0 3vh 0;
+  // }
   
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 10px;
-    width: 10px;
-    margin: 0 .75em;
-    background-color: black;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
+  // /* The dots/bullets/indicators */
+  // .dot {
+  //   cursor: pointer;
+  //   height: 10px;
+  //   width: 10px;
+  //   margin: 0 .75em;
+  //   background-color: black;
+  //   border-radius: 50%;
+  //   display: inline-block;
+  //   transition: background-color 0.6s ease;
+  // }
   
-  /* Add a background color to the active dot/circle */
-  .active, .dot:hover {
-    background-color: $dark-purple;
-  }
+  // /* Add a background color to the active dot/circle */
+  // .active, .dot:hover {
+  //   background-color: $dark-purple;
+  // }
 
   #startButtons {
       display: flex;
