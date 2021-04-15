@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let plot6;
 
     let clearButton; //clears the garden
-    let seedButton; //opens seedPacket selection
 
     let plots = {}; //Holds the placeholder spots
 
@@ -387,21 +386,8 @@ document.addEventListener('DOMContentLoaded', function () {
             createPersonalGarden(communityGardenArray[0]);
         })
 
-        seedButton = new PIXI.Sprite(blue);
-        seedButton.anchor.set(0.5)
-        seedButton.scale.set(.75, .75);
-        seedButton.interactive = true;
-        seedButton.buttonMode = true;
-        seedButton.x = 200;
-        seedButton.y = 200;
-
-        seedButton.on('pointerdown', () => {
-            container.addChild(seedContainer);
-            createSeedPackets();
-        });
-
         container.addChild(clearButton);
-        container.addChild(seedButton);
+
     }
 
     function getUserPlants() {
@@ -554,7 +540,6 @@ document.addEventListener('DOMContentLoaded', function () {
         plot6.destroy();
 
         clearButton.destroy();
-        seedButton.destroy();
     }
 
     function destroySeedPackets() {
@@ -721,9 +706,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             clearButton.x = 600;
             clearButton.y = 600;
-
-            seedButton.x = 400;
-            seedButton.y = 600;
 
             planterBox.x = app.screen.width / 2 + 50;
             planterBox.y = app.screen.height / 2 - 35;
