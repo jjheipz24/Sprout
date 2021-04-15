@@ -196,6 +196,9 @@ p {
   #loginForm .fields {
     width: 500px; }
 
+#login {
+  margin-bottom: 5vh; }
+
 #loginBody {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -304,6 +307,9 @@ p {
   -o-background-size: cover;
   background-size: cover;
   background-color: white !important; }
+
+#signup {
+  margin-bottom: 5vh; }
 
 .screenSmall {
   width: 100vw;

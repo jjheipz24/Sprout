@@ -21,13 +21,13 @@ const LoginForm = (props) => {
         <form id="loginForm" name="loginForm" onSubmit={handleLogin} action="/login" method="POST" className="mainForm">
 
             <div className="fields">
-                <input className="field" id="username" type="text" name="username" placeholder="Enter Code" />
+                <input tabindex="1" className="field" id="username" type="text" name="username" placeholder="Enter Code" />
             </div>
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
             <div className="signinBtns">
-            <button id="loginButton" type="submit">Login</button>
-            <button id="secondButton"><a href="./signup">Sign Up</a></button>
+            <button tabindex="1" id="loginButton" type="submit">Login</button>
+            <button tabindex="1" id="secondButton"><a href="./signup">Sign Up</a></button>
             </div>
            
         </form>
