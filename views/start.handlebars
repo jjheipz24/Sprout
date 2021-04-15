@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <title>Sprout</title>
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 <body id="startBody">
@@ -122,6 +126,9 @@
     </script>
 
     <script>
+        let startScreen = document.getElementById('startContent');
+        let loadingScreen = document.getElementById('startLoad');
+
         //LOADER
         function changeImage(counter) {
             var images = [
@@ -134,8 +141,8 @@
         }
 
         function loading() {
-            document.getElementById("startContent").style.display = "none";
-            var num = 0;
+            startScreen.style.display = "none";
+            var num = 68;
 
             for (i = 0; i <= 101; i++) {
                 setTimeout(function () {
@@ -144,13 +151,20 @@
                     if (num == 101) {
                         console.log(100);
                         clearInterval();
-                        document.getElementById("startContent").style.display = "flex";
-                        document.getElementById("startLoad").style.display = "none";
+                        toggleView();
                     }
                     num++;
-                }, i * 120);
+                }, i * 110);
             };
             //document.getElementById("startBody").style.display = "block";
+        }
+
+        function toggleView() {
+            loadingScreen.style.display = "none";
+            startScreen.style.display = "flex";
+            startScreen.classList.add('animate__animated', 'animate__fadeIn');
+            startScreen.style.setProperty('--animate-duration', '1.5s');
+            console.log(startScreen);
         }
 
         $(document).ready(function () {

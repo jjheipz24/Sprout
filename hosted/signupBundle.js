@@ -28,6 +28,7 @@ var SignupForm = function SignupForm(props) {
   }, /*#__PURE__*/React.createElement("div", {
     className: "fields"
   }, /*#__PURE__*/React.createElement("input", {
+    tabIndex: "1",
     className: "field",
     id: "username",
     type: "text",
@@ -41,10 +42,12 @@ var SignupForm = function SignupForm(props) {
   }), /*#__PURE__*/React.createElement("div", {
     className: "signinBtns"
   }, /*#__PURE__*/React.createElement("button", {
+    tabIndex: "1",
     id: "secondButton"
   }, /*#__PURE__*/React.createElement("a", {
     href: "./login"
   }, "Login")), /*#__PURE__*/React.createElement("button", {
+    tabIndex: "1",
     id: "signupButton",
     type: "submit"
   }, "Sign Up")));
