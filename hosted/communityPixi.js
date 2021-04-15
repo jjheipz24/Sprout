@@ -612,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.setRequestHeader('x-csrf-token', csrf);
 
         xhr.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 const res = JSON.parse(this.responseText);
                 const userCapped = username.charAt(0).toUpperCase() + username.slice(1);
                 let currentPlant = res.plant.plantType;
@@ -623,6 +623,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
                 $('#messageLabel').text(`Let ${userCapped} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
+                $('.saveBtn').off();
                 $('.saveBtn').on("click", function () {
                     sendMessage(username, selectedPlot, currentPlant, currentPlantName);
                 })
@@ -636,24 +637,27 @@ document.addEventListener('DOMContentLoaded', function () {
         // let message = $('#messageField').val().trim();
         let message = document.querySelector('#messageField').value;
         message = message.trim();
-        console.log(message);
         if (message === null || message === "") {
             console.log("Please type a message");
         } else {
-
+            console.log('sending message!');
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/addMessage');
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.setRequestHeader('x-csrf-token', csrf);
 
+            //This runs if the http request was sent!!
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    //TODO: make an updatePlant/growPlant function
+                    //addPlant(plots[selectedPlot], currentPlant, plantName, 1);
+                    document.querySelector('#messageField').value = "";
+                    $('#message').hide();
+                }
+            };
+
             const formData = `username=${username}&message=${message}&location=${selectedPlot}`;
             xhr.send(formData);
-
-            //TODO: make an updatePlant/growPlant function
-            //addPlant(plots[selectedPlot], currentPlant, plantName, 1);
-
-            document.querySelector('#messageField').value = "";
-            $('#message').hide();
         }
 
     }
