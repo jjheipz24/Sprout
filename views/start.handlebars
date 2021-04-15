@@ -6,10 +6,25 @@
 </head>
 
 <body id="startBody">
+
+    <div class="loader" id="startLoad">
+        <div class="image">
+            <img class="loaderImg" src='assets/images/plants/aloe-sprout.png'>
+        </div>
+        <span></span>
+    </div>
+
     <content id="startContent">
+        <div class="cloud-right">
+            <img class="cloud-right-image" id="cloud1" src="assets/images/cloud.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud2" src="assets/images/cloud.png" alt="cloud"/>
+            <img class="cloud-right-image" id="cloud3" src="assets/images/cloud.png" alt="cloud"/>
+            <img class="cloud-right-image" id="cloud4" src="assets/images/cloud.png" alt="cloud"/>
+            <img class="cloud-right-image" id="cloud5" src="assets/images/cloud.png" alt="cloud"/>
+        </div>
         <img src="assets/images/Sprout_black.png" />
 
-         <div class="dot-container">
+        <div class="dot-container">
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
@@ -17,32 +32,27 @@
 
         <div class="slideshow-container">
             <div class="startSlide fade">
-                <p>Sprout is a place for you to to tend a virtual garden through sharing encouraging messages and spreading kindness to yourself and the community.</p>
+                <p>Sprout is a place for you to to tend a virtual garden through sharing encouraging messages and
+                    spreading kindness to yourself and the community.</p>
             </div>
 
             <div class="startSlide fade">
-                <p>We created Sprout with positive psychology in mind. This encourages people to focus on positive emotions and build strategies to maintain them.</p>
+                <p>We created Sprout with positive psychology in mind. This encourages people to focus on positive
+                    emotions and build strategies to maintain them.</p>
             </div>
 
             <div class="startSlide fade">
-                <p>Social interaction with others relieves stress and anxiety, instills feelings of purpose, and increases people’s life expectancy!</p>
+                <p>Social interaction with others relieves stress and anxiety, instills feelings of purpose, and
+                    increases people’s life expectancy!</p>
             </div>
         </div>
 
-         <div id="startButtons">
+        <div id="startButtons">
             <button id="createAccountButton"><a href="./signup">Create Account</a></button>
             <button id="signInButton"><a href="./login">Sign In</a></button>
         </div>
 
-        <div id="scrollContainer">
-            <img src="assets/images/test/premadeBulidings.png" alt="" />
-
-            <div class="photobanner">
-                <img src="assets/images/test/premadeBulidings.png" alt="" />
-                <img src="assets/images/test/premadeBulidings.png" alt="" />
-                <img src="assets/images/test/premadeBulidings.png" alt="" />
-            </div>
-        </div>
+        <img src='/assets/images/buildings/communityBuildings.png' alt="" />
     </content>
 
     <content class="screenSmall">
@@ -74,18 +84,93 @@
             var slides = document.getElementsByClassName("startSlide");
             var dots = document.getElementsByClassName("dot");
             for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
+                slides[i].style.display = "none";
             }
             slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
+            if (slideIndex > slides.length) { slideIndex = 1 }
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
-            slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " active";
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
             setTimeout(showSlides, 5000); // Change image every 2 seconds
         }
-        
+
+    </script>
+
+    <script>
+        // CLOUDS
+        $(function () {
+            setInterval(function () {
+                $('#cloud1').animate({ left: $(window).width() + 'px' }, 52000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud2').animate({ left: $(window).width() + 'px' }, 96000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                 $('#cloud3').animate({ left: $(window).width() + 'px' }, 78000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                 $('#cloud4').animate({ left: $(window).width() + 'px' }, 81000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                 $('#cloud5').animate({ left: $(window).width() + 'px' }, 66000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+            }, 10);
+        });
+    </script>
+
+    <script>
+        //LOADER
+        function changeImage(counter) {
+            var images = [
+                '<img class="loaderImg" id="cactusLoader" src="assets/images/plants/cactus-sprout.png">',
+                '<img class="loaderImg" src="assets/images/plants/fiddle-sprout.png">',
+                '<img class="loaderImg" src="assets/images/plants/jade-sprout.png">',
+            ];
+
+            $(".loader .image").html("" + images[counter] + "");
+        }
+
+        function loading() {
+            document.getElementById("startContent").style.display = "none";
+            var num = 0;
+
+            for (i = 0; i <= 101; i++) {
+                setTimeout(function () {
+                    $('.loader span').html(num + '%');
+
+                    if (num == 101) {
+                        console.log(100);
+                        clearInterval();
+                        document.getElementById("startContent").style.display = "flex";
+                        document.getElementById("startLoad").style.display = "none";
+                    }
+                    num++;
+                }, i * 120);
+            };
+            //document.getElementById("startBody").style.display = "block";
+        }
+
+        $(document).ready(function () {
+            var counter = 0;
+
+            // Start the changing images
+            setInterval(function () {
+                if (counter == 3) {
+                    counter = 0;
+                }
+
+                changeImage(counter);
+                counter++;
+            }, 3000);
+
+            // Set the percentage off
+            loading();
+        });
+
+
     </script>
 
 </body>
