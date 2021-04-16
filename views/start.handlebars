@@ -4,13 +4,14 @@
     <meta charset="utf-8" />
     <title>Sprout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 </head>
 
 <body id="startBody">
 
+    <!-- LOADING SCREEN -->
     <div class="loader" id="startLoad">
         <div class="image">
             <img class="loaderImg" src='assets/images/plants/aloe-sprout.png' alt="loading" tabindex="1">
@@ -19,72 +20,62 @@
     </div>
 
     <content id="startContent">
+        <!-- CLOUDS -->
         <div class="cloud-right">
-            <img class="cloud-right-image" id="cloud1" src="assets/images/cloud.png" alt="cloud" />
-            <img class="cloud-right-image" id="cloud2" src="assets/images/cloud.png" alt="cloud" />
-            <img class="cloud-right-image" id="cloud3" src="assets/images/cloud.png" alt="cloud" />
-            <img class="cloud-right-image" id="cloud4" src="assets/images/cloud.png" alt="cloud" />
-            <img class="cloud-right-image" id="cloud5" src="assets/images/cloud.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud1" src="assets/images/buildings/cloud1.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud2" src="assets/images/buildings/cloud2.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud3" src="assets/images/buildings/cloud3.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud4" src="assets/images/buildings/cloud1.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud5" src="assets/images/buildings/cloud2.png" alt="cloud" />
         </div>
         <img id="sproutLogo" src="assets/images/Sprout_whitebg.png" alt="Sprout" tabindex="1" />
 
-        {{!-- <div class="dot-container">
-            <span class="dot" onclick="currentSlide(1)" tabindex="1" alt="first slide"></span>
-            <span class="dot" onclick="currentSlide(2)" tabindex="1" alt="second slide"></span>
-            <span class="dot" onclick="currentSlide(3)" tabindex="1" alt="third slide"></span>
-        </div> --}}
+        <!-- SLIDESHOW CONTAINER -->
+      
+      
 
-        {{!-- <div class="slideshow-container">
-            <div class="startSlide fade">
-                <p tabindex="1">Sprout is a place for you to to tend a virtual garden through sharing encouraging
-                    messages and
-                    spreading kindness to yourself and the community.</p>
-            </div>
-
-            <div class="startSlide fade">
-                <p tabindex="1">We created Sprout with positive psychology in mind. This encourages people to focus on
-                    positive
-                    emotions and build strategies to maintain them.</p>
-            </div>
-
-            <div class="startSlide fade">
-                <p tabindex="1">Social interaction with others relieves stress and anxiety, instills feelings of
-                    purpose, and
-                    increases people’s life expectancy!</p>
-            </div>
-        </div> --}}
-
-        <div class="slideshow-container">
-            <div id="carouselContent" class=" slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active text-center p-4 startSlide">
-                        <p>Sprout is a place for you to to tend a virtual garden through sharing encouraging messages
-                            and spreading kindness to yourself and the community.</p>
-                    </div>
-                    <div class="carousel-item text-center p-4 startSlide">
-                        <p>
-                            We created Sprout with positive psychology in mind. This encourages people to focus on
-                            positive emotions and build strategies to maintain them.
-                        </p>
-                    </div>
-                    <div class="carousel-item text-center p-4 startSlide">
-                        <p>
-                            Social interaction with others relieves stress and anxiety, instills feelings of
-                            purpose, and increases people’s life expectancy!
-                        </p>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+<!-- Swiper -->
+  <div class="swiper-container" id="slideshow">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+          Sprout is a place for you to to tend a virtual garden through sharing encouraging messages 
+          and spreading kindness to yourself and the community.
         </div>
+      <div class="swiper-slide">
+            We created Sprout with positive psychology in mind. This encourages people to focus on
+            positive emotions and build strategies to maintain them.
+      </div>
+      <div class="swiper-slide">
+            Social interaction with others relieves stress and anxiety, instills feelings of
+            purpose, and increases people’s life expectancy!
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- LOGIN AND SINGUP BUTTONS -->
         <div id="startButtons">
             <button id="createAccountButton"><a tabindex="1" href="./signup">Create Account</a></button>
             <button id="signInButton"><a tabindex="1" href="./login">Sign In</a></button>
@@ -93,6 +84,7 @@
         <img src='/assets/images/buildings/communityBuildings.png' alt="Community of buildings" />
     </content>
 
+    <!-- WHEN SCREEN SIZE IS TOO SMALL -->
     <content class="screenSmall">
         <img src="assets/images/Sprout.png" tabindex="1" alt="Sprout" />
         <img id="aloe" src="assets/images/plants/aloe.png" tabindex="1" alt="aloe plant" />
@@ -101,12 +93,11 @@
 
     <script src="/assets/bundle.js"></script>
 
-
-
     <script>
         // CLOUDS
         $(function () {
             setInterval(function () {
+                // Animates from the left to the right based on screen size at different paces
                 $('#cloud1').animate({ left: $(window).width() + 'px' }, 52000, 'linear', function () {
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
@@ -126,11 +117,35 @@
         });
     </script>
 
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
+
+
+
+
+
+
     <script>
+        // LOADING PAGE
+        // Grabs content and loading divs 
         let startScreen = document.getElementById('startContent');
         let loadingScreen = document.getElementById('startLoad');
 
-        //LOADER
+        //PLANT LOADER ANIMATION
         function changeImage(counter) {
             var images = [
                 '<img class="loaderImg" id="cactusLoader" src="assets/images/plants/cactus-sprout.png">',
@@ -141,6 +156,7 @@
             $(".loader .image").html("" + images[counter] + "");
         }
 
+        // Displays loading screen instead of content page
         function loading() {
             startScreen.style.display = "none";
             var num = 68;
@@ -160,6 +176,7 @@
             //document.getElementById("startBody").style.display = "block";
         }
 
+        // Switches between loading and main screen
         function toggleView() {
             loadingScreen.style.display = "none";
             startScreen.style.display = "flex";
@@ -184,8 +201,6 @@
             // Set the percentage off
             loading();
         });
-
-
     </script>
 
 </body>

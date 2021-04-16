@@ -68,10 +68,37 @@
 
 /* Slideshow container */
 
+#slideshow {
+  z-index: 3 !important;
+  margin-bottom: 2vh;
+}
 
-.slideshow-container {
-    position: relative;
+  .swiper-container {
+    width: 45%;
+    height: 20vh;
   }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+
+
 
 .carousel-item.active,
 .carousel-item-next,
@@ -265,31 +292,31 @@
     #cloud1 {
       left: -260px;
       margin-top: 300px;
-      width: 12%;
+      width: 7%;
     }
 
     #cloud2 {
       left: 0;
       margin-top: 50px;
-      width: 9%;
+      width: 4%;
     }
 
     #cloud3 {
       left: 650;
       margin-top: 150px;
-      width: 16%;
+      width: 11%;
     }
 
     #cloud4 {
       left: -350;
       margin-top: 276px;
-      width: 11%;
+      width: 16%;
     }
 
     #cloud5 {
       left: 210;
       margin-top: 200px;
-      width: 14%;
+      width: 9%;
     }
   
   
