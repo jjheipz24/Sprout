@@ -651,6 +651,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (this.readyState === 4) {
                     //TODO: make an updatePlant/growPlant function
                     //addPlant(plots[selectedPlot], currentPlant, plantName, 1);
+                    plots[selectedPlot].texture = plantCollection[currentPlant][1]; //Cheese the growing of the plant
                     document.querySelector('#messageField').value = "";
                     $('#message').hide();
                 }
