@@ -578,29 +578,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    //Updating plant to the next growth stage
-    function updatePlant() {
-        let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(target)]; //Location of where the seed is planted
-        if (plantType === undefined) {
-            console.log("No plant seeds selected");
-        } else {
-            target.texture = plantCollection[plantType][growthStage];
-
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/updatePlant');
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.setRequestHeader('x-csrf-token', csrf);
-
-            const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&growthStage=${growthStage}&prompt=test`;
-
-            xhr.send(formData);
-            // add something here to add the plant to the gardenData so it can appear/disappear
-
-            // gardenData.push({formData}); -- not quite right hmm
-            // console.log('in addplant', gardenData);
-            //e.stopPropagation();
-        }
-    }
 
     function messageModal(e, username) {
         $('#message').show();
