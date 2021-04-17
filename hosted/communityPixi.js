@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let plotSpot; //Place where user wants seed planted
 
+    let seedPacketsVisible; //boolean that says whether or not the seed packets are displaying
+
     let aloeSeeds, cactusSeeds, fiddleSeeds, jadeSeeds, peaceSeeds, snakeSeeds; //All of the seed packets
 
     //All of the colors
@@ -329,11 +331,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //Adds them to plot object
     function initCircles(garden) {
 
-        // console.log($.get('/getPlants', function(data, status){
-        //     console.log(data);
-        // }))
-        console.log(localStorage.getItem('you'));
-
         plot1 = new PIXI.Sprite(brown);
         createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot1"] = plot1;
@@ -440,18 +437,9 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
-    // clears plants from garden
-    // function clearAllPlots(data) {
-    //     let plantArr = data;
-    //     console.log('plantarr', plantArr);
-    //     plantArr.forEach(plantPlotted => {
-    //         plots[plantPlotted.location].texture = brown;
-    //     });
-    //     //updates garden data object
-    //     gardenData = [];
-    // }
-
     function createSeedPackets() {
+        seedPacketsVisible = true;
+
         closeButton = new PIXI.Sprite.from('assets/images/test/pink.png');
         closeButton.anchor.set(0.5)
         closeButton.scale.set(.75, .75);
@@ -462,33 +450,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         closeButton.on('pointerdown', () => {
             destroySeedPackets();
-            closeButton.destroy();
         });
 
         container.addChild(closeButton);
 
         aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
-        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 4), (app.screen.height / 4), 6);
+        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 2) - 300, (app.screen.height / 4), 6);
         seedContainer.addChild(aloeSeeds);
 
         cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.png');
-        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 4) + 300, (app.screen.height / 4), 5);
+        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 2), (app.screen.height / 4), 5);
         seedContainer.addChild(cactusSeeds);
 
         fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.png');
-        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 4) + 600, (app.screen.height / 4), 4);
+        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 2) + 300, (app.screen.height / 4), 4);
         seedContainer.addChild(fiddleSeeds);
 
         jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
-        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 4), (app.screen.height) - 200, 3);
+        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 2) - 300, (app.screen.height) - 200, 3);
         seedContainer.addChild(jadeSeeds);
 
         peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.png');
-        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 4) + 300, (app.screen.height) - 200, 2);
+        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 2), (app.screen.height) - 200, 2);
         seedContainer.addChild(peaceSeeds);
 
         snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
-        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 4) + 600, (app.screen.height) - 200, 1);
+        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 2) + 300, (app.screen.height) - 200, 1);
         seedContainer.addChild(snakeSeeds);
 
         container.addChild(seedContainer);
@@ -551,6 +538,7 @@ document.addEventListener('DOMContentLoaded', function () {
         snakeSeeds.destroy();
         closeButton.destroy();
         container.removeChild(seedContainer);
+        seedPacketsVisible = false;
     }
 
     //Use for adding a plant to a plot
@@ -711,24 +699,27 @@ document.addEventListener('DOMContentLoaded', function () {
             plot6.x = (app.screen.width / 2) + 280;
             plot6.y = (app.screen.height / 2) + 10;
 
-            //Seed packets
-            // aloeSeeds.x = (app.screen.width / 6);
-            // aloeSeeds.y = (app.screen.height / 2);
+            if (seedPacketsVisible) {
+                //Seed packets
+                aloeSeeds.x = (app.screen.width / 2) - 300;
+                aloeSeeds.y = (app.screen.height / 4);
 
-            // cactusSeeds.x = (app.screen.width / 6) + 100;
-            // cactusSeeds.y = (app.screen.height / 2);
+                cactusSeeds.x = (app.screen.width / 2);
+                cactusSeeds.y = (app.screen.height / 4);
 
-            // fiddleSeeds.x = (app.screen.width / 6) + 200;
-            // fiddleSeeds.y = (app.screen.height / 2);            
+                fiddleSeeds.x = (app.screen.width / 2) + 300;
+                fiddleSeeds.y = (app.screen.height / 4);
 
-            // jadeSeeds.x = (app.screen.width / 6) + 300;
-            // jadeSeeds.y = (app.screen.height / 2);            
+                jadeSeeds.x = (app.screen.width / 2) - 300;
+                jadeSeeds.y = (app.screen.height) - 200;
 
-            // peaceSeeds.x = (app.screen.width / 6) + 400;
-            // peaceSeeds.y = (app.screen.height / 2);            
+                peaceSeeds.x = (app.screen.width / 2);
+                peaceSeeds.y = (app.screen.height) - 200;
 
-            // snakeSeeds.x = (app.screen.width / 6) + 500;
-            // snakeSeeds.y = (app.screen.height / 2);
+                snakeSeeds.x = (app.screen.width / 2) + 300;
+                snakeSeeds.y = (app.screen.height) - 200;
+            }
+
         } else {
             //communtiy plant boxes
             // row 1, column 1 - top left

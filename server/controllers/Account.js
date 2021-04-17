@@ -240,8 +240,11 @@ const clearAll = async (request, response) => {
   const user = await Account.AccountModel.findOne({ username: req.session.account.username });
 
   const savePromise =  user.update({ $pull : { plants : {$exists: true}}});
+
   savePromise.then(() => {
-    return res.status(201).json();
+    return res.status(201).json({
+      redirect: '/',
+    });
   });
   savePromise.catch((err) => {
     return res.status(400).json({
