@@ -26,7 +26,7 @@ const SignupForm = (props) => {
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
             <div className="signinBtns">
-                <button tabIndex="1" id="secondButton"><a href="./login">Login</a></button>
+            <p className="switchText" tabIndex="1">Already have an account? <a href="./login" className="formLink">Login!</a></p>
                 <button tabIndex="1" id="signupButton" type="submit">Sign Up</button>
             </div>
         </form>

@@ -7,6 +7,14 @@
 
 <body id="signupBody">
     <content id="signupContent">
+          <div class="cloud-right">
+            <img class="cloud-right-image" id="cloud1" src="assets/images/buildings/cloud1.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud2" src="assets/images/buildings/cloud2.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud3" src="assets/images/buildings/cloud3.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud4" src="assets/images/buildings/cloud1.png" alt="cloud" />
+            <img class="cloud-right-image" id="cloud5" src="assets/images/buildings/cloud2.png" alt="cloud" />
+        </div>
+
         <h1 tabindex="1">Create an Account.</h1>
         <p tabindex="1">Welcome! Please create a unique code to get started with your garden.</p>
         <div id="signup"></div>
@@ -18,6 +26,29 @@
         <img id="aloe" src="assets/images/plants/aloe.png" tabindex="1" alt="aloe plant" />
         <h5 tabindex="1">Works best on Desktop</h5>
     </content>
+
+      <script>
+        // CLOUDS
+        $(function () {
+            setInterval(function () {
+                $('#cloud1').animate({ left: $(window).width() + 'px' }, 52000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud2').animate({ left: $(window).width() + 'px' }, 96000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud3').animate({ left: $(window).width() + 'px' }, 78000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud4').animate({ left: $(window).width() + 'px' }, 81000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloud5').animate({ left: $(window).width() + 'px' }, 66000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+            }, 10);
+        });
+    </script>
 
     <script src="/assets/signupBundle.js"></script>
     <script src="/assets/bundle.js"></script>

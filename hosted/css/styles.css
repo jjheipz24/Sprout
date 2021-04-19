@@ -148,10 +148,10 @@ p {
     font-weight: bold;
     font-size: 58px;
     color: black !important;
-    margin-top: 5vh; }
+    margin-top: 8vh; }
   #loginContent p {
     font-size: 15px;
-    color: #B570FF; }
+    color: black; }
 
 #loginForm {
   display: flex;
@@ -201,10 +201,22 @@ p {
     margin-top: 2rem;
     color: darkgray; }
   #loginForm .fields {
-    width: 500px; }
+    width: 500px;
+    margin-bottom: 5vh !important; }
 
 #login {
   margin-bottom: 5vh; }
+
+.switchText {
+  margin-bottom: 4vh; }
+
+.formLink {
+  color: #9746FF !important; }
+
+.formLink:hover {
+  color: #B570FF !important;
+  text-decoration: underline !important;
+  cursor: pointer !important; }
 
 #loginBody {
   background-color: #62C4D4 !important;
@@ -271,14 +283,21 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 25vh; }
+  background: url("/assets/images/startBackground.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1; }
   #signupContent h1 {
     font-weight: bold;
     font-size: 58px;
-    color: black !important; }
+    color: black !important;
+    margin-top: 8vh; }
   #signupContent p {
     font-size: 15px;
-    color: #B570FF; }
+    color: black; }
 
 #signupForm {
   display: flex;
@@ -328,17 +347,19 @@ p {
     margin-top: 2rem;
     color: lightgray; }
   #signupForm .fields {
-    width: 500px; }
+    width: 500px;
+    margin-bottom: 5vh !important; }
 
 #signupButton {
   margin: 0 0 0 2em !important; }
 
 #signupBody {
+  background-color: #62C4D4 !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: white !important; }
+  overflow: hidden; }
 
 #signup {
   margin-bottom: 5vh; }

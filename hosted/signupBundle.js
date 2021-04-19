@@ -41,12 +41,13 @@ var SignupForm = function SignupForm(props) {
     value: props.csrf
   }), /*#__PURE__*/React.createElement("div", {
     className: "signinBtns"
-  }, /*#__PURE__*/React.createElement("button", {
-    tabIndex: "1",
-    id: "secondButton"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "./login"
-  }, "Login")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "switchText",
+    tabIndex: "1"
+  }, "Already have an account? ", /*#__PURE__*/React.createElement("a", {
+    href: "./login",
+    className: "formLink"
+  }, "Login!")), /*#__PURE__*/React.createElement("button", {
     tabIndex: "1",
     id: "signupButton",
     type: "submit"

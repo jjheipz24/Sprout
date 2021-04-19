@@ -38,18 +38,19 @@ var LoginForm = function LoginForm(props) {
     type: "hidden",
     name: "_csrf",
     value: props.csrf
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "switchText",
+    tabIndex: "1"
+  }, "Don't have an account? ", /*#__PURE__*/React.createElement("a", {
+    href: "./signup",
+    className: "formLink"
+  }, "Sign up!")), /*#__PURE__*/React.createElement("div", {
     className: "signinBtns"
   }, /*#__PURE__*/React.createElement("button", {
     tabIndex: "1",
     id: "loginButton",
     type: "submit"
-  }, "Login"), /*#__PURE__*/React.createElement("button", {
-    tabIndex: "1",
-    id: "secondButton"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "./signup"
-  }, "Sign Up"))));
+  }, "Login")));
 };
 
 var setup = function setup(csrf) {

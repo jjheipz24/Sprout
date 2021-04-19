@@ -7,17 +7,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 25vh;
+
+    background: url('/assets/images/startBackground.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -1;
+
 
     h1 {
         font-weight: bold;
         font-size: 58px;
         color: black !important;
+        margin-top: 8vh;
     }
 
     p {
         font-size: 15px;
-        color: $light-purple;
+        color: black;
     }
 }
 
@@ -33,6 +42,7 @@
 
     .fields {
         width: 500px;
+        margin-bottom: 5vh !important;
     }
 }
 
@@ -41,12 +51,12 @@
 }
 
 #signupBody {
-    // background: url('/assets/images/loginBackground.png') no-repeat center center fixed; 
+    background-color: #62C4D4 !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: white !important;
+    overflow: hidden;
 }
 
 #signup {

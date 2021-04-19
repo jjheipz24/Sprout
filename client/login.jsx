@@ -25,9 +25,9 @@ const LoginForm = (props) => {
             </div>
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
+            <p className="switchText" tabIndex="1">Don't have an account? <a href="./signup" className="formLink">Sign up!</a></p>
             <div className="signinBtns">
             <button tabIndex="1" id="loginButton" type="submit">Login</button>
-            <button tabIndex="1" id="secondButton"><a href="./signup">Sign Up</a></button>
             </div>
            
         </form>
