@@ -7,7 +7,8 @@ var handleSignup = function handleSignup(e) {
 
   if ($("#username").val() == '') {
     //TODO: Implement error feedback
-    console.log("All fields are required");
+    console.log("Username is required");
+    handleError('Username is required');
     return false;
   }
 
@@ -51,7 +52,11 @@ var SignupForm = function SignupForm(props) {
     tabIndex: "1",
     id: "signupButton",
     type: "submit"
-  }, "Sign Up")));
+  }, "Sign Up")), /*#__PURE__*/React.createElement("div", {
+    className: "alert alert-danger",
+    role: "alert",
+    id: "error"
+  }));
 };
 
 var setup = function setup(csrf) {

@@ -5,6 +5,7 @@ const handleLogin = e => {
     if ($("#username").val() == '') {
         //TODO: Implement error feedback
         console.log("Username is required")
+        handleError('Username is required');
         return false;
     }
 
@@ -27,9 +28,9 @@ const LoginForm = (props) => {
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
             <p className="switchText" tabIndex="1">Don't have an account? <a href="./signup" className="formLink">Sign up!</a></p>
             <div className="signinBtns">
-            <button tabIndex="1" id="loginButton" type="submit">Login</button>
+                <button tabIndex="1" id="loginButton" type="submit">Login</button>
             </div>
-           
+            <div className="alert alert-danger" role="alert" id="error"></div>
         </form>
     )
 }

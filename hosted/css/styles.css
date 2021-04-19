@@ -153,6 +153,18 @@ p {
     font-size: 15px;
     color: black; }
 
+#error {
+  display: none;
+  margin-top: 1.5em;
+  margin: 3vh 10vw;
+  width: 30vw;
+  padding: .5vh 0; }
+  #error p {
+    color: black;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem; }
+
 #loginForm {
   display: flex;
   flex-direction: column;
@@ -179,8 +191,7 @@ p {
     background-color: #9746FF;
     border: none;
     border-radius: .5rem;
-    padding: .75em 0;
-    margin-right: 2em; }
+    padding: .75em 0; }
   #loginForm .signinBtns #loginButton:hover {
     background-color: #B570FF;
     opacity: .6; }
@@ -325,8 +336,7 @@ p {
     background-color: #9746FF;
     border: none;
     border-radius: .5rem;
-    padding: .75em 0;
-    margin-right: 2em; }
+    padding: .75em 0; }
   #signupForm .signinBtns #signupButton:hover {
     background-color: #B570FF;
     opacity: .6; }
@@ -349,6 +359,18 @@ p {
   #signupForm .fields {
     width: 500px;
     margin-bottom: 5vh !important; }
+
+#error {
+  display: none;
+  margin-top: 1.5em;
+  margin: 3vh 10vw;
+  width: 30vw;
+  padding: .5vh 0; }
+  #error p {
+    color: black;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem; }
 
 #signupButton {
   margin: 0 0 0 2em !important; }

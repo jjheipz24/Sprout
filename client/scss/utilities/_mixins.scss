@@ -62,7 +62,7 @@
     }
 
     .signinBtns{
-
+        
         #{$btn} {
             font-weight: bold;
             width: 160px;
@@ -71,7 +71,6 @@
             border: none;
             border-radius: .5rem;
             padding: .75em 0;
-            margin-right: 2em;
         }
     
         #{$btn}:hover {

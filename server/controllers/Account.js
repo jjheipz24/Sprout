@@ -40,7 +40,7 @@ const login = (request, response) => {
   return Account.AccountModel.authenticate(username, (err, account) => {
     if (err || !account) {
       return res.status(401).json({
-        error: 'Wrong username',
+        error: 'Username does not exist',
       });
     }
     // sets the current session account based on username and password added
@@ -85,7 +85,7 @@ const signup = (request, response) => {
     console.log(err);
     if (err.code === 11000) {
       return res.status(400).json({
-        error: 'username already in use',
+        error: 'Username already in use',
       });
     }
 
