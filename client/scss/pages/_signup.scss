@@ -46,6 +46,21 @@
     }
 }
 
+#error {
+    display: none;
+    margin-top: 1.5em;
+    margin: 3vh 10vw;
+    width: 30vw;
+    padding: .5vh 0;
+
+    p {
+        color: black;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
 #signupButton {
     margin: 0 0 0 2em !important;
 }

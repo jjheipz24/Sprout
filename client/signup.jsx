@@ -5,7 +5,8 @@ const handleSignup = e => {
 
     if ($("#username").val() == '') {
         //TODO: Implement error feedback
-        console.log("All fields are required")
+        console.log("Username is required");
+        handleError('Username is required');
         return false;
     }
 
@@ -26,9 +27,10 @@ const SignupForm = (props) => {
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />
             <div className="signinBtns">
-            <p className="switchText" tabIndex="1">Already have an account? <a href="./login" className="formLink">Login!</a></p>
+                <p className="switchText" tabIndex="1">Already have an account? <a href="./login" className="formLink">Login!</a></p>
                 <button tabIndex="1" id="signupButton" type="submit">Sign Up</button>
             </div>
+            <div className="alert alert-danger" role="alert" id="error"></div>
         </form>
     )
 }
