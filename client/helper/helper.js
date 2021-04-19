@@ -1,8 +1,6 @@
 const handleError = (message) => {
     console.log('message',  $('#errorMessage'));
-    if($('#error').hasChildNodes()) {
-        $('#error').firstChild.remove();
-    } 
+    $('#error').children('#errorMessage').remove();
     $('#error').append(`<p id="errorMessage">${ message }</p>`)
     $('#error').fadeIn(200);
   };
