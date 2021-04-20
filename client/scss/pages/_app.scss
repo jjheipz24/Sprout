@@ -8,6 +8,7 @@
 body {
     //background-color: $dark-green !important;
 }
+
 // #mainApp {
 //     background-image: url('/assets/images/test/planter-background.png');
 //     background-repeat: no-repeat;
@@ -54,49 +55,54 @@ p {
 /* Modal Popup */
 .modal-content {
     padding: 1rem;
-}
 
-.modal-header {
-    height: 18vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    border: none;
-}
+    .close:hover{
+        cursor: pointer;
+        max-width: fit-content;
+    }
 
-#modal-content-header {
-    display: flex;
-    flex-direction: column;
-}
+    .modal-header {
+        height: 18vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        border: none;
 
-#messageTitle {
-    margin-left: 1em;
-}
+        #modal-content-header {
+            display: flex;
+            flex-direction: column;
 
-#messageLabel {
-    margin: 2vh 0 2vh 1.25em;
-}
+            #messageTitle {
+                margin-left: 1em;
+            }
 
-#messageField {
-    margin: 0 2vw;
-}
+            #messageLabel {
+                margin: 2vh 0 2vh 1.25em;
+            }
+        }
+    }
 
-#messageField {
-    border-radius: 1rem;
-    padding: .25em 0 0 .75em;
-    height: 2.5em;
-}
+    #messageField {
+        margin: 0 2vw;
+    }
 
-.modal-footer {
-    border: none;
-}
+    #messageField {
+        border-radius: 1rem;
+        padding: .25em 0 0 .75em;
+        height: 2.5em;
+    }
 
-.saveBtn {
-    background-color: $dark-purple;
-    border: none;
-}
+    .modal-footer {
+        border: none;
+    }
 
-.saveBtn:hover {
-    background-color: $light-purple;
+    .saveBtn {
+        background-color: $dark-purple;
+        border: none;
+    }
+
+    .saveBtn:hover {
+        background-color: $light-purple;
+    }
 }
