@@ -59,6 +59,15 @@
 * {
   font-family: "Lato", sans-serif; }
 
+#mainApp {
+  background: url("/assets/images/startBackground.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1; }
+
 .appNav {
   position: absolute;
   width: 100%; }
@@ -177,18 +186,17 @@ p {
       padding: 1rem; }
     #loginForm .fields .field:focus {
       border: 1px solid black;
-      border-left: 4px solid #1A9C5D; }
+      border-left: 4px solid #F98C6E; }
   #loginForm .signinBtns #loginButton {
     font-weight: bold;
     width: 160px;
     color: white;
-    background-color: #9746FF;
+    background-color: #F98C6E;
     border: none;
     border-radius: .5rem;
     padding: .75em 0; }
   #loginForm .signinBtns #loginButton:hover {
-    background-color: #B570FF;
-    opacity: .6; }
+    background-color: #f7b8a6; }
   #loginForm .signinBtns #secondButton {
     font-weight: bold;
     width: 160px;
@@ -201,7 +209,7 @@ p {
       text-decoration: none;
       color: black; }
   #loginForm .signinBtns #secondButton:hover {
-    opacity: .6; }
+    background-color: #f7b8a6; }
   #loginForm .loginExtra {
     margin-top: 2rem;
     color: darkgray; }
@@ -216,10 +224,10 @@ p {
   margin-bottom: 4vh; }
 
 .formLink {
-  color: #9746FF !important; }
+  color: #F98C6E !important; }
 
 .formLink:hover {
-  color: #B570FF !important;
+  color: #f7b8a6 !important;
   text-decoration: underline !important;
   cursor: pointer !important; }
 
@@ -322,18 +330,17 @@ p {
       padding: 1rem; }
     #signupForm .fields .field:focus {
       border: 1px solid black;
-      border-left: 4px solid #1A9C5D; }
+      border-left: 4px solid #F98C6E; }
   #signupForm .signinBtns #signupButton {
     font-weight: bold;
     width: 160px;
     color: white;
-    background-color: #9746FF;
+    background-color: #F98C6E;
     border: none;
     border-radius: .5rem;
     padding: .75em 0; }
   #signupForm .signinBtns #signupButton:hover {
-    background-color: #B570FF;
-    opacity: .6; }
+    background-color: #f7b8a6; }
   #signupForm .signinBtns #secondButton {
     font-weight: bold;
     width: 160px;
@@ -346,7 +353,7 @@ p {
       text-decoration: none;
       color: black; }
   #signupForm .signinBtns #secondButton:hover {
-    opacity: .6; }
+    background-color: #f7b8a6; }
   #signupForm .signupExtra {
     margin-top: 2rem;
     color: lightgray; }
@@ -455,6 +462,9 @@ p {
   -o-background-size: cover;
   background-size: cover;
   overflow: hidden; }
+
+.backgroundImg {
+  width: 100%; }
 
 /* Slideshow container */
 #slideshow {

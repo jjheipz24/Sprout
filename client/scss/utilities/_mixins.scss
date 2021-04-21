@@ -57,7 +57,7 @@
 
         .field:focus {
             border: 1px solid black;
-            border-left: 4px solid $light-green;
+            border-left: 4px solid $dark-salmon;
         }
     }
 
@@ -67,15 +67,14 @@
             font-weight: bold;
             width: 160px;
             color: white;
-            background-color: $dark-purple;
+            background-color: $dark-salmon;
             border: none;
             border-radius: .5rem;
             padding: .75em 0;
         }
     
         #{$btn}:hover {
-            background-color: $light-purple;
-            opacity: .6;
+            background-color: $light-salmon;
         }
     
         #{$btn2} {
@@ -94,7 +93,7 @@
         }
     
         #{$btn2}:hover {
-            opacity: .6;
+            background-color: $light-salmon;
         }
     }
 

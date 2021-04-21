@@ -9,11 +9,16 @@ body {
     //background-color: $dark-green !important;
 }
 
-// #mainApp {
-//     background-image: url('/assets/images/test/planter-background.png');
-//     background-repeat: no-repeat;
-//     background-size: contain;
-// }
+#mainApp {
+    background: url('/assets/images/startBackground.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -1;
+
+}
 
 .appNav {
     position: absolute;

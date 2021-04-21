@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Creates pixi app
     // const app = new PIXI.Application({
     const app = new PIXI.Renderer({
-        backgroundColor: 0x043535,
+        backgroundColor: 0x62C4D4,
         width: w,
         height: h,
         view: document.querySelector('#pixiCanvas'),
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***** BACKGROUND *****/
 
-    let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildings.png');
+    let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinal2.png');
     let personalBackground = PIXI.Texture.from('assets/images/PersonalBackground.png');
     let background = new PIXI.Sprite(communityBackground);
     background.anchor.x = 0;
