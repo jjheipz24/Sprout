@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
         width: w,
         height: h,
         view: document.querySelector('#pixiCanvas'),
-        resolution: window.devicePixelRatio,
-        //resolution: 1,
+        resolution: 2,
+        antialias: false,
+        roundPixels: true,
         autoDensity: true
     });
 
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Scale mode for all textures, will retain pixelation
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+    PIXI.settings.PRECISION_FRAGMENT = 'highp';
 
     const container = new PIXI.Container(); //main container
     const commContainer = new PIXI.Container();
@@ -243,7 +245,6 @@ document.addEventListener('DOMContentLoaded', function () {
         planterBox.y = app.screen.height / 2 - 35;
         container.addChild(planterBox);
 
-        console.log(garden);
         initCircles(garden);
 
         Object.values(plots).forEach(plot => {
@@ -358,20 +359,21 @@ document.addEventListener('DOMContentLoaded', function () {
         //If the user has already planted plants --> update the garden to show their plants
         garden.personal ? getUserPlants() : getCommunityPlants(garden.plants);
 
-        clearButton = new PIXI.Sprite(yellow);
-        clearButton.anchor.set(0.5)
-        clearButton.scale.set(.75, .75);
-        clearButton.interactive = true;
-        clearButton.buttonMode = true;
-        clearButton.x = 200;
-        clearButton.y = 400;
-
-        clearButton.on('pointerdown', () => {
-           $('#clear').show();
-        })
-
-        container.addChild(clearButton);
-
+        if(garden.personal){
+            clearButton = new PIXI.Sprite(yellow);
+            clearButton.anchor.set(0.5)
+            clearButton.scale.set(.75, .75);
+            clearButton.interactive = true;
+            clearButton.buttonMode = true;
+            clearButton.x = 200;
+            clearButton.y = 400;
+    
+            clearButton.on('pointerdown', () => {
+               $('#clear').show();
+            })
+    
+            container.addChild(clearButton);
+        }
     }
 
     function getUserPlants() {
@@ -394,23 +396,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Adds the repeated properties
     function createPlot(plot, x, y, username) {
-        plot.interactive = true;
-        plot.buttonMode = true;
         plot.anchor.set(0.5, 1);
         plot.scale.set(0.75, 0.75);
         plot.x = x;
         plot.y = y;
-        // plot.on('pointerdown', changeColor);
-        plot.on('pointerdown', (function (e) {
-            const textureName = plot.texture.textureCacheIds[0];
-            if (textureName === "assets/images/test/brown.png") {
-                plotSpot = e.target; //Sets selected plot to the current target
-                createSeedPackets();
-            } else {
-                //TODO: Only open modal if the plant isn't at growth stage 1
-                messageModal(e, username)
-            }
-        }));
+
+        if(communityGardenArray[0].username === username){
+            // plot.on('pointerdown', changeColor);
+            plot.interactive = true;
+            plot.buttonMode = true;
+            plot.on('pointerdown', (function (e) {
+                const textureName = plot.texture.textureCacheIds[0];
+                if (textureName === "assets/images/test/brown.png") {
+                    plotSpot = e.target; //Sets selected plot to the current target
+                    createSeedPackets();
+                } else {
+                    //TODO: Only open modal if the plant isn't at growth stage 1
+                    messageModal(e, username)
+                }
+            }));
+        }
     }
 
     //Updates the garden to show the correct plant texture
@@ -477,9 +482,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function packetButtons(packet, seedType, plantName, x, y, z) {
         packet.interactive = true;
         packet.buttonMode = true;
-        //packet.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
-        //packet.scale.set(1.5, 1.5);
-        packet.anchor.set(0.5);
+        packet.anchor.set(0.5, 0.5);
         packet.x = x;
         packet.y = y;
         packet.zIndex = z;
@@ -661,8 +664,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (personal) {
 
-            clearButton.x = 600;
-            clearButton.y = 600;
+            if(clearButton !== undefined) {
+                clearButton.x = 600;
+                clearButton.y = 600;
+            }
 
             planterBox.x = app.screen.width / 2 + 50;
             planterBox.y = app.screen.height / 2 - 35;
