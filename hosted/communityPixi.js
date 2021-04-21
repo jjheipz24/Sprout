@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let communityGardenArray = [];
 
     //bump up to 20 instead of 4 when we're ready for the full community garden
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 6; i++) {
         let personal;
         //if you want personal garden to not be the first garden, change the conditional # to something other than 0
         i === 0 ? personal = true : personal = false;
@@ -140,22 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
             communityGardenArray[i].sprite.anchor.set(0.5);
             communityGardenArray[i].sprite.scale.set(.85, .85);
 
-            // if (i % 2) {
-            //     communityGardenArray[i].sprite.x = 150;
-            // } else {
-            //     communityGardenArray[i].sprite.x = 600;
-            // }
-
-            // if (i < 2) {
-            //     communityGardenArray[i].sprite.y = 150;
-            // } else {
-            //     communityGardenArray[i].sprite.y = 500;
-            // }
-
-            // communityGardenArray[i].mouseout = function(mouseData) {
-            //     // communityGardenArray[i].gotoAndStop(0);
-            //     communityGardenArray[i].aplha = 1;
-            // }
+            communityGardenArray[i].sprite.x = (app.screen.width / 2);
+            communityGardenArray[i].sprite.y = (app.screen.height / 2);
 
             commContainer.addChild(communityGardenArray[i].sprite);
 
@@ -177,37 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 createPersonalGarden(communityGardenArray[i]);
             });
         }
-        // row 1, column 1 - top left
-        communityGardenArray[0].sprite.x = (app.screen.width / 2) - 110;
-        communityGardenArray[0].sprite.y = (app.screen.height / 2) - 110;
-
-        // row 1, column 2 - top middle
-        communityGardenArray[1].sprite.x = (app.screen.width / 2);
-        communityGardenArray[1].sprite.y = (app.screen.height / 2) - 110;
-
-        // row 1, column 3 - top right
-        communityGardenArray[2].sprite.x = (app.screen.width / 2) + 110;
-        communityGardenArray[2].sprite.y = (app.screen.height / 2) - 110;
-
-        // row 2, column 1 - middle left
-        communityGardenArray[3].sprite.x = (app.screen.width / 2) - 110;
-        communityGardenArray[3].sprite.y = (app.screen.height / 2) + 42;
-
-        // row 2, column 2 - middle middle
-        communityGardenArray[4].sprite.x = (app.screen.width / 2);
-        communityGardenArray[4].sprite.y = (app.screen.height / 2) + 42;
-
-        // row 2, column 3 - middle left
-        communityGardenArray[5].sprite.x = (app.screen.width / 2) + 110;
-        communityGardenArray[5].sprite.y = (app.screen.height / 2) + 42;
-
-        // row 3, column 2 - bottom middle
-        communityGardenArray[6].sprite.x = (app.screen.width / 2) + 10;
-        communityGardenArray[6].sprite.y = (app.screen.height / 2) + 250;
-
-        // row 3, column 3 - bottom bottom lol
-        communityGardenArray[7].sprite.x = (app.screen.width / 2) + 120;
-        communityGardenArray[7].sprite.y = (app.screen.height / 2) + 250;
     }
 
     const zoomed = event => {
@@ -710,36 +665,28 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             //communtiy plant boxes
             // row 1, column 1 - top left
-            communityGardenArray[0].sprite.x = (app.screen.width / 2) - 110;
-            communityGardenArray[0].sprite.y = (app.screen.height / 2) - 110;
+            communityGardenArray[0].sprite.x = (app.screen.width / 2) - 140;
+            communityGardenArray[0].sprite.y = (app.screen.height / 2) - 80;
 
             // row 1, column 2 - top middle
-            communityGardenArray[1].sprite.x = (app.screen.width / 2);
-            communityGardenArray[1].sprite.y = (app.screen.height / 2) - 110;
+            communityGardenArray[1].sprite.x = (app.screen.width / 2) - 40;
+            communityGardenArray[1].sprite.y = (app.screen.height / 2) - 80;
 
             // row 1, column 3 - top right
-            communityGardenArray[2].sprite.x = (app.screen.width / 2) + 110;
-            communityGardenArray[2].sprite.y = (app.screen.height / 2) - 110;
+            communityGardenArray[2].sprite.x = (app.screen.width / 2) + 55;
+            communityGardenArray[2].sprite.y = (app.screen.height / 2) - 80;
 
             // row 2, column 1 - middle left
-            communityGardenArray[3].sprite.x = (app.screen.width / 2) - 110;
-            communityGardenArray[3].sprite.y = (app.screen.height / 2) + 42;
+            communityGardenArray[3].sprite.x = (app.screen.width / 2) - 140;
+            communityGardenArray[3].sprite.y = (app.screen.height / 2) + 80;
 
             // row 2, column 2 - middle middle
-            communityGardenArray[4].sprite.x = (app.screen.width / 2);
-            communityGardenArray[4].sprite.y = (app.screen.height / 2) + 42;
+            communityGardenArray[4].sprite.x = (app.screen.width / 2) - 40;
+            communityGardenArray[4].sprite.y = (app.screen.height / 2) + 80;
 
             // row 2, column 3 - middle left
-            communityGardenArray[5].sprite.x = (app.screen.width / 2) + 110;
-            communityGardenArray[5].sprite.y = (app.screen.height / 2) + 42;
-
-            // row 3, column 2 - bottom middle
-            communityGardenArray[6].sprite.x = (app.screen.width / 2) + 10;
-            communityGardenArray[6].sprite.y = (app.screen.height / 2) + 250;
-
-            // row 3, column 3 - bottom bottom lol
-            communityGardenArray[7].sprite.x = (app.screen.width / 2) + 120;
-            communityGardenArray[7].sprite.y = (app.screen.height / 2) + 250;
+            communityGardenArray[5].sprite.x = (app.screen.width / 2) + 55;
+            communityGardenArray[5].sprite.y = (app.screen.height / 2) + 80;
         }
 
 
