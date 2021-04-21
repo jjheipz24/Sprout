@@ -130,10 +130,10 @@ class ClearModal extends React.Component {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
-                        <h5 className="modal-title">Are you sure you want to clear your garden?</h5>
-                        <div className="modal-footer">
-                        <button type="button" className="btn btn-primary noClearBtn" onClick={this.handleClick}>No</button>
+                        <h5 className="modal-title" id="clearTitle">Are you sure you want to clear your garden?</h5>
+                        <div className="modal-footer" id="clearFooter">
                             <button type="button" className="btn btn-primary clearBtn" onClick={this.refreshPage}>Yes</button>
+                            <button type="button" className="btn btn-primary noClearBtn" onClick={this.handleClick}>No</button>
                         </div>
                     </div>
                 </div>

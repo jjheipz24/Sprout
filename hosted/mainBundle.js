@@ -237,18 +237,20 @@ var ClearModal = /*#__PURE__*/function (_React$Component2) {
         onClick: this.handleClick,
         "aria-label": "Close"
       }, "\xD7"), /*#__PURE__*/React.createElement("h5", {
-        className: "modal-title"
+        className: "modal-title",
+        id: "clearTitle"
       }, "Are you sure you want to clear your garden?"), /*#__PURE__*/React.createElement("div", {
-        className: "modal-footer"
+        className: "modal-footer",
+        id: "clearFooter"
       }, /*#__PURE__*/React.createElement("button", {
-        type: "button",
-        className: "btn btn-primary noClearBtn",
-        onClick: this.handleClick
-      }, "No"), /*#__PURE__*/React.createElement("button", {
         type: "button",
         className: "btn btn-primary clearBtn",
         onClick: this.refreshPage
-      }, "Yes")))));
+      }, "Yes"), /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "btn btn-primary noClearBtn",
+        onClick: this.handleClick
+      }, "No")))));
     }
   }]);
 
