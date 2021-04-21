@@ -23,3 +23,18 @@ var sendAjax = function sendAjax(method, action, data, callback) {
     }
   });
 };
+
+var sendDeleteRequest = function sendDeleteRequest(token, callback) {
+  $.ajax({
+    url: '/clear',
+    type: 'DELETE',
+    success: callback,
+    headers: {
+      'x-csrf-token': token
+    },
+    error: function error(xhr, status, _error2) {
+      var messageObj = JSON.parse(xhr.responseText);
+      console.log(messageObj);
+    }
+  });
+};

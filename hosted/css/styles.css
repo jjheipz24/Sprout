@@ -113,10 +113,10 @@ p {
     height: 2.5em; }
   .modal-content .modal-footer {
     border: none; }
-  .modal-content .saveBtn {
+  .modal-content .saveBtn, .modal-content .clearBtn, .modal-content .noClearBtn {
     background-color: #9746FF;
     border: none; }
-  .modal-content .saveBtn:hover {
+  .modal-content .saveBtn:hover, .modal-content .clearBtn:hover, .modal-content .noClearBtn:hover {
     background-color: #B570FF; }
 
 /************************ 

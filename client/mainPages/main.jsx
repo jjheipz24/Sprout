@@ -100,17 +100,46 @@ class MessageModal extends React.Component {
     }
 }
 
-const ClearModal = (props) => {
-    return (
-        <div className="modal" id="clear" tabIndex="-1" role="dialog">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <p>Are you sure you want to clear your garden?</p>
+class ClearModal extends React.Component {
+    constructor(props) {
+        super(props)
 
+        this.token = props.csrf;
+        this.handleClick = this.handleClick.bind(this)
+        this.refreshPage = this.refreshPage.bind(this)
+        
+    }
+    componentDidMount() {
+        this.$el = $(this.el)
+        
+    }
+
+    handleClick() {
+        this.$el.hide();
+    }
+
+    refreshPage() {
+        sendDeleteRequest(this.token, (result, status, xhr) => {
+            window.location = result.redirect;
+        })
+    }
+
+    render() {
+        return (
+            <div className="modal" id="clear" tabIndex="-1" role="dialog" ref={el => this.el = el}>
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
+                        <h5 className="modal-title">Are you sure you want to clear your garden?</h5>
+                        <div className="modal-footer">
+                        <button type="button" className="btn btn-primary noClearBtn" onClick={this.handleClick}>No</button>
+                            <button type="button" className="btn btn-primary clearBtn" onClick={this.refreshPage}>Yes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 const setup = function (csrf) {
@@ -126,6 +155,10 @@ const setup = function (csrf) {
 
     ReactDOM.render(
         <MessageModal />, document.querySelector('#messageModal')
+    )
+
+    ReactDOM.render(
+        <ClearModal csrf={csrf} />, document.querySelector('#clearModal')
     )
 };
 

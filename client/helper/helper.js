@@ -1,9 +1,9 @@
 const handleError = (message) => {
-    console.log('message',  $('#errorMessage'));
+    console.log('message', $('#errorMessage'));
     $('#error').children('#errorMessage').remove();
     $('#error').append(`<p id="errorMessage">${ message }</p>`)
     $('#error').fadeIn(200);
-  };
+};
 
 const sendAjax = (method, action, data, callback) => {
     $.ajax({
@@ -21,4 +21,19 @@ const sendAjax = (method, action, data, callback) => {
             handleError(messageObj.error);
         }
     })
+}
+
+const sendDeleteRequest = (token, callback) => {
+    $.ajax({
+        url: '/clear',
+        type: 'DELETE',
+        success: callback,
+        headers: {
+            'x-csrf-token': token
+        },
+        error: (xhr, status, error) => {
+            const messageObj = JSON.parse(xhr.responseText);
+            console.log(messageObj);
+        }
+    });
 }

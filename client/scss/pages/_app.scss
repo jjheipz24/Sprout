@@ -97,12 +97,12 @@ p {
         border: none;
     }
 
-    .saveBtn {
+    .saveBtn, .clearBtn, .noClearBtn {
         background-color: $dark-purple;
         border: none;
     }
 
-    .saveBtn:hover {
+    .saveBtn:hover, .clearBtn:hover, .noClearBtn:hover {
         background-color: $light-purple;
     }
 }

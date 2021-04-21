@@ -179,19 +179,81 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
   return MessageModal;
 }(React.Component);
 
-var ClearModal = function ClearModal(props) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: "modal",
-    id: "clear",
-    tabIndex: "-1",
-    role: "dialog"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "modal-dialog",
-    role: "document"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "modal-content"
-  }, /*#__PURE__*/React.createElement("p", null, "Are you sure you want to clear your garden?"))));
-};
+var ClearModal = /*#__PURE__*/function (_React$Component2) {
+  _inherits(ClearModal, _React$Component2);
+
+  var _super2 = _createSuper(ClearModal);
+
+  function ClearModal(props) {
+    var _this3;
+
+    _classCallCheck(this, ClearModal);
+
+    _this3 = _super2.call(this, props);
+    _this3.token = props.csrf;
+    _this3.handleClick = _this3.handleClick.bind(_assertThisInitialized(_this3));
+    _this3.refreshPage = _this3.refreshPage.bind(_assertThisInitialized(_this3));
+    return _this3;
+  }
+
+  _createClass(ClearModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.$el = $(this.el);
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick() {
+      this.$el.hide();
+    }
+  }, {
+    key: "refreshPage",
+    value: function refreshPage() {
+      sendDeleteRequest(this.token, function (result, status, xhr) {
+        window.location = result.redirect;
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return /*#__PURE__*/React.createElement("div", {
+        className: "modal",
+        id: "clear",
+        tabIndex: "-1",
+        role: "dialog",
+        ref: function ref(el) {
+          return _this4.el = el;
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "close",
+        "aria-hidden": "true",
+        onClick: this.handleClick,
+        "aria-label": "Close"
+      }, "\xD7"), /*#__PURE__*/React.createElement("h5", {
+        className: "modal-title"
+      }, "Are you sure you want to clear your garden?"), /*#__PURE__*/React.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "btn btn-primary noClearBtn",
+        onClick: this.handleClick
+      }, "No"), /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "btn btn-primary clearBtn",
+        onClick: this.refreshPage
+      }, "Yes")))));
+    }
+  }]);
+
+  return ClearModal;
+}(React.Component);
 
 var setup = function setup(csrf) {
   // ReactDOM.render(
@@ -202,6 +264,9 @@ var setup = function setup(csrf) {
   }), document.querySelector('#nav'));
   loadUserUsername();
   ReactDOM.render( /*#__PURE__*/React.createElement(MessageModal, null), document.querySelector('#messageModal'));
+  ReactDOM.render( /*#__PURE__*/React.createElement(ClearModal, {
+    csrf: csrf
+  }), document.querySelector('#clearModal'));
 };
 
 var getToken = function getToken() {
