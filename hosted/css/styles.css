@@ -88,42 +88,36 @@ p {
 /* Modal Popup */
 .modal-content {
   padding: 1rem; }
-
-.modal-header {
-  height: 18vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  border: none; }
-
-#modal-content-header {
-  display: flex;
-  flex-direction: column; }
-
-#messageTitle {
-  margin-left: 1em; }
-
-#messageLabel {
-  margin: 2vh 0 2vh 1.25em; }
-
-#messageField {
-  margin: 0 2vw; }
-
-#messageField {
-  border-radius: 1rem;
-  padding: .25em 0 0 .75em;
-  height: 2.5em; }
-
-.modal-footer {
-  border: none; }
-
-.saveBtn {
-  background-color: #9746FF;
-  border: none; }
-
-.saveBtn:hover {
-  background-color: #B570FF; }
+  .modal-content .close:hover {
+    cursor: pointer;
+    max-width: fit-content; }
+  .modal-content .modal-header {
+    height: 18vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    border: none; }
+    .modal-content .modal-header #modal-content-header {
+      display: flex;
+      flex-direction: column; }
+      .modal-content .modal-header #modal-content-header #messageTitle {
+        margin-left: 1em; }
+      .modal-content .modal-header #modal-content-header #messageLabel {
+        margin: 2vh 0 2vh 1.25em; }
+  .modal-content #messageField {
+    margin: 0 2vw; }
+  .modal-content #messageField {
+    border-radius: 1rem;
+    padding: .25em 0 0 .75em;
+    height: 2.5em; }
+  .modal-content .modal-footer {
+    border: none; }
+  .modal-content .saveBtn, .modal-content .clearBtn, .modal-content .noClearBtn {
+    background-color: #9746FF;
+    border: none; }
+  .modal-content .saveBtn:hover, .modal-content .clearBtn:hover, .modal-content .noClearBtn:hover {
+    background-color: #B570FF; }
 
 /************************ 
 

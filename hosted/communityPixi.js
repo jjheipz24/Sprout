@@ -367,20 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearButton.y = 400;
 
         clearButton.on('pointerdown', () => {
-            $.ajax({
-                url: '/clear',
-                type: 'DELETE',
-                headers: {
-                    'x-csrf-token': csrf
-                },
-                success: function (result) {
-                    console.log("Success")
-                }
-            });
-
-            planterBox.destroy();
-            destroyPersonalGardenView();
-            createPersonalGarden(communityGardenArray[0]);
+           $('#clear').show();
         })
 
         container.addChild(clearButton);
