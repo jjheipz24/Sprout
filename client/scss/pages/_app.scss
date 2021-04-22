@@ -9,11 +9,16 @@ body {
     //background-color: $dark-green !important;
 }
 
-// #mainApp {
-//     background-image: url('/assets/images/test/planter-background.png');
-//     background-repeat: no-repeat;
-//     background-size: contain;
-// }
+#mainApp {
+    background: url('/assets/images/startBackground.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    z-index: -1;
+
+}
 
 .appNav {
     position: absolute;
@@ -73,7 +78,7 @@ p {
             display: flex;
             flex-direction: column;
 
-            #messageTitle {
+            #messageTitle, #clearTitle {
                 margin-left: 1em;
             }
 
@@ -97,12 +102,26 @@ p {
         border: none;
     }
 
-    .saveBtn, .clearBtn, .noClearBtn {
-        background-color: $dark-purple;
+    .saveBtn, .clearBtn {
+        background-color: $dark-salmon;
         border: none;
     }
 
     .saveBtn:hover, .clearBtn:hover, .noClearBtn:hover {
-        background-color: $light-purple;
+        background-color: $light-salmon;
     }
+}
+
+.noClearBtn {
+    background-color: lightgray;
+    border: none;
+}
+
+#clearTitle {
+    margin: .5em 1em 1em 1em;
+    text-align: center;
+}
+
+#clearFooter {
+    justify-content: center;
 }
