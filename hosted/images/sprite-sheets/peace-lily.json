@@ -1,0 +1,23 @@
+{"frames": {
+
+"peace-lily.png":
+{
+	"frame": {"x":1,"y":1,"w":607,"h":521},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":607,"h":521},
+	"sourceSize": {"w":607,"h":521}
+}},
+"animations": {
+	"peace-lily": ["peace-lily.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "peace-lily.png",
+	"format": "RGBA8888",
+	"size": {"w":609,"h":523},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:edae9246a8425f7ce81d31a22586fa75:defaa1c292bd4203235d7e06f073925d:086003d87a3f860851ca5ec1eb35199f$"
+}
+}

@@ -1,0 +1,23 @@
+{"frames": {
+
+"fiddle-leaf.png":
+{
+	"frame": {"x":1,"y":1,"w":317,"h":532},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":317,"h":532},
+	"sourceSize": {"w":317,"h":532}
+}},
+"animations": {
+	"fiddle-leaf": ["fiddle-leaf.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "fiddle-leaf.png",
+	"format": "RGBA8888",
+	"size": {"w":319,"h":534},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a9f4b8f69d0820364f808650126e0a37:e1741045cfb7313bebe43cb6b7b41da0:a11b999c42518b0d9660b9e9a1d616bd$"
+}
+}

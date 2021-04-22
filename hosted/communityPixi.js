@@ -287,27 +287,27 @@ document.addEventListener('DOMContentLoaded', function () {
     //Adds them to plot object
     function initCircles(garden) {
 
-        plot1 = new PIXI.Sprite(brown);
+        plot1 = new PIXI.AnimatedSprite(plotTex);
         createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot1"] = plot1;
 
-        plot2 = new PIXI.Sprite(brown);
+        plot2 = new PIXI.AnimatedSprite(plotTex);
         createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot2"] = plot2;
 
-        plot3 = new PIXI.Sprite(brown);
+        plot3 = new PIXI.AnimatedSprite(plotTex);
         createPlot(plot3, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot3"] = plot3;
 
-        plot4 = new PIXI.Sprite(brown);
+        plot4 = new PIXI.AnimatedSprite(plotTex);
         createPlot(plot4, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot4"] = plot4;
 
-        plot5 = new PIXI.Sprite(brown);
+        plot5 = new PIXI.AnimatedSprite(plotTex);
         createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot5"] = plot5;
 
-        plot6 = new PIXI.Sprite(brown);
+        plot6 = new PIXI.AnimatedSprite(plotTex);
         createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot6"] = plot6;
 
@@ -361,8 +361,9 @@ document.addEventListener('DOMContentLoaded', function () {
             plot.interactive = true;
             plot.buttonMode = true;
             plot.on('pointerdown', (function (e) {
-                const textureName = plot.texture.textureCacheIds[0];
-                if (textureName === "assets/images/test/brown.png") {
+                console.log(plot.textures[0].textureCacheIds[0]);
+                const textureName = plot.textures[0].textureCacheIds[0];
+                if (textureName === "brown.png") {
                     plotSpot = e.target; //Sets selected plot to the current target
                     createSeedPackets();
                 } else {
@@ -378,7 +379,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let plantArr = data;
         plantArr.forEach(plant => {
             if (plots[plant.location] !== undefined) {
-                plots[plant.location].texture = plantCollection[plant.plantType][plant.growthStage];
+                plots[plant.location].textures = plantCollection[plant.plantType][plant.growthStage];
+                plots[plant.location].animationSpeed = 0.3; 
+                plots[plant.location].play();
             }
 
         })
@@ -493,7 +496,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (plantType === undefined) {
             console.log("No plant seeds selected");
         } else {
-            target.texture = plantCollection[plantType][growthStage];
+            target.textures = plantCollection[plantType][growthStage];
 
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/newPlant');
@@ -561,7 +564,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (this.readyState === 4) {
                     //TODO: make an updatePlant/growPlant function
                     //addPlant(plots[selectedPlot], currentPlant, plantName, 1);
-                    plots[selectedPlot].texture = plantCollection[currentPlant][1]; //Cheese the growing of the plant
+                    plots[selectedPlot].textures = plantCollection[currentPlant][1]; //Cheese the growing of the plant
+                    plots[selectedPlot].animationSpeed = 0.3; 
+                    plots[selectedPlot].play();
                     document.querySelector('#messageField').value = "";
                     $('#message').hide();
                 }
@@ -693,7 +698,6 @@ document.addEventListener('DOMContentLoaded', function () {
             communityGardenArray[5].sprite.x = (app.screen.width / 2) + 55;
             communityGardenArray[5].sprite.y = (app.screen.height / 2) + 80;
         }
-
 
         commContainer.x = 0;
         commContainer.y = 0;

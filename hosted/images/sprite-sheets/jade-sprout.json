@@ -1,0 +1,23 @@
+{"frames": {
+
+"jade-sprout.png":
+{
+	"frame": {"x":1,"y":1,"w":139,"h":124},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":139,"h":124},
+	"sourceSize": {"w":139,"h":124}
+}},
+"animations": {
+	"jade-sprout": ["jade-sprout.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "jade-sprout.png",
+	"format": "RGBA8888",
+	"size": {"w":141,"h":126},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:13d38381b72b3ecabd073a9486248203:ea53dfcfd90394e2539cbdb2215604cb:36d0923d925305d0d8c1c9bf056d2a53$"
+}
+}

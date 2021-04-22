@@ -1,0 +1,23 @@
+{"frames": {
+
+"cactus.png":
+{
+	"frame": {"x":1,"y":1,"w":337,"h":474},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":474},
+	"sourceSize": {"w":337,"h":474}
+}},
+"animations": {
+	"cactus": ["cactus.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "cactus.png",
+	"format": "RGBA8888",
+	"size": {"w":339,"h":476},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0da2207d6444c83b51b6cdf5d3ce7f9d:f5eae54d4524a82cc058d1edf718589a:89fc5b9888a56e8bd492060653ac20df$"
+}
+}

@@ -1,0 +1,23 @@
+{"frames": {
+
+"peace-lily-sprout.png":
+{
+	"frame": {"x":1,"y":1,"w":206,"h":165},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":206,"h":165},
+	"sourceSize": {"w":206,"h":165}
+}},
+"animations": {
+	"peace-lily-sprout": ["peace-lily-sprout.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "peace-lily-sprout.png",
+	"format": "RGBA8888",
+	"size": {"w":208,"h":167},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:28464760c084093370adfe0204033149:cc1cdcbf0824b0fe193e2204dd1415b6:051255c55bed6350a0058653f82472d8$"
+}
+}

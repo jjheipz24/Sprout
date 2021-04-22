@@ -1,0 +1,23 @@
+{"frames": {
+
+"snake-sprout.png":
+{
+	"frame": {"x":1,"y":1,"w":84,"h":167},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":167},
+	"sourceSize": {"w":84,"h":167}
+}},
+"animations": {
+	"snake-sprout":["snake-sprout.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "snake-sprout.png",
+	"format": "RGBA8888",
+	"size": {"w":86,"h":169},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b1b776bb35a421b0aac0bdaa347d8d33:817f35971aae70f5cae3b7cb2b7de610:73d10090904a111732681762e155a74f$"
+}
+}

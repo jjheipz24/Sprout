@@ -1,0 +1,23 @@
+{"frames": {
+
+"aloe.png":
+{
+	"frame": {"x":1,"y":1,"w":385,"h":355},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":385,"h":355},
+	"sourceSize": {"w":385,"h":355}
+}},
+"animations": {
+	"aloe": ["aloe.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "aloe.png",
+	"format": "RGBA8888",
+	"size": {"w":387,"h":357},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8e53511d1fc949131e765b0ce825d770:39dc4e524d1fd56c250615fa7e639d6f:545dac9d417761c3818215c3dcd56fd1$"
+}
+}

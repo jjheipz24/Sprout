@@ -1,0 +1,23 @@
+{"frames": {
+
+"jade.png":
+{
+	"frame": {"x":1,"y":1,"w":252,"h":436},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":252,"h":436},
+	"sourceSize": {"w":252,"h":436}
+}},
+"animations": {
+	"jade.png": ["jade.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "jade.png",
+	"format": "RGBA8888",
+	"size": {"w":254,"h":438},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6cb1c0d2763bd5123c6b06a1425948f5:794f4ab4e51ffe1d9cd9a217b7691b3a:fa17361c3b22e26f26b9ffe397fda483$"
+}
+}

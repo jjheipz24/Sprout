@@ -1,0 +1,23 @@
+{"frames": {
+
+"aloe-sprout.png":
+{
+	"frame": {"x":1,"y":1,"w":168,"h":109},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":109},
+	"sourceSize": {"w":168,"h":109}
+}},
+"animations": {
+	"aloe-sprout": ["aloe-sprout.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "aloe-sprout.png",
+	"format": "RGBA8888",
+	"size": {"w":170,"h":111},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8cda0296d8dd1e2f17f376d9d39d3cbb:01f6ddcf7b57020258ea090ea88dc45c:6b2d58b2ec0592d1574bd364e7808090$"
+}
+}
