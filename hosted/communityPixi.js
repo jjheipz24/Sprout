@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
         view: document.querySelector('#pixiCanvas'),
         resolution: 2,
         antialias: false,
-        roundPixels: true,
         autoDensity: true
     });
 
@@ -38,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Scale mode for all textures, will retain pixelation
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+    PIXI.settings.ROUND_PIXELS = true;
     PIXI.settings.PRECISION_FRAGMENT = 'highp';
 
     const container = new PIXI.Container(); //main container
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function () {
         packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 2), (app.screen.height / 4), 5);
         seedContainer.addChild(cactusSeeds);
 
-        fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-card.png');
+        fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-leaf-card.png');
         packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 2) + 300, (app.screen.height / 4), 4);
         seedContainer.addChild(fiddleSeeds);
 
@@ -420,11 +420,11 @@ document.addEventListener('DOMContentLoaded', function () {
         packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 2) - 300, (app.screen.height) - 200, 3);
         seedContainer.addChild(jadeSeeds);
 
-        peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-card.png');
+        peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-lily-card.png');
         packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 2), (app.screen.height) - 200, 2);
         seedContainer.addChild(peaceSeeds);
 
-        snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-card.png');
+        snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-plant-card.png');
         packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 2) + 300, (app.screen.height) - 200, 1);
         seedContainer.addChild(snakeSeeds);
 
