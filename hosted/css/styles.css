@@ -503,23 +503,8 @@ p {
   -webkit-align-items: center;
   align-items: center; }
 
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev {
-  display: block; }
-
-.carousel-inner .carousel-item {
-  transition: -webkit-transform 1.5s ease;
-  transition: transform 1.5s ease;
-  transition: transform 1.5s ease, -webkit-transform 2s ease; }
-
-/* Slides */
-.startSlide {
-  display: none;
-  text-align: center;
-  height: 20vh; }
-  .startSlide p {
-    color: black; }
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #F98C6E; }
 
 #startButtons {
   display: flex;
@@ -531,7 +516,7 @@ p {
   text-decoration: none;
   width: 160px;
   color: white;
-  background-color: #9746FF;
+  background-color: #F98C6E;
   border: none;
   border-radius: .5rem;
   padding: .75em 0;
@@ -544,7 +529,7 @@ p {
       color: white; }
 
 #createAccountButton:hover {
-  background-color: #B570FF;
+  background-color: #f7b8a6;
   opacity: .6; }
 
 #signInButton {
