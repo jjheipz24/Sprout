@@ -49,15 +49,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***** BACKGROUND *****/
 
-    let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinal2.png');
+    let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinalCropped.png');
     let personalBackground = PIXI.Texture.from('assets/images/PersonalBackground.png');
-    let background = new PIXI.Sprite(communityBackground);
+    //let background = new PIXI.Sprite(communityBackground);
+    let background = new PIXI.extras.TilingSprite(communityBackground, window.innerWidth, 800);
+
     background.anchor.x = 0;
     background.anchor.y = 0;
     background.position.x = 0;
-    background.position.y = 0;
-    background.width = window.innerWidth;
-    background.height = window.innerHeight;
+    background.position.y = 100;
+    background.tileScale.x = .8;
+    background.tileScale.y = .74;
+
+    background.height = window.innerHeight - 100;
+    //background.width = window.innerWidth;
+    // background.height = window.innerHeight;
     container.addChild(background);
 
     /**************************************/
@@ -97,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let communityGardenArray = [];
 
     //bump up to 20 instead of 4 when we're ready for the full community garden
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 18; i++) {
         let personal;
         //if you want personal garden to not be the first garden, change the conditional # to something other than 0
         i === 0 ? personal = true : personal = false;
@@ -612,7 +618,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function animate() {
 
         background.width = window.innerWidth;
-        background.height = window.innerHeight;
+        //background.height = window.innerHeight;
         pole.x = 200;
         pole.y = ((app.screen.height / 2) + 125);
         viewGarden.x = 200;
@@ -674,29 +680,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } else {
             //communtiy plant boxes
-            // row 1, column 1 - top left
-            communityGardenArray[0].sprite.x = (app.screen.width / 2) - 140;
-            communityGardenArray[0].sprite.y = (app.screen.height / 2) - 80;
+            for(let i = 0; i < communityGardenArray.length; i++) {
+                if(i % 2 == 0) {
+                    // first row
+                    communityGardenArray[i].sprite.y = 350;
+                } else {
+                    // second row
+                    communityGardenArray[i].sprite.y = 500;
+                }
 
-            // row 1, column 2 - top middle
-            communityGardenArray[1].sprite.x = (app.screen.width / 2) - 40;
-            communityGardenArray[1].sprite.y = (app.screen.height / 2) - 80;
+                if(i <= 1) {
+                    communityGardenArray[i].sprite.x = 380;
+                } else if (i > 1 && i <= 3) {
+                    communityGardenArray[i].sprite.x = 480;
+                } else if (i > 3 && i <= 5) {
+                    communityGardenArray[i].sprite.x = 580;
+                } else if (i > 5 && i <= 7) {
+                    communityGardenArray[i].sprite.x = 700;
+                } else if (i > 7 && i <= 9) {
+                    communityGardenArray[i].sprite.x = 800;
+                } else if (i > 9 && i <= 11) {
+                    communityGardenArray[i].sprite.x = 900;
+                } else if (i > 11 && i <= 13) {
+                    communityGardenArray[i].sprite.x = 1020;
+                } else if (i > 13 && i <= 15) {
+                    communityGardenArray[i].sprite.x = 1120;
+                } else if (i > 15 && i <= 17) {
+                    communityGardenArray[i].sprite.x = 1220;
+                }
+            }
 
-            // row 1, column 3 - top right
-            communityGardenArray[2].sprite.x = (app.screen.width / 2) + 55;
-            communityGardenArray[2].sprite.y = (app.screen.height / 2) - 80;
-
-            // row 2, column 1 - middle left
-            communityGardenArray[3].sprite.x = (app.screen.width / 2) - 140;
-            communityGardenArray[3].sprite.y = (app.screen.height / 2) + 80;
-
-            // row 2, column 2 - middle middle
-            communityGardenArray[4].sprite.x = (app.screen.width / 2) - 40;
-            communityGardenArray[4].sprite.y = (app.screen.height / 2) + 80;
-
-            // row 2, column 3 - middle left
-            communityGardenArray[5].sprite.x = (app.screen.width / 2) + 55;
-            communityGardenArray[5].sprite.y = (app.screen.height / 2) + 80;
+            if(window.innerWidth <= 1220) {
+                console.log('delete some boxes');
+                // communityGardenArray.pop();
+                // communityGardenArray.pop();
+            }
         }
 
         commContainer.x = 0;
