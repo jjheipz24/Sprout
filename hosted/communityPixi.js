@@ -450,6 +450,9 @@ document.addEventListener('DOMContentLoaded', function () {
         packet.x = x;
         packet.y = y;
         packet.zIndex = z;
+        packet.scale.x = .9;
+        packet.scale.y = .9;
+
 
         //Attempt to make seed packet move to the front on hover
         // packet.on('pointerover', () => {
