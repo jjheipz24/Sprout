@@ -717,6 +717,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (i > 15 && i <= 17) {
                     communityGardenArray[i].sprite.x = 1220;
                 }
+
+                // if(window.innerWidth <= communityGardenArray[i].sprite.x) {
+                //     console.log(communityGardenArray);
+                //     communityGardenArray[i].sprite.destroy();
+                //     communityGardenArray.splice(i);
+                // }
             }
 
             if(window.innerWidth <= 1220) {
