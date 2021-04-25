@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Creates pixi app
     // const app = new PIXI.Application({
     const app = new PIXI.Renderer({
-        backgroundColor: 0x62C4D4,
+        transparent: true,
         width: w,
         height: h,
         view: document.querySelector('#pixiCanvas'),
@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //Nav Sign
     let pole, viewGarden, visitComm, about;
     let personal = false;
+    let userPersonal = false;
 
     /**************************************/
 
@@ -321,6 +322,7 @@ document.addEventListener('DOMContentLoaded', function () {
         garden.personal ? getUserPlants() : getCommunityPlants(garden.plants);
 
         if(garden.personal){
+            userPersonal = true;
             clearButton = new PIXI.Sprite(yellow);
             clearButton.anchor.set(0.5)
             clearButton.scale.set(.75, .75);
@@ -334,6 +336,8 @@ document.addEventListener('DOMContentLoaded', function () {
             })
     
             container.addChild(clearButton);
+        } else {
+            userPersonal = false;
         }
     }
 
@@ -389,7 +393,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 plots[plant.location].animationSpeed = 0.3; 
                 plots[plant.location].play();
             }
-
         })
     }
 
@@ -483,7 +486,9 @@ document.addEventListener('DOMContentLoaded', function () {
         plot5.destroy();
         plot6.destroy();
 
-        clearButton.destroy();
+        if(userPersonal) {
+            clearButton.destroy();
+        }
     }
 
     function destroySeedPackets() {
@@ -633,7 +638,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (personal) {
 
-            if(clearButton !== undefined) {
+            if(userPersonal) {
+                console.log(clearButton.position);
                 clearButton.x = 600;
                 clearButton.y = 600;
             }
