@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /***** BACKGROUND *****/
 
     let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinalCropped.png');
-    let personalBackground = PIXI.Texture.from('assets/images/PersonalBackground.png');
+    let personalBackground = PIXI.Texture.from('assets/images/buildings/personalGardenWindow.png');
     //let background = new PIXI.Sprite(communityBackground);
     let background = new PIXI.extras.TilingSprite(communityBackground, window.innerWidth, 800);
 
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /**************************************/
 
     createCommunityGarden();
-    createSignNav();
+    // createSignNav();
 
     function createCommunityGarden() {
         background.texture = communityBackground;
@@ -199,13 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Creates Personal Garden view
     function createPersonalGarden(garden) {
         background.texture = personalBackground;
-        //Initializes the planter box
-        planterBox = new PIXI.Sprite.from('assets/images/planterBox.png');
-        planterBox.anchor.set(0.5);
-        planterBox.scale.set(.75, .75);
-        planterBox.x = app.screen.width / 2 + 50;
-        planterBox.y = app.screen.height / 2 - 35;
-        container.addChild(planterBox);
+        createSignNav();
 
         initCircles(garden);
 
@@ -219,36 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createSignNav() {
-        //pole
-        pole = new PIXI.Sprite.from('assets/images/navSign/Pole.png');
-        pole.anchor.set(0.5);
-        pole.scale.set(.75, .75);
-        pole.x = app.screen.width - 200;
-        pole.y = app.screen.height / 2;
-
-        //View Your Garden
-        viewGarden = new PIXI.Sprite.from('assets/images/navSign/view-your-garden.png');
-        viewGarden.anchor.set(0.5);
-        viewGarden.scale.set(.75, .75);
-        viewGarden.x = app.screen.width - 200;
-        viewGarden.y = (app.screen.height / 2) - 110;
-        viewGarden.interactive = true;
-        viewGarden.buttonMode = true;
-        viewGarden.on('pointerover', () => {
-            viewGarden.texture = PIXI.Texture.from('assets/images/navSign/view-your-garden-hover.png');
-        });
-        viewGarden.on('pointerout', () => {
-            viewGarden.texture = PIXI.Texture.from('assets/images/navSign/view-your-garden.png');
-        });
-        viewGarden.on('pointerdown', () => {
-            for (let j = 0; j < communityGardenArray.length; j++) {
-                communityGardenArray[j].sprite.destroy();
-            }
-            createPersonalGarden(communityGardenArray[0]);
-        });
-
         //Visit the Community
-        visitComm = new PIXI.Sprite.from('assets/images/navSign/visit-community.png');
+        visitComm = new PIXI.Sprite.from('assets/images/navSign/backButton.png');
         visitComm.anchor.set(0.5);
         visitComm.scale.set(.75, .75);
         visitComm.x = app.screen.width - 200;
@@ -256,38 +222,20 @@ document.addEventListener('DOMContentLoaded', function () {
         visitComm.interactive = true;
         visitComm.buttonMode = true;
         visitComm.on('pointerover', () => {
-            visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community-hover.png');
+            //visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community-hover.png');
         });
         visitComm.on('pointerout', () => {
-            visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community.png');
+            //visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community.png');
         });
 
         visitComm.on('pointerdown', () => {
-            planterBox.destroy();
+            //planterBox.destroy();
             createCommunityGarden();
             destroyPersonalGardenView();
             personal = false;
         });
-
-        //About Sprout
-        about = new PIXI.Sprite.from('assets/images/navSign/about-sprout.png');
-        about.anchor.set(0.5);
-        about.scale.set(.75, .75);
-        about.x = app.screen.width - 200;
-        about.y = (app.screen.height / 2) + 20;
-        about.interactive = true;
-        about.buttonMode = true;
-        about.on('pointerover', () => {
-            about.texture = PIXI.Texture.from('assets/images/navSign/about-sprout-hover.png');
-        });
-        about.on('pointerout', () => {
-            about.texture = PIXI.Texture.from('assets/images/navSign/about-sprout.png');
-        });
-
-        container.addChild(pole);
-        container.addChild(viewGarden);
+     
         container.addChild(visitComm);
-        container.addChild(about);
     }
 
     //Creates the initial circles
@@ -323,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if(garden.personal){
             userPersonal = true;
-            clearButton = new PIXI.Sprite(yellow);
+            clearButton = new PIXI.Sprite.from('assets/images/navSign/clearButton.png');;
             clearButton.anchor.set(0.5)
             clearButton.scale.set(.75, .75);
             clearButton.interactive = true;
@@ -486,6 +434,8 @@ document.addEventListener('DOMContentLoaded', function () {
         plot5.destroy();
         plot6.destroy();
 
+        visitComm.destroy();
+
         if(userPersonal) {
             clearButton.destroy();
         }
@@ -626,45 +576,41 @@ document.addEventListener('DOMContentLoaded', function () {
     function animate() {
 
         background.width = window.innerWidth;
-        //background.height = window.innerHeight;
-        pole.x = 200;
-        pole.y = ((app.screen.height / 2) + 125);
-        viewGarden.x = 200;
-        viewGarden.y = ((app.screen.height / 2) + 20);
-        visitComm.x = 200;
-        visitComm.y = ((app.screen.height / 2) + 85);
-        about.x = 200;
-        about.y = ((app.screen.height / 2) + 150);
 
         if (personal) {
+            background.tileScale.x = .75;
+            background.tileScale.y = .7;
+            background.position.y = 0;
+            background.position.x = 100;
+
+            background.height = window.innerHeight;
+
+            visitComm.x = 400;
+            visitComm.y = ((app.screen.height / 2) + 250);
 
             if(userPersonal) {
-                console.log(clearButton.position);
-                clearButton.x = 600;
-                clearButton.y = 600;
+                clearButton.x = 800;
+                clearButton.y = ((app.screen.height / 2) + 250);
             }
 
-            planterBox.x = app.screen.width / 2 + 50;
-            planterBox.y = app.screen.height / 2 - 35;
-
             //Plant plots
-            plot1.x = (app.screen.width / 2) - 300;
-            plot1.y = (app.screen.height / 2) - 85;
+            plot1.x = 325;
+            plot1.y = 575;
 
-            plot2.x = (app.screen.width / 2) - 50;
-            plot2.y = (app.screen.height / 2) - 85;
+            plot2.x = 425;
+            plot2.y = 525;
 
-            plot3.x = (app.screen.width / 2) + 200;
-            plot3.y = (app.screen.height / 2) - 85;
+            plot3.x = 525;
+            plot3.y = 575;
 
-            plot4.x = (app.screen.width / 2) - 200;
-            plot4.y = (app.screen.height / 2) + 10;
+            plot4.x = 650;
+            plot4.y = 525;
 
-            plot5.x = (app.screen.width / 2) + 40;
-            plot5.y = (app.screen.height / 2) + 10;
+            plot5.x = 775;
+            plot5.y = 575;
 
-            plot6.x = (app.screen.width / 2) + 280;
-            plot6.y = (app.screen.height / 2) + 10;
+            plot6.x = 875;
+            plot6.y = 525;
 
             if (seedPacketsVisible) {
                 //Seed packets
@@ -688,6 +634,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
         } else {
+            background.tileScale.x = .8;
+            background.tileScale.y = .74;
+            background.position.x = 0;
+            background.position.y = 100;
+
+            background.height = window.innerHeight - 100;
+
             //communtiy plant boxes
             for(let i = 0; i < communityGardenArray.length; i++) {
                 if(i % 2 == 0) {
@@ -726,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if(window.innerWidth <= 1220) {
-                console.log('delete some boxes');
+                //console.log('delete some boxes');
                 // communityGardenArray.pop();
                 // communityGardenArray.pop();
             }
