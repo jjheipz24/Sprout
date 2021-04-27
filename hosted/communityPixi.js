@@ -130,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
     /**************************************/
 
     createCommunityGarden();
-    // createSignNav();
 
     function createCommunityGarden() {
         background.texture = communityBackground;
@@ -199,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Creates Personal Garden view
     function createPersonalGarden(garden) {
         background.texture = personalBackground;
-        createSignNav();
+        createNavButton();
 
         initCircles(garden);
 
@@ -209,10 +208,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         personalView = true;
 
-        //createSignNav();
     }
 
-    function createSignNav() {
+    function createNavButton() {
         //Visit the Community
         visitComm = new PIXI.Sprite.from('assets/images/navSign/backButton.png');
         visitComm.anchor.set(0.5);
