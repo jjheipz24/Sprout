@@ -1,23 +1,511 @@
 {"frames": {
 
-"jade.png":
+"Jade_00.png":
 {
-	"frame": {"x":1,"y":1,"w":252,"h":436},
+	"frame": {"x":889,"y":1,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":127,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_01.png":
+{
+	"frame": {"x":1333,"y":1,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":127,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_02.png":
+{
+	"frame": {"x":1,"y":1,"w":252,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":34,"w":252,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_03.png":
+{
+	"frame": {"x":1777,"y":1,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_04.png":
+{
+	"frame": {"x":888,"y":256,"w":254,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":34,"w":254,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_05.png":
+{
+	"frame": {"x":2221,"y":1,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":129,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_06.png":
+{
+	"frame": {"x":2665,"y":1,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":130,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_07.png":
+{
+	"frame": {"x":1332,"y":256,"w":254,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":130,"y":34,"w":254,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_08.png":
+{
+	"frame": {"x":1776,"y":256,"w":254,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":34,"w":254,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_09.png":
+{
+	"frame": {"x":3552,"y":256,"w":255,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":33,"w":255,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_10.png":
+{
+	"frame": {"x":1,"y":510,"w":255,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":132,"y":33,"w":255,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_11.png":
+{
+	"frame": {"x":446,"y":512,"w":255,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":133,"y":33,"w":255,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_12.png":
+{
+	"frame": {"x":2226,"y":512,"w":256,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":134,"y":33,"w":256,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_13.png":
+{
+	"frame": {"x":2671,"y":512,"w":256,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":135,"y":33,"w":256,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_14.png":
+{
+	"frame": {"x":3116,"y":513,"w":256,"h":444},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":136,"y":32,"w":256,"h":444},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_15.png":
+{
+	"frame": {"x":891,"y":769,"w":257,"h":444},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":137,"y":32,"w":257,"h":444},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_16.png":
+{
+	"frame": {"x":1337,"y":769,"w":257,"h":445},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":138,"y":32,"w":257,"h":445},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_17.png":
+{
+	"frame": {"x":2677,"y":771,"w":258,"h":445},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":138,"y":32,"w":258,"h":445},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_18.png":
+{
+	"frame": {"x":3124,"y":771,"w":258,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":140,"y":31,"w":258,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_19.png":
+{
+	"frame": {"x":3572,"y":771,"w":258,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":141,"y":31,"w":258,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_20.png":
+{
+	"frame": {"x":1,"y":1027,"w":258,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":142,"y":31,"w":258,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_21.png":
+{
+	"frame": {"x":1792,"y":1029,"w":259,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":142,"y":31,"w":259,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_22.png":
+{
+	"frame": {"x":3136,"y":1031,"w":260,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":142,"y":31,"w":260,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_23.png":
+{
+	"frame": {"x":3584,"y":1031,"w":260,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":143,"y":31,"w":260,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_24.png":
+{
+	"frame": {"x":897,"y":1288,"w":261,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":143,"y":31,"w":261,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_25.png":
+{
+	"frame": {"x":1345,"y":1290,"w":261,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":144,"y":31,"w":261,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_26.png":
+{
+	"frame": {"x":2689,"y":1293,"w":262,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":144,"y":31,"w":262,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_27.png":
+{
+	"frame": {"x":3137,"y":1293,"w":262,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":262,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_28.png":
+{
+	"frame": {"x":3585,"y":1293,"w":262,"h":446},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":252,"h":436},
-	"sourceSize": {"w":252,"h":436}
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":262,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_29.png":
+{
+	"frame": {"x":1345,"y":1553,"w":263,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":263,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_30.png":
+{
+	"frame": {"x":1793,"y":1555,"w":263,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":263,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_31.png":
+{
+	"frame": {"x":2241,"y":1555,"w":263,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":263,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_32.png":
+{
+	"frame": {"x":2689,"y":1557,"w":263,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":263,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_33.png":
+{
+	"frame": {"x":3137,"y":1557,"w":263,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":263,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_34.png":
+{
+	"frame": {"x":1,"y":1549,"w":262,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":262,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_35.png":
+{
+	"frame": {"x":449,"y":1550,"w":262,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":145,"y":31,"w":262,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_36.png":
+{
+	"frame": {"x":897,"y":1551,"w":262,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":144,"y":31,"w":262,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_37.png":
+{
+	"frame": {"x":1793,"y":1292,"w":261,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":144,"y":31,"w":261,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_38.png":
+{
+	"frame": {"x":2241,"y":1292,"w":261,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":143,"y":31,"w":261,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_39.png":
+{
+	"frame": {"x":1,"y":1287,"w":260,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":143,"y":31,"w":260,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_40.png":
+{
+	"frame": {"x":449,"y":1288,"w":260,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":142,"y":31,"w":260,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_41.png":
+{
+	"frame": {"x":2240,"y":1031,"w":259,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":142,"y":31,"w":259,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_42.png":
+{
+	"frame": {"x":2688,"y":1031,"w":259,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":141,"y":31,"w":259,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_43.png":
+{
+	"frame": {"x":449,"y":1028,"w":258,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":141,"y":31,"w":258,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_44.png":
+{
+	"frame": {"x":897,"y":1028,"w":258,"h":446},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":140,"y":31,"w":258,"h":446},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_45.png":
+{
+	"frame": {"x":1345,"y":1029,"w":258,"h":445},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":138,"y":32,"w":258,"h":445},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_46.png":
+{
+	"frame": {"x":1784,"y":770,"w":257,"h":445},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":138,"y":32,"w":257,"h":445},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_47.png":
+{
+	"frame": {"x":2231,"y":770,"w":257,"h":444},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":137,"y":32,"w":257,"h":444},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_48.png":
+{
+	"frame": {"x":3562,"y":513,"w":256,"h":444},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":136,"y":32,"w":256,"h":444},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_49.png":
+{
+	"frame": {"x":1,"y":767,"w":256,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":135,"y":33,"w":256,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_50.png":
+{
+	"frame": {"x":446,"y":769,"w":256,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":134,"y":33,"w":256,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_51.png":
+{
+	"frame": {"x":891,"y":512,"w":255,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":133,"y":33,"w":255,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_52.png":
+{
+	"frame": {"x":1336,"y":512,"w":255,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":132,"y":33,"w":255,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_53.png":
+{
+	"frame": {"x":1781,"y":512,"w":255,"h":443},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":33,"w":255,"h":443},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_54.png":
+{
+	"frame": {"x":2220,"y":256,"w":254,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":34,"w":254,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_55.png":
+{
+	"frame": {"x":2664,"y":256,"w":254,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":130,"y":34,"w":254,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_56.png":
+{
+	"frame": {"x":3109,"y":1,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":130,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_57.png":
+{
+	"frame": {"x":3553,"y":1,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":129,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_58.png":
+{
+	"frame": {"x":3108,"y":256,"w":254,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":34,"w":254,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_59.png":
+{
+	"frame": {"x":1,"y":255,"w":253,"h":441},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":35,"w":253,"h":441},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_60.png":
+{
+	"frame": {"x":445,"y":1,"w":252,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":34,"w":252,"h":442},
+	"sourceSize": {"w":520,"h":520}
+},
+"Jade_61.png":
+{
+	"frame": {"x":444,"y":255,"w":253,"h":442},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":127,"y":34,"w":253,"h":442},
+	"sourceSize": {"w":520,"h":520}
 }},
 "animations": {
-	"jade.png": ["jade.png"]
+	"Jade": ["Jade_00.png","Jade_01.png","Jade_02.png","Jade_03.png","Jade_04.png","Jade_05.png","Jade_06.png","Jade_07.png","Jade_08.png","Jade_09.png","Jade_10.png","Jade_11.png","Jade_12.png","Jade_13.png","Jade_14.png","Jade_15.png","Jade_16.png","Jade_17.png","Jade_18.png","Jade_19.png","Jade_20.png","Jade_21.png","Jade_22.png","Jade_23.png","Jade_24.png","Jade_25.png","Jade_26.png","Jade_27.png","Jade_28.png","Jade_29.png","Jade_30.png","Jade_31.png","Jade_32.png","Jade_33.png","Jade_34.png","Jade_35.png","Jade_36.png","Jade_37.png","Jade_38.png","Jade_39.png","Jade_40.png","Jade_41.png","Jade_42.png","Jade_43.png","Jade_44.png","Jade_45.png","Jade_46.png","Jade_47.png","Jade_48.png","Jade_49.png","Jade_50.png","Jade_51.png","Jade_52.png","Jade_53.png","Jade_54.png","Jade_55.png","Jade_56.png","Jade_57.png","Jade_58.png","Jade_59.png","Jade_60.png","Jade_61.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "jade.png",
 	"format": "RGBA8888",
-	"size": {"w":254,"h":438},
+	"size": {"w":4031,"h":1821},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:6cb1c0d2763bd5123c6b06a1425948f5:794f4ab4e51ffe1d9cd9a217b7691b3a:fa17361c3b22e26f26b9ffe397fda483$"
+	"smartupdate": "$TexturePacker:SmartUpdate:36798d42299d9dc1bb1107d9a1d1dd06:93440b9765f06416a42c9afbd8f086c9:fa17361c3b22e26f26b9ffe397fda483$"
 }
 }

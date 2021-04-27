@@ -1,23 +1,511 @@
 {"frames": {
 
-"peace-lily.png":
+"Peace Lilly_00.png":
 {
-	"frame": {"x":1,"y":1,"w":607,"h":521},
+	"frame": {"x":1,"y":1,"w":470,"h":393},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":607,"h":521},
-	"sourceSize": {"w":607,"h":521}
+	"trimmed": true,
+	"spriteSourceSize": {"x":19,"y":67,"w":470,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_01.png":
+{
+	"frame": {"x":473,"y":1,"w":470,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":19,"y":67,"w":470,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_02.png":
+{
+	"frame": {"x":945,"y":1,"w":470,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":19,"y":67,"w":470,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_03.png":
+{
+	"frame": {"x":1417,"y":1,"w":469,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":67,"w":469,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_04.png":
+{
+	"frame": {"x":1888,"y":1,"w":469,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":67,"w":469,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_05.png":
+{
+	"frame": {"x":473,"y":396,"w":468,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":66,"w":468,"h":394},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_06.png":
+{
+	"frame": {"x":943,"y":396,"w":468,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":66,"w":468,"h":394},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_07.png":
+{
+	"frame": {"x":1413,"y":396,"w":469,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":66,"w":469,"h":394},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_08.png":
+{
+	"frame": {"x":3295,"y":396,"w":468,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":22,"y":65,"w":468,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_09.png":
+{
+	"frame": {"x":1,"y":791,"w":467,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":65,"w":467,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_10.png":
+{
+	"frame": {"x":939,"y":792,"w":467,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":64,"w":467,"h":396},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_11.png":
+{
+	"frame": {"x":1408,"y":792,"w":467,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":64,"w":467,"h":396},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_12.png":
+{
+	"frame": {"x":3285,"y":793,"w":467,"h":397},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":25,"y":63,"w":467,"h":397},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_13.png":
+{
+	"frame": {"x":470,"y":1189,"w":466,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":26,"y":62,"w":466,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_14.png":
+{
+	"frame": {"x":938,"y":1190,"w":465,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":27,"y":62,"w":465,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_15.png":
+{
+	"frame": {"x":2340,"y":1190,"w":465,"h":399},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":61,"w":465,"h":399},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_16.png":
+{
+	"frame": {"x":1,"y":1587,"w":466,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":60,"w":466,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_17.png":
+{
+	"frame": {"x":469,"y":1589,"w":465,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":30,"y":60,"w":465,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_18.png":
+{
+	"frame": {"x":936,"y":1590,"w":466,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":30,"y":60,"w":466,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_19.png":
+{
+	"frame": {"x":2339,"y":1591,"w":466,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":31,"y":59,"w":466,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_20.png":
+{
+	"frame": {"x":3275,"y":1593,"w":466,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":58,"w":466,"h":402},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_21.png":
+{
+	"frame": {"x":1,"y":1989,"w":466,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":58,"w":466,"h":402},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_22.png":
+{
+	"frame": {"x":469,"y":1991,"w":465,"h":403},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":57,"w":465,"h":403},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_23.png":
+{
+	"frame": {"x":2339,"y":1994,"w":466,"h":403},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":57,"w":466,"h":403},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_24.png":
+{
+	"frame": {"x":938,"y":2396,"w":466,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":35,"y":56,"w":466,"h":404},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_25.png":
+{
+	"frame": {"x":3275,"y":1997,"w":467,"h":403},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":35,"y":57,"w":467,"h":403},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_26.png":
+{
+	"frame": {"x":1406,"y":2397,"w":466,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":56,"w":466,"h":404},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_27.png":
+{
+	"frame": {"x":469,"y":2801,"w":467,"h":405},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":55,"w":467,"h":405},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_28.png":
+{
+	"frame": {"x":1874,"y":2399,"w":466,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":56,"w":466,"h":404},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_29.png":
+{
+	"frame": {"x":938,"y":2802,"w":466,"h":405},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":55,"w":466,"h":405},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_30.png":
+{
+	"frame": {"x":1874,"y":2805,"w":467,"h":405},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":55,"w":467,"h":405},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_31.png":
+{
+	"frame": {"x":1406,"y":2803,"w":466,"h":405},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":38,"y":55,"w":466,"h":405},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_32.png":
+{
+	"frame": {"x":2342,"y":2399,"w":467,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":56,"w":467,"h":404},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_33.png":
+{
+	"frame": {"x":2811,"y":2402,"w":466,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":56,"w":466,"h":404},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_34.png":
+{
+	"frame": {"x":3279,"y":2402,"w":466,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":56,"w":466,"h":404},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_35.png":
+{
+	"frame": {"x":2343,"y":2808,"w":467,"h":405},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":55,"w":467,"h":405},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_36.png":
+{
+	"frame": {"x":1,"y":2798,"w":466,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":56,"w":466,"h":404},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_37.png":
+{
+	"frame": {"x":469,"y":2396,"w":467,"h":403},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":35,"y":57,"w":467,"h":403},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_38.png":
+{
+	"frame": {"x":2807,"y":1994,"w":466,"h":403},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":35,"y":57,"w":466,"h":403},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_39.png":
+{
+	"frame": {"x":1,"y":2393,"w":466,"h":403},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":57,"w":466,"h":403},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_40.png":
+{
+	"frame": {"x":1872,"y":1992,"w":465,"h":403},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":57,"w":465,"h":403},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_41.png":
+{
+	"frame": {"x":936,"y":1992,"w":466,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":58,"w":466,"h":402},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_42.png":
+{
+	"frame": {"x":1404,"y":1992,"w":466,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":58,"w":466,"h":402},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_43.png":
+{
+	"frame": {"x":2807,"y":1591,"w":466,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":31,"y":59,"w":466,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_44.png":
+{
+	"frame": {"x":1404,"y":1590,"w":466,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":30,"y":60,"w":466,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_45.png":
+{
+	"frame": {"x":1872,"y":1590,"w":465,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":30,"y":60,"w":465,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_46.png":
+{
+	"frame": {"x":2807,"y":1190,"w":466,"h":399},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":61,"w":466,"h":399},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_47.png":
+{
+	"frame": {"x":3275,"y":1192,"w":465,"h":399},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":61,"w":465,"h":399},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_48.png":
+{
+	"frame": {"x":1405,"y":1190,"w":465,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":27,"y":62,"w":465,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_49.png":
+{
+	"frame": {"x":1872,"y":1190,"w":466,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":26,"y":62,"w":466,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_50.png":
+{
+	"frame": {"x":1,"y":1188,"w":467,"h":397},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":25,"y":63,"w":467,"h":397},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_51.png":
+{
+	"frame": {"x":1877,"y":792,"w":467,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":64,"w":467,"h":396},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_52.png":
+{
+	"frame": {"x":2346,"y":792,"w":467,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":64,"w":467,"h":396},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_53.png":
+{
+	"frame": {"x":470,"y":792,"w":467,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":65,"w":467,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_54.png":
+{
+	"frame": {"x":2815,"y":792,"w":468,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":22,"y":64,"w":468,"h":396},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_55.png":
+{
+	"frame": {"x":1884,"y":396,"w":469,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":66,"w":469,"h":394},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_56.png":
+{
+	"frame": {"x":2355,"y":396,"w":468,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":66,"w":468,"h":394},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_57.png":
+{
+	"frame": {"x":2825,"y":396,"w":468,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":66,"w":468,"h":394},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_58.png":
+{
+	"frame": {"x":2359,"y":1,"w":469,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":67,"w":469,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_59.png":
+{
+	"frame": {"x":2830,"y":1,"w":469,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":67,"w":469,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_60.png":
+{
+	"frame": {"x":3301,"y":1,"w":470,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":19,"y":67,"w":470,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Peace Lilly_61.png":
+{
+	"frame": {"x":1,"y":396,"w":470,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":19,"y":67,"w":470,"h":393},
+	"sourceSize": {"w":520,"h":520}
 }},
 "animations": {
-	"peace-lily": ["peace-lily.png"]
+	"Peace Lilly": ["Peace Lilly_00.png","Peace Lilly_01.png","Peace Lilly_02.png","Peace Lilly_03.png","Peace Lilly_04.png","Peace Lilly_05.png","Peace Lilly_06.png","Peace Lilly_07.png","Peace Lilly_08.png","Peace Lilly_09.png","Peace Lilly_10.png","Peace Lilly_11.png","Peace Lilly_12.png","Peace Lilly_13.png","Peace Lilly_14.png","Peace Lilly_15.png","Peace Lilly_16.png","Peace Lilly_17.png","Peace Lilly_18.png","Peace Lilly_19.png","Peace Lilly_20.png","Peace Lilly_21.png","Peace Lilly_22.png","Peace Lilly_23.png","Peace Lilly_24.png","Peace Lilly_25.png","Peace Lilly_26.png","Peace Lilly_27.png","Peace Lilly_28.png","Peace Lilly_29.png","Peace Lilly_30.png","Peace Lilly_31.png","Peace Lilly_32.png","Peace Lilly_33.png","Peace Lilly_34.png","Peace Lilly_35.png","Peace Lilly_36.png","Peace Lilly_37.png","Peace Lilly_38.png","Peace Lilly_39.png","Peace Lilly_40.png","Peace Lilly_41.png","Peace Lilly_42.png","Peace Lilly_43.png","Peace Lilly_44.png","Peace Lilly_45.png","Peace Lilly_46.png","Peace Lilly_47.png","Peace Lilly_48.png","Peace Lilly_49.png","Peace Lilly_50.png","Peace Lilly_51.png","Peace Lilly_52.png","Peace Lilly_53.png","Peace Lilly_54.png","Peace Lilly_55.png","Peace Lilly_56.png","Peace Lilly_57.png","Peace Lilly_58.png","Peace Lilly_59.png","Peace Lilly_60.png","Peace Lilly_61.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "peace-lily.png",
 	"format": "RGBA8888",
-	"size": {"w":609,"h":523},
+	"size": {"w":3772,"h":3214},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:edae9246a8425f7ce81d31a22586fa75:defaa1c292bd4203235d7e06f073925d:086003d87a3f860851ca5ec1eb35199f$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ecfe15cbbe33a57a03d0635b3e06cbb2:abfae704581a991dcb8021173d84e205:086003d87a3f860851ca5ec1eb35199f$"
 }
 }

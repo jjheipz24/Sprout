@@ -1,23 +1,511 @@
 {"frames": {
 
-"aloe.png":
+"Aloe_00.png":
 {
-	"frame": {"x":1,"y":1,"w":385,"h":355},
+	"frame": {"x":1,"y":1,"w":428,"h":383},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":385,"h":355},
-	"sourceSize": {"w":385,"h":355}
+	"trimmed": true,
+	"spriteSourceSize": {"x":31,"y":98,"w":428,"h":383},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_01.png":
+{
+	"frame": {"x":431,"y":1,"w":428,"h":383},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":31,"y":98,"w":428,"h":383},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_02.png":
+{
+	"frame": {"x":861,"y":1,"w":427,"h":383},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":98,"w":427,"h":383},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_03.png":
+{
+	"frame": {"x":2149,"y":1,"w":428,"h":384},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":97,"w":428,"h":384},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_04.png":
+{
+	"frame": {"x":2579,"y":1,"w":427,"h":384},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":97,"w":427,"h":384},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_05.png":
+{
+	"frame": {"x":431,"y":386,"w":428,"h":385},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":96,"w":428,"h":385},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_06.png":
+{
+	"frame": {"x":3437,"y":1,"w":427,"h":385},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":96,"w":427,"h":385},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_07.png":
+{
+	"frame": {"x":861,"y":386,"w":427,"h":385},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":35,"y":96,"w":427,"h":385},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_08.png":
+{
+	"frame": {"x":2578,"y":387,"w":427,"h":386},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":95,"w":427,"h":386},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_09.png":
+{
+	"frame": {"x":3436,"y":430,"w":427,"h":387},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":94,"w":427,"h":387},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_10.png":
+{
+	"frame": {"x":430,"y":773,"w":427,"h":388},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":38,"y":93,"w":427,"h":388},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_11.png":
+{
+	"frame": {"x":1288,"y":773,"w":426,"h":389},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":40,"y":92,"w":426,"h":389},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_12.png":
+{
+	"frame": {"x":1716,"y":773,"w":426,"h":389},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":41,"y":92,"w":426,"h":389},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_13.png":
+{
+	"frame": {"x":3000,"y":775,"w":426,"h":391},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":42,"y":90,"w":426,"h":391},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_14.png":
+{
+	"frame": {"x":1,"y":1161,"w":426,"h":391},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":43,"y":90,"w":426,"h":391},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_15.png":
+{
+	"frame": {"x":1285,"y":1164,"w":425,"h":392},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":45,"y":89,"w":425,"h":392},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_16.png":
+{
+	"frame": {"x":2139,"y":1165,"w":425,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":46,"y":88,"w":425,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_17.png":
+{
+	"frame": {"x":2993,"y":1168,"w":425,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":47,"y":86,"w":425,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_18.png":
+{
+	"frame": {"x":3428,"y":859,"w":424,"h":395},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":49,"y":86,"w":424,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_19.png":
+{
+	"frame": {"x":1,"y":1554,"w":424,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":50,"y":85,"w":424,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_20.png":
+{
+	"frame": {"x":1280,"y":1558,"w":424,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":52,"y":84,"w":424,"h":396},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_21.png":
+{
+	"frame": {"x":2558,"y":1561,"w":423,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":53,"y":83,"w":423,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_22.png":
+{
+	"frame": {"x":2983,"y":1565,"w":423,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":54,"y":83,"w":423,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_23.png":
+{
+	"frame": {"x":851,"y":1953,"w":423,"h":399},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":55,"y":82,"w":423,"h":399},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_24.png":
+{
+	"frame": {"x":1701,"y":1956,"w":423,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":81,"w":423,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_25.png":
+{
+	"frame": {"x":2126,"y":1959,"w":422,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":57,"y":81,"w":422,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_26.png":
+{
+	"frame": {"x":3399,"y":2131,"w":422,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":58,"y":80,"w":422,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_27.png":
+{
+	"frame": {"x":1,"y":2351,"w":422,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":59,"y":80,"w":422,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_28.png":
+{
+	"frame": {"x":3420,"y":1285,"w":421,"h":401},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":80,"w":421,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_29.png":
+{
+	"frame": {"x":425,"y":2353,"w":422,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":80,"w":422,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_30.png":
+{
+	"frame": {"x":2121,"y":2361,"w":422,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":79,"w":422,"h":402},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_31.png":
+{
+	"frame": {"x":2545,"y":2363,"w":422,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":79,"w":422,"h":402},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_32.png":
+{
+	"frame": {"x":2969,"y":2367,"w":422,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":79,"w":422,"h":402},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_33.png":
+{
+	"frame": {"x":849,"y":2354,"w":422,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":80,"w":422,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_34.png":
+{
+	"frame": {"x":3408,"y":1708,"w":421,"h":401},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":80,"w":421,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_35.png":
+{
+	"frame": {"x":1273,"y":2357,"w":422,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":59,"y":80,"w":422,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_36.png":
+{
+	"frame": {"x":1697,"y":2358,"w":422,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":58,"y":80,"w":422,"h":401},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_37.png":
+{
+	"frame": {"x":2550,"y":1961,"w":422,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":57,"y":81,"w":422,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_38.png":
+{
+	"frame": {"x":2974,"y":1965,"w":423,"h":400},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":81,"w":423,"h":400},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_39.png":
+{
+	"frame": {"x":1276,"y":1956,"w":423,"h":399},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":55,"y":82,"w":423,"h":399},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_40.png":
+{
+	"frame": {"x":1,"y":1951,"w":423,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":54,"y":83,"w":423,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_41.png":
+{
+	"frame": {"x":426,"y":1953,"w":423,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":53,"y":83,"w":423,"h":398},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_42.png":
+{
+	"frame": {"x":2132,"y":1560,"w":424,"h":397},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":52,"y":84,"w":424,"h":397},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_43.png":
+{
+	"frame": {"x":1706,"y":1558,"w":424,"h":396},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":50,"y":85,"w":424,"h":396},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_44.png":
+{
+	"frame": {"x":427,"y":1556,"w":424,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":49,"y":86,"w":424,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_45.png":
+{
+	"frame": {"x":853,"y":1556,"w":425,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":47,"y":86,"w":425,"h":395},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_46.png":
+{
+	"frame": {"x":2566,"y":1166,"w":425,"h":393},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":46,"y":88,"w":425,"h":393},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_47.png":
+{
+	"frame": {"x":1712,"y":1164,"w":425,"h":392},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":45,"y":89,"w":425,"h":392},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_48.png":
+{
+	"frame": {"x":429,"y":1163,"w":426,"h":391},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":43,"y":90,"w":426,"h":391},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_49.png":
+{
+	"frame": {"x":857,"y":1163,"w":426,"h":391},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":42,"y":90,"w":426,"h":391},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_50.png":
+{
+	"frame": {"x":2144,"y":774,"w":426,"h":389},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":41,"y":92,"w":426,"h":389},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_51.png":
+{
+	"frame": {"x":2572,"y":775,"w":426,"h":389},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":40,"y":92,"w":426,"h":389},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_52.png":
+{
+	"frame": {"x":859,"y":773,"w":427,"h":388},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":38,"y":93,"w":427,"h":388},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_53.png":
+{
+	"frame": {"x":1,"y":772,"w":427,"h":387},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":37,"y":94,"w":427,"h":387},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_54.png":
+{
+	"frame": {"x":3007,"y":387,"w":427,"h":386},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":95,"w":427,"h":386},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_55.png":
+{
+	"frame": {"x":1290,"y":386,"w":427,"h":385},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":35,"y":96,"w":427,"h":385},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_56.png":
+{
+	"frame": {"x":1719,"y":386,"w":427,"h":385},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":96,"w":427,"h":385},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_57.png":
+{
+	"frame": {"x":2148,"y":387,"w":428,"h":385},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":96,"w":428,"h":385},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_58.png":
+{
+	"frame": {"x":3008,"y":1,"w":427,"h":384},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":97,"w":427,"h":384},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_59.png":
+{
+	"frame": {"x":1,"y":386,"w":428,"h":384},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":97,"w":428,"h":384},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_60.png":
+{
+	"frame": {"x":1290,"y":1,"w":427,"h":383},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":98,"w":427,"h":383},
+	"sourceSize": {"w":520,"h":520}
+},
+"Aloe_61.png":
+{
+	"frame": {"x":1719,"y":1,"w":428,"h":383},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":31,"y":98,"w":428,"h":383},
+	"sourceSize": {"w":520,"h":520}
 }},
 "animations": {
-	"aloe": ["aloe.png"]
+	"Aloe": ["Aloe_00.png","Aloe_01.png","Aloe_02.png","Aloe_03.png","Aloe_04.png","Aloe_05.png","Aloe_06.png","Aloe_07.png","Aloe_08.png","Aloe_09.png","Aloe_10.png","Aloe_11.png","Aloe_12.png","Aloe_13.png","Aloe_14.png","Aloe_15.png","Aloe_16.png","Aloe_17.png","Aloe_18.png","Aloe_19.png","Aloe_20.png","Aloe_21.png","Aloe_22.png","Aloe_23.png","Aloe_24.png","Aloe_25.png","Aloe_26.png","Aloe_27.png","Aloe_28.png","Aloe_29.png","Aloe_30.png","Aloe_31.png","Aloe_32.png","Aloe_33.png","Aloe_34.png","Aloe_35.png","Aloe_36.png","Aloe_37.png","Aloe_38.png","Aloe_39.png","Aloe_40.png","Aloe_41.png","Aloe_42.png","Aloe_43.png","Aloe_44.png","Aloe_45.png","Aloe_46.png","Aloe_47.png","Aloe_48.png","Aloe_49.png","Aloe_50.png","Aloe_51.png","Aloe_52.png","Aloe_53.png","Aloe_54.png","Aloe_55.png","Aloe_56.png","Aloe_57.png","Aloe_58.png","Aloe_59.png","Aloe_60.png","Aloe_61.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "aloe.png",
 	"format": "RGBA8888",
-	"size": {"w":387,"h":357},
+	"size": {"w":3824,"h":2770},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:8e53511d1fc949131e765b0ce825d770:39dc4e524d1fd56c250615fa7e639d6f:545dac9d417761c3818215c3dcd56fd1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:47392f60d3f682bf571754111e755b8c:d0d92b30a6ff03621a734d61b64f0b4e:545dac9d417761c3818215c3dcd56fd1$"
 }
 }

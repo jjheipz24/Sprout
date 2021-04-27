@@ -2,11 +2,11 @@
 
 "brown.png":
 {
-	"frame": {"x":1,"y":1,"w":115,"h":115},
+	"frame": {"x":1,"y":1,"w":151,"h":48},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":115},
-	"sourceSize": {"w":115,"h":115}
+	"spriteSourceSize": {"x":0,"y":0,"w":151,"h":48},
+	"sourceSize": {"w":151,"h":48}
 }},
 "animations": {
 	"brown": ["brown.png"]
@@ -16,8 +16,8 @@
 	"version": "1.0",
 	"image": "brown.png",
 	"format": "RGBA8888",
-	"size": {"w":117,"h":117},
+	"size": {"w":153,"h":50},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:f39720ce937942f28d5377c7517f5ac9:8d6d9ac3a70da003d708a6f50d4df63c:d3ef8763eadfaadc00adadba3381a5f3$"
+	"smartupdate": "$TexturePacker:SmartUpdate:e05afea12901af20c80314bbdf966a49:412f6da4b4033ae0d37d1b28e26dc9c3:d3ef8763eadfaadc00adadba3381a5f3$"
 }
 }
