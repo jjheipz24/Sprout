@@ -122,10 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const gardenUnhovered = PIXI.Texture.from('assets/images/buildings/c-planterbox.png');
     const gardenHovered = PIXI.Texture.from('assets/images/buildings/c-planterbox-hover.png');
 
-    //Nav Sign
-    let pole, viewGarden, visitComm, about;
+    let visitComm; //Visit community garden button
     let personalView = false; //Used to indicate whether or not user is in personal or community view
     let userPersonal = false; //Used to indicate if they are seeing their own garden or someone else's
+    let initialPlant = false; //Used to indicate if a user is trying to plant something
 
     /**************************************/
 
@@ -322,10 +322,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const textureName = plot.textures[0].textureCacheIds[0];
                 if (textureName === "brown.png") {
                     plotSpot = e.target; //Sets selected plot to the current target
-                    createSeedPackets();
+                    createSeedPackets(e, username);
                 } else {
+                    console.log(plot);
                     //TODO: Only open modal if the plant isn't at growth stage 1
-                    messageModal(e, username)
+                    messageModal(e, username, "placeholder", "placeholder");
                 }
             }));
         }
@@ -343,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
-    function createSeedPackets() {
+    function createSeedPackets(target, username) {
         seedPacketsVisible = true;
 
         closeButton = new PIXI.Sprite.from('assets/images/test/pink.png');
@@ -361,27 +362,27 @@ document.addEventListener('DOMContentLoaded', function () {
         container.addChild(closeButton);
 
         aloeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/aloe-card.png');
-        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 2) - 300, (app.screen.height / 4), 6);
+        packetButtons(aloeSeeds, "aloe", "Aloe Vera", (app.screen.width / 2) - 300, (app.screen.height / 4), 6, target, username);
         seedContainer.addChild(aloeSeeds);
 
         cactusSeeds = new PIXI.Sprite.from('assets/images/plant-cards/cactus-card.png');
-        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 2), (app.screen.height / 4), 5);
+        packetButtons(cactusSeeds, "cactus", "Cactus", (app.screen.width / 2), (app.screen.height / 4), 5, target, username);
         seedContainer.addChild(cactusSeeds);
 
         fiddleSeeds = new PIXI.Sprite.from('assets/images/plant-cards/fiddle-leaf-card.png');
-        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 2) + 300, (app.screen.height / 4), 4);
+        packetButtons(fiddleSeeds, "fiddle", "Fiddle Leaf", (app.screen.width / 2) + 300, (app.screen.height / 4), 4, target, username);
         seedContainer.addChild(fiddleSeeds);
 
         jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
-        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 2) - 300, (app.screen.height) - 200, 3);
+        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 2) - 300, (app.screen.height) - 200, 3, target, username);
         seedContainer.addChild(jadeSeeds);
 
         peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-lily-card.png');
-        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 2), (app.screen.height) - 200, 2);
+        packetButtons(peaceSeeds, "peace", "Peace Lily", (app.screen.width / 2), (app.screen.height) - 200, 2, target, username);
         seedContainer.addChild(peaceSeeds);
 
         snakeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/snake-plant-card.png');
-        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 2) + 300, (app.screen.height) - 200, 1);
+        packetButtons(snakeSeeds, "snake", "Snake Plant", (app.screen.width / 2) + 300, (app.screen.height) - 200, 1, target, username);
         seedContainer.addChild(snakeSeeds);
 
         container.addChild(seedContainer);
@@ -393,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seedContainer.updateTransform();
     }
 
-    function packetButtons(packet, seedType, plantName, x, y, z) {
+    function packetButtons(packet, seedType, plantName, x, y, z, target, username) {
         packet.interactive = true;
         packet.buttonMode = true;
         packet.anchor.set(0.5, 0.5);
@@ -419,8 +420,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // });
 
         packet.on('pointerdown', () => {
-
-            addPlant(plotSpot, seedType, plantName, 0);
+            initialPlant = true;
+            //addPlant(plotSpot, seedType, plantName, 0);
+            messageModal(target, username, seedType, plantName);
             destroySeedPackets();
         });
     }
@@ -478,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    function messageModal(e, username) {
+    function messageModal(e, username, seedType, plantName) {
         $('#message').show();
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)];
 
@@ -491,14 +493,29 @@ document.addEventListener('DOMContentLoaded', function () {
             if (this.readyState === 4 && this.status === 200) {
                 const res = JSON.parse(this.responseText);
                 const userCapped = username.charAt(0).toUpperCase() + username.slice(1);
-                let currentPlant = res.plant.plantType;
-                let currentPlantName = res.plant.plantName;
+
+                let currentPlant, currentPlantName, currentPrompt;
+                console.log(initialPlant);
+                if(initialPlant){
+                    currentPlant = seedType;
+                    currentPlantName = plantName
+                    currentPrompt = "none"
+                    console.log(currentPrompt)
+                }
+                else{
+                    currentPlant = res.plant.plantType;
+                    currentPlantName = res.plant.plantName;
+                    currentPrompt = res.plant.prompt
+                    console.log(currentPrompt)
+
+                }
+                
 
                 // Changes image based on current plant clicked on
-                $('#modalImg').attr("src", `assets/images/profilePlants/${res.plant.plantType}Profile.png`);
+                $('#modalImg').attr("src", `assets/images/profilePlants/${currentPlant}Profile.png`);
 
-                $('#messageTitle').text(`${userCapped}'s ${res.plant.plantName}`);
-                $('#messageLabel').text(`Let ${userCapped} know ${res.plant.prompt ? res.plant.prompt : 'they can achieve their goals'}`);
+                $('#messageTitle').text(`${userCapped}'s ${currentPlantName}`);
+                $('#messageLabel').text(`Let ${userCapped} know ${currentPrompt === "none" ? 'they can achieve their goals' : res.plant.prompt}`);
                 $('.saveBtn').off();
                 $('.saveBtn').on("click", function () {
                     sendMessage(username, selectedPlot, currentPlant, currentPlantName);
@@ -526,12 +543,18 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     //TODO: make an updatePlant/growPlant function
-                    //addPlant(plots[selectedPlot], currentPlant, plantName, 1);
-                    plots[selectedPlot].textures = plantCollection[currentPlant][1]; //Cheese the growing of the plant
-                    plots[selectedPlot].animationSpeed = 0.3; 
-                    plots[selectedPlot].play();
+                    if(initialPlant){
+                        addPlant(plots[selectedPlot], currentPlant, plantName, 0);
+                    }
+                    else{
+                        plots[selectedPlot].textures = plantCollection[currentPlant][1]; //Cheese the growing of the plant
+                        plots[selectedPlot].animationSpeed = 0.3; 
+                        plots[selectedPlot].play();
+                    }
+
                     document.querySelector('#messageField').value = "";
                     $('#message').hide();
+                    initialPlant = false;
                 }
             };
 

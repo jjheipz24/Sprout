@@ -179,7 +179,7 @@ const addMessage = async (request, response) => {
   if(plant.messages.length >= 1 && plant.growthStage === 0) {
     plant.messages.forEach(message => {
       if(message.username !== req.body.username) {
-        plant.growthStage = 1;
+        plant.growthStage++;
       }
     });
   } 
