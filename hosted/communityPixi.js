@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
             destroyPersonalGardenView();
             personalView = false;
         });
-     
+
         container.addChild(visitComm);
     }
 
@@ -264,11 +264,10 @@ document.addEventListener('DOMContentLoaded', function () {
         createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot6"] = plot6;
 
-        console.log(garden);
         //If the user has already planted plants --> update the garden to show their plants
         garden.personal ? getUserPlants() : getCommunityPlants(garden.plants);
 
-        if(garden.personal){
+        if (garden.personal) {
             userPersonal = true;
             clearButton = new PIXI.Sprite.from('assets/images/navSign/clearButton.png');;
             clearButton.anchor.set(0.5)
@@ -277,11 +276,11 @@ document.addEventListener('DOMContentLoaded', function () {
             clearButton.buttonMode = true;
             clearButton.x = 200;
             clearButton.y = 400;
-    
+
             clearButton.on('pointerdown', () => {
-               $('#clear').show();
+                $('#clear').show();
             })
-    
+
             container.addChild(clearButton);
         } else {
             userPersonal = false;
@@ -313,21 +312,38 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.x = x;
         plot.y = y;
 
-        if(communityGardenArray[0].username === username){
+        if (communityGardenArray[0].username === username) {
             // plot.on('pointerdown', changeColor);
             plot.interactive = true;
             plot.buttonMode = true;
             plot.on('pointerdown', (function (e) {
                 console.log(plot.textures[0].textureCacheIds[0]);
-                const textureName = plot.textures[0].textureCacheIds[0];
-                if (textureName === "brown.png") {
-                    plotSpot = e.target; //Sets selected plot to the current target
-                    createSeedPackets(e, username);
-                } else {
-                    console.log(plot);
-                    //TODO: Only open modal if the plant isn't at growth stage 1
-                    messageModal(e, username, "placeholder", "placeholder");
+                let textureName = plot.textures[0].textureCacheIds[0];
+                switch (textureName) {
+                    case "brown.png":
+                        plotSpot = e.target; //Sets selected plot to the current target
+                        createSeedPackets(e, username);
+                        break;
+                    case "aloe-sprout.png":
+                    case "cactus-sprout.png":
+                    case "fiddle-sprout.png":
+                    case "jade-sprout.png":
+                    case "peace-lily-sprout.png":
+                    case "snake-sprout.png":
+                        messageModal(e, username, "placeholder", "placeholder");
+                        break;
+                    default:
+                        console.log("You can't add any more messages");
                 }
+
+                // if (textureName === "brown.png") {
+                //     plotSpot = e.target; //Sets selected plot to the current target
+                //     createSeedPackets(e, username);
+                // } else {
+                //     console.log(plot);
+                //     //TODO: Only open modal if the plant isn't at growth stage 1
+                //     messageModal(e, username, "placeholder", "placeholder");
+                // }
             }));
         }
     }
@@ -338,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
         plantArr.forEach(plant => {
             if (plots[plant.location] !== undefined) {
                 plots[plant.location].textures = plantCollection[plant.plantType][plant.growthStage];
-                plots[plant.location].animationSpeed = 0.3; 
+                plots[plant.location].animationSpeed = 0.3;
                 plots[plant.location].play();
             }
         })
@@ -421,8 +437,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         packet.on('pointerdown', () => {
             initialPlant = true;
-            //addPlant(plotSpot, seedType, plantName, 0);
-            messageModal(target, username, seedType, plantName);
+            addPlant(plotSpot, seedType, plantName, 0);
+            //messageModal(target, username, seedType, plantName);
             destroySeedPackets();
         });
     }
@@ -437,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         visitComm.destroy();
 
-        if(userPersonal) {
+        if (userPersonal) {
             clearButton.destroy();
         }
     }
@@ -461,6 +477,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (plantType === undefined) {
             console.log("No plant seeds selected");
         } else {
+            initialPlant = false;
             target.textures = plantCollection[plantType][growthStage];
 
             const xhr = new XMLHttpRequest();
@@ -495,27 +512,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 const userCapped = username.charAt(0).toUpperCase() + username.slice(1);
 
                 let currentPlant, currentPlantName, currentPrompt;
-                console.log(initialPlant);
-                if(initialPlant){
+                if (initialPlant) {
                     currentPlant = seedType;
                     currentPlantName = plantName
                     currentPrompt = "none"
-                    console.log(currentPrompt)
-                }
-                else{
+                } else {
                     currentPlant = res.plant.plantType;
                     currentPlantName = res.plant.plantName;
                     currentPrompt = res.plant.prompt
-                    console.log(currentPrompt)
-
                 }
-                
 
+                console.log(currentPlant);
                 // Changes image based on current plant clicked on
                 $('#modalImg').attr("src", `assets/images/profilePlants/${currentPlant}Profile.png`);
 
                 $('#messageTitle').text(`${userCapped}'s ${currentPlantName}`);
                 $('#messageLabel').text(`Let ${userCapped} know ${currentPrompt === "none" ? 'they can achieve their goals' : res.plant.prompt}`);
+                //$('#messageLabel').text(`Let ${userCapped} know they can achieve their goals`);
                 $('.saveBtn').off();
                 $('.saveBtn').on("click", function () {
                     sendMessage(username, selectedPlot, currentPlant, currentPlantName);
@@ -543,18 +556,17 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     //TODO: make an updatePlant/growPlant function
-                    if(initialPlant){
-                        addPlant(plots[selectedPlot], currentPlant, plantName, 0);
-                    }
-                    else{
+                    if (initialPlant) {
+                        addPlant(plotSpot, currentPlant, plantName, 0);
+                    } else {
                         plots[selectedPlot].textures = plantCollection[currentPlant][1]; //Cheese the growing of the plant
-                        plots[selectedPlot].animationSpeed = 0.3; 
+                        plots[selectedPlot].animationSpeed = 0.3;
                         plots[selectedPlot].play();
                     }
-
+                    
                     document.querySelector('#messageField').value = "";
                     $('#message').hide();
-                    initialPlant = false;
+                    
                 }
             };
 
@@ -610,7 +622,7 @@ document.addEventListener('DOMContentLoaded', function () {
             visitComm.x = 400;
             visitComm.y = ((app.screen.height / 2) + 250);
 
-            if(userPersonal) {
+            if (userPersonal) {
                 clearButton.x = 800;
                 clearButton.y = ((app.screen.height / 2) + 250);
             }
@@ -664,8 +676,8 @@ document.addEventListener('DOMContentLoaded', function () {
             background.height = window.innerHeight - 100;
 
             //communtiy plant boxes
-            for(let i = 0; i < communityGardenArray.length; i++) {
-                if(i % 2 == 0) {
+            for (let i = 0; i < communityGardenArray.length; i++) {
+                if (i % 2 == 0) {
                     // first row
                     communityGardenArray[i].sprite.y = 350;
                 } else {
@@ -673,7 +685,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     communityGardenArray[i].sprite.y = 500;
                 }
 
-                if(i <= 1) {
+                if (i <= 1) {
                     communityGardenArray[i].sprite.x = 380;
                 } else if (i > 1 && i <= 3) {
                     communityGardenArray[i].sprite.x = 480;
@@ -700,7 +712,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // }
             }
 
-            if(window.innerWidth <= 1220) {
+            if (window.innerWidth <= 1220) {
                 //console.log('delete some boxes');
                 // communityGardenArray.pop();
                 // communityGardenArray.pop();
