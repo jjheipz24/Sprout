@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Nav Sign
     let pole, viewGarden, visitComm, about;
-    let personal = false;
-    let userPersonal = false;
+    let personalView = false; //Used to indicate whether or not user is in personal or community view
+    let userPersonal = false; //Used to indicate if they are seeing their own garden or someone else's
 
     /**************************************/
 
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
             container.addChild(plot);
         });
 
-        personal = true;
+        personalView = true;
 
         //createSignNav();
     }
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //planterBox.destroy();
             createCommunityGarden();
             destroyPersonalGardenView();
-            personal = false;
+            personalView = false;
         });
      
         container.addChild(visitComm);
@@ -266,6 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
         createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2), garden.username);
         plots["plot6"] = plot6;
 
+        console.log(garden);
         //If the user has already planted plants --> update the garden to show their plants
         garden.personal ? getUserPlants() : getCommunityPlants(garden.plants);
 
@@ -577,7 +578,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         background.width = window.innerWidth;
 
-        if (personal) {
+        if (personalView) {
             background.tileScale.x = .75;
             background.tileScale.y = .7;
             background.position.y = 0;
