@@ -174,21 +174,77 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
   return MessageModal;
 }(React.Component);
 
-var ClearModal = /*#__PURE__*/function (_React$Component2) {
-  _inherits(ClearModal, _React$Component2);
+var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
+  _inherits(PastMessagesModal, _React$Component2);
 
-  var _super2 = _createSuper(ClearModal);
+  var _super2 = _createSuper(PastMessagesModal);
+
+  function PastMessagesModal() {
+    _classCallCheck(this, PastMessagesModal);
+
+    return _super2.apply(this, arguments);
+  }
+
+  _createClass(PastMessagesModal, [{
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return /*#__PURE__*/React.createElement("div", {
+        className: "modal",
+        id: "pastMessages",
+        tabIndex: "-1",
+        role: "dialog",
+        ref: function ref(el) {
+          return _this3.el = el;
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "close",
+        "aria-hidden": "true",
+        onClick: this.handleClick,
+        "aria-label": "Close"
+      }, "\xD7"), /*#__PURE__*/React.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/React.createElement("img", {
+        className: "img-responsive",
+        id: "modalImg",
+        alt: "profile pic of plant",
+        src: "assets/images/profilePlants/JadeProfile.png"
+      }), /*#__PURE__*/React.createElement("div", {
+        id: "modal-content-header"
+      }, /*#__PURE__*/React.createElement("h5", {
+        className: "modal-title",
+        id: "messageTitle"
+      }, "Message History"), /*#__PURE__*/React.createElement("label", {
+        htmlFor: "messageField",
+        id: "messageLabel"
+      }, "Let username know they can achieve their goals!"))))));
+    }
+  }]);
+
+  return PastMessagesModal;
+}(React.Component);
+
+var ClearModal = /*#__PURE__*/function (_React$Component3) {
+  _inherits(ClearModal, _React$Component3);
+
+  var _super3 = _createSuper(ClearModal);
 
   function ClearModal(props) {
-    var _this3;
+    var _this4;
 
     _classCallCheck(this, ClearModal);
 
-    _this3 = _super2.call(this, props);
-    _this3.token = props.csrf;
-    _this3.handleClick = _this3.handleClick.bind(_assertThisInitialized(_this3));
-    _this3.refreshPage = _this3.refreshPage.bind(_assertThisInitialized(_this3));
-    return _this3;
+    _this4 = _super3.call(this, props);
+    _this4.token = props.csrf;
+    _this4.handleClick = _this4.handleClick.bind(_assertThisInitialized(_this4));
+    _this4.refreshPage = _this4.refreshPage.bind(_assertThisInitialized(_this4));
+    return _this4;
   }
 
   _createClass(ClearModal, [{
@@ -211,7 +267,7 @@ var ClearModal = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       return /*#__PURE__*/React.createElement("div", {
         className: "modal",
@@ -219,7 +275,7 @@ var ClearModal = /*#__PURE__*/function (_React$Component2) {
         tabIndex: "-1",
         role: "dialog",
         ref: function ref(el) {
-          return _this4.el = el;
+          return _this5.el = el;
         }
       }, /*#__PURE__*/React.createElement("div", {
         className: "modal-dialog",
@@ -260,6 +316,7 @@ var setup = function setup(csrf) {
     username: ""
   }), document.querySelector('#nav'));
   loadUserUsername();
+  ReactDOM.render( /*#__PURE__*/React.createElement(PastMessagesModal, null), document.querySelector('#pastMessageModal'));
   ReactDOM.render( /*#__PURE__*/React.createElement(MessageModal, null), document.querySelector('#messageModal'));
   ReactDOM.render( /*#__PURE__*/React.createElement(ClearModal, {
     csrf: csrf

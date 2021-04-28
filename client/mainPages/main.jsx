@@ -100,6 +100,32 @@ class MessageModal extends React.Component {
     }
 }
 
+class PastMessagesModal extends React.Component {
+    render() {
+        return (
+            <div className="modal" id="pastMessages" tabIndex="-1" role="dialog" ref={el => this.el = el}>
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        {/* <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span> */}
+                        <div className="modal-header">
+                            <img className="img-responsive" id="modalImg" alt="profile pic of plant" src="assets/images/profilePlants/JadeProfile.png" />
+                            <div id="modal-content-header">
+                                <h5 className="modal-title" id="messageTitle">Message History</h5>
+                                <label htmlFor="messageField" id="messageLabel">
+                                    Let username know they can achieve their goals!
+                                </label>
+                            </div>
+                            {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
 class ClearModal extends React.Component {
     constructor(props) {
         super(props)
@@ -152,6 +178,10 @@ const setup = function (csrf) {
     )
 
     loadUserUsername();
+
+    ReactDOM.render(
+        <PastMessagesModal />, document.querySelector('#pastMessageModal')
+    )
 
     ReactDOM.render(
         <MessageModal />, document.querySelector('#messageModal')
