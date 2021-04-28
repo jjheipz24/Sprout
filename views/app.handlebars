@@ -13,6 +13,7 @@
         <img class="cloud-right-image" id="cloudApp1" src="assets/images/buildings/cloud1.png" alt="cloud" />
         <img class="cloud-right-image" id="cloudApp2" src="assets/images/buildings/cloud2.png" alt="cloud" />
         <img class="cloud-right-image" id="cloudApp3" src="assets/images/buildings/cloud3.png" alt="cloud" />
+        <img class="cloud-right-image" id="cloudApp4" src="assets/images/buildings/cloud1.png" alt="cloud" />
     </div>
     <div class="appNav" id="nav"></div>
     <canvas id="pixiCanvas"></canvas>
@@ -38,6 +39,9 @@
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
                 $('#cloudApp3').animate({ left: $(window).width() + 'px' }, 78000, 'linear', function () {
+                    $(this).css({ left: - $(this).width() + 'px' });
+                });
+                $('#cloudApp4').animate({ left: $(window).width() + 'px' }, 81000, 'linear', function () {
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
             }, 10);
