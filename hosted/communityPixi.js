@@ -243,28 +243,28 @@ document.addEventListener('DOMContentLoaded', function () {
     function initCircles(garden) {
 
         plot1 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot1, 375, 625, garden.username);
+        createPlot(plot1, 475, 585, garden.username);
         plot1.zOrder = +1;
         plots["plot1"] = plot1;
 
         plot2 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot2, 475, 585, garden.username);
+        createPlot(plot2, 700, 585, garden.username);
         plots["plot2"] = plot2;
 
         plot3 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot3, 600, 625, garden.username);
+        createPlot(plot3, 925, 585, garden.username);
         plots["plot3"] = plot3;
 
         plot4 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot4, 700, 585, garden.username);
+        createPlot(plot4, 375, 625, garden.username);
         plots["plot4"] = plot4;
 
         plot5 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot5, 850, 625, garden.username);
+        createPlot(plot5, 600, 625, garden.username);
         plots["plot5"] = plot5;
 
         plot6 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot6, 925, 585, garden.username);
+        createPlot(plot6, 825, 625, garden.username);
         plots["plot6"] = plot6;
 
         //If the user has already planted plants --> update the garden to show their plants
