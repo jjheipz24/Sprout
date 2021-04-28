@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /***** BACKGROUND *****/
 
     let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinalCropped.png');
-    let personalBackground = PIXI.Texture.from('assets/images/buildings/personalGardenWindow.png');
+    let personalBackground = PIXI.Texture.from('assets/images/buildings/personalGardenWindow2.png');
     //let background = new PIXI.Sprite(communityBackground);
     let background = new PIXI.extras.TilingSprite(communityBackground, window.innerWidth, 800);
 
@@ -220,10 +220,10 @@ document.addEventListener('DOMContentLoaded', function () {
         visitComm.interactive = true;
         visitComm.buttonMode = true;
         visitComm.on('pointerover', () => {
-            //visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community-hover.png');
+            visitComm.texture = PIXI.Texture.from('assets/images/navSign/backButtonHover.png');
         });
         visitComm.on('pointerout', () => {
-            //visitComm.texture = PIXI.Texture.from('assets/images/navSign/visit-community.png');
+            visitComm.texture = PIXI.Texture.from('assets/images/navSign/backButton.png');
         });
 
         visitComm.on('pointerdown', () => {
@@ -241,27 +241,27 @@ document.addEventListener('DOMContentLoaded', function () {
     function initCircles(garden) {
 
         plot1 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot1, (app.screen.width / 2), (app.screen.height / 2), garden.username);
+        createPlot(plot1, 375, 625, garden.username);
         plots["plot1"] = plot1;
 
         plot2 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot2, (app.screen.width / 2), (app.screen.height / 2), garden.username);
+        createPlot(plot2, 475, 585, garden.username);
         plots["plot2"] = plot2;
 
         plot3 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot3, (app.screen.width / 2), (app.screen.height / 2), garden.username);
+        createPlot(plot3, 600, 625, garden.username);
         plots["plot3"] = plot3;
 
         plot4 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot4, (app.screen.width / 2), (app.screen.height / 2), garden.username);
+        createPlot(plot4, 700, 585, garden.username);
         plots["plot4"] = plot4;
 
         plot5 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot5, (app.screen.width / 2), (app.screen.height / 2), garden.username);
+        createPlot(plot5, 850, 625, garden.username);
         plots["plot5"] = plot5;
 
         plot6 = new PIXI.AnimatedSprite(plotTex);
-        createPlot(plot6, (app.screen.width / 2), (app.screen.height / 2), garden.username);
+        createPlot(plot6, 925, 585, garden.username);
         plots["plot6"] = plot6;
 
         //If the user has already planted plants --> update the garden to show their plants
@@ -279,7 +279,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             clearButton.on('pointerdown', () => {
                 $('#clear').show();
-            })
+            });
+            clearButton.on('pointerover', () => {
+                clearButton.texture = PIXI.Texture.from('assets/images/navSign/clearButtonHover.png');
+            });
+            clearButton.on('pointerout', () => {
+                clearButton.texture = PIXI.Texture.from('assets/images/navSign/clearButton.png');
+            });
 
             container.addChild(clearButton);
         } else {
@@ -613,38 +619,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (personalView) {
             background.tileScale.x = .75;
-            background.tileScale.y = .7;
+            background.tileScale.y = .8;
             background.position.y = 0;
-            background.position.x = 100;
+            background.position.x = 0;
 
             background.height = window.innerHeight;
 
-            visitComm.x = 400;
-            visitComm.y = ((app.screen.height / 2) + 250);
+            visitComm.x = 450;
+            visitComm.y = 675;
 
             if (userPersonal) {
-                clearButton.x = 800;
-                clearButton.y = ((app.screen.height / 2) + 250);
+                clearButton.x = 850;
+                clearButton.y = 675;
             }
-
-            //Plant plots
-            plot1.x = 325;
-            plot1.y = 575;
-
-            plot2.x = 425;
-            plot2.y = 525;
-
-            plot3.x = 525;
-            plot3.y = 575;
-
-            plot4.x = 650;
-            plot4.y = 525;
-
-            plot5.x = 775;
-            plot5.y = 575;
-
-            plot6.x = 875;
-            plot6.y = 525;
 
             if (seedPacketsVisible) {
                 //Seed packets
