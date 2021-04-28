@@ -92,16 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let aloeSeeds, cactusSeeds, fiddleSeeds, jadeSeeds, peaceSeeds, snakeSeeds; //All of the seed packets
 
-    //All of the colors
-    let brown = PIXI.Texture.from('assets/images/test/brown.png');
-    let blue = PIXI.Texture.from('assets/images/test/blue.png');
-    let orange = PIXI.Texture.from('assets/images/test/orange.png');
-    let green = PIXI.Texture.from('assets/images/test/green.png');
-    let pink = PIXI.Texture.from('assets/images/test/pink.png');
-    let purple = PIXI.Texture.from('assets/images/test/purple.png');
-    let yellow = PIXI.Texture.from('assets/images/test/yellow.png');
-
-    let communityGardenArray = [];
+    let communityGardenArray = []; //Holds the community garden
 
     //bump up to 20 instead of 4 when we're ready for the full community garden
     for (let i = 0; i < 18; i++) {
@@ -158,8 +149,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const bannerTex = PIXI.Texture.from('assets/images/buildings/banner.png');
                 banner = new PIXI.Sprite(bannerTex);
 
-                banner.x = 330;
-                banner.y = 365;
+                banner.x = 303;
+                banner.y = 243;
                 container.addChild(banner);
             }
 
@@ -441,21 +432,6 @@ document.addEventListener('DOMContentLoaded', function () {
         packet.scale.x = .9;
         packet.scale.y = .9;
 
-
-        //Attempt to make seed packet move to the front on hover
-        // packet.on('pointerover', () => {
-        //     const ogX = packet.x;
-        //     const ogIdx = seedContainer.children.indexOf(packet);
-
-        //     const first = seedContainer.children[5];
-
-        //     packet.x = seedContainer.children[5].x;
-        //     seedContainer.children[5] = packet;
-
-        //     seedContainer.children[ogIdx] = first;
-        //     seedContainer.children[ogIdx].x = ogX;
-        // });
-
         packet.on('pointerdown', () => {
             initialPlant = true;
             addPlant(plotSpot, seedType, plantName, 0);
@@ -576,7 +552,6 @@ document.addEventListener('DOMContentLoaded', function () {
             //This runs if the http request was sent!!
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
-                    //TODO: make an updatePlant/growPlant function
                     if (initialPlant) {
                         addPlant(plotSpot, currentPlant, plantName, 0);
                     } else {
@@ -667,6 +642,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 snakeSeeds.x = (app.screen.width / 2) + 300;
                 snakeSeeds.y = (app.screen.height) - 200;
+
+                closeButton.x = (app.screen.width / 6) - 10;
+                closeButton.y = (app.screen.height / 2);
             }
 
         } else {
@@ -676,8 +654,8 @@ document.addEventListener('DOMContentLoaded', function () {
             background.position.y = 100;
 
             background.height = window.innerHeight - 100;
-            banner.x = 330;
-            banner.y = 365;
+            banner.x = 303;
+            banner.y = 243;
 
             //communtiy plant boxes
             for (let i = 0; i < communityGardenArray.length; i++) {
