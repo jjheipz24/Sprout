@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinalCropped.png');
     let personalBackground = PIXI.Texture.from('assets/images/buildings/personalGardenWindow2.png');
-    //let background = new PIXI.Sprite(communityBackground);
     let background = new PIXI.extras.TilingSprite(communityBackground, window.innerWidth, 800);
     let banner;
 
@@ -63,14 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
     background.tileScale.y = .74;
 
     background.height = window.innerHeight - 100;
-    //background.width = window.innerWidth;
-    // background.height = window.innerHeight;
     container.addChild(background);
 
     /**************************************/
     // Global Variables
-
-    let planterBox;
 
     //six hardcoded plots
     let plot1;
@@ -229,7 +224,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         visitComm.on('pointerdown', () => {
-            //planterBox.destroy();
             createCommunityGarden();
             destroyPersonalGardenView();
             personalView = false;
@@ -322,11 +316,9 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.y = y;
 
         if (communityGardenArray[0].username === username) {
-            // plot.on('pointerdown', changeColor);
             plot.interactive = true;
             plot.buttonMode = true;
             plot.on('pointerdown', (function (e) {
-                //console.log(plot.textures[0].textureCacheIds[0]);
                 let textureName = plot.textures[0].textureCacheIds[0];
                 switch (textureName) {
                     case "brown.png":
@@ -499,6 +491,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const userCapped = username.charAt(0).toUpperCase() + username.slice(1);
 
                 let currentPlant = res.plant.plantType;
+                let currentPlantName = res.plant.plantName;
                 let currentPrompt = res.plant.prompt
 
 
