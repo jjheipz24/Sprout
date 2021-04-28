@@ -2,627 +2,627 @@
 
 "snake-plant_01.png":
 {
-	"frame": {"x":2755,"y":2718,"w":442,"h":457},
-	"rotated": true,
+	"frame": {"x":2268,"y":1378,"w":442,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":40,"y":23,"w":442,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":24,"y":9,"w":442,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_02.png":
 {
-	"frame": {"x":2755,"y":2273,"w":443,"h":457},
+	"frame": {"x":1,"y":3229,"w":443,"h":457},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":40,"y":23,"w":443,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":24,"y":9,"w":443,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_03.png":
 {
-	"frame": {"x":3215,"y":460,"w":446,"h":457},
+	"frame": {"x":1821,"y":1,"w":446,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":38,"y":23,"w":446,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":22,"y":9,"w":446,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_04.png":
 {
-	"frame": {"x":3215,"y":919,"w":446,"h":457},
+	"frame": {"x":1820,"y":919,"w":446,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":38,"y":23,"w":446,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":22,"y":9,"w":446,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_05.png":
 {
-	"frame": {"x":3214,"y":1837,"w":447,"h":457},
+	"frame": {"x":1370,"y":1837,"w":447,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":38,"y":23,"w":447,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":22,"y":9,"w":447,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_06.png":
 {
-	"frame": {"x":2756,"y":1370,"w":450,"h":457},
-	"rotated": true,
+	"frame": {"x":918,"y":1379,"w":450,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":36,"y":23,"w":450,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":9,"w":450,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_07.png":
 {
-	"frame": {"x":2297,"y":916,"w":451,"h":457},
-	"rotated": true,
+	"frame": {"x":915,"y":2756,"w":451,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":36,"y":23,"w":451,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":9,"w":451,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_08.png":
 {
-	"frame": {"x":2756,"y":460,"w":453,"h":457},
-	"rotated": true,
+	"frame": {"x":460,"y":2756,"w":453,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":35,"y":23,"w":453,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":19,"y":9,"w":453,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_09.png":
 {
-	"frame": {"x":1838,"y":460,"w":455,"h":457},
-	"rotated": true,
+	"frame": {"x":460,"y":1838,"w":455,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":34,"y":23,"w":455,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":18,"y":9,"w":455,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_10.png":
 {
-	"frame": {"x":1379,"y":460,"w":456,"h":457},
-	"rotated": true,
+	"frame": {"x":460,"y":1379,"w":456,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":33,"y":23,"w":456,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":17,"y":9,"w":456,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_11.png":
 {
-	"frame": {"x":2769,"y":1,"w":458,"h":457},
-	"rotated": false,
+	"frame": {"x":1,"y":2769,"w":458,"h":457},
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":458,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":458,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_12.png":
 {
-	"frame": {"x":1,"y":460,"w":458,"h":457},
-	"rotated": false,
+	"frame": {"x":460,"y":1,"w":458,"h":457},
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":458,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":458,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_13.png":
 {
-	"frame": {"x":925,"y":1,"w":459,"h":457},
-	"rotated": false,
+	"frame": {"x":1,"y":925,"w":459,"h":457},
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":23,"w":459,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":9,"w":459,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_14.png":
 {
-	"frame": {"x":1386,"y":1,"w":459,"h":457},
-	"rotated": false,
+	"frame": {"x":1,"y":1386,"w":459,"h":457},
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":23,"w":459,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":9,"w":459,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_15.png":
 {
 	"frame": {"x":1,"y":1,"w":460,"h":457},
-	"rotated": false,
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":30,"y":23,"w":460,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":14,"y":9,"w":460,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_16.png":
 {
-	"frame": {"x":463,"y":1,"w":460,"h":457},
-	"rotated": false,
+	"frame": {"x":1,"y":463,"w":460,"h":457},
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":30,"y":23,"w":460,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":14,"y":9,"w":460,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_17.png":
 {
-	"frame": {"x":1847,"y":1,"w":459,"h":457},
-	"rotated": false,
+	"frame": {"x":1,"y":1847,"w":459,"h":457},
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":30,"y":23,"w":459,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":14,"y":9,"w":459,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_18.png":
 {
-	"frame": {"x":2308,"y":1,"w":459,"h":457},
-	"rotated": false,
+	"frame": {"x":1,"y":2308,"w":459,"h":457},
+	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":30,"y":23,"w":459,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":14,"y":9,"w":459,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_19.png":
 {
-	"frame": {"x":461,"y":460,"w":457,"h":457},
+	"frame": {"x":460,"y":461,"w":457,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":23,"w":457,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":9,"w":457,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_20.png":
 {
-	"frame": {"x":920,"y":460,"w":457,"h":457},
+	"frame": {"x":460,"y":920,"w":457,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":23,"w":457,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":9,"w":457,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_21.png":
 {
-	"frame": {"x":2297,"y":460,"w":454,"h":457},
-	"rotated": true,
+	"frame": {"x":460,"y":2297,"w":454,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":454,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":454,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_22.png":
 {
-	"frame": {"x":2756,"y":915,"w":453,"h":457},
-	"rotated": true,
+	"frame": {"x":460,"y":3215,"w":453,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":453,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":453,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_23.png":
 {
-	"frame": {"x":1838,"y":917,"w":451,"h":457},
-	"rotated": true,
+	"frame": {"x":916,"y":2297,"w":451,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":33,"y":23,"w":451,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":17,"y":9,"w":451,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_24.png":
 {
-	"frame": {"x":1837,"y":1370,"w":449,"h":457},
-	"rotated": true,
+	"frame": {"x":1820,"y":2756,"w":449,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":34,"y":23,"w":449,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":18,"y":9,"w":449,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_25.png":
 {
-	"frame": {"x":1,"y":1822,"w":447,"h":457},
-	"rotated": true,
+	"frame": {"x":1819,"y":1837,"w":447,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":35,"y":23,"w":447,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":19,"y":9,"w":447,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_26.png":
 {
-	"frame": {"x":1837,"y":2272,"w":444,"h":457},
-	"rotated": true,
+	"frame": {"x":2269,"y":460,"w":444,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":36,"y":23,"w":444,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":9,"w":444,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_27.png":
 {
-	"frame": {"x":2296,"y":2273,"w":444,"h":457},
-	"rotated": true,
+	"frame": {"x":2715,"y":460,"w":444,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":36,"y":23,"w":444,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":9,"w":444,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_28.png":
 {
-	"frame": {"x":1,"y":2271,"w":441,"h":457},
-	"rotated": true,
+	"frame": {"x":2270,"y":2296,"w":441,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":38,"y":23,"w":441,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":22,"y":9,"w":441,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_29.png":
 {
-	"frame": {"x":1,"y":2714,"w":438,"h":457},
-	"rotated": true,
+	"frame": {"x":2716,"y":919,"w":438,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":39,"y":23,"w":438,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":23,"y":9,"w":438,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_30.png":
 {
-	"frame": {"x":919,"y":2718,"w":437,"h":457},
-	"rotated": true,
+	"frame": {"x":2271,"y":2755,"w":437,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":39,"y":23,"w":437,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":23,"y":9,"w":437,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_31.png":
 {
-	"frame": {"x":460,"y":3154,"w":435,"h":457},
-	"rotated": true,
+	"frame": {"x":2710,"y":2755,"w":435,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":40,"y":23,"w":435,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":24,"y":9,"w":435,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_32.png":
 {
-	"frame": {"x":1837,"y":2718,"w":434,"h":457},
-	"rotated": true,
+	"frame": {"x":2710,"y":3214,"w":434,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":41,"y":23,"w":434,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":25,"y":9,"w":434,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_33.png":
 {
-	"frame": {"x":3229,"y":1,"w":432,"h":457},
+	"frame": {"x":3147,"y":2755,"w":432,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":42,"y":23,"w":432,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":26,"y":9,"w":432,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_34.png":
 {
-	"frame": {"x":1378,"y":3155,"w":430,"h":457},
-	"rotated": true,
+	"frame": {"x":3581,"y":2755,"w":430,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":43,"y":23,"w":430,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":27,"y":9,"w":430,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_35.png":
 {
-	"frame": {"x":919,"y":3157,"w":430,"h":457},
-	"rotated": true,
+	"frame": {"x":3582,"y":3214,"w":430,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":43,"y":23,"w":430,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":27,"y":9,"w":430,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_36.png":
 {
-	"frame": {"x":919,"y":3589,"w":429,"h":457},
-	"rotated": true,
+	"frame": {"x":3155,"y":1378,"w":429,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":44,"y":23,"w":429,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":28,"y":9,"w":429,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_37.png":
 {
-	"frame": {"x":1,"y":3593,"w":428,"h":457},
+	"frame": {"x":3584,"y":1837,"w":428,"h":457},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":45,"y":23,"w":428,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":29,"y":9,"w":428,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_38.png":
 {
-	"frame": {"x":2755,"y":3162,"w":427,"h":457},
-	"rotated": true,
+	"frame": {"x":3584,"y":2267,"w":427,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":46,"y":23,"w":427,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":30,"y":9,"w":427,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_39.png":
 {
-	"frame": {"x":2296,"y":3585,"w":426,"h":457},
-	"rotated": true,
+	"frame": {"x":4013,"y":2267,"w":426,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":47,"y":23,"w":426,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":31,"y":9,"w":426,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_40.png":
 {
-	"frame": {"x":2755,"y":3591,"w":425,"h":457},
-	"rotated": true,
+	"frame": {"x":4014,"y":3185,"w":425,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":48,"y":23,"w":425,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":32,"y":9,"w":425,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_41.png":
 {
-	"frame": {"x":2296,"y":4013,"w":425,"h":457},
-	"rotated": true,
+	"frame": {"x":3161,"y":460,"w":425,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":48,"y":23,"w":425,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":32,"y":9,"w":425,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_42.png":
 {
-	"frame": {"x":919,"y":4020,"w":424,"h":457},
-	"rotated": true,
+	"frame": {"x":4014,"y":919,"w":424,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":49,"y":23,"w":424,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":9,"w":424,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_43.png":
 {
-	"frame": {"x":1837,"y":4016,"w":425,"h":457},
-	"rotated": true,
+	"frame": {"x":3587,"y":919,"w":425,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":49,"y":23,"w":425,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":9,"w":425,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_44.png":
 {
-	"frame": {"x":460,"y":4022,"w":424,"h":457},
-	"rotated": true,
+	"frame": {"x":3589,"y":1,"w":424,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":50,"y":23,"w":424,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":9,"w":424,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_45.png":
 {
-	"frame": {"x":3214,"y":3673,"w":424,"h":457},
+	"frame": {"x":4015,"y":1,"w":424,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":51,"y":23,"w":424,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":35,"y":9,"w":424,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_46.png":
 {
-	"frame": {"x":2755,"y":4018,"w":424,"h":457},
-	"rotated": true,
+	"frame": {"x":4015,"y":460,"w":424,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":51,"y":23,"w":424,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":35,"y":9,"w":424,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_47.png":
 {
-	"frame": {"x":1378,"y":4019,"w":425,"h":457},
-	"rotated": true,
+	"frame": {"x":3588,"y":460,"w":425,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":51,"y":23,"w":425,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":35,"y":9,"w":425,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_48.png":
 {
-	"frame": {"x":1837,"y":3588,"w":426,"h":457},
-	"rotated": true,
+	"frame": {"x":4013,"y":2726,"w":426,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":51,"y":23,"w":426,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":35,"y":9,"w":426,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_49.png":
 {
-	"frame": {"x":3214,"y":3214,"w":426,"h":457},
+	"frame": {"x":3161,"y":1,"w":426,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":51,"y":23,"w":426,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":35,"y":9,"w":426,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_50.png":
 {
-	"frame": {"x":2296,"y":3155,"w":428,"h":457},
-	"rotated": true,
+	"frame": {"x":3586,"y":1378,"w":428,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":50,"y":23,"w":428,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":9,"w":428,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_51.png":
 {
-	"frame": {"x":460,"y":3591,"w":429,"h":457},
-	"rotated": true,
+	"frame": {"x":3156,"y":919,"w":429,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":49,"y":23,"w":429,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":9,"w":429,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_52.png":
 {
-	"frame": {"x":1378,"y":3587,"w":430,"h":457},
-	"rotated": true,
+	"frame": {"x":3152,"y":1837,"w":430,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":49,"y":23,"w":430,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":9,"w":430,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_53.png":
 {
-	"frame": {"x":1837,"y":3154,"w":432,"h":457},
-	"rotated": true,
+	"frame": {"x":3150,"y":2296,"w":432,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":48,"y":23,"w":432,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":32,"y":9,"w":432,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_54.png":
 {
-	"frame": {"x":2296,"y":2719,"w":434,"h":457},
-	"rotated": true,
+	"frame": {"x":3146,"y":3214,"w":434,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":47,"y":23,"w":434,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":31,"y":9,"w":434,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_55.png":
 {
-	"frame": {"x":1378,"y":2718,"w":435,"h":457},
-	"rotated": true,
+	"frame": {"x":2713,"y":2296,"w":435,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":46,"y":23,"w":435,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":30,"y":9,"w":435,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_56.png":
 {
-	"frame": {"x":1,"y":3154,"w":437,"h":457},
-	"rotated": true,
+	"frame": {"x":2271,"y":3214,"w":437,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":45,"y":23,"w":437,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":29,"y":9,"w":437,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_57.png":
 {
-	"frame": {"x":460,"y":2714,"w":438,"h":457},
-	"rotated": true,
+	"frame": {"x":2712,"y":1837,"w":438,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":44,"y":23,"w":438,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":28,"y":9,"w":438,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_58.png":
 {
-	"frame": {"x":460,"y":2271,"w":441,"h":457},
-	"rotated": true,
+	"frame": {"x":2712,"y":1378,"w":441,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":43,"y":23,"w":441,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":27,"y":9,"w":441,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_59.png":
 {
-	"frame": {"x":3214,"y":2755,"w":442,"h":457},
+	"frame": {"x":2268,"y":1837,"w":442,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":42,"y":23,"w":442,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":26,"y":9,"w":442,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_60.png":
 {
-	"frame": {"x":3214,"y":2296,"w":443,"h":457},
+	"frame": {"x":2716,"y":1,"w":443,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":41,"y":23,"w":443,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":25,"y":9,"w":443,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_61.png":
 {
-	"frame": {"x":1378,"y":2271,"w":445,"h":457},
-	"rotated": true,
+	"frame": {"x":2269,"y":1,"w":445,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":40,"y":23,"w":445,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":24,"y":9,"w":445,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_62.png":
 {
-	"frame": {"x":919,"y":1821,"w":447,"h":457},
-	"rotated": true,
+	"frame": {"x":1821,"y":2296,"w":447,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":39,"y":23,"w":447,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":23,"y":9,"w":447,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_63.png":
 {
-	"frame": {"x":460,"y":1371,"w":448,"h":457},
-	"rotated": true,
+	"frame": {"x":1370,"y":460,"w":448,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":38,"y":23,"w":448,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":22,"y":9,"w":448,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_64.png":
 {
-	"frame": {"x":1837,"y":1821,"w":449,"h":457},
-	"rotated": true,
+	"frame": {"x":919,"y":1,"w":449,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":37,"y":23,"w":449,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":21,"y":9,"w":449,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_65.png":
 {
-	"frame": {"x":1379,"y":918,"w":450,"h":457},
-	"rotated": true,
+	"frame": {"x":915,"y":3215,"w":450,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":36,"y":23,"w":450,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":9,"w":450,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_66.png":
 {
-	"frame": {"x":2296,"y":1822,"w":449,"h":457},
-	"rotated": true,
+	"frame": {"x":919,"y":460,"w":449,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":36,"y":23,"w":449,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":9,"w":449,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_67.png":
 {
-	"frame": {"x":2297,"y":1369,"w":451,"h":457},
-	"rotated": true,
+	"frame": {"x":917,"y":1838,"w":451,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":35,"y":23,"w":451,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":19,"y":9,"w":451,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_68.png":
 {
-	"frame": {"x":1,"y":919,"w":450,"h":457},
-	"rotated": true,
+	"frame": {"x":1367,"y":3215,"w":450,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":35,"y":23,"w":450,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":19,"y":9,"w":450,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_69.png":
 {
-	"frame": {"x":460,"y":919,"w":450,"h":457},
-	"rotated": true,
+	"frame": {"x":1368,"y":2756,"w":450,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":34,"y":23,"w":450,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":18,"y":9,"w":450,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_70.png":
 {
-	"frame": {"x":919,"y":919,"w":450,"h":457},
-	"rotated": true,
+	"frame": {"x":1819,"y":3215,"w":450,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":34,"y":23,"w":450,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":18,"y":9,"w":450,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_71.png":
 {
-	"frame": {"x":2755,"y":1822,"w":449,"h":457},
-	"rotated": true,
+	"frame": {"x":919,"y":919,"w":449,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":33,"y":23,"w":449,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":17,"y":9,"w":449,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_72.png":
 {
-	"frame": {"x":1378,"y":1370,"w":450,"h":457},
-	"rotated": true,
+	"frame": {"x":1369,"y":2297,"w":450,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":450,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":450,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_73.png":
 {
-	"frame": {"x":1,"y":1371,"w":449,"h":457},
-	"rotated": true,
+	"frame": {"x":1370,"y":1,"w":449,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":449,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":449,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_74.png":
 {
-	"frame": {"x":919,"y":1371,"w":448,"h":457},
-	"rotated": true,
+	"frame": {"x":1370,"y":919,"w":448,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":448,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":448,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_75.png":
 {
-	"frame": {"x":1378,"y":1822,"w":447,"h":457},
-	"rotated": true,
+	"frame": {"x":1820,"y":460,"w":447,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":32,"y":23,"w":447,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":9,"w":447,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_76.png":
 {
-	"frame": {"x":460,"y":1821,"w":448,"h":457},
-	"rotated": true,
+	"frame": {"x":1370,"y":1378,"w":448,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":23,"w":448,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":9,"w":448,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_77.png":
 {
-	"frame": {"x":3215,"y":1378,"w":446,"h":457},
+	"frame": {"x":1820,"y":1378,"w":446,"h":457},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":23,"w":446,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":9,"w":446,"h":457},
+	"sourceSize": {"w":480,"h":473}
 },
 "snake-plant_78.png":
 {
-	"frame": {"x":919,"y":2270,"w":446,"h":457},
-	"rotated": true,
+	"frame": {"x":2268,"y":919,"w":446,"h":457},
+	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":23,"w":446,"h":457},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":9,"w":446,"h":457},
+	"sourceSize": {"w":480,"h":473}
 }},
 "animations": {
 	"snake-plant": ["snake-plant_01.png","snake-plant_02.png","snake-plant_03.png","snake-plant_04.png","snake-plant_05.png","snake-plant_06.png","snake-plant_07.png","snake-plant_08.png","snake-plant_09.png","snake-plant_10.png","snake-plant_11.png","snake-plant_12.png","snake-plant_13.png","snake-plant_14.png","snake-plant_15.png","snake-plant_16.png","snake-plant_17.png","snake-plant_18.png","snake-plant_19.png","snake-plant_20.png","snake-plant_21.png","snake-plant_22.png","snake-plant_23.png","snake-plant_24.png","snake-plant_25.png","snake-plant_26.png","snake-plant_27.png","snake-plant_28.png","snake-plant_29.png","snake-plant_30.png","snake-plant_31.png","snake-plant_32.png","snake-plant_33.png","snake-plant_34.png","snake-plant_35.png","snake-plant_36.png","snake-plant_37.png","snake-plant_38.png","snake-plant_39.png","snake-plant_40.png","snake-plant_41.png","snake-plant_42.png","snake-plant_43.png","snake-plant_44.png","snake-plant_45.png","snake-plant_46.png","snake-plant_47.png","snake-plant_48.png","snake-plant_49.png","snake-plant_50.png","snake-plant_51.png","snake-plant_52.png","snake-plant_53.png","snake-plant_54.png","snake-plant_55.png","snake-plant_56.png","snake-plant_57.png","snake-plant_58.png","snake-plant_59.png","snake-plant_60.png","snake-plant_61.png","snake-plant_62.png","snake-plant_63.png","snake-plant_64.png","snake-plant_65.png","snake-plant_66.png","snake-plant_67.png","snake-plant_68.png","snake-plant_69.png","snake-plant_70.png","snake-plant_71.png","snake-plant_72.png","snake-plant_73.png","snake-plant_74.png","snake-plant_75.png","snake-plant_76.png","snake-plant_77.png","snake-plant_78.png"]
@@ -632,8 +632,8 @@
 	"version": "1.0",
 	"image": "snake.png",
 	"format": "RGBA8888",
-	"size": {"w":3662,"h":4447},
+	"size": {"w":4440,"h":3673},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:cffdc9eee8cab0c9e72bb63c70c9e55d:107367f6728f93beaf3cd5483cffde9a:2a194967d71da88bdc69ff162da0bdf1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:23570102e8d438292e2dd0985f67e3a3:d867523f9d0d180e548856e4f2ed2cf7:2a194967d71da88bdc69ff162da0bdf1$"
 }
 }

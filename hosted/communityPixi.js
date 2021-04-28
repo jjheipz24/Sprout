@@ -326,7 +326,6 @@ document.addEventListener('DOMContentLoaded', function () {
             plot.interactive = true;
             plot.buttonMode = true;
             plot.on('pointerdown', (function (e) {
-                console.log(plot.textures[0].textureCacheIds[0]);
                 let textureName = plot.textures[0].textureCacheIds[0];
                 switch (textureName) {
                     case "brown.png":

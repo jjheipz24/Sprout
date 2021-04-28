@@ -5,496 +5,496 @@
 	"frame": {"x":2214,"y":276,"w":278,"h":453},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":106,"y":34,"w":278,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":10,"y":18,"w":278,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_01.png":
 {
 	"frame": {"x":2669,"y":551,"w":278,"h":453},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":106,"y":34,"w":278,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":10,"y":18,"w":278,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_02.png":
 {
 	"frame": {"x":2214,"y":556,"w":278,"h":453},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":107,"y":34,"w":278,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":11,"y":18,"w":278,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_03.png":
 {
 	"frame": {"x":3036,"y":1105,"w":278,"h":453},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":107,"y":34,"w":278,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":11,"y":18,"w":278,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_04.png":
 {
 	"frame": {"x":3596,"y":1105,"w":277,"h":453},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":108,"y":34,"w":277,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":12,"y":18,"w":277,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_05.png":
 {
 	"frame": {"x":280,"y":913,"w":276,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":109,"y":33,"w":276,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":13,"y":17,"w":276,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_06.png":
 {
 	"frame": {"x":1,"y":1,"w":277,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":109,"y":33,"w":277,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":13,"y":17,"w":277,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_07.png":
 {
 	"frame": {"x":1,"y":457,"w":277,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":110,"y":33,"w":277,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":14,"y":17,"w":277,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_08.png":
 {
 	"frame": {"x":1,"y":913,"w":277,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":111,"y":33,"w":277,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":17,"w":277,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_09.png":
 {
 	"frame": {"x":280,"y":1369,"w":276,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":112,"y":33,"w":276,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":17,"w":276,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_10.png":
 {
 	"frame": {"x":559,"y":1,"w":275,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":114,"y":33,"w":275,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":18,"y":17,"w":275,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_11.png":
 {
 	"frame": {"x":559,"y":457,"w":275,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":115,"y":33,"w":275,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":19,"y":17,"w":275,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_12.png":
 {
 	"frame": {"x":836,"y":1,"w":275,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":116,"y":33,"w":275,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":17,"w":275,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_13.png":
 {
 	"frame": {"x":1,"y":1825,"w":274,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":118,"y":33,"w":274,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":22,"y":17,"w":274,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_14.png":
 {
 	"frame": {"x":457,"y":1825,"w":274,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":119,"y":33,"w":274,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":23,"y":17,"w":274,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_15.png":
 {
 	"frame": {"x":1113,"y":1369,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":121,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":25,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_16.png":
 {
 	"frame": {"x":1388,"y":1369,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":122,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":26,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_17.png":
 {
 	"frame": {"x":2763,"y":911,"w":271,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":124,"y":33,"w":271,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":28,"y":17,"w":271,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_18.png":
 {
 	"frame": {"x":2488,"y":1367,"w":272,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":124,"y":33,"w":272,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":28,"y":17,"w":272,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_19.png":
 {
 	"frame": {"x":2489,"y":911,"w":272,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":125,"y":33,"w":272,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":29,"y":17,"w":272,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_20.png":
 {
 	"frame": {"x":1389,"y":1,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":125,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":29,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_21.png":
 {
 	"frame": {"x":1389,"y":457,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":126,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":30,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_22.png":
 {
 	"frame": {"x":1389,"y":913,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":127,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":31,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_23.png":
 {
 	"frame": {"x":1663,"y":1369,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":128,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":32,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_24.png":
 {
 	"frame": {"x":1664,"y":1,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":128,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":32,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_25.png":
 {
 	"frame": {"x":1664,"y":457,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":129,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_26.png":
 {
 	"frame": {"x":1664,"y":913,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":129,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_27.png":
 {
 	"frame": {"x":913,"y":1825,"w":274,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":129,"y":33,"w":274,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":17,"w":274,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_28.png":
 {
 	"frame": {"x":1938,"y":1369,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":130,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_29.png":
 {
 	"frame": {"x":1369,"y":1825,"w":274,"h":453},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":130,"y":34,"w":274,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":18,"w":274,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_30.png":
 {
 	"frame": {"x":1824,"y":1825,"w":274,"h":453},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":130,"y":34,"w":274,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":18,"w":274,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_31.png":
 {
 	"frame": {"x":2279,"y":1825,"w":274,"h":453},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":130,"y":34,"w":274,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":18,"w":274,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_32.png":
 {
 	"frame": {"x":3646,"y":1,"w":274,"h":453},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":130,"y":34,"w":274,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":18,"w":274,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_33.png":
 {
 	"frame": {"x":3646,"y":456,"w":274,"h":453},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":130,"y":34,"w":274,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":18,"w":274,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_34.png":
 {
 	"frame": {"x":1939,"y":1,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":130,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":34,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_35.png":
 {
 	"frame": {"x":1113,"y":1,"w":274,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":129,"y":33,"w":274,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":17,"w":274,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_36.png":
 {
 	"frame": {"x":1939,"y":457,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":129,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_37.png":
 {
 	"frame": {"x":1939,"y":913,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":129,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":33,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_38.png":
 {
 	"frame": {"x":2213,"y":1369,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":128,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":32,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_39.png":
 {
 	"frame": {"x":2734,"y":1,"w":273,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":128,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":32,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_40.png":
 {
 	"frame": {"x":2214,"y":1,"w":273,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":127,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":31,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_41.png":
 {
 	"frame": {"x":3190,"y":1,"w":273,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":126,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":30,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_42.png":
 {
 	"frame": {"x":2734,"y":276,"w":273,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":125,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":29,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_43.png":
 {
 	"frame": {"x":2734,"y":1823,"w":272,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":125,"y":33,"w":272,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":29,"y":17,"w":272,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_44.png":
 {
 	"frame": {"x":2762,"y":1367,"w":272,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":124,"y":33,"w":272,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":28,"y":17,"w":272,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_45.png":
 {
 	"frame": {"x":3190,"y":551,"w":271,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":124,"y":33,"w":271,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":28,"y":17,"w":271,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_46.png":
 {
 	"frame": {"x":3190,"y":276,"w":273,"h":454},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":122,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":26,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_47.png":
 {
 	"frame": {"x":2214,"y":911,"w":273,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":121,"y":33,"w":273,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":25,"y":17,"w":273,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_48.png":
 {
 	"frame": {"x":1113,"y":457,"w":274,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":119,"y":33,"w":274,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":23,"y":17,"w":274,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_49.png":
 {
 	"frame": {"x":1113,"y":913,"w":274,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":118,"y":33,"w":274,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":22,"y":17,"w":274,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_50.png":
 {
 	"frame": {"x":836,"y":457,"w":275,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":116,"y":33,"w":275,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":20,"y":17,"w":275,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_51.png":
 {
 	"frame": {"x":836,"y":913,"w":275,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":115,"y":33,"w":275,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":19,"y":17,"w":275,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_52.png":
 {
 	"frame": {"x":836,"y":1369,"w":275,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":114,"y":33,"w":275,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":18,"y":17,"w":275,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_53.png":
 {
 	"frame": {"x":558,"y":913,"w":276,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":112,"y":33,"w":276,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":16,"y":17,"w":276,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_54.png":
 {
 	"frame": {"x":1,"y":1369,"w":277,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":111,"y":33,"w":277,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":15,"y":17,"w":277,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_55.png":
 {
 	"frame": {"x":280,"y":1,"w":277,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":110,"y":33,"w":277,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":14,"y":17,"w":277,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_56.png":
 {
 	"frame": {"x":280,"y":457,"w":277,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":109,"y":33,"w":277,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":13,"y":17,"w":277,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_57.png":
 {
 	"frame": {"x":558,"y":1369,"w":276,"h":454},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":109,"y":33,"w":276,"h":454},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":13,"y":17,"w":276,"h":454},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_58.png":
 {
 	"frame": {"x":3470,"y":1560,"w":277,"h":453},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":108,"y":34,"w":277,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":12,"y":18,"w":277,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_59.png":
 {
 	"frame": {"x":3190,"y":1560,"w":278,"h":453},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":107,"y":34,"w":278,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":11,"y":18,"w":278,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_60.png":
 {
 	"frame": {"x":3190,"y":824,"w":279,"h":453},
 	"rotated": true,
 	"trimmed": true,
-	"spriteSourceSize": {"x":106,"y":34,"w":279,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":10,"y":18,"w":279,"h":453},
+	"sourceSize": {"w":308,"h":484}
 },
 "Fiddle Leaf_61.png":
 {
 	"frame": {"x":3316,"y":1105,"w":278,"h":453},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":106,"y":34,"w":278,"h":453},
-	"sourceSize": {"w":520,"h":520}
+	"spriteSourceSize": {"x":10,"y":18,"w":278,"h":453},
+	"sourceSize": {"w":308,"h":484}
 }},
 "animations": {
 	"Fiddle Leaf": ["Fiddle Leaf_00.png","Fiddle Leaf_01.png","Fiddle Leaf_02.png","Fiddle Leaf_03.png","Fiddle Leaf_04.png","Fiddle Leaf_05.png","Fiddle Leaf_06.png","Fiddle Leaf_07.png","Fiddle Leaf_08.png","Fiddle Leaf_09.png","Fiddle Leaf_10.png","Fiddle Leaf_11.png","Fiddle Leaf_12.png","Fiddle Leaf_13.png","Fiddle Leaf_14.png","Fiddle Leaf_15.png","Fiddle Leaf_16.png","Fiddle Leaf_17.png","Fiddle Leaf_18.png","Fiddle Leaf_19.png","Fiddle Leaf_20.png","Fiddle Leaf_21.png","Fiddle Leaf_22.png","Fiddle Leaf_23.png","Fiddle Leaf_24.png","Fiddle Leaf_25.png","Fiddle Leaf_26.png","Fiddle Leaf_27.png","Fiddle Leaf_28.png","Fiddle Leaf_29.png","Fiddle Leaf_30.png","Fiddle Leaf_31.png","Fiddle Leaf_32.png","Fiddle Leaf_33.png","Fiddle Leaf_34.png","Fiddle Leaf_35.png","Fiddle Leaf_36.png","Fiddle Leaf_37.png","Fiddle Leaf_38.png","Fiddle Leaf_39.png","Fiddle Leaf_40.png","Fiddle Leaf_41.png","Fiddle Leaf_42.png","Fiddle Leaf_43.png","Fiddle Leaf_44.png","Fiddle Leaf_45.png","Fiddle Leaf_46.png","Fiddle Leaf_47.png","Fiddle Leaf_48.png","Fiddle Leaf_49.png","Fiddle Leaf_50.png","Fiddle Leaf_51.png","Fiddle Leaf_52.png","Fiddle Leaf_53.png","Fiddle Leaf_54.png","Fiddle Leaf_55.png","Fiddle Leaf_56.png","Fiddle Leaf_57.png","Fiddle Leaf_58.png","Fiddle Leaf_59.png","Fiddle Leaf_60.png","Fiddle Leaf_61.png"]
@@ -506,6 +506,6 @@
 	"format": "RGBA8888",
 	"size": {"w":3921,"h":2100},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:cf8d7b006e657dbd1ab8f983003a25ed:b91d76909632ae72e418a6d719d2aaeb:a11b999c42518b0d9660b9e9a1d616bd$"
+	"smartupdate": "$TexturePacker:SmartUpdate:a0559e77592e2b34a3bf839da0d1bc85:2ca4af9329dee41a7f2320935e8d3103:dafd303ea12193f690ebb313a315f955$"
 }
 }
