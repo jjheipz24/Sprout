@@ -1,0 +1,23 @@
+{"frames": {
+
+"peace-lily-seeds.png":
+{
+	"frame": {"x":0,"y":0,"w":71,"h":29},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":71,"h":29},
+	"sourceSize": {"w":71,"h":29}
+}},
+"animations": {
+	"peace-lily-seeds": ["peace-lily-seeds.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "peace-lily-seeds.png",
+	"format": "RGBA8888",
+	"size": {"w":71,"h":29},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:18c72c6a9d27169dd342e8f19de912e6:bef57850181d6e7890831ca9a6f7082a:f24b1d08d687763ac34abbd1625df4d0$"
+}
+}
