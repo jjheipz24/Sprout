@@ -16,12 +16,14 @@ loader
     .add("assets/images/sprite-sheets/cactus-sprout.json")
     .add("assets/images/sprite-sheets/aloe.json")
     .add("assets/images/sprite-sheets/aloe-sprout.json")
+    .add("assets/images/sprite-sheets/aloe-seeds.json")
     .add("assets/images/sprite-sheets/brown.json")
     .load(init);
 
 /*************Adding all of the plants to the collection *********/
-// [0] -- sprout stage
-// [1] -- full growth
+// [0] -- seed stage
+// [1] -- sprout stage
+// [2] -- full growth
 
 function init() {
     console.log("sprite sheets loaded!");
@@ -30,9 +32,11 @@ function init() {
 
     let aloeSheet = PIXI.Loader.shared.resources["assets/images/sprite-sheets/aloe.json"] !== undefined ? PIXI.Loader.shared.resources["assets/images/sprite-sheets/aloe.json"].spritesheet : "no sheet";
     let aloeSproutSheet = PIXI.Loader.shared.resources["assets/images/sprite-sheets/aloe-sprout.json"] !== undefined ? PIXI.Loader.shared.resources["assets/images/sprite-sheets/aloe-sprout.json"].spritesheet : "no sheet";
+    let aloeSeedSheet = PIXI.Loader.shared.resources["assets/images/sprite-sheets/aloe-seeds.json"] !== undefined ? PIXI.Loader.shared.resources["assets/images/sprite-sheets/aloe-seeds.json"].spritesheet : "no sheet";
     plantCollection["aloe"] = [];
-    plantCollection["aloe"][0] = aloeSproutSheet !== "no sheet" ? aloeSproutSheet.animations["aloe-sprout"] : [PIXI.Texture.from("assets/images/plants/aloe-sprout.png")];
-    plantCollection["aloe"][1] = aloeSheet !== "no sheet" ? aloeSheet.animations["Aloe"] : [PIXI.Texture.from("assets/images/plants/aloe.png")];
+    plantCollection["aloe"][0] = aloeSeedSheet !== "no sheet" ? aloeSeedSheet.animations["aloe-seeds"] : [PIXI.Texture.from("assets/images/plants/seeds.png")];
+    plantCollection["aloe"][1] = aloeSproutSheet !== "no sheet" ? aloeSproutSheet.animations["aloe-sprout"] : [PIXI.Texture.from("assets/images/plants/aloe-sprout.png")];
+    plantCollection["aloe"][2] = aloeSheet !== "no sheet" ? aloeSheet.animations["Aloe"] : [PIXI.Texture.from("assets/images/plants/aloe.png")];
 
     let fiddleSheet = PIXI.Loader.shared.resources["assets/images/sprite-sheets/fiddle-leaf.json"] !== undefined ? PIXI.Loader.shared.resources["assets/images/sprite-sheets/fiddle-leaf.json"].spritesheet : "no sheet";
     let fiddleSproutSheet = PIXI.Loader.shared.resources["assets/images/sprite-sheets/fiddle-sprout.json"] !== undefined ? PIXI.Loader.shared.resources["assets/images/sprite-sheets/fiddle-sprout.json"].spritesheet : "no sheet";

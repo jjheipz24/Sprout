@@ -192,12 +192,15 @@ const addMessage = async (request, response) => {
   //   plant.growthStage = 0;
   // }
   // else 
-  if(plant.messages.length === 1){
+  if(plant.messages.length === 2){
     plant.messages.forEach(message => {
       if(message.username !== req.body.username){
-        plant.growthStage = 1
+        plant.growthStage = 2;
       }
     })
+  }
+  else{
+    plant.growthStage = 1;
   }
 
   const savePromise = user.save();

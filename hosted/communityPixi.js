@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             commContainer.addChild(communityGardenArray[i].sprite);
 
-            if(communityGardenArray[i].personal) {
+            if (communityGardenArray[i].personal) {
                 const bannerTex = PIXI.Texture.from('assets/images/buildings/banner.png');
                 banner = new PIXI.Sprite(bannerTex);
 
@@ -326,11 +326,21 @@ document.addEventListener('DOMContentLoaded', function () {
             plot.interactive = true;
             plot.buttonMode = true;
             plot.on('pointerdown', (function (e) {
+                //console.log(plot.textures[0].textureCacheIds[0]);
                 let textureName = plot.textures[0].textureCacheIds[0];
                 switch (textureName) {
                     case "brown.png":
                         plotSpot = e.target; //Sets selected plot to the current target
                         createSeedPackets(e, username);
+                        break;
+                    case "aloe-seeds.png":
+                    case "cactus-seeds.png":
+                    case "fiddle-seeds.png":
+                    case "jade-seeds.png":
+                    case "peace-lily-seeds.png":
+                    case "snake-seeds.png":
+                        initialPlant = true;
+                        messageModal(e, username);
                         break;
                     case "aloe-sprout.png":
                     case "cactus-sprout.png":
@@ -338,20 +348,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     case "jade-sprout.png":
                     case "peace-lily-sprout.png":
                     case "snake-sprout.png":
-                        messageModal(e, username, "placeholder", "placeholder");
+                        messageModal(e, username);
                         break;
                     default:
                         console.log("You can't add any more messages");
                 }
-
-                // if (textureName === "brown.png") {
-                //     plotSpot = e.target; //Sets selected plot to the current target
-                //     createSeedPackets(e, username);
-                // } else {
-                //     console.log(plot);
-                //     //TODO: Only open modal if the plant isn't at growth stage 1
-                //     messageModal(e, username, "placeholder", "placeholder");
-                // }
             }));
         }
     }
@@ -361,12 +362,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let plantArr = data;
         plantArr.forEach(plant => {
             if (plots[plant.location] !== undefined) {
-                //remove once sending messages is sorted out
-                let stage = plant.growthStage
-                if(plant.growthStage > 1) stage = 1;
-                //
-                plots[plant.location].textures = plantCollection[plant.plantType][stage];
-                plots[plant.location].animationSpeed = 0.3; 
+                plots[plant.location].textures = plantCollection[plant.plantType][plant.growthStage];
+                plots[plant.location].animationSpeed = 0.3;
                 plots[plant.location].play();
             }
         })
@@ -434,7 +431,6 @@ document.addEventListener('DOMContentLoaded', function () {
         packet.on('pointerdown', () => {
             initialPlant = true;
             addPlant(plotSpot, seedType, plantName, 0);
-            //messageModal(target, username, seedType, plantName);
             destroySeedPackets();
         });
     }
@@ -468,7 +464,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Use for adding a plant to a plot
     function addPlant(target, plantType, seedName, growthStage) {
-        //let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)]; //Location of where the seed is planted
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(target)]; //Location of where the seed is planted
         if (plantType === undefined) {
             console.log("No plant seeds selected");
@@ -484,16 +479,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = `plantType=${plantType}&plantName=${seedName}&location=${selectedPlot}&growthStage=${growthStage}&prompt=test`;
 
             xhr.send(formData);
-            // add something here to add the plant to the gardenData so it can appear/disappear
 
-            // gardenData.push({formData}); -- not quite right hmm
-            // console.log('in addplant', gardenData);
-            //e.stopPropagation();
         }
     }
 
 
-    function messageModal(e, username, seedType, plantName) {
+    function messageModal(e, username) {
         $('#message').show();
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)];
 
@@ -507,27 +498,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 const res = JSON.parse(this.responseText);
                 const userCapped = username.charAt(0).toUpperCase() + username.slice(1);
 
-                let currentPlant, currentPlantName, currentPrompt;
-                if (initialPlant) {
-                    currentPlant = seedType;
-                    currentPlantName = plantName
-                    currentPrompt = "none"
-                } else {
-                    currentPlant = res.plant.plantType;
-                    currentPlantName = res.plant.plantName;
-                    currentPrompt = res.plant.prompt
-                }
+                let currentPlant = res.plant.plantType;
+                let currentPrompt = res.plant.prompt
+
 
                 console.log(currentPlant);
                 // Changes image based on current plant clicked on
                 $('#modalImg').attr("src", `assets/images/profilePlants/${currentPlant}Profile.png`);
 
                 $('#messageTitle').text(`${userCapped}'s ${currentPlantName}`);
-                $('#messageLabel').text(`Let ${userCapped} know ${currentPrompt === "none" ? 'they can achieve their goals' : res.plant.prompt}`);
+                $('#messageLabel').text(`Let ${userCapped} know ${currentPrompt}`);
                 //$('#messageLabel').text(`Let ${userCapped} know they can achieve their goals`);
                 $('.saveBtn').off();
                 $('.saveBtn').on("click", function () {
-                    sendMessage(username, selectedPlot, currentPlant, currentPlantName);
+                    sendMessage(username, selectedPlot, currentPlant);
                 })
             }
         };
@@ -535,14 +519,14 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send(formData);
     }
 
-    function sendMessage(username, selectedPlot, currentPlant, plantName) {
+    function sendMessage(username, selectedPlot, currentPlant) {
         // let message = $('#messageField').val().trim();
         let message = document.querySelector('#messageField').value;
         message = message.trim();
         if (message === null || message === "") {
             console.log("Please type a message");
         } else {
-            console.log('sending message!');
+            //console.log('sending message!');
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/addMessage');
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -552,16 +536,17 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     if (initialPlant) {
-                        addPlant(plotSpot, currentPlant, plantName, 0);
-                    } else {
                         plots[selectedPlot].textures = plantCollection[currentPlant][1]; //Cheese the growing of the plant
+                    } else {
+                        plots[selectedPlot].textures = plantCollection[currentPlant][2]; //Cheese the growing of the plant
                         plots[selectedPlot].animationSpeed = 0.3;
                         plots[selectedPlot].play();
                     }
-                    
+
+                    initialPlant = false;
                     document.querySelector('#messageField').value = "";
                     $('#message').hide();
-                    
+
                 }
             };
 
