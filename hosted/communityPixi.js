@@ -176,8 +176,8 @@ document.addEventListener('DOMContentLoaded', function () {
             communityGardenArray[i].sprite.on('pointerdown', () => {
                 for (let j = 0; j < communityGardenArray.length; j++) {
                     communityGardenArray[j].sprite.destroy();
-                    banner.destroy();
                 }
+                banner.destroy();
                 createPersonalGarden(communityGardenArray[i]);
             });
 
@@ -675,6 +675,8 @@ document.addEventListener('DOMContentLoaded', function () {
             background.position.y = 100;
 
             background.height = window.innerHeight - 100;
+            banner.x = 330;
+            banner.y = 365;
 
             //communtiy plant boxes
             for (let i = 0; i < communityGardenArray.length; i++) {
