@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let personalBackground = PIXI.Texture.from('assets/images/buildings/personalGardenWindow2.png');
     //let background = new PIXI.Sprite(communityBackground);
     let background = new PIXI.extras.TilingSprite(communityBackground, window.innerWidth, 800);
+    let banner;
 
     background.anchor.x = 0;
     background.anchor.y = 0;
@@ -153,12 +154,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
             commContainer.addChild(communityGardenArray[i].sprite);
 
+            if(communityGardenArray[i].personal) {
+                const bannerTex = PIXI.Texture.from('assets/images/buildings/banner.png');
+                banner = new PIXI.Sprite(bannerTex);
+
+                banner.x = 330;
+                banner.y = 365;
+                container.addChild(banner);
+            }
+
             communityGardenArray[i].sprite.on('pointerover', () => {
                 communityGardenArray[i].sprite.texture = gardenHovered;
                 // communityGardenArray[i].aplha = .5;
                 // communityGardenArray[i].gotoAndStop(1);
             });
-
             communityGardenArray[i].sprite.on('pointerout', () => {
                 communityGardenArray[i].sprite.texture = gardenUnhovered;
                 // communityGardenArray[i].aplha = .5;
@@ -167,9 +176,11 @@ document.addEventListener('DOMContentLoaded', function () {
             communityGardenArray[i].sprite.on('pointerdown', () => {
                 for (let j = 0; j < communityGardenArray.length; j++) {
                     communityGardenArray[j].sprite.destroy();
+                    banner.destroy();
                 }
                 createPersonalGarden(communityGardenArray[i]);
             });
+
         }
     }
 
@@ -359,8 +370,12 @@ document.addEventListener('DOMContentLoaded', function () {
         let plantArr = data;
         plantArr.forEach(plant => {
             if (plots[plant.location] !== undefined) {
-                plots[plant.location].textures = plantCollection[plant.plantType][plant.growthStage];
-                plots[plant.location].animationSpeed = 0.3;
+                //remove once sending messages is sorted out
+                let stage = plant.growthStage
+                if(plant.growthStage > 1) stage = 1;
+                //
+                plots[plant.location].textures = plantCollection[plant.plantType][stage];
+                plots[plant.location].animationSpeed = 0.3; 
                 plots[plant.location].play();
             }
         })
@@ -369,13 +384,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function createSeedPackets(target, username) {
         seedPacketsVisible = true;
 
-        closeButton = new PIXI.Sprite.from('assets/images/test/pink.png');
+        closeButton = new PIXI.Sprite.from('assets/images/X.png');
         closeButton.anchor.set(0.5)
-        closeButton.scale.set(.75, .75);
         closeButton.interactive = true;
         closeButton.buttonMode = true;
-        closeButton.x = (app.screen.width / 6) - 100;
-        closeButton.y = (app.screen.height / 2) - 100;
+        closeButton.x = (app.screen.width / 6) - 10;
+        closeButton.y = (app.screen.height / 2);
 
         closeButton.on('pointerdown', () => {
             destroySeedPackets();
