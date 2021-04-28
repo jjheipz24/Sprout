@@ -253,6 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         plot1 = new PIXI.AnimatedSprite(plotTex);
         createPlot(plot1, 375, 625, garden.username);
+        plot1.zOrder = +1;
         plots["plot1"] = plot1;
 
         plot2 = new PIXI.AnimatedSprite(plotTex);
