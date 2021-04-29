@@ -1,3 +1,5 @@
+// const { forEach } = require("underscore");
+
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
     let csrf;
@@ -507,14 +509,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function pastMessagesModal(e, username) {
         $('#pastMessages').show();
-        //console.log('selected', selectedPlant);
         let selectedPlot = Object.keys(plots)[Object.values(plots).indexOf(e.target)];
-
-        // let profilePlant = selectedPlant.replace(/\d+/g, '').replace('-plant', '').replace('.png', '').replace('_', '').replace('Leaf', '')
-        //     .replace('Lilly', '').replace(' ', '').toLowerCase();
-
-        // // Changes image based on current plant clicked on
-        // $('#pastModalImg').attr("src", `assets/images/profilePlants/${profilePlant}Profile.png`);
 
         const xhr = new XMLHttpRequest();
         xhr.open('POST', '/getPlantInfo');
@@ -537,18 +532,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#pastModalImg').attr("src", `assets/images/profilePlants/${currentPlant}Profile.png`);
 
                 //$('#messageTitle').text(`${userCapped}'s ${currentPlantName}`);
-                $('#pastMessageLabel').text(
-                    `You started this ${currentPlant} plant to ${currentPrompt}. Let's see what the community has to add!`);
+               $('#pastMessageLabel').text(
+                   `You started this ${currentPlant} plant to ${currentPrompt}. Let's see what the community has to add!`);
                 
+                // adds p tags with messages 
                 messageArray.forEach(message => {
-                    $('#pastMessageBody').text(`${userCapped} said: ${message}`);
-                    console.log('loop message', message);
+                    let newMesgTag = document.createElement('p');
+                    let newMessage = document.createTextNode(`${userCapped} said: ${message}`);
+                    newMesgTag.appendChild(newMessage);
+                    $('#pastMessageBody').append(newMesgTag);
+                });      
+
+                //removes p tags after closing
+                $('#pastClose').on('click', function() {
+                    let ptagArray = $('#pastMessageBody')[0].childNodes;
+                    ptagArray.forEach(pTag => {
+                        pTag.remove();
+                    });
                 });
+
             }
         };
         const formData = `location=${selectedPlot}&username=${username}`;
         xhr.send(formData);
-
     }
 
 

@@ -197,6 +197,8 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "handleClick",
     value: function handleClick() {
+      //console.log('in handle click', this.$mesgDiv);
+      //this.$mesgDiv.children;
       this.$el.hide();
     }
   }, {
@@ -219,6 +221,7 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         className: "modal-content"
       }, /*#__PURE__*/React.createElement("span", {
         className: "close",
+        id: "pastClose",
         "aria-hidden": "true",
         onClick: this.handleClick,
         "aria-label": "Close"
@@ -238,10 +241,12 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         htmlFor: "messageField",
         id: "pastMessageLabel"
       }, "You started this jade plant to bring you prosperity! Let's see what the community has to add:"))), /*#__PURE__*/React.createElement("div", {
-        className: "modal-body"
-      }, /*#__PURE__*/React.createElement("p", {
-        id: "pastMessageBody"
-      }, "Insert message")))));
+        className: "modal-body",
+        id: "pastMessageBody",
+        ref: function ref(mesgDiv) {
+          return _this4.mesgDiv = mesgDiv;
+        }
+      }))));
     }
   }]);
 

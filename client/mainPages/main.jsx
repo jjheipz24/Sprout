@@ -104,7 +104,7 @@ class PastMessagesModal extends React.Component {
     constructor(props) {
         super(props)
 
-        this.handleClick = this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
         this.$el = $(this.el)
@@ -118,7 +118,7 @@ class PastMessagesModal extends React.Component {
             <div className="modal" id="pastMessages" tabIndex="-1" role="dialog" ref={el => this.el = el}>
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                        <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
+                        <span className="close" id="pastClose" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
                         <div className="modal-header">
                             <img className="img-responsive" id="pastModalImg" alt="profile pic of plant" src="assets/images/profilePlants/jadeProfile.png" />
                             <div id="modal-content-header">
@@ -128,7 +128,7 @@ class PastMessagesModal extends React.Component {
                                 </label>
                             </div>
                         </div>
-                        <div className="modal-body" id="pastMessageBody">
+                        <div className="modal-body" id="pastMessageBody" ref={mesgDiv => this.mesgDiv = mesgDiv}>
                             {/* <p >
                                 Insert message
                             </p> */}
