@@ -133,6 +133,9 @@ p {
   .modal-content .saveBtn:hover, .modal-content .clearBtn:hover, .modal-content .noClearBtn:hover {
     background-color: #f7b8a6; }
 
+.pastHeader {
+  margin-left: 1em; }
+
 .noClearBtn {
   background-color: lightgray;
   border: none; }

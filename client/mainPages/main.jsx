@@ -121,7 +121,7 @@ class PastMessagesModal extends React.Component {
                         <span className="close" id="pastClose" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
                         <div className="modal-header">
                             <img className="img-responsive" id="pastModalImg" alt="profile pic of plant" src="assets/images/profilePlants/jadeProfile.png" />
-                            <div id="modal-content-header">
+                            <div className="pastHeader" id="modal-content-header">
                                 <h5 className="modal-title" id="pastMessageTitle">Message History</h5>
                                 <label htmlFor="messageField" id="pastMessageLabel">
                                     You started this jade plant to bring you prosperity! Let's see what the community has to add:

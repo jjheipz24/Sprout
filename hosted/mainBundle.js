@@ -197,8 +197,6 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "handleClick",
     value: function handleClick() {
-      //console.log('in handle click', this.$mesgDiv);
-      //this.$mesgDiv.children;
       this.$el.hide();
     }
   }, {
@@ -233,6 +231,7 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         alt: "profile pic of plant",
         src: "assets/images/profilePlants/jadeProfile.png"
       }), /*#__PURE__*/React.createElement("div", {
+        className: "pastHeader",
         id: "modal-content-header"
       }, /*#__PURE__*/React.createElement("h5", {
         className: "modal-title",
