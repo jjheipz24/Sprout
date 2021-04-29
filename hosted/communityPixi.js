@@ -348,39 +348,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }));
             // Tooltip on mouseover fully grown plant
-            plot.on('rightdown', (function () {
-                let textureName = plot.textures[0].textureCacheIds[0];
-                // i know there's a better way to do this don't yell at me
-                switch (textureName) {
-                    case "brown.png":
-                    case "aloe-seeds.png":
-                    case "cactus-seeds.png":
-                    case "fiddle-seeds.png":
-                    case "jade-seeds.png":
-                    case "peace-lily-seeds.png":
-                    case "snake-seeds.png":
-                    case "aloe-sprout.png":
-                    case "cactus-sprout.png":
-                    case "fiddle-sprout.png":
-                    case "jade-sprout.png":
-                    case "peace-lily-sprout.png":
-                    case "snake-sprout.png":
-                        break;
-                    default:
-                        // tooltip creation
-                        //console.log("You can't add any more messages");
-                        // //let mousePosition = e2.data.global;
-                        // tooltip1 = new PIXI.Text("You can't add any more messages", 
-                        // {fontFamily : 'Arial', fontSize: 18, fill : 0xFFFFFF, align : 'left'});
+            // plot.on('rightdown', (function () {
+            //     let textureName = plot.textures[0].textureCacheIds[0];
+            //     // i know there's a better way to do this don't yell at me
+            //     switch (textureName) {
+            //         case "brown.png":
+            //         case "aloe-seeds.png":
+            //         case "cactus-seeds.png":
+            //         case "fiddle-seeds.png":
+            //         case "jade-seeds.png":
+            //         case "peace-lily-seeds.png":
+            //         case "snake-seeds.png":
+            //         case "aloe-sprout.png":
+            //         case "cactus-sprout.png":
+            //         case "fiddle-sprout.png":
+            //         case "jade-sprout.png":
+            //         case "peace-lily-sprout.png":
+            //         case "snake-sprout.png":
+            //             break;
+            //         default:
+            //             // tooltip creation
+            //             //console.log("You can't add any more messages");
+            //             // //let mousePosition = e2.data.global;
+            //             // tooltip1 = new PIXI.Text("You can't add any more messages", 
+            //             // {fontFamily : 'Arial', fontSize: 18, fill : 0xFFFFFF, align : 'left'});
 
-                        // tooltip1.x = x - 100;
-                        // tooltip1.y = 300;
+            //             // tooltip1.x = x - 100;
+            //             // tooltip1.y = 300;
 
-                        // container.addChild(tooltip1);
-                        pastMessagesModal(textureName);
-                        //$('#pastMessages').show();
-                }
-            }));
+            //             // container.addChild(tooltip1);
+            //             pastMessagesModal(textureName);
+            //             //$('#pastMessages').show();
+            //     }
+            // }));
             // removes tooltip after mouse leaves
             // plot.on('pointerout', (function () {
             //     let textureName = plot.textures[0].textureCacheIds[0];
