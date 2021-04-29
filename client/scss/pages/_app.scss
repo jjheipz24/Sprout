@@ -59,6 +59,8 @@ p {
 
 /* Modal Popup */
 .modal-content {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
 
     .close:hover{

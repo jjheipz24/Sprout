@@ -101,15 +101,13 @@ class MessageModal extends React.Component {
 }
 
 class PastMessagesModal extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.handleClick = this.handleClick.bind(this)
     }
-
     componentDidMount() {
         this.$el = $(this.el)
-        
     }
 
     handleClick() {
@@ -120,18 +118,20 @@ class PastMessagesModal extends React.Component {
             <div className="modal" id="pastMessages" tabIndex="-1" role="dialog" ref={el => this.el = el}>
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                        {/* <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span> */}
+                        <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
                         <div className="modal-header">
-                            <img className="img-responsive" id="modalImg" alt="profile pic of plant" src="assets/images/profilePlants/JadeProfile.png" />
+                            <img className="img-responsive" id="pastModalImg" alt="profile pic of plant" src="assets/images/profilePlants/jadeProfile.png" />
                             <div id="modal-content-header">
-                                <h5 className="modal-title" id="messageTitle">Message History</h5>
-                                <label htmlFor="messageField" id="messageLabel">
-                                    Let username know they can achieve their goals!
+                                <h5 className="modal-title" id="pastMessageTitle">Message History</h5>
+                                <label htmlFor="messageField" id="pastMessageLabel">
+                                    You started this jade plant to bring you prosperity! Let's see what the community has to add:
                                 </label>
                             </div>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.handleClick}>
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                        </div>
+                        <div className="modal-body" id="pastMessageBody">
+                            {/* <p >
+                                Insert message
+                            </p> */}
                         </div>
                     </div>
                 </div>

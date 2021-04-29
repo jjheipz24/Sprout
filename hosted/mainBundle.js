@@ -217,30 +217,31 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         role: "document"
       }, /*#__PURE__*/React.createElement("div", {
         className: "modal-content"
-      }, /*#__PURE__*/React.createElement("div", {
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "close",
+        "aria-hidden": "true",
+        onClick: this.handleClick,
+        "aria-label": "Close"
+      }, "\xD7"), /*#__PURE__*/React.createElement("div", {
         className: "modal-header"
       }, /*#__PURE__*/React.createElement("img", {
         className: "img-responsive",
-        id: "modalImg",
+        id: "pastModalImg",
         alt: "profile pic of plant",
-        src: "assets/images/profilePlants/JadeProfile.png"
+        src: "assets/images/profilePlants/jadeProfile.png"
       }), /*#__PURE__*/React.createElement("div", {
         id: "modal-content-header"
       }, /*#__PURE__*/React.createElement("h5", {
         className: "modal-title",
-        id: "messageTitle"
+        id: "pastMessageTitle"
       }, "Message History"), /*#__PURE__*/React.createElement("label", {
         htmlFor: "messageField",
-        id: "messageLabel"
-      }, "Let username know they can achieve their goals!")), /*#__PURE__*/React.createElement("button", {
-        type: "button",
-        className: "close",
-        "data-dismiss": "modal",
-        "aria-label": "Close",
-        onClick: this.handleClick
-      }, /*#__PURE__*/React.createElement("span", {
-        "aria-hidden": "true"
-      }, "\xD7"))))));
+        id: "pastMessageLabel"
+      }, "You started this jade plant to bring you prosperity! Let's see what the community has to add:"))), /*#__PURE__*/React.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/React.createElement("p", {
+        id: "pastMessageBody"
+      }, "Insert message")))));
     }
   }]);
 
