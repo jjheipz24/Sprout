@@ -94,8 +94,13 @@ p {
 #pixiCanvas {
   max-width: 100%; }
 
+#pastMessageBody p {
+  color: black; }
+
 /* Modal Popup */
 .modal-content {
+  display: flex;
+  flex-direction: column;
   padding: 1rem; }
   .modal-content .close:hover {
     cursor: pointer;
