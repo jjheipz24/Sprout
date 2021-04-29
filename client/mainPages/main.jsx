@@ -101,6 +101,20 @@ class MessageModal extends React.Component {
 }
 
 class PastMessagesModal extends React.Component {
+    constructor(props){
+        super(props)
+
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    componentDidMount() {
+        this.$el = $(this.el)
+        
+    }
+
+    handleClick() {
+        this.$el.hide();
+    }
     render() {
         return (
             <div className="modal" id="pastMessages" tabIndex="-1" role="dialog" ref={el => this.el = el}>
@@ -115,9 +129,9 @@ class PastMessagesModal extends React.Component {
                                     Let username know they can achieve their goals!
                                 </label>
                             </div>
-                            {/* <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.handleClick}>
                         <span aria-hidden="true">&times;</span>
-                    </button> */}
+                    </button>
                         </div>
                     </div>
                 </div>

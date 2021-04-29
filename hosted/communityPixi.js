@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }));
             // Tooltip on mouseover fully grown plant
-            plot.on('pointerover', (function () {
+            plot.on('rightdown', (function () {
                 let textureName = plot.textures[0].textureCacheIds[0];
                 // i know there's a better way to do this don't yell at me
                 switch (textureName) {
@@ -382,28 +382,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }));
             // removes tooltip after mouse leaves
-            plot.on('pointerout', (function () {
-                let textureName = plot.textures[0].textureCacheIds[0];
-                switch (textureName) {
-                    case "brown.png":
-                    case "aloe-seeds.png":
-                    case "cactus-seeds.png":
-                    case "fiddle-seeds.png":
-                    case "jade-seeds.png":
-                    case "peace-lily-seeds.png":
-                    case "snake-seeds.png":
-                    case "aloe-sprout.png":
-                    case "cactus-sprout.png":
-                    case "fiddle-sprout.png":
-                    case "jade-sprout.png":
-                    case "peace-lily-sprout.png":
-                    case "snake-sprout.png":
-                        break;
-                    default:
-                        $('#pastMessages').hide();
-                        console.log('remove hover');
-                }
-            }));
+            // plot.on('pointerout', (function () {
+            //     let textureName = plot.textures[0].textureCacheIds[0];
+            //     switch (textureName) {
+            //         case "brown.png":
+            //         case "aloe-seeds.png":
+            //         case "cactus-seeds.png":
+            //         case "fiddle-seeds.png":
+            //         case "jade-seeds.png":
+            //         case "peace-lily-seeds.png":
+            //         case "snake-seeds.png":
+            //         case "aloe-sprout.png":
+            //         case "cactus-sprout.png":
+            //         case "fiddle-sprout.png":
+            //         case "jade-sprout.png":
+            //         case "peace-lily-sprout.png":
+            //         case "snake-sprout.png":
+            //             break;
+            //         default:
+            //             $('#pastMessages').hide();
+            //             console.log('remove hover');
+            //     }
+            // }));
         }
     }
 
@@ -595,9 +595,9 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     if (initialPlant) {
-                        plots[selectedPlot].textures = plantCollection[currentPlant][1]; //Cheese the growing of the plant
+                        plots[selectedPlot].textures = plantCollection[currentPlant][1]; 
                     } else {
-                        plots[selectedPlot].textures = plantCollection[currentPlant][2]; //Cheese the growing of the plant
+                        plots[selectedPlot].textures = plantCollection[currentPlant][2]; 
                         plots[selectedPlot].animationSpeed = 0.3;
                         plots[selectedPlot].play();
                     }

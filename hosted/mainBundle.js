@@ -179,16 +179,30 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
 
   var _super2 = _createSuper(PastMessagesModal);
 
-  function PastMessagesModal() {
+  function PastMessagesModal(props) {
+    var _this3;
+
     _classCallCheck(this, PastMessagesModal);
 
-    return _super2.apply(this, arguments);
+    _this3 = _super2.call(this, props);
+    _this3.handleClick = _this3.handleClick.bind(_assertThisInitialized(_this3));
+    return _this3;
   }
 
   _createClass(PastMessagesModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.$el = $(this.el);
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick() {
+      this.$el.hide();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return /*#__PURE__*/React.createElement("div", {
         className: "modal",
@@ -196,19 +210,14 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         tabIndex: "-1",
         role: "dialog",
         ref: function ref(el) {
-          return _this3.el = el;
+          return _this4.el = el;
         }
       }, /*#__PURE__*/React.createElement("div", {
         className: "modal-dialog",
         role: "document"
       }, /*#__PURE__*/React.createElement("div", {
         className: "modal-content"
-      }, /*#__PURE__*/React.createElement("span", {
-        className: "close",
-        "aria-hidden": "true",
-        onClick: this.handleClick,
-        "aria-label": "Close"
-      }, "\xD7"), /*#__PURE__*/React.createElement("div", {
+      }, /*#__PURE__*/React.createElement("div", {
         className: "modal-header"
       }, /*#__PURE__*/React.createElement("img", {
         className: "img-responsive",
@@ -223,7 +232,15 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
       }, "Message History"), /*#__PURE__*/React.createElement("label", {
         htmlFor: "messageField",
         id: "messageLabel"
-      }, "Let username know they can achieve their goals!"))))));
+      }, "Let username know they can achieve their goals!")), /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close",
+        onClick: this.handleClick
+      }, /*#__PURE__*/React.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))))));
     }
   }]);
 
@@ -236,15 +253,15 @@ var ClearModal = /*#__PURE__*/function (_React$Component3) {
   var _super3 = _createSuper(ClearModal);
 
   function ClearModal(props) {
-    var _this4;
+    var _this5;
 
     _classCallCheck(this, ClearModal);
 
-    _this4 = _super3.call(this, props);
-    _this4.token = props.csrf;
-    _this4.handleClick = _this4.handleClick.bind(_assertThisInitialized(_this4));
-    _this4.refreshPage = _this4.refreshPage.bind(_assertThisInitialized(_this4));
-    return _this4;
+    _this5 = _super3.call(this, props);
+    _this5.token = props.csrf;
+    _this5.handleClick = _this5.handleClick.bind(_assertThisInitialized(_this5));
+    _this5.refreshPage = _this5.refreshPage.bind(_assertThisInitialized(_this5));
+    return _this5;
   }
 
   _createClass(ClearModal, [{
@@ -267,7 +284,7 @@ var ClearModal = /*#__PURE__*/function (_React$Component3) {
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
       return /*#__PURE__*/React.createElement("div", {
         className: "modal",
@@ -275,7 +292,7 @@ var ClearModal = /*#__PURE__*/function (_React$Component3) {
         tabIndex: "-1",
         role: "dialog",
         ref: function ref(el) {
-          return _this5.el = el;
+          return _this6.el = el;
         }
       }, /*#__PURE__*/React.createElement("div", {
         className: "modal-dialog",
