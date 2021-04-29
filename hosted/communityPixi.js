@@ -449,13 +449,22 @@ document.addEventListener('DOMContentLoaded', function () {
         packet.x = x;
         packet.y = y;
         packet.zIndex = z;
-        packet.scale.x = .9;
-        packet.scale.y = .9;
+        packet.scale.x = 1;
+        packet.scale.y = 1;
 
         packet.on('pointerdown', () => {
             initialPlant = true;
             addPlant(plotSpot, seedType, plantName, 0);
             destroySeedPackets();
+        });
+
+        packet.on('mouseover', () => {
+            packet.scale.x = 1.1;
+            packet.scale.y = 1.1;
+        });
+        packet.on('mouseout', () => {
+            packet.scale.x = 1;
+            packet.scale.y = 1;
         });
     }
     //Destroys each plot when personal garden is no longer in view
