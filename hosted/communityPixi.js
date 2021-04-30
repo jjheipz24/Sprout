@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    const gardenUnhovered = PIXI.Texture.from('assets/images/buildings/c-planterbox.png');
-    const gardenHovered = PIXI.Texture.from('assets/images/buildings/c-planterbox-hover.png');
+    const gardenUnhovered = PIXI.Texture.from('assets/images/buildings/c-planterboxTest.png');
+    const gardenHovered = PIXI.Texture.from('assets/images/buildings/c-planterbox.png');
 
     let visitComm; //Visit community garden button
     let personalView = false; //Used to indicate whether or not user is in personal or community view
@@ -873,9 +873,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (i > 11 && i <= 13) {
                     communityGardenArray[i].sprite.x = 1005;
                 } else if (i > 13 && i <= 15) {
-                    communityGardenArray[i].sprite.x = 1105;
+                    communityGardenArray[i].sprite.x = 1103;
                 } else if (i > 15 && i <= 17) {
-                    communityGardenArray[i].sprite.x = 1205;
+                    communityGardenArray[i].sprite.x = 1202;
                 }
 
                 // if(window.innerWidth <= communityGardenArray[i].sprite.x) {
