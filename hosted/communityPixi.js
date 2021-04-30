@@ -421,7 +421,75 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log("No mouse detected");
                 } //switch
 
-                // });
+            }));
+        } else {
+            plot.interactive = true;
+            plot.buttonMode = true;
+            plot.on('pointerdown', (function (e) {
+                let textureName = plot.textures[0].textureCacheIds[0];
+                //console.log(window.event.which);
+                switch (window.event.which) {
+                    case 1:
+                        //console.log("Left mouse pressed");
+                        switch (textureName) {
+                            case "brown.png":
+                                //plotSpot = e.target; //Sets selected plot to the current target
+                                //createSeedPackets(e, username);
+                                //TODO: Create popup that tells a user they can't plant in another user's garden
+                                console.log("Sorry, you can't plant in someone else's garden")
+                                break;
+                            case "aloe-seeds.png":
+                            case "cactus-seeds.png":
+                            case "fiddle-seeds.png":
+                            case "jade-seeds.png":
+                            case "peace-lily-seeds.png":
+                            case "snake-seeds.png":
+                                // initialPlant = true;
+                                // messageModal(e, username);
+                                //TODO: Create popup that tells a user they can't grow the seeds of another user
+                                console.log("Sorry, only this user can grow the seeds")
+                                break;
+                            case "aloe-sprout.png":
+                            case "cactus-sprout.png":
+                            case "fiddle-sprout.png":
+                            case "jade-sprout.png":
+                            case "peace-lily-sprout.png":
+                            case "snake-sprout.png":
+                                messageModal(e, username);
+                                break;
+                            default:
+                                console.log("You can't add any more messages");
+                                //console.log(plot);
+                        }
+                        break;
+                    case 3:
+                        console.log("Right mouse pressed");
+                        switch (textureName) {
+                            case "brown.png":
+                                break;
+                            case "aloe-seeds.png":
+                            case "cactus-seeds.png":
+                            case "fiddle-seeds.png":
+                            case "jade-seeds.png":
+                            case "peace-lily-seeds.png":
+                            case "snake-seeds.png":
+                                pastMessagesModal(e, username);
+                                break;
+                            case "aloe-sprout.png":
+                            case "cactus-sprout.png":
+                            case "fiddle-sprout.png":
+                            case "jade-sprout.png":
+                            case "peace-lily-sprout.png":
+                            case "snake-sprout.png":
+                                pastMessagesModal(e, username);
+                                break;
+                            default:
+                                pastMessagesModal(e, username);
+                        }
+                        break;
+                    default:
+                        console.log("No mouse detected");
+                } //switch
 
             }));
         }
@@ -667,7 +735,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (initialPlant) {
                         plots[selectedPlot].textures = plantCollection[currentPlant][1];
                     } else {
-                        plots[selectedPlot].textures = plantCollection[currentPlant][2];                        plots[selectedPlot].animationSpeed = 0.15;
+                        plots[selectedPlot].textures = plantCollection[currentPlant][2];
+                        plots[selectedPlot].animationSpeed = 0.15;
                         plots[selectedPlot].play();
                     }
 
