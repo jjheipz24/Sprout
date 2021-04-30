@@ -201,7 +201,9 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.setRequestHeader('x-csrf-token', csrf);
 
-            xhr.send();
+            const formData = `onboarding=${false}`;
+
+            xhr.send(formData);
         });
     }
 
