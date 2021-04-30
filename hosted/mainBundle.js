@@ -147,7 +147,7 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
         className: "img-responsive",
         id: "modalImg",
         alt: "profile pic of plant",
-        src: "assets/images/profilePlants/JadeProfile.png"
+        src: "assets/images/profilePlants/jadeProfile.png"
       }), /*#__PURE__*/React.createElement("div", {
         id: "modal-content-header"
       }, /*#__PURE__*/React.createElement("h5", {

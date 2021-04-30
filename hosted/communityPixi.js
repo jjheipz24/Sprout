@@ -324,8 +324,9 @@ document.addEventListener('DOMContentLoaded', function () {
             plot.buttonMode = true;
             plot.on('pointerdown', (function (e) {
                 let textureName = plot.textures[0].textureCacheIds[0];
-                $('#pixiCanvas').on("mousedown", function (event) {
-                    switch (event.which) {
+                console.log(window.event.which);
+                //$('#pixiCanvas').on("mousedown", function (event) {
+                    switch (window.event.which) {
                         case 1:
                             console.log("Left mouse pressed");
                             switch (textureName) {
@@ -412,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             console.log("No mouse detected");
                     } //switch
 
-                });
+               // });
 
             }));
             // Tooltip on mouseover fully grown plant
@@ -599,20 +600,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 let messageArray = res.plant.messages;
 
-                console.log('res plant', messageArray);
                 // Changes image based on current plant clicked on
                 $('#pastModalImg').attr("src", `assets/images/profilePlants/${currentPlant}Profile.png`);
 
                 //$('#messageTitle').text(`${userCapped}'s ${currentPlantName}`);
                 $('#pastMessageLabel').text(
-                    `You started this ${currentPlant} plant to ${currentPrompt}. Let's see what the community has to add!`);
+                    `Read the messages that helped grow ${username}'s ${currentPlant} plant!`);
                 console.log(messageArray);
                 if (messageArray.length === 1) {
+                    console.log('message array length 1');
                     document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
                 } else {
                     document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
                     document.querySelector('#message2').innerHTML = `${userCapped} said: ${messageArray[1]}`
-                }
+                } 
 
                 $('#pastClose').on('click', function () {
                     document.querySelector('#message1').innerHTML = "";
