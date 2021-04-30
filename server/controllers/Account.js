@@ -178,13 +178,15 @@ const onboarding = async (request, response) => {
       username: req.session.account.username
     });
   
-    return res.status(200).json({
-      onboarding: user.onboarding
-    });
+    if(user !== null) {
+      return res.status(200).json({
+        onboarding: user.onboarding
+      });
+    }
   }
 
   return res.status(400).json({
-    onboarding: true
+    onboarding: false
   });
 }
 
