@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***** BACKGROUND *****/
 
-    let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinalCropped.png');
+    let communityBackground = PIXI.Texture.from('assets/images/buildings/communityBuildingsFinalFinalCropped.png');
     let personalBackground = PIXI.Texture.from('assets/images/buildings/personalGardenWindow2.png');
     let background = new PIXI.extras.TilingSprite(communityBackground, window.innerWidth, 800);
     let banner;
