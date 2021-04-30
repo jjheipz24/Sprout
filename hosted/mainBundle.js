@@ -147,7 +147,7 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
         className: "img-responsive",
         id: "modalImg",
         alt: "profile pic of plant",
-        src: "assets/images/profilePlants/JadeProfile.png"
+        src: "assets/images/profilePlants/jadeProfile.png"
       }), /*#__PURE__*/React.createElement("div", {
         id: "modal-content-header"
       }, /*#__PURE__*/React.createElement("h5", {
@@ -245,7 +245,11 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         ref: function ref(mesgDiv) {
           return _this4.mesgDiv = mesgDiv;
         }
-      }))));
+      }, /*#__PURE__*/React.createElement("p", {
+        id: "message1"
+      }), /*#__PURE__*/React.createElement("p", {
+        id: "message2"
+      }, "Add a message to grow this plant!")))));
     }
   }]);
 
