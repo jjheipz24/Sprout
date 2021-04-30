@@ -19,34 +19,37 @@
     </div>
     <div class="appNav" id="nav"></div>
     <!-- Swiper -->
-    <div id="onboard" style="display:none;">
-        <div class="swiper-container">
+       <div id="onboard">
+        <div class="swiper-container" id="swiperContain">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="/assets/images/tips/tip1.png" alt="this is the community garden">
+                    <img class="onboardImg" src="/assets/images/tips/tip1.png" alt="this is the community garden">
                 </div>
                 <div class="swiper-slide">
-                    <img src="/assets/images/tips/tip2.png" alt="above is your personal garden">
+                    <img class="onboardImg" src="/assets/images/tips/tip2.png" alt="above is your personal garden">
                 </div>
                 <div class="swiper-slide">
-                    <img src="/assets/images/tips/tip3.png" alt="empty plots are ready for a new plant">
+                    <img class="onboardImg" src="/assets/images/tips/tip3.png" alt="empty plots are ready for a new plant">
                 </div>
                 <div class="swiper-slide">
-                    <img src="/assets/images/tips/tip4.png" alt="messages from the community grow plant sprouts">
+                    <img class="onboardImg" src="/assets/images/tips/tip4.png" alt="messages from the community grow plant sprouts">
                 </div>
                 <div class="swiper-slide">
-                    <img src="/assets/images/tips/tip5.png" alt="hover to read your plants' messages">
+                    <img class="onboardImg" src="/assets/images/tips/tip5.png" alt="hover to read your plants' messages">
                 </div>
-                <div class="swiper-slide">
-                    <img src="/assets/images/tips/tip6.png" alt="click other users' plants to see what they need">
-                    <button class="closeOnboard">
-                        Get Started
+                 <div class="swiper-slide">
+                    <img class="onboardImg" src="/assets/images/tips/tip6.png" alt="hover to read your plants' messages">
+                </div>
+                <div  class="swiper-slide">
+                    <img class="onboardImg" src="/assets/images/tips/tip7.png" alt="click other users' plants to see what they need">
+                    <button class="closeOnboard" onClick="changeOpacity()">
+                        Get Started!
                     </button>
                 </div>
             </div>
             <!-- Add Pagination -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <img class="swiper-button-next" src="/assets/images/tips/nextArrow.png"></img>
+            <img class="swiper-button-prev" src="/assets/images/tips/previousArrow.png"></img>
         </div>
     </div>
     <canvas id="pixiCanvas"></canvas>
@@ -66,6 +69,11 @@
         function hidePopup() {
             document.getElementById("message").style.display = "none";
         } -->
+    <script>
+        function changeOpacity() {
+            document.getElementById('pixiCanvas').style.opacity = "1";
+        }
+    </script>
      <script>
         // CLOUDS
         $(function () {
