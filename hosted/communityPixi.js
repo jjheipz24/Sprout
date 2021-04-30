@@ -1,5 +1,4 @@
 // const { forEach } = require("underscore");
-
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
     let csrf;
@@ -92,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let communityGardenArray = []; //Holds the community garden
 
     let tooltip1; //Tooltip about not adding any more messages on fully grown plant
+    let isOnboarding;
 
     //bump up to 20 instead of 4 when we're ready for the full community garden
     for (let i = 0; i < 18; i++) {
@@ -108,6 +108,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $.get('/getUserName', function (data, status) {
         communityGardenArray[0].username = data.username;
+    });
+
+    //if the user is new, show the onboarding slideshow
+    $.get('/onboarding', function (data, status) {
+        if(data.onboarding) {
+            $('#onboard').show();
+            const swiper = new Swiper('.swiper-container', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+            
+        }
+    });
+
+    //end onboarding 
+    $('.closeOnboard').on('click', () => {
+        $('#onboard').hide();
+
+        console.log('poggers!');
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/finishOnboard');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('x-csrf-token', csrf);
+
+        xhr.send();
     });
 
     const gardenUnhovered = PIXI.Texture.from('assets/images/buildings/c-planterbox.png');
@@ -170,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 banner.destroy();
                 createPersonalGarden(communityGardenArray[i]);
             });
-
         }
     }
 
@@ -452,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function () {
         plantArr.forEach(plant => {
             if (plots[plant.location] !== undefined) {
                 plots[plant.location].textures = plantCollection[plant.plantType][plant.growthStage];
-                plots[plant.location].animationSpeed = 0.3;
+                plots[plant.location].animationSpeed = 0.15;
                 plots[plant.location].play();
             }
         })
@@ -701,8 +731,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (initialPlant) {
                         plots[selectedPlot].textures = plantCollection[currentPlant][1];
                     } else {
-                        plots[selectedPlot].textures = plantCollection[currentPlant][2];
-                        plots[selectedPlot].animationSpeed = 0.3;
+                        plots[selectedPlot].textures = plantCollection[currentPlant][2]; 
+                        plots[selectedPlot].animationSpeed = 0.15;
                         plots[selectedPlot].play();
                     }
 
