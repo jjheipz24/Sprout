@@ -243,7 +243,8 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         className: "modal-dialog",
         role: "document"
       }, /*#__PURE__*/React.createElement("div", {
-        className: "modal-content"
+        className: "modal-content",
+        id: "pastModalContent"
       }, /*#__PURE__*/React.createElement("span", {
         className: "close",
         id: "pastClose",

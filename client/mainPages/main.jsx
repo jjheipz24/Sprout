@@ -134,7 +134,7 @@ class PastMessagesModal extends React.Component {
         return (
             <div className="modal" id="pastMessages" tabIndex="-1" role="dialog" ref={el => this.el = el}>
                 <div className="modal-dialog" role="document">
-                    <div className="modal-content">
+                    <div className="modal-content" id="pastModalContent">
                         <span className="close" id="pastClose" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
                         <div className="modal-header">
                             <img className="img-responsive" id="pastModalImg" alt="profile pic of plant" src="assets/images/profilePlants/jadeProfile.png" />

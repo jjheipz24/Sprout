@@ -665,10 +665,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(messageArray);
                 if (messageArray.length === 1) {
                     console.log('message array length 1');
-                    document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
+                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said:</b> ${messageArray[0]}`;
+                    document.querySelector('#message2').style.fontWeight = "bold";
+                    document.querySelector('#message2').style.color = "#007199";
                 } else if (messageArray.length === 2) {
-                    document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
-                    document.querySelector('#message2').innerHTML = `${userCapped} said: ${messageArray[1]}`
+                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said:</b> ${messageArray[0]}`;
+                    document.querySelector('#message2').innerHTML = `<b>${userCapped} said</b> ${messageArray[1]}`;
+                    document.querySelector('#message2').style.fontWeight = "normal";
+                    document.querySelector('#message2').style.color = "black";
+
+
                 } else {
                     document.querySelector('#message1').innerHTML = ""
                     document.querySelector('#message2').innerHTML = `Add a message to grow this plant!`
