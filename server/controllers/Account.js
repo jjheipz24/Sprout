@@ -101,12 +101,12 @@ const getUserName = (request, response) => {
   const res = response;
 
   if (req.session.account) {
-    return res.json({
+    return res.status(200).json({
       username: req.session.account.username
     });
   }
 
-  return res.json({
+  return res.status(404).json({
     username: ''
   });
 
@@ -178,12 +178,12 @@ const onboarding = async (request, response) => {
   });
   
   if (req.session.account) {
-    return res.json({
+    return res.status(200).json({
       onboarding: user.onboarding
     });
   }
 
-  return res.json({
+  return res.status(400).json({
     onboarding: true
   });
 }
@@ -267,12 +267,12 @@ const getPlants = async (request, response) => {
     const user = await Account.AccountModel.findOne({
       username: req.session.account.username
     });
-    return res.json({
+    return res.status(200).json({
       plants: user.plants
     });
   }
 
-  return res.json({
+  return res.status(404).json({
     plants: 'User not found'
   });
 }
@@ -287,13 +287,13 @@ const getPlantInfo = async (request, response) => {
   const plant = user.plants.find(plant => plant.location === req.body.location);
 
   if (req.session.account) {
-    return res.json({
+    return res.status(200).json({
       username: req.session.account.username,
       plant: plant
     });
   }
 
-  return res.json({
+  return res.status(404).json({
     username: '',
     plant: ''
   });
