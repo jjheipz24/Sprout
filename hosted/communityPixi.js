@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     opacity: 0.5
                 });
                 const swiper = new Swiper('.swiper-container', {
+                    speed: 600,
                     pagination: {
                         el: '.swiper-pagination',
                         clickable: true,

@@ -183,7 +183,7 @@ p {
   height: 100%;
   position: absolute; }
 
-.swiper-slide {
+.onboardSlide {
   max-width: 50%;
   margin: 0 25%;
   display: flex;
