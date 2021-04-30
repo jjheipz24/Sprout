@@ -80,6 +80,13 @@ var Nav = function Nav(props) {
     className: "nav-item"
   }, /*#__PURE__*/React.createElement("a", {
     className: "nav-link",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "assets/images/HelpButton.png"
+  }))), /*#__PURE__*/React.createElement("li", {
+    className: "nav-item"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
     href: "/logout"
   }, "Logout"))))));
 }; //Grabs the user's username if they are logged in

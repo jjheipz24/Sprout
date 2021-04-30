@@ -34,9 +34,9 @@ const Nav = (props) => {
 
                 <div className="nav-bar-items">
                     <ul className="navbar-nav mr-auto">
-                        {/* <li className="nav-item">
-                            <a className="nav-link" href="#">Garden</a>
-                        </li> */}
+                        <li className="nav-item">
+                            <a className="nav-link" href="#"><img src="assets/images/HelpButton.png"></img></a>
+                        </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/logout">Logout</a>
                         </li>

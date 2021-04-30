@@ -177,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $.get('/onboarding', function (data, status) {
             if (data.onboarding) {
                 $('#onboard').show();
+                $('#pixiCanvas').css({opacity: 0.5});
                 const swiper = new Swiper('.swiper-container', {
                     pagination: {
                         el: '.swiper-pagination',
@@ -194,6 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //end onboarding 
         $('.closeOnboard').on('click', () => {
             $('#onboard').hide();
+            $('#pixiCanvas').css({opacity: 1});
 
             console.log('poggers!');
             const xhr = new XMLHttpRequest();
