@@ -173,11 +173,11 @@ const onboarding = async (request, response) => {
   const req = request;
   const res = response;
 
-  const user = await Account.AccountModel.findOne({
-    username: req.session.account.username
-  });
-  
   if (req.session.account) {
+    const user = await Account.AccountModel.findOne({
+      username: req.session.account.username
+    });
+  
     return res.status(200).json({
       onboarding: user.onboarding
     });
