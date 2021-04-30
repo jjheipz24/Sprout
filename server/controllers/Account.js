@@ -195,7 +195,8 @@ const finishOnboard = async (request, response) => {
   const user = await Account.AccountModel.findOne({
     username: req.session.account.username
   });
-  user.onboarding = false;
+
+  user.onboarding = req.body.onboarding;
 
   const savePromise = user.save();
   savePromise.then(() => {

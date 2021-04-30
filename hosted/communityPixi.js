@@ -132,13 +132,14 @@ document.addEventListener('DOMContentLoaded', function () {
     $('.closeOnboard').on('click', () => {
         $('#onboard').hide();
 
-        console.log('poggers!');
         const xhr = new XMLHttpRequest();
         xhr.open('POST', '/finishOnboard');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.setRequestHeader('x-csrf-token', csrf);
 
-        xhr.send();
+        const formData = `onboarding=${false}`;
+
+        xhr.send(formData);
     });
 
     const gardenUnhovered = PIXI.Texture.from('assets/images/buildings/c-planterbox.png');
