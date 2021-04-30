@@ -110,37 +110,6 @@ document.addEventListener('DOMContentLoaded', function () {
         communityGardenArray[0].username = data.username;
     });
 
-    //if the user is new, show the onboarding slideshow
-    $.get('/onboarding', function (data, status) {
-        if(data.onboarding) {
-            $('#onboard').show();
-            const swiper = new Swiper('.swiper-container', {
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-            
-        }
-    });
-
-    //end onboarding 
-    $('.closeOnboard').on('click', () => {
-        $('#onboard').hide();
-
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/finishOnboard');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.setRequestHeader('x-csrf-token', csrf);
-
-        const formData = `onboarding=${false}`;
-
-        xhr.send(formData);
-    });
 
     const gardenUnhovered = PIXI.Texture.from('assets/images/buildings/c-planterbox.png');
     const gardenHovered = PIXI.Texture.from('assets/images/buildings/c-planterbox-hover.png');
@@ -203,6 +172,37 @@ document.addEventListener('DOMContentLoaded', function () {
                 createPersonalGarden(communityGardenArray[i]);
             });
         }
+
+        //if the user is new, show the onboarding slideshow
+        $.get('/onboarding', function (data, status) {
+            if (data.onboarding) {
+                $('#onboard').show();
+                const swiper = new Swiper('.swiper-container', {
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+
+            }
+        });
+
+        //end onboarding 
+        $('.closeOnboard').on('click', () => {
+            $('#onboard').hide();
+
+            console.log('poggers!');
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/finishOnboard');
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('x-csrf-token', csrf);
+
+            xhr.send();
+        });
     }
 
     const zoomed = event => {
@@ -355,125 +355,71 @@ document.addEventListener('DOMContentLoaded', function () {
             plot.buttonMode = true;
             plot.on('pointerdown', (function (e) {
                 let textureName = plot.textures[0].textureCacheIds[0];
-                console.log(window.event.which);
-                //$('#pixiCanvas').on("mousedown", function (event) {
-                    switch (window.event.which) {
-                        case 1:
-                            console.log("Left mouse pressed");
-                            switch (textureName) {
-                                case "brown.png":
-                                    plotSpot = e.target; //Sets selected plot to the current target
-                                    createSeedPackets(e, username);
-                                    break;
-                                case "aloe-seeds.png":
-                                case "cactus-seeds.png":
-                                case "fiddle-seeds.png":
-                                case "jade-seeds.png":
-                                case "peace-lily-seeds.png":
-                                case "snake-seeds.png":
-                                    initialPlant = true;
-                                    messageModal(e, username);
-                                    break;
-                                case "aloe-sprout.png":
-                                case "cactus-sprout.png":
-                                case "fiddle-sprout.png":
-                                case "jade-sprout.png":
-                                case "peace-lily-sprout.png":
-                                case "snake-sprout.png":
-                                    messageModal(e, username);
-                                    break;
-                                default:
-                                    console.log("You can't add any more messages");
-                                    console.log(plot);
-                            }
-                            break;
-                        case 2:
-                            console.log("Middle button pressed");
-                            switch (textureName) {
-                                case "brown.png":
-                                    plotSpot = e.target; //Sets selected plot to the current target
-                                    createSeedPackets(e, username);
-                                    break;
-                                case "aloe-seeds.png":
-                                case "cactus-seeds.png":
-                                case "fiddle-seeds.png":
-                                case "jade-seeds.png":
-                                case "peace-lily-seeds.png":
-                                case "snake-seeds.png":
-                                    initialPlant = true;
-                                    messageModal(e, username);
-                                    break;
-                                case "aloe-sprout.png":
-                                case "cactus-sprout.png":
-                                case "fiddle-sprout.png":
-                                case "jade-sprout.png":
-                                case "peace-lily-sprout.png":
-                                case "snake-sprout.png":
-                                    messageModal(e, username);
-                                    break;
-                                default:
-                                    console.log("You can't add any more messages");
-                                    console.log(plot);
-                            }
-                            break;
-                        case 3:
-                            console.log("Right mouse pressed");
-                            switch (textureName) {
-                                case "brown.png":
-                                    break;
-                                case "aloe-seeds.png":
-                                case "cactus-seeds.png":
-                                case "fiddle-seeds.png":
-                                case "jade-seeds.png":
-                                case "peace-lily-seeds.png":
-                                case "snake-seeds.png":
-                                    pastMessagesModal(e, username);
-                                    break;
-                                case "aloe-sprout.png":
-                                case "cactus-sprout.png":
-                                case "fiddle-sprout.png":
-                                case "jade-sprout.png":
-                                case "peace-lily-sprout.png":
-                                case "snake-sprout.png":
-                                    pastMessagesModal(e, username);
-                                    break;
-                                default:
-                                    pastMessagesModal(e, username);
-                            }
-                            break;
-                        default:
-                            console.log("No mouse detected");
-                    } //switch
+                //console.log(window.event.which);
+                switch (window.event.which) {
+                    case 1:
+                        //console.log("Left mouse pressed");
+                        switch (textureName) {
+                            case "brown.png":
+                                plotSpot = e.target; //Sets selected plot to the current target
+                                createSeedPackets(e, username);
+                                break;
+                            case "aloe-seeds.png":
+                            case "cactus-seeds.png":
+                            case "fiddle-seeds.png":
+                            case "jade-seeds.png":
+                            case "peace-lily-seeds.png":
+                            case "snake-seeds.png":
+                                initialPlant = true;
+                                messageModal(e, username);
+                                break;
+                            case "aloe-sprout.png":
+                            case "cactus-sprout.png":
+                            case "fiddle-sprout.png":
+                            case "jade-sprout.png":
+                            case "peace-lily-sprout.png":
+                            case "snake-sprout.png":
+                                //messageModal(e, username);
+                                //TODO: Add popup that tells a user that someone else needs to help their plant grow
+                                console.log("Someone else needs to help your plant grow!")
+                                break;
+                            default:
+                                console.log("You can't add any more messages");
+                                //console.log(plot);
+                        }
+                        break;
+                    case 3:
+                        console.log("Right mouse pressed");
+                        switch (textureName) {
+                            case "brown.png":
+                                break;
+                            case "aloe-seeds.png":
+                            case "cactus-seeds.png":
+                            case "fiddle-seeds.png":
+                            case "jade-seeds.png":
+                            case "peace-lily-seeds.png":
+                            case "snake-seeds.png":
+                                pastMessagesModal(e, username);
+                                break;
+                            case "aloe-sprout.png":
+                            case "cactus-sprout.png":
+                            case "fiddle-sprout.png":
+                            case "jade-sprout.png":
+                            case "peace-lily-sprout.png":
+                            case "snake-sprout.png":
+                                pastMessagesModal(e, username);
+                                break;
+                            default:
+                                pastMessagesModal(e, username);
+                        }
+                        break;
+                    default:
+                        console.log("No mouse detected");
+                } //switch
 
-               // });
+                // });
 
             }));
-            // Tooltip on mouseover fully grown plant
-            // plot.on('rightdown', (function (e) {
-            //     let textureName = plot.textures[0].textureCacheIds[0];
-            //     // i know there's a better way to do this don't yell at me
-            //     switch (textureName) {
-            //         case "brown.png":
-            //             break;
-            //         case "aloe-seeds.png":
-            //         case "cactus-seeds.png":
-            //         case "fiddle-seeds.png":
-            //         case "jade-seeds.png":
-            //         case "peace-lily-seeds.png":
-            //         case "snake-seeds.png":
-            //             break;
-            //         case "aloe-sprout.png":
-            //         case "cactus-sprout.png":
-            //         case "fiddle-sprout.png":
-            //         case "jade-sprout.png":
-            //         case "peace-lily-sprout.png":
-            //         case "snake-sprout.png":
-            //             pastMessagesModal(e, username);
-            //             break;
-            //         default:
-            //             pastMessagesModal(e, username);
-            //     }
-            // }));
         }
     }
 
@@ -642,11 +588,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (messageArray.length === 1) {
                     console.log('message array length 1');
                     document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
-                } else if (messageArray.length === 2 ) {
+                } else if (messageArray.length === 2) {
                     document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
                     document.querySelector('#message2').innerHTML = `${userCapped} said: ${messageArray[1]}`
                 } else {
-                    document.querySelector('#message1').innerHTML = `Add a message to grow this plant!`
+                    document.querySelector('#message1').innerHTML = ""
                     document.querySelector('#message2').innerHTML = `Add a message to grow this plant!`
                 }
 
@@ -654,21 +600,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('#message1').innerHTML = "";
                     document.querySelector('#message2').innerHTML = "Add a message to grow this plant!";
                 })
-                // adds p tags with messages 
-                // messageArray.forEach(message => {
-                //     let newMesgTag = document.createElement('p');
-                //     let newMessage = document.createTextNode(`${userCapped} said: ${message}`);
-                //     newMesgTag.appendChild(newMessage);
-                //     $('#pastMessageBody').append(newMesgTag);
-                // });
-
-                // //removes p tags after closing
-                // $('#pastClose').on('click', function () {
-                //     let ptagArray = $('#pastMessageBody')[0].childNodes;
-                //     ptagArray.forEach(pTag => {
-                //         pTag.remove();
-                //     });
-                // });
 
             }
         };
@@ -732,8 +663,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (initialPlant) {
                         plots[selectedPlot].textures = plantCollection[currentPlant][1];
                     } else {
-                        plots[selectedPlot].textures = plantCollection[currentPlant][2]; 
-                        plots[selectedPlot].animationSpeed = 0.15;
+                        plots[selectedPlot].textures = plantCollection[currentPlant][2];                        plots[selectedPlot].animationSpeed = 0.15;
                         plots[selectedPlot].play();
                     }
 
