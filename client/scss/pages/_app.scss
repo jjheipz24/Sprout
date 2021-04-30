@@ -233,3 +233,11 @@ p {
   #helpButton:hover {
       background-color: $light-salmon;
   }
+
+  #errorAlert{
+      position: absolute;
+
+      .errorAlert{
+          display: none;
+      }
+  }

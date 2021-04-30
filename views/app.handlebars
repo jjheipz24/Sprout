@@ -11,15 +11,16 @@
 </head>
 
 <body id="mainApp" oncontextmenu="return false;">
-     <div class="cloud-right">
+    <div class="cloud-right">
         <img class="cloud-right-image" id="cloudApp1" src="assets/images/buildings/cloud1.png" alt="cloud" />
         <img class="cloud-right-image" id="cloudApp2" src="assets/images/buildings/cloud2.png" alt="cloud" />
         <img class="cloud-right-image" id="cloudApp3" src="assets/images/buildings/cloud3.png" alt="cloud" />
         <img class="cloud-right-image" id="cloudApp4" src="assets/images/buildings/cloud1.png" alt="cloud" />
     </div>
     <div class="appNav" id="nav"></div>
+    <div id="errorAlert"></div>
     <!-- Swiper -->
-       <div id="onboard" style="display:none;">
+    <div id="onboard" style="display:none;">
         <div class="swiper-container" id="swiperContain">
             <div class="swiper-wrapper">
                 <div class="swiper-slide onboardSlide">
@@ -29,19 +30,24 @@
                     <img class="onboardImg" src="/assets/images/tips/tip2.png" alt="above is your personal garden">
                 </div>
                 <div class="swiper-slide onboardSlide">
-                    <img class="onboardImg" src="/assets/images/tips/tip3.png" alt="empty plots are ready for a new plant">
+                    <img class="onboardImg" src="/assets/images/tips/tip3.png"
+                        alt="empty plots are ready for a new plant">
                 </div>
                 <div class="swiper-slide onboardSlide">
-                    <img class="onboardImg" src="/assets/images/tips/tip4.png" alt="messages from the community grow plant sprouts">
+                    <img class="onboardImg" src="/assets/images/tips/tip4.png"
+                        alt="messages from the community grow plant sprouts">
                 </div>
                 <div class="swiper-slide onboardSlide">
-                    <img class="onboardImg" src="/assets/images/tips/tip5.png" alt="hover to read your plants' messages">
+                    <img class="onboardImg" src="/assets/images/tips/tip5.png"
+                        alt="hover to read your plants' messages">
                 </div>
-                 <div class="swiper-slide onboardSlide">
-                    <img class="onboardImg" src="/assets/images/tips/tip6.png" alt="hover to read your plants' messages">
+                <div class="swiper-slide onboardSlide">
+                    <img class="onboardImg" src="/assets/images/tips/tip6.png"
+                        alt="hover to read your plants' messages">
                 </div>
-                <div  class="swiper-slide onboardSlide">
-                    <img class="onboardImg" src="/assets/images/tips/tip7.png" alt="click other users' plants to see what they need">
+                <div class="swiper-slide onboardSlide">
+                    <img class="onboardImg" src="/assets/images/tips/tip7.png"
+                        alt="click other users' plants to see what they need">
                     <button class="closeOnboard" onclick="changeOpacity()">
                         Get Started!
                     </button>
@@ -74,7 +80,7 @@
             document.getElementById('pixiCanvas').style.opacity = "1";
         }
     </script>
-     <script>
+    <script>
         // CLOUDS
         $(function () {
             setInterval(function () {
@@ -91,9 +97,9 @@
                     $(this).css({ left: - $(this).width() + 'px' });
                 });
             }, 10);
-        }); 
+        });
     </script>
- 
+
     <script src="/assets/bundle.js"></script>
     <script src="/assets/mainBundle.js"></script>
 </body>

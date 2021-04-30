@@ -227,6 +227,11 @@ p {
 #helpButton:hover {
   background-color: #f7b8a6; }
 
+#errorAlert {
+  position: absolute; }
+  #errorAlert .errorAlert {
+    display: none; }
+
 /************************ 
 
         Typography 

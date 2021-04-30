@@ -1,10 +1,9 @@
 //import '../../hosted/css/styles.css'
 
 const Nav = (props) => {
-    const handleClick = () => 
-    {
+    const handleClick = () => {
         $('#onboard').show();
-        $('#pixiCanvas').css({opacity: 0.5});
+        $('#pixiCanvas').css({ opacity: 0.5 });
         const swiper = new Swiper('.swiper-container', {
             speed: 600,
             pagination: {
@@ -166,11 +165,11 @@ class ClearModal extends React.Component {
         this.token = props.csrf;
         this.handleClick = this.handleClick.bind(this)
         this.refreshPage = this.refreshPage.bind(this)
-        
+
     }
     componentDidMount() {
         this.$el = $(this.el)
-        
+
     }
 
     handleClick() {
@@ -201,6 +200,33 @@ class ClearModal extends React.Component {
     }
 }
 
+class ErrorAlert extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    componentDidMount() {
+        this.$el = $(this.el)
+    }
+
+    handleClick() {
+        this.$el.hide();
+    }
+
+    render() {
+
+        return (
+            <div className="alert alert-danger alert-dismissible errorAlert" role="alert" ref={el => this.el = el}>
+                <p className="alertMessage">This is an alert</p>
+                <button type="button" className="btn-close" aria-label="Close" onClick={this.handleClick}></button>
+            </div>
+        )
+    }
+
+}
+
 const setup = function (csrf) {
     // ReactDOM.render(
     //     <Header csrf={csrf} />, document.querySelector('#header')
@@ -222,6 +248,10 @@ const setup = function (csrf) {
 
     ReactDOM.render(
         <ClearModal csrf={csrf} />, document.querySelector('#clearModal')
+    )
+
+    ReactDOM.render(
+        <ErrorAlert />, document.querySelector("#errorAlert")
     )
 };
 

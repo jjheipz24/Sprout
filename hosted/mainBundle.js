@@ -362,6 +362,59 @@ var ClearModal = /*#__PURE__*/function (_React$Component3) {
   return ClearModal;
 }(React.Component);
 
+var ErrorAlert = /*#__PURE__*/function (_React$Component4) {
+  _inherits(ErrorAlert, _React$Component4);
+
+  var _super4 = _createSuper(ErrorAlert);
+
+  function ErrorAlert(props) {
+    var _this7;
+
+    _classCallCheck(this, ErrorAlert);
+
+    _this7 = _super4.call(this, props);
+    _this7.handleClick = _this7.handleClick.bind(_assertThisInitialized(_this7));
+    return _this7;
+  }
+
+  _createClass(ErrorAlert, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.$el = $(this.el);
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick() {
+      this.$el.hide();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this8 = this;
+
+      // const hideAlert = {
+      //     display: 'none'
+      // }
+      return /*#__PURE__*/React.createElement("div", {
+        className: "alert alert-danger alert-dismissible errorAlert",
+        role: "alert",
+        ref: function ref(el) {
+          return _this8.el = el;
+        }
+      }, /*#__PURE__*/React.createElement("p", {
+        className: "alertMessage"
+      }, "This is an alert"), /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "btn-close",
+        "aria-label": "Close",
+        onClick: this.handleClick
+      }));
+    }
+  }]);
+
+  return ErrorAlert;
+}(React.Component);
+
 var setup = function setup(csrf) {
   // ReactDOM.render(
   //     <Header csrf={csrf} />, document.querySelector('#header')
@@ -375,6 +428,7 @@ var setup = function setup(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(ClearModal, {
     csrf: csrf
   }), document.querySelector('#clearModal'));
+  ReactDOM.render( /*#__PURE__*/React.createElement(ErrorAlert, null), document.querySelector("#errorAlert"));
 };
 
 var getToken = function getToken() {
