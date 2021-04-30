@@ -129,6 +129,8 @@ class PastMessagesModal extends React.Component {
                             </div>
                         </div>
                         <div className="modal-body" id="pastMessageBody" ref={mesgDiv => this.mesgDiv = mesgDiv}>
+                            <p id="message1"></p>
+                            <p id="message2">Add a message to grow this plant!</p>
                             {/* <p >
                                 Insert message
                             </p> */}

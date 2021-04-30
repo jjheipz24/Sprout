@@ -245,7 +245,11 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         ref: function ref(mesgDiv) {
           return _this4.mesgDiv = mesgDiv;
         }
-      }))));
+      }, /*#__PURE__*/React.createElement("p", {
+        id: "message1"
+      }), /*#__PURE__*/React.createElement("p", {
+        id: "message2"
+      }, "Add a message to grow this plant!")))));
     }
   }]);
 
