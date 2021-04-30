@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         pullGardens();
 
         for (let i = 0; i < communityGardenArray.length; i++) {
+            console.log(communityGardenArray[i].username);
             communityGardenArray[i].sprite = new PIXI.Sprite(gardenUnhovered);
             // let frames = ["assets/images/smallGarden.png", "assets/images/smallGardenHover"]
             // communityGardenArray[i] = new PIXI.animate.MovieClip.prototype.fromFrames(frames);
@@ -177,7 +178,9 @@ document.addEventListener('DOMContentLoaded', function () {
         $.get('/onboarding', function (data, status) {
             if (data.onboarding) {
                 $('#onboard').show();
-                $('#pixiCanvas').css({opacity: 0.5});
+                $('#pixiCanvas').css({
+                    opacity: 0.5
+                });
                 const swiper = new Swiper('.swiper-container', {
                     pagination: {
                         el: '.swiper-pagination',
@@ -191,23 +194,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
         });
-
-        //end onboarding 
-        $('.closeOnboard').on('click', () => {
-            $('#onboard').hide();
-            $('#pixiCanvas').css({opacity: 1});
-
-            console.log('poggers!');
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/finishOnboard');
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.setRequestHeader('x-csrf-token', csrf);
-
-            const formData = `onboarding=${false}`;
-
-            xhr.send(formData);
-        });
     }
+
+    //end onboarding 
+    $('.closeOnboard').on('click', () => {
+        $('#onboard').hide();
+        $('#pixiCanvas').css({
+            opacity: 1
+        });
+
+        console.log('poggers!');
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/finishOnboard');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('x-csrf-token', csrf);
+
+        const formData = `onboarding=${false}`;
+
+        xhr.send(formData);
+    });
 
     const zoomed = event => {
         const offset = [event.transform.x, event.transform.y]
