@@ -840,10 +840,10 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let i = 0; i < communityGardenArray.length; i++) {
                 if (i % 2 == 0) {
                     // first row
-                    communityGardenArray[i].sprite.y = 350;
+                    communityGardenArray[i].sprite.y = 345;
                 } else {
                     // second row
-                    communityGardenArray[i].sprite.y = 500;
+                    communityGardenArray[i].sprite.y = 490;
                 }
 
                 if (i <= 1) {
@@ -859,11 +859,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (i > 9 && i <= 11) {
                     communityGardenArray[i].sprite.x = 900;
                 } else if (i > 11 && i <= 13) {
-                    communityGardenArray[i].sprite.x = 1020;
+                    communityGardenArray[i].sprite.x = 1005;
                 } else if (i > 13 && i <= 15) {
-                    communityGardenArray[i].sprite.x = 1120;
+                    communityGardenArray[i].sprite.x = 1105;
                 } else if (i > 15 && i <= 17) {
-                    communityGardenArray[i].sprite.x = 1220;
+                    communityGardenArray[i].sprite.x = 1205;
                 }
 
                 // if(window.innerWidth <= communityGardenArray[i].sprite.x) {
