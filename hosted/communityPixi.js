@@ -669,7 +669,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('#message2').style.color = "#007199";
                 } else if (messageArray.length === 2) {
                     document.querySelector('#message1').innerHTML = `<b>${userCapped} said:</b> ${messageArray[0]}`;
-                    document.querySelector('#message2').innerHTML = `<b>${userCapped} said</b> ${messageArray[1]}`;
+                    document.querySelector('#message2').innerHTML = `<b>A neighbor said:</b> ${messageArray[1]}`;
                     document.querySelector('#message2').style.fontWeight = "normal";
                     document.querySelector('#message2').style.color = "black";
 
