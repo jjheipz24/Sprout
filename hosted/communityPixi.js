@@ -396,6 +396,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 case "jade-seeds.png":
                                 case "peace-lily-seeds.png":
                                 case "snake-seeds.png":
+                                    pastMessagesModal(e, username);
                                     break;
                                 case "aloe-sprout.png":
                                 case "cactus-sprout.png":
@@ -610,10 +611,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (messageArray.length === 1) {
                     console.log('message array length 1');
                     document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
-                } else {
+                } else if (messageArray.length === 2 ) {
                     document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
                     document.querySelector('#message2').innerHTML = `${userCapped} said: ${messageArray[1]}`
-                } 
+                } else {
+                    document.querySelector('#message1').innerHTML = `Add a message to grow this plant!`
+                    document.querySelector('#message2').innerHTML = `Add a message to grow this plant!`
+                }
 
                 $('#pastClose').on('click', function () {
                     document.querySelector('#message1').innerHTML = "";
