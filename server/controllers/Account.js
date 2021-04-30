@@ -68,6 +68,7 @@ const signup = (request, response) => {
   // encrypts the users information
   const accountData = {
     username: req.body.username,
+    onboarding: true,
   };
 
   // creates the new account model
@@ -154,6 +155,47 @@ const newPlant = async (request, response) => {
     username: req.session.account.username
   });
   user.plants.push(plant);
+
+  const savePromise = user.save();
+  savePromise.then(() => {
+    return res.status(201).json({
+      redirect: '/',
+    });
+  });
+  savePromise.catch((err) => {
+    return res.status(400).json({
+      error: 'An error occured',
+    });
+  });
+}
+
+const onboarding = async (request, response) => {
+  const req = request;
+  const res = response;
+
+  const user = await Account.AccountModel.findOne({
+    username: req.session.account.username
+  });
+  
+  if (req.session.account) {
+    return res.json({
+      onboarding: user.onboarding
+    });
+  }
+
+  return res.json({
+    onboarding: true
+  });
+}
+
+const finishOnboard = async (request, response) => {
+  const req = request;
+  const res = response;
+
+  const user = await Account.AccountModel.findOne({
+    username: req.session.account.username
+  });
+  user.onboarding = false;
 
   const savePromise = user.save();
   savePromise.then(() => {
@@ -352,3 +394,6 @@ module.exports.loadAllGardens = loadAllGardens;
 module.exports.newPlant = newPlant;
 module.exports.addMessage = addMessage;
 module.exports.clearAll = clearAll;
+
+module.exports.onboarding = onboarding;
+module.exports.finishOnboard = finishOnboard;

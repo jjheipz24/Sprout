@@ -25,6 +25,9 @@ const router = (app) => {
   app.post('/addMessage', controllers.Account.addMessage);
   app.post('/getPlantInfo', mid.requiresLogin, mid.requiresSecure, controllers.Account.getPlantInfo);
 
+  app.get('/onboarding', mid.requiresSecure, mid.requiresLogin, controllers.Account.onboarding);
+  app.post('/finishOnboard', mid.requiresSecure, mid.requiresLogin, controllers.Account.finishOnboard);
+
   app.delete('/clear', mid.requiresLogin, controllers.Account.clearAll);
   /*
     Figured this out with the help of https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs

@@ -3,6 +3,8 @@
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <meta charset="utf-8" />
 
     <title>Sprout</title>
@@ -16,6 +18,37 @@
         <img class="cloud-right-image" id="cloudApp4" src="assets/images/buildings/cloud1.png" alt="cloud" />
     </div>
     <div class="appNav" id="nav"></div>
+    <!-- Swiper -->
+    <div id="onboard">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/assets/images/tips/tip1.png" alt="this is the community garden">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/assets/images/tips/tip2.png" alt="above is your personal garden">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/assets/images/tips/tip3.png" alt="empty plots are ready for a new plant">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/assets/images/tips/tip4.png" alt="messages from the community grow plant sprouts">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/assets/images/tips/tip5.png" alt="hover to read your plants' messages">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/assets/images/tips/tip6.png" alt="click other users' plants to see what they need">
+                    <button class="closeOnboard">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
     <canvas id="pixiCanvas"></canvas>
     <div id="messageModal"></div>
     <div id="pastMessageModal"></div>
@@ -24,6 +57,10 @@
     <script src="/assets/pixi.js"></script> --}}
     <script src="/assets/plantCollection.js"></script>
     <script src="/assets/communityPixi.js"></script>
+
+    <!-- SLIDESHOW SCRIPTS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- <script>
         function hidePopup() {
@@ -48,7 +85,7 @@
             }, 10);
         }); 
     </script>
-
+ 
     <script src="/assets/bundle.js"></script>
     <script src="/assets/mainBundle.js"></script>
 </body>
