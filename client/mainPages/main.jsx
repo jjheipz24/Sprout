@@ -76,7 +76,7 @@ class MessageModal extends React.Component {
                     <div className="modal-content">
                         <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
                         <div className="modal-header">
-                            <img className="img-responsive" id="modalImg" alt="profile pic of plant" src="assets/images/profilePlants/JadeProfile.png" />
+                            <img className="img-responsive" id="modalImg" alt="profile pic of plant" src="assets/images/profilePlants/jadeProfile.png" />
                             <div id="modal-content-header">
                                 <h5 className="modal-title" id="messageTitle"></h5>
                                 <label htmlFor="messageField" id="messageLabel">
