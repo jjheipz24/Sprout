@@ -1,6 +1,22 @@
 //import '../../hosted/css/styles.css'
 
 const Nav = (props) => {
+    const handleClick = () => 
+    {
+        $('#onboard').show();
+        $('#pixiCanvas').css({opacity: 0.5});
+        const swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    }
+
     if (props.username === "" || !props.username) {
         return (
             <nav className="navbar navbar-expand-lg">
@@ -35,7 +51,7 @@ const Nav = (props) => {
                 <div className="nav-bar-items">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <a className="nav-link" href="#"><img src="assets/images/HelpButton.png"></img></a>
+                            <button className="nav-link" type="submit" id="helpButton" onClick={handleClick} ><img src="assets/images/HelpButton.png"></img></button>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/logout">Logout</a>

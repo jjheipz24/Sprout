@@ -24,6 +24,23 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 //import '../../hosted/css/styles.css'
 var Nav = function Nav(props) {
+  var handleClick = function handleClick() {
+    $('#onboard').show();
+    $('#pixiCanvas').css({
+      opacity: 0.5
+    });
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+  };
+
   if (props.username === "" || !props.username) {
     return /*#__PURE__*/React.createElement("nav", {
       className: "navbar navbar-expand-lg"
@@ -78,9 +95,11 @@ var Nav = function Nav(props) {
     className: "navbar-nav mr-auto"
   }, /*#__PURE__*/React.createElement("li", {
     className: "nav-item"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("button", {
     className: "nav-link",
-    href: "#"
+    type: "submit",
+    id: "helpButton",
+    onClick: handleClick
   }, /*#__PURE__*/React.createElement("img", {
     src: "assets/images/HelpButton.png"
   }))), /*#__PURE__*/React.createElement("li", {

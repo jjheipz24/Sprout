@@ -210,3 +210,12 @@ p {
   .closeOnboard:hover {
       background-color: $light-salmon;
   }
+
+  #helpButton {
+      background: none;
+      border: none;
+  }
+
+  #helpButton:hover {
+      background-color: $light-salmon;
+  }

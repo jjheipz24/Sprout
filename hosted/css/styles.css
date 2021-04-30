@@ -209,6 +209,13 @@ p {
 .closeOnboard:hover {
   background-color: #f7b8a6; }
 
+#helpButton {
+  background: none;
+  border: none; }
+
+#helpButton:hover {
+  background-color: #f7b8a6; }
+
 /************************ 
 
         Typography 
