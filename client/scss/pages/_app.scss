@@ -61,6 +61,19 @@ p {
     color: black;
 }
 
+#pastMessageTitle {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#pastMessageLabel {
+    font-size: 1.1em;
+}
+
+#pastModalContent {
+    max-width: 550px;
+}
+
 /* Modal Popup */
 .modal-content {
     display: flex;
@@ -83,6 +96,7 @@ p {
         #modal-content-header {
             display: flex;
             flex-direction: column;
+            margin-left: 1.75em;
 
             #messageTitle, #clearTitle {
                 margin-left: 1em;
@@ -218,4 +232,12 @@ p {
 
   #helpButton:hover {
       background-color: $light-salmon;
+  }
+
+  #errorAlert{
+      position: absolute;
+
+      .errorAlert{
+          display: none;
+      }
   }

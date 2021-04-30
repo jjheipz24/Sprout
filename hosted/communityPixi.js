@@ -90,9 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let communityGardenArray = []; //Holds the community garden
 
-    let tooltip1; //Tooltip about not adding any more messages on fully grown plant
-    let isOnboarding;
-
     //bump up to 20 instead of 4 when we're ready for the full community garden
     for (let i = 0; i < 18; i++) {
         let personal;
@@ -392,12 +389,14 @@ document.addEventListener('DOMContentLoaded', function () {
                             case "peace-lily-sprout.png":
                             case "snake-sprout.png":
                                 //messageModal(e, username);
-                                //TODO: Add popup that tells a user that someone else needs to help their plant grow
                                 console.log("Someone else needs to help your plant grow!")
+                                $('.errorAlert').show();
+                                document.querySelector('.alertMessage').innerHTML = "Someone else needs to help your plant grow!"         
                                 break;
                             default:
+                                $('.errorAlert').show();
+                                document.querySelector('.alertMessage').innerHTML = "You can't add any more messages";         
                                 console.log("You can't add any more messages");
-                                //console.log(plot);
                         }
                         break;
                     case 3:
@@ -441,9 +440,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         //console.log("Left mouse pressed");
                         switch (textureName) {
                             case "brown.png":
-                                //plotSpot = e.target; //Sets selected plot to the current target
-                                //createSeedPackets(e, username);
-                                //TODO: Create popup that tells a user they can't plant in another user's garden
+                                $('.errorAlert').show();
+                                document.querySelector('.alertMessage').innerHTML = "Sorry, you can't plant in someone else's garden"         
                                 console.log("Sorry, you can't plant in someone else's garden")
                                 break;
                             case "aloe-seeds.png":
@@ -452,9 +450,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             case "jade-seeds.png":
                             case "peace-lily-seeds.png":
                             case "snake-seeds.png":
-                                // initialPlant = true;
-                                // messageModal(e, username);
-                                //TODO: Create popup that tells a user they can't grow the seeds of another user
+                                $('.errorAlert').show();
+                                document.querySelector('.alertMessage').innerHTML = "Sorry, only this user can grow the seeds"         
                                 console.log("Sorry, only this user can grow the seeds")
                                 break;
                             case "aloe-sprout.png":
@@ -466,8 +463,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 messageModal(e, username);
                                 break;
                             default:
-                                console.log("You can't add any more messages");
-                                //console.log(plot);
+                                $('.errorAlert').show();
+                                document.querySelector('.alertMessage').innerHTML = "You can't add any more messages";         
                         }
                         break;
                     case 3:
@@ -667,10 +664,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(messageArray);
                 if (messageArray.length === 1) {
                     console.log('message array length 1');
-                    document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
+                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said:</b> ${messageArray[0]}`;
+                    document.querySelector('#message2').style.fontWeight = "bold";
+                    document.querySelector('#message2').style.color = "#007199";
                 } else if (messageArray.length === 2) {
-                    document.querySelector('#message1').innerHTML = `${userCapped} said: ${messageArray[0]}`
-                    document.querySelector('#message2').innerHTML = `${userCapped} said: ${messageArray[1]}`
+                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said:</b> ${messageArray[0]}`;
+                    document.querySelector('#message2').innerHTML = `<b>${userCapped} said</b> ${messageArray[1]}`;
+                    document.querySelector('#message2').style.fontWeight = "normal";
+                    document.querySelector('#message2').style.color = "black";
+
+
                 } else {
                     document.querySelector('#message1').innerHTML = ""
                     document.querySelector('#message2').innerHTML = `Add a message to grow this plant!`
