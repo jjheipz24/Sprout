@@ -126,7 +126,8 @@ p {
       display: flex;
       flex-direction: column;
       margin-left: 1.75em; }
-      .modal-content .modal-header #modal-content-header #messageTitle, .modal-content .modal-header #modal-content-header #clearTitle {
+      .modal-content .modal-header #modal-content-header #messageTitle,
+      .modal-content .modal-header #modal-content-header #clearTitle {
         margin-left: 1em; }
       .modal-content .modal-header #modal-content-header #messageLabel {
         margin: 2vh 0 2vh 1.25em; }
@@ -138,10 +139,13 @@ p {
     height: 2.5em; }
   .modal-content .modal-footer {
     border: none; }
-  .modal-content .saveBtn, .modal-content .clearBtn {
+  .modal-content .saveBtn,
+  .modal-content .clearBtn {
     background-color: #F98C6E;
     border: none; }
-  .modal-content .saveBtn:hover, .modal-content .clearBtn:hover, .modal-content .noClearBtn:hover {
+  .modal-content .saveBtn:hover,
+  .modal-content .clearBtn:hover,
+  .modal-content .noClearBtn:hover {
     background-color: #f7b8a6; }
 
 .pastHeader {
@@ -228,9 +232,18 @@ p {
   background-color: #f7b8a6; }
 
 #errorAlert {
-  position: absolute; }
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
   #errorAlert .errorAlert {
-    display: none; }
+    display: none;
+    margin-top: .5em; }
+    #errorAlert .errorAlert p {
+      font-size: 1.2rem;
+      color: black; }
 
 /************************ 
 

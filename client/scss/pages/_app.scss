@@ -10,7 +10,7 @@ body {
 }
 
 #mainApp {
-    background: url('/assets/images/startBackground.png') no-repeat center center fixed; 
+    background: url('/assets/images/startBackground.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -80,7 +80,7 @@ p {
     flex-direction: column;
     padding: 1rem;
 
-    .close:hover{
+    .close:hover {
         cursor: pointer;
         max-width: fit-content;
     }
@@ -98,7 +98,8 @@ p {
             flex-direction: column;
             margin-left: 1.75em;
 
-            #messageTitle, #clearTitle {
+            #messageTitle,
+            #clearTitle {
                 margin-left: 1em;
             }
 
@@ -122,12 +123,15 @@ p {
         border: none;
     }
 
-    .saveBtn, .clearBtn {
+    .saveBtn,
+    .clearBtn {
         background-color: $dark-salmon;
         border: none;
     }
 
-    .saveBtn:hover, .clearBtn:hover, .noClearBtn:hover {
+    .saveBtn:hover,
+    .clearBtn:hover,
+    .noClearBtn:hover {
         background-color: $light-salmon;
     }
 }
@@ -154,31 +158,31 @@ p {
     left: -260px;
     margin-top: 15px;
     width: 12%;
-  }
+}
 
-  #cloudApp2 {
+#cloudApp2 {
     left: 0;
     margin-top: 50px;
     width: 9%;
-  }
+}
 
-  #cloudApp3 {
+#cloudApp3 {
     left: 650;
     margin-top: 22px;
     width: 5%;
-  }
+}
 
-  #cloudApp4 {
+#cloudApp4 {
     left: 825;
     margin-top: 35px;
     width: 7%;
-  }
+}
 
-  #onboard {
+#onboard {
     z-index: 5;
-  }
+}
 
-  .swiper-slide {
+.swiper-slide {
     display: -webkit-flex;
     display: flex;
     -webkit-justify-content: center;
@@ -201,7 +205,7 @@ p {
 }
 
 .onboardImg {
-    width: 50%; 
+    width: 50%;
 }
 
 .swiper-button-next {
@@ -212,32 +216,43 @@ p {
     margin-left: 28%;
 }
 
-  .closeOnboard {
-      background-color: $dark-salmon;
-      border: none;
-      color: white;
-      padding: 1em;
-      border-radius: .5em;
-      margin-top: 5vh;
-  }
+.closeOnboard {
+    background-color: $dark-salmon;
+    border: none;
+    color: white;
+    padding: 1em;
+    border-radius: .5em;
+    margin-top: 5vh;
+}
 
-  .closeOnboard:hover {
-      background-color: $light-salmon;
-  }
+.closeOnboard:hover {
+    background-color: $light-salmon;
+}
 
-  #helpButton {
-      background: none;
-      border: none;
-  }
+#helpButton {
+    background: none;
+    border: none;
+}
 
-  #helpButton:hover {
-      background-color: $light-salmon;
-  }
+#helpButton:hover {
+    background-color: $light-salmon;
+}
 
-  #errorAlert{
-      position: absolute;
+#errorAlert {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
-      .errorAlert{
-          display: none;
-      }
-  }
+    .errorAlert {
+        display: none;
+        margin-top: .5em;
+
+        p {
+            font-size: 1.2rem;
+            color: black;
+        }
+    }
+}
