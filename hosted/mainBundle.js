@@ -392,9 +392,6 @@ var ErrorAlert = /*#__PURE__*/function (_React$Component4) {
     value: function render() {
       var _this8 = this;
 
-      // const hideAlert = {
-      //     display: 'none'
-      // }
       return /*#__PURE__*/React.createElement("div", {
         className: "alert alert-danger alert-dismissible errorAlert",
         role: "alert",

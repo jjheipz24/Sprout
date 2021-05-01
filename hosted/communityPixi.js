@@ -1,4 +1,4 @@
-// const { forEach } = require("underscore");
+
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
     let csrf;
@@ -357,8 +357,8 @@ document.addEventListener('DOMContentLoaded', function () {
         plot.x = x;
         plot.y = y;
 
-        // plot.hitArea = new PIXI.Rectangle(plot.x, plot.y, 100, 100);
-        // console.log('hit', plot.hitArea);
+        //If a user is in their own garden, they can only plant seeds and grow a sprout
+        //If a user is in a different garden, they can only grow a full plant
         if (communityGardenArray[0].username === username) {
             plot.interactive = true;
             plot.buttonMode = true;
@@ -881,17 +881,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     communityGardenArray[i].sprite.x = 1202;
                 }
 
-                // if(window.innerWidth <= communityGardenArray[i].sprite.x) {
-                //     console.log(communityGardenArray);
-                //     communityGardenArray[i].sprite.destroy();
-                //     communityGardenArray.splice(i);
-                // }
-            }
-
-            if (window.innerWidth <= 1220) {
-                //console.log('delete some boxes');
-                // communityGardenArray.pop();
-                // communityGardenArray.pop();
             }
         }
 
