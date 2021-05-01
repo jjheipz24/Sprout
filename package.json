@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "15.0.1",
-    "npm": "7.0.8"
+    "npm": "7.11.2"
   },
   "description": "An interactive garden application",
   "main": "./server/app.js",

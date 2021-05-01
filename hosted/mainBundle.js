@@ -176,7 +176,7 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
         alt: "profile pic of plant",
         src: "assets/images/profilePlants/jadeProfile.png"
       }), /*#__PURE__*/React.createElement("div", {
-        id: "modal-content-header"
+        className: "modal-content-header"
       }, /*#__PURE__*/React.createElement("h5", {
         className: "modal-title",
         id: "messageTitle"
@@ -190,7 +190,8 @@ var MessageModal = /*#__PURE__*/function (_React$Component) {
         rows: "2",
         cols: "25"
       }), /*#__PURE__*/React.createElement("div", {
-        className: "modal-footer"
+        className: "modal-footer",
+        id: "messageModalFooter"
       }, /*#__PURE__*/React.createElement("button", {
         type: "button",
         className: "btn btn-primary saveBtn"
@@ -259,8 +260,7 @@ var PastMessagesModal = /*#__PURE__*/function (_React$Component2) {
         alt: "profile pic of plant",
         src: "assets/images/profilePlants/jadeProfile.png"
       }), /*#__PURE__*/React.createElement("div", {
-        className: "pastHeader",
-        id: "modal-content-header"
+        className: "pastHeader modal-content-header"
       }, /*#__PURE__*/React.createElement("h5", {
         className: "modal-title",
         id: "pastMessageTitle"
@@ -398,14 +398,14 @@ var ErrorAlert = /*#__PURE__*/function (_React$Component4) {
         ref: function ref(el) {
           return _this8.el = el;
         }
-      }, /*#__PURE__*/React.createElement("p", {
-        className: "alertMessage"
-      }, "This is an alert"), /*#__PURE__*/React.createElement("button", {
+      }, /*#__PURE__*/React.createElement("button", {
         type: "button",
         className: "btn-close",
         "aria-label": "Close",
         onClick: this.handleClick
-      }));
+      }), /*#__PURE__*/React.createElement("p", {
+        className: "alertMessage"
+      }, "This is an alert"));
     }
   }]);
 

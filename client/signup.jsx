@@ -22,7 +22,7 @@ const SignupForm = (props) => {
         <form id="signupForm" name="signupForm" onSubmit={handleSignup} action="/signup" method="POST" className="mainForm">
 
             <div className="fields">
-                <input tabIndex="1" className="field" id="username" type="text" name="username" placeholder="Enter a Unique Code" />
+                <input tabIndex="1" className="field" id="username" type="text" name="username" placeholder="Enter a Unique Username" />
             </div>
 
             <input id="signupCsrf" type="hidden" name="_csrf" value={props.csrf} />

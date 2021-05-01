@@ -126,7 +126,7 @@ const newPlant = async (request, response) => {
     case "Fiddle Leaf":
       promptBody = "that they're strong";
       break;
-    case "Jade":
+    case "Jade Plant":
       promptBody = "how well they've done so far";
       break;
     case "Peace Lily":

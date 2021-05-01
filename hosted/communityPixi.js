@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seedContainer.addChild(fiddleSeeds);
 
         jadeSeeds = new PIXI.Sprite.from('assets/images/plant-cards/jade-card.png');
-        packetButtons(jadeSeeds, "jade", "Jade", (app.screen.width / 2) - 300, (app.screen.height) - 200, 3, target, username);
+        packetButtons(jadeSeeds, "jade", "Jade Plant", (app.screen.width / 2) - 300, (app.screen.height) - 200, 3, target, username);
         seedContainer.addChild(jadeSeeds);
 
         peaceSeeds = new PIXI.Sprite.from('assets/images/plant-cards/peace-lily-card.png');
@@ -660,16 +660,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 //$('#messageTitle').text(`${userCapped}'s ${currentPlantName}`);
                 $('#pastMessageLabel').text(
-                    `Read the messages that helped grow ${username}'s ${currentPlant} plant!`);
+                    `Read the messages that helped grow ${username}'s ${currentPlantName}!`);
                 console.log(messageArray);
                 if (messageArray.length === 1) {
                     console.log('message array length 1');
-                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said:</b> ${messageArray[0]}`;
+                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said: </b> ${messageArray[0]}`;
                     document.querySelector('#message2').style.fontWeight = "bold";
                     document.querySelector('#message2').style.color = "#007199";
                 } else if (messageArray.length === 2) {
-                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said:</b> ${messageArray[0]}`;
-                    document.querySelector('#message2').innerHTML = `<b>A neighbor said:</b> ${messageArray[1]}`;
+                    document.querySelector('#message1').innerHTML = `<b>${userCapped} said: </b> ${messageArray[0]}`;
+                    document.querySelector('#message2').innerHTML = `<b>A neighbor said: </b> ${messageArray[1]}`;
                     document.querySelector('#message2').style.fontWeight = "normal";
                     document.querySelector('#message2').style.color = "black";
 

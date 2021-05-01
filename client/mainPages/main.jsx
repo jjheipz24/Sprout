@@ -93,7 +93,7 @@ class MessageModal extends React.Component {
                         <span className="close" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
                         <div className="modal-header">
                             <img className="img-responsive" id="modalImg" alt="profile pic of plant" src="assets/images/profilePlants/jadeProfile.png" />
-                            <div id="modal-content-header">
+                            <div className="modal-content-header">
                                 <h5 className="modal-title" id="messageTitle"></h5>
                                 <label htmlFor="messageField" id="messageLabel">
                                     Let username know they can achieve their goals!
@@ -106,7 +106,7 @@ class MessageModal extends React.Component {
 
                         <textarea id="messageField" name="messageField" placeholder="You're such a hard worker, prosperity will follow!" rows="2" cols="25">
                         </textarea>
-                        <div className="modal-footer">
+                        <div className="modal-footer" id="messageModalFooter">
                             <button type="button" className="btn btn-primary saveBtn">Send</button>
                         </div>
                     </div>
@@ -137,7 +137,7 @@ class PastMessagesModal extends React.Component {
                         <span className="close" id="pastClose" aria-hidden="true" onClick={this.handleClick} aria-label="Close">&times;</span>
                         <div className="modal-header">
                             <img className="img-responsive" id="pastModalImg" alt="profile pic of plant" src="assets/images/profilePlants/jadeProfile.png" />
-                            <div className="pastHeader" id="modal-content-header">
+                            <div className="pastHeader modal-content-header">
                                 <h5 className="modal-title" id="pastMessageTitle">Message History</h5>
                                 <label htmlFor="messageField" id="pastMessageLabel">
                                     You started this jade plant to bring you prosperity! Let's see what the community has to add:
@@ -219,8 +219,8 @@ class ErrorAlert extends React.Component {
 
         return (
             <div className="alert alert-danger alert-dismissible errorAlert" role="alert" ref={el => this.el = el}>
-                <p className="alertMessage">This is an alert</p>
-                <button type="button" className="btn-close" aria-label="Close" onClick={this.handleClick}></button>
+                 <button type="button" className="btn-close" aria-label="Close" onClick={this.handleClick}></button>
+                <p className="alertMessage">This is an alert</p>    
             </div>
         )
     }
