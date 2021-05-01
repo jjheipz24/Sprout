@@ -57,28 +57,55 @@ p {
     max-width: 100%;
 }
 
-#pastMessageBody p {
-    color: black;
+#pastMessageBody {
+    p {
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    b {
+        font-size: 1.3rem;
+    }
 }
 
-#pastMessageTitle {
-    font-weight: bold;
-    font-size: 2em;
+
+#pastMessageTitle, #messageTitle {
+    font-weight: 900;
+    font-size: 1.5em;
 }
 
-#pastMessageLabel {
+#pastMessageLabel, #messageLabel {
     font-size: 1.1em;
+}
+
+#messageLabel{
+    margin-bottom: 1em;
 }
 
 #pastModalContent {
     max-width: 550px;
 }
 
+.msgContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
 /* Modal Popup */
 .modal-content {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+    .close {
+        margin-left: .5em;
+        font-size: 1.7rem;
+    }
 
     .close:hover {
         cursor: pointer;
@@ -86,41 +113,47 @@ p {
     }
 
     .modal-header {
-        height: 18vh;
         display: flex;
         flex-direction: row;
         justify-content: left;
         align-items: center;
         border: none;
+        margin-left: 1em;
 
-        #modal-content-header {
+        .modal-content-header {
             display: flex;
             flex-direction: column;
             margin-left: 1.75em;
 
-            #messageTitle,
             #clearTitle {
                 margin-left: 1em;
             }
 
-            #messageLabel {
-                margin: 2vh 0 2vh 1.25em;
-            }
         }
     }
 
-    #messageField {
-        margin: 0 2vw;
+    .modal-body {
+        margin-left: 2em;
     }
 
     #messageField {
-        border-radius: 1rem;
+        margin: .8em 2.2em 0 2.2em;
+    }
+
+    #messageField {
+        border-radius: 10px;
+        border: 2px solid black;
         padding: .25em 0 0 .75em;
-        height: 2.5em;
+        height: 2.7em;
     }
 
     .modal-footer {
         border: none;
+    }
+
+    .saveBtn{
+       padding: .6em 3.3em;
+       margin: .5em 1.5em 1.2em 0;
     }
 
     .saveBtn,
@@ -134,10 +167,6 @@ p {
     .noClearBtn:hover {
         background-color: $light-salmon;
     }
-}
-
-.pastHeader {
-    margin-left: 1em;
 }
 
 .noClearBtn {

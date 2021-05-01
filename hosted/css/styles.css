@@ -4,18 +4,18 @@
 
 ************************/
 /*************************/
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 /************************ 
 
         Typography 
 
 ************************/
 /*************************/
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 .navbar {
   background-color: none;
   color: white;
@@ -95,50 +95,71 @@ p {
   max-width: 100%; }
 
 #pastMessageBody p {
-  color: black; }
+  color: black;
+  font-size: 1.2rem; }
 
-#pastMessageTitle {
-  font-weight: bold;
-  font-size: 2em; }
+#pastMessageBody b {
+  font-size: 1.3rem; }
 
-#pastMessageLabel {
+#pastMessageTitle, #messageTitle {
+  font-weight: 900;
+  font-size: 1.5em; }
+
+#pastMessageLabel, #messageLabel {
   font-size: 1.1em; }
+
+#messageLabel {
+  margin-bottom: 1em; }
 
 #pastModalContent {
   max-width: 550px; }
+
+.msgContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 /* Modal Popup */
 .modal-content {
   display: flex;
   flex-direction: column;
-  padding: 1rem; }
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); }
+  .modal-content .close {
+    margin-left: .5em;
+    font-size: 1.7rem; }
   .modal-content .close:hover {
     cursor: pointer;
     max-width: fit-content; }
   .modal-content .modal-header {
-    height: 18vh;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    border: none; }
-    .modal-content .modal-header #modal-content-header {
+    border: none;
+    margin-left: 1em; }
+    .modal-content .modal-header .modal-content-header {
       display: flex;
       flex-direction: column;
       margin-left: 1.75em; }
-      .modal-content .modal-header #modal-content-header #messageTitle,
-      .modal-content .modal-header #modal-content-header #clearTitle {
+      .modal-content .modal-header .modal-content-header #clearTitle {
         margin-left: 1em; }
-      .modal-content .modal-header #modal-content-header #messageLabel {
-        margin: 2vh 0 2vh 1.25em; }
+  .modal-content .modal-body {
+    margin-left: 2em; }
   .modal-content #messageField {
-    margin: 0 2vw; }
+    margin: .8em 2.2em 0 2.2em; }
   .modal-content #messageField {
-    border-radius: 1rem;
+    border-radius: 10px;
+    border: 2px solid black;
     padding: .25em 0 0 .75em;
-    height: 2.5em; }
+    height: 2.7em; }
   .modal-content .modal-footer {
     border: none; }
+  .modal-content .saveBtn {
+    padding: .6em 3.3em;
+    margin: .5em 1.5em 1.2em 0; }
   .modal-content .saveBtn,
   .modal-content .clearBtn {
     background-color: #F98C6E;
@@ -147,9 +168,6 @@ p {
   .modal-content .clearBtn:hover,
   .modal-content .noClearBtn:hover {
     background-color: #f7b8a6; }
-
-.pastHeader {
-  margin-left: 1em; }
 
 .noClearBtn {
   background-color: lightgray;
