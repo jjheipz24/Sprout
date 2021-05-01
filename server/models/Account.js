@@ -24,7 +24,6 @@ const AccountSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     required: 'Username is required',
-    match: [/^[A-Za-z0-9_\-.]{1,16}$/, 'Please fill a valid username']
   },
   friends: { type: Array, default: [] }, //will eventually be - friends: [FriendsSchema] 
   onboarding: { type: Boolean, default: true },
