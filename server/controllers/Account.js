@@ -74,27 +74,25 @@ const signup = (request, response) => {
   // creates the new account model
   const newAccount = new Account.AccountModel(accountData);
 
-  const savePromise = newAccount.save();
-
-  savePromise.then(() => {
-    req.session.account = Account.AccountModel.toAPI(newAccount);
-    return res.status(201).json({
-      redirect: '/',
-    });
-  });
-  savePromise.catch((err) => {
-    console.log(err);
-    if (err.code === 11000) {
-      return res.status(400).json({
-        error: 'username already in use',
+  newAccount.save()
+    .then(() => {
+      req.session.account = Account.AccountModel.toAPI(newAccount);
+      return res.status(201).json({
+        redirect: '/',
       });
-    }
+    })
+    .catch((err) => {
+      if (err.code === 11000) {
+        return res.status(400).json({
+          error: 'username already in use',
+        });
+      }
 
-    return res.status(400).json({
-      error: 'An error occured',
+      return res.status(400).json({
+        error: 'An error occured',
+      });
     });
-  });
-}
+};
 
 const getUserName = (request, response) => {
   const req = request;
