@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title>Sprout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 </head>
 
@@ -30,27 +30,32 @@
         </div>
         <img id="sproutLogo" src="assets/images/Sprout_whitebg.png" alt="Sprout" tabindex="1" />
 
+        <!-- WHEN SCREEN SIZE IS TOO SMALL -->
+        <content class="screenSmall">
+            <img id="aloe" src="assets/images/plants/aloe.png" tabindex="1" alt="aloe plant" />
+            <h5 tabindex="1">Works best on Desktop</h5>
+        </content>
         <!-- SLIDESHOW CONTAINER -->
-      
-<!-- Swiper -->
-  <div class="swiper-container" id="slideshow">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-          Sprout is a place for you to to tend a virtual garden through sharing encouraging messages 
-          and spreading kindness to yourself and the community.
+
+        <!-- Swiper -->
+        <div class="swiper-container" id="slideshow">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    Sprout is a place for you to to tend a virtual garden through sharing encouraging messages
+                    and spreading kindness to yourself and the community.
+                </div>
+                <div class="swiper-slide">
+                    We created Sprout with positive psychology in mind. This encourages people to focus on
+                    positive emotions and build strategies to maintain them.
+                </div>
+                <div class="swiper-slide">
+                    Social interaction with others relieves stress and anxiety, instills feelings of
+                    purpose, and increases people’s life expectancy!
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
         </div>
-      <div class="swiper-slide">
-            We created Sprout with positive psychology in mind. This encourages people to focus on
-            positive emotions and build strategies to maintain them.
-      </div>
-      <div class="swiper-slide">
-            Social interaction with others relieves stress and anxiety, instills feelings of
-            purpose, and increases people’s life expectancy!
-      </div>
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-  </div>
 
         <!-- LOGIN AND SINGUP BUTTONS -->
         <div id="startButtons">
@@ -58,15 +63,10 @@
             <button id="signInButton"><a tabindex="1" href="./login">Sign In</a></button>
         </div>
 
-        <img class="backgroundImg" src='/assets/images/buildings/communityBuildingsFinalFinal.png' alt="Community of buildings" />
+        <img class="backgroundImg" src='/assets/images/buildings/communityBuildingsFinalFinal.png'
+            alt="Community of buildings" />
     </content>
 
-    <!-- WHEN SCREEN SIZE IS TOO SMALL -->
-    <content class="screenSmall">
-        <img src="assets/images/Sprout.png" tabindex="1" alt="Sprout" />
-        <img id="aloe" src="assets/images/plants/aloe.png" tabindex="1" alt="aloe plant" />
-        <h5 tabindex="1">Works best on Desktop</h5>
-    </content>
 
     <script src="/assets/bundle.js"></script>
 
@@ -97,20 +97,20 @@
 
 
 
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper('.swiper-container', {
-      speed: 600,
-      spaceBetween: 30,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            speed: 600,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
 
 
     <script>

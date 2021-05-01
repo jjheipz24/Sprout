@@ -560,11 +560,11 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 25vh; }
+  margin: 25vh 0; }
   .screenSmall h5 {
-    margin-top: 2vh;
+    margin-top: 2em;
     font-weight: bold;
-    color: white; }
+    color: black; }
   .screenSmall #aloe {
     width: 15%; }
 
@@ -701,7 +701,7 @@ p {
     opacity: 1; } }
 
 @media only screen and (max-width: 750px) {
-  #startContent {
+  #startButtons, #slideshow {
     display: none; }
   .screenSmall {
     display: flex; } }
