@@ -68,10 +68,11 @@ AccountModel.findByUsername(username, (err, doc) => {
 //   return AccountModel.deleteMany(search, callback);
 // };
 
-AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
-  .select('username plants')
-  .limit(18)
-  .exec(callback);
+// AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
+//   .select('username plants')
+//   .limit(18)
+//   .exec(callback);
+AccountSchema.statics.findRandomGardens = () => AccountModel.aggregate([{$sample:{size:18}}])
 
 AccountSchema.statics.findAllGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
   .select('username plants')
