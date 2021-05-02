@@ -91,28 +91,28 @@ AccountSchema.statics.authenticate = (username, callback) =>
 //   return AccountModel.deleteMany(search, callback);
 // };
 
-// AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({ username: { $not: { $eq: name } } })
-//   .select('username plants')
-//   .limit(18)
-//   .exec(callback);
-AccountSchema.statics.findRandomGardens = () => {
-   const randomDocs = AccountModel.aggregate([{$sample: {size: 18}}])
-
-      return randomDocs;
-
+AccountSchema.statics.findRandomGardens = (name, callback) => AccountModel.find({
+    username: {
+      $not: {
+        $eq: name
+      }
     }
+  })
+  .select('username plants')
+  .limit(18)
+  .exec(callback);
 
-    AccountSchema.statics.findAllGardens = (name, callback) => AccountModel.find({
-        username: {
-          $not: {
-            $eq: name
-          }
-        }
-      })
-      .select('username plants')
-      .exec(callback);
+AccountSchema.statics.findAllGardens = (name, callback) => AccountModel.find({
+    username: {
+      $not: {
+        $eq: name
+      }
+    }
+  })
+  .select('username plants')
+  .exec(callback);
 
-    AccountModel = mongoose.model('Account', AccountSchema);
+AccountModel = mongoose.model('Account', AccountSchema);
 
-    module.exports.AccountModel = AccountModel;
-    module.exports.AccountSchema = AccountSchema;
+module.exports.AccountModel = AccountModel;
+module.exports.AccountSchema = AccountSchema;

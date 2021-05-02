@@ -326,37 +326,21 @@ const clearAll = async (request, response) => {
   });
 };
 
-// const loadRandomGardens = (request, response) => {
-//   const req = request;
-//   const res = response;
-
-//   return Account.AccountModel.findRandomGardens(req.session.account.username, (err, docs) => {
-//     if (err) {
-//       console.log(err);
-//       return res.status(400).json({
-//         error: 'An error occured in retrieving random gardens'
-//       });
-//     }
-
-//     return res.status(200).json({
-//       randomGardens: docs
-//     });
-//   });
-// }
-
 const loadRandomGardens = (request, response) => {
   const req = request;
   const res = response;
 
-  const gardens = Account.AccountModel.findRandomGardens();
-  if (gardens !== null) {
-    return res.status(200).json({
-      randomGardens: gardens
-    });
-  }
+  return Account.AccountModel.findRandomGardens(req.session.account.username, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({
+        error: 'An error occured in retrieving random gardens'
+      });
+    }
 
-  return res.status(404).json({
-    plants: 'No gardens found'
+    return res.status(200).json({
+      randomGardens: docs
+    });
   });
 }
 

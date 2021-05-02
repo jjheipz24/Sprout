@@ -1,4 +1,3 @@
-
 // checks to make sure document is loaded
 document.addEventListener('DOMContentLoaded', function () {
     let csrf;
@@ -125,7 +124,9 @@ document.addEventListener('DOMContentLoaded', function () {
         commContainer.x = 0;
         commContainer.y = 0;
         container.addChild(commContainer);
-        pullGardens();
+        //pullGardens();
+
+        pullAllGardens();
 
         for (let i = 0; i < communityGardenArray.length; i++) {
             communityGardenArray[i].sprite = new PIXI.Sprite(gardenUnhovered);
@@ -391,11 +392,11 @@ document.addEventListener('DOMContentLoaded', function () {
                                 //messageModal(e, username);
                                 console.log("Someone else needs to help your plant grow!")
                                 $('.errorAlert').show();
-                                document.querySelector('.alertMessage').innerHTML = "Someone else needs to help your plant grow!"         
+                                document.querySelector('.alertMessage').innerHTML = "Someone else needs to help your plant grow!"
                                 break;
                             default:
                                 $('.errorAlert').show();
-                                document.querySelector('.alertMessage').innerHTML = "You can't add any more messages";         
+                                document.querySelector('.alertMessage').innerHTML = "You can't add any more messages";
                                 console.log("You can't add any more messages");
                         }
                         break;
@@ -441,7 +442,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         switch (textureName) {
                             case "brown.png":
                                 $('.errorAlert').show();
-                                document.querySelector('.alertMessage').innerHTML = "Sorry, you can't plant in someone else's garden"         
+                                document.querySelector('.alertMessage').innerHTML = "Sorry, you can't plant in someone else's garden"
                                 console.log("Sorry, you can't plant in someone else's garden")
                                 break;
                             case "aloe-seeds.png":
@@ -451,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             case "peace-lily-seeds.png":
                             case "snake-seeds.png":
                                 $('.errorAlert').show();
-                                document.querySelector('.alertMessage').innerHTML = "Sorry, only this user can grow the seeds"         
+                                document.querySelector('.alertMessage').innerHTML = "Sorry, only this user can grow the seeds"
                                 console.log("Sorry, only this user can grow the seeds")
                                 break;
                             case "aloe-sprout.png":
@@ -464,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 break;
                             default:
                                 $('.errorAlert').show();
-                                document.querySelector('.alertMessage').innerHTML = "You can't add any more messages";         
+                                document.querySelector('.alertMessage').innerHTML = "You can't add any more messages";
                         }
                         break;
                     case 3:
@@ -786,6 +787,55 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.setRequestHeader('x-csrf-token', csrf);
 
         xhr.send();
+    }
+
+    function pullAllGardens() {
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', '/loadAllGardens');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const allGardens = JSON.parse(xhr.response).allGardens;
+                let nums = [];
+                for (let i = 0; i < allGardens.length; i++) {
+                    nums.push(i);
+                }
+
+                nums = shuffle(nums);
+                console.log(nums);
+
+                for (let i = 0; i < communityGardenArray.length; i++) {
+                    if (!communityGardenArray[0].personal) {
+                        communityGardenArray[i].username = allGardens[nums[i]] ? allGardens[nums[i]].username : 'test';
+                        communityGardenArray[i].plants = allGardens[nums[i]] ? allGardens[nums[i]].plants : [];
+                    }
+                };
+            }
+        };
+
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('x-csrf-token', csrf);
+
+        xhr.send();
+    }
+
+    function shuffle(array) {
+        var i = array.length,
+            j = 0,
+            temp;
+
+        while (i--) {
+
+            j = Math.floor(Math.random() * (i + 1));
+
+            // swap randomly chosen element with current element
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+
+        }
+
+        return array;
     }
 
     /*********** Animation **********/
