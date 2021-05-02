@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                         break;
                     case 3:
-                        console.log("Right mouse pressed");
+                        //console.log("Right mouse pressed");
                         switch (textureName) {
                             case "brown.png":
                                 break;
@@ -662,7 +662,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#pastMessageLabel').text(
                     `Read the messages that helped grow ${username}'s ${currentPlantName}!`);
                 if (messageArray.length === 1) {
-                    console.log('message array length 1');
+                    //console.log('message array length 1');
                     document.querySelector('#message1').innerHTML = `<b>${userCapped} said: </b> ${messageArray[0]}`;
                     document.querySelector('#message2').style.fontWeight = "bold";
                     document.querySelector('#message2').style.color = "#007199";
@@ -709,7 +709,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let currentPrompt = res.plant.prompt
 
 
-                console.log(currentPlant);
+                //console.log(currentPlant);
                 // Changes image based on current plant clicked on
                 $('#modalImg').attr("src", `assets/images/profilePlants/${currentPlant}Profile.png`);
 
