@@ -124,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
         commContainer.x = 0;
         commContainer.y = 0;
         container.addChild(commContainer);
-        //pullGardens();
 
         pullAllGardens();
 
@@ -662,7 +661,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 //$('#messageTitle').text(`${userCapped}'s ${currentPlantName}`);
                 $('#pastMessageLabel').text(
                     `Read the messages that helped grow ${username}'s ${currentPlantName}!`);
-                console.log(messageArray);
                 if (messageArray.length === 1) {
                     console.log('message array length 1');
                     document.querySelector('#message1').innerHTML = `<b>${userCapped} said: </b> ${messageArray[0]}`;
@@ -766,29 +764,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /*********************** COMMUNITY GARDEN TIME ***********************/
-    function pullGardens() {
-        const xhr = new XMLHttpRequest();
 
-        xhr.open('GET', '/loadRandomGardens');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const randomGardens = JSON.parse(xhr.response).randomGardens;
-
-                communityGardenArray.forEach(garden => {
-                    if (!garden.personal) {
-                        garden.username = randomGardens[garden.num] ? randomGardens[garden.num].username : 'test';
-                        garden.plants = randomGardens[garden.num] ? randomGardens[garden.num].plants : [];
-                    }
-                });
-            }
-        };
-
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.setRequestHeader('x-csrf-token', csrf);
-
-        xhr.send();
-    }
-
+    //Grabs all of the gardens and then randomizes the ones that appear
     function pullAllGardens() {
         const xhr = new XMLHttpRequest();
 
@@ -802,7 +779,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 nums = shuffle(nums);
-                console.log(nums);
 
                 for (let i = 0; i < communityGardenArray.length; i++) {
                     if (!communityGardenArray[i].personal) {
@@ -819,6 +795,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send();
     }
 
+    //Fisher-Yates shuffle
     function shuffle(array) {
         var i = array.length,
             j = 0,

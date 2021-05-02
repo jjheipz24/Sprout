@@ -31,7 +31,7 @@ loader
 // [2] -- full growth
 
 function init() {
-    console.log("sprite sheets loaded!");
+    //console.log("sprite sheets loaded!");
     const brownSheet = PIXI.Loader.shared.resources["assets/images/sprite-sheets/brown.json"].spritesheet;
     plotTex = brownSheet.animations["brown"];
 
