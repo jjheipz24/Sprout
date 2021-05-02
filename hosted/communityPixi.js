@@ -805,7 +805,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(nums);
 
                 for (let i = 0; i < communityGardenArray.length; i++) {
-                    if (!communityGardenArray[0].personal) {
+                    if (!communityGardenArray[i].personal) {
                         communityGardenArray[i].username = allGardens[nums[i]] ? allGardens[nums[i]].username : 'test';
                         communityGardenArray[i].plants = allGardens[nums[i]] ? allGardens[nums[i]].plants : [];
                     }
