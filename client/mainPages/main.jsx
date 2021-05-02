@@ -54,6 +54,9 @@ const Nav = (props) => {
                             <button className="nav-link" type="submit" id="helpButton" onClick={handleClick} ><img src="assets/images/HelpButton.png"></img></button>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link" href="https://designed.cad.rit.edu/nmcapstone/project/sprout">About</a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link" href="/logout">Logout</a>
                         </li>
                     </ul>
@@ -219,8 +222,8 @@ class ErrorAlert extends React.Component {
 
         return (
             <div className="alert alert-danger alert-dismissible errorAlert" role="alert" ref={el => this.el = el}>
-                 <button type="button" className="btn-close" aria-label="Close" onClick={this.handleClick}></button>
-                <p className="alertMessage">This is an alert</p>    
+                <button type="button" className="btn-close" aria-label="Close" onClick={this.handleClick}></button>
+                <p className="alertMessage">This is an alert</p>
             </div>
         )
     }

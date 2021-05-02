@@ -107,6 +107,11 @@ var Nav = function Nav(props) {
     className: "nav-item"
   }, /*#__PURE__*/React.createElement("a", {
     className: "nav-link",
+    href: "https://designed.cad.rit.edu/nmcapstone/project/sprout"
+  }, "About")), /*#__PURE__*/React.createElement("li", {
+    className: "nav-item"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
     href: "/logout"
   }, "Logout"))))));
 }; //Grabs the user's username if they are logged in
