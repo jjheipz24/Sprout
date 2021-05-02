@@ -175,8 +175,8 @@ const onboarding = async (request, response) => {
     const user = await Account.AccountModel.findOne({
       username: req.session.account.username
     });
-  
-    if(user !== null) {
+
+    if (user !== null) {
       return res.status(200).json({
         onboarding: user.onboarding
       });
@@ -235,14 +235,13 @@ const addMessage = async (request, response) => {
   //   plant.growthStage = 0;
   // }
   // else 
-  if(plant.messages.length === 2){
+  if (plant.messages.length === 2) {
     plant.messages.forEach(message => {
-      if(message.username !== req.body.username){
+      if (message.username !== req.body.username) {
         plant.growthStage = 2;
       }
     })
-  }
-  else{
+  } else {
     plant.growthStage = 1;
   }
 
@@ -327,21 +326,37 @@ const clearAll = async (request, response) => {
   });
 };
 
+// const loadRandomGardens = (request, response) => {
+//   const req = request;
+//   const res = response;
+
+//   return Account.AccountModel.findRandomGardens(req.session.account.username, (err, docs) => {
+//     if (err) {
+//       console.log(err);
+//       return res.status(400).json({
+//         error: 'An error occured in retrieving random gardens'
+//       });
+//     }
+
+//     return res.status(200).json({
+//       randomGardens: docs
+//     });
+//   });
+// }
+
 const loadRandomGardens = (request, response) => {
   const req = request;
   const res = response;
 
-  return Account.AccountModel.findRandomGardens(req.session.account.username, (err, docs) => {
-    if (err) {
-      console.log(err);
-      return res.status(400).json({
-        error: 'An error occured in retrieving random gardens'
-      });
-    }
-
+  const gardens = Account.AccountModel.findRandomGardens();
+  if (gardens !== null) {
     return res.status(200).json({
-      randomGardens: docs
+      randomGardens: gardens
     });
+  }
+
+  return res.status(404).json({
+    plants: 'No gardens found'
   });
 }
 
